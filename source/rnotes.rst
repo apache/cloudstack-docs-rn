@@ -29,17 +29,8 @@ Developers and users who wish to work with the API will find instruction
 in the `CloudStack API Developer's
 Guide <http://cloudstack.apache.org/docs/en-US/Apache_CloudStack/4.0.1-incubating/html/API_Developers_Guide/index.html>`__.
 
-If you find any errors or problems in this guide, please see `Section 2,
-“Feedback” <#feedback>`__. We hope you enjoy working with CloudStack!
-
-`2.1. Supported OS Versions for Management
-Server <#management-server>`__
-
-`2.2. Supported Hypervisor Versions <#supported-hv>`__
-
-`2.3. Supported External Devices <#ex-devices>`__
-
-`2.4. Supported Browsers <#browser>`__
+Welcome to Apache CloudStack 4.3
+================================
 
 This section describes the operating systems, browsers, and hypervisors
 that have been newly tested and certified compatible with CloudStack
@@ -49,8 +40,11 @@ platforms listed below are the ones that are specifically tested against
 and are more likely to be able to help troubleshoot if you run into any
 issues.
 
-2.1. Supported OS Versions for Management Server
-------------------------------------------------
+Compatibility Matrix
+====================
+
+Supported OS Versions for Management Server
+-------------------------------------------
 
 This section lists the operating systems that are supported for running
 CloudStack Management Server. Note that specific versions of the
@@ -69,8 +63,8 @@ indicate compatibility with CentOS 6.2, 6.1 and so on.
 
    Ubuntu 12.04 LTS
 
-2.2. Supported Hypervisor Versions
-----------------------------------
+Supported Hypervisor Versions
+-----------------------------
 
 CloudStack supports three hypervisor families, XenServer with XAPI, KVM,
 and VMware with vSphere.
@@ -112,10 +106,7 @@ and VMware with vSphere.
 
       RHEL or CentOS, v6.2 or 6.3
 
-      Note
-      ----
-
-      Use libvirt version 0.9.10 for CentOS 6.3
+      .. note:: Use libvirt version 0.9.10 for CentOS 6.3
 
    -  
 
@@ -128,8 +119,8 @@ and VMware with vSphere.
 For more information, see the Hypervisor Compatibility Matrix in the
 CloudStack Installation Guide.
 
-2.3. Supported External Devices
--------------------------------
+Supported External Devices
+--------------------------
 
 -  
 
@@ -147,8 +138,8 @@ CloudStack Installation Guide.
 
    F5 10.1.0 (Build 3341.1084)
 
-2.4. Supported Browsers
------------------------
+Supported Browsers
+------------------
 
 The CloudStack Web-based UI should be compatible with any modern
 browser, but it's possible that some browsers will not render portions
@@ -171,19 +162,17 @@ best results, one of the following browsers recommended:
 
    Safari 5
 
-`3.1. What's New in 4.3 <#whats-new-in-4.3>`__
 
-`3.2. Issues Fixed in 4.3.0 <#issues-fixed-4.3>`__
+About this new Release
+======================
 
-`3.3. Known Issues in 4.3.0 <#known-issues-4.3>`__
-
-3.1. What's New in 4.3
-----------------------
+What's New in 4.3
+-----------------
 
 CloudStack 4.3 includes the following new features.
 
-3.1.1. Optional 64-Bit System VM Template Support
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Optional 64-Bit System VM Template Support
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack now provides 64-bit templates for System VMs. With this
 support, you will be able to upgrade virtual routers in a zone. The
@@ -205,8 +194,8 @@ following parameters have been introduced for the same purpose:
 
    Hyper-V:
 
-3.1.2. Hyper-V Support
-~~~~~~~~~~~~~~~~~~~~~~
+Hyper-V Support
+~~~~~~~~~~~~~~~
 
 CloudStack 4.3 Beta rolls out support for Hyper-V hosts. For Hyper-V,
 CloudStack supports SMB-based storage. If you want to run guest VMs on
@@ -216,8 +205,8 @@ non-supported features. For detailed instruction, see Hyper-V Quick
 Start Guide. You can also see the chapter Installing Hyper-V for
 CloudStack in the CloudStack 4.3 Beta Installation Guide.
 
-3.1.2.1. Supported Functionalities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Supported Functionalities
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  
 
@@ -325,8 +314,8 @@ CloudStack in the CloudStack 4.3 Beta Installation Guide.
 
    Host and Storage in maintenance mode
 
-3.1.2.2. Unsupported Functionalities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Unsupported Functionalities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  
 
@@ -380,8 +369,8 @@ CloudStack in the CloudStack 4.3 Beta Installation Guide.
 
    NIC bonding
 
-3.1.3. Enhanced Upgrade for Virtual Routers
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Enhanced Upgrade for Virtual Routers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Upgrading VRs is made flexible. The CloudStack administrators will be
 able to control the sequence of the VR upgrades. The sequencing is based
@@ -402,8 +391,8 @@ The detailed instruction is provided in the CloudStack 4.3 Beta
 Administration Guide. See section 17.5.5. Enhanced Upgrade for Virtual
 Routers.
 
-3.1.4. Service Monitoring Tool for Virtual Router
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Service Monitoring Tool for Virtual Router
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Various services running on the CloudStack virtual routers can be
 monitored by using a Service Monitoring tool. The tool ensures that
@@ -449,8 +438,8 @@ The detailed instruction is provided in the CloudStack 4.3 Beta
 Administration Guide. See section 17.5.4. Service Monitoring Tool for
 Virtual Router.
 
-3.1.5. Custom Compute Offering
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Custom Compute Offering
+~~~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack provides you the flexibility to specify the desired values
 for the number of CPU, CPU speed, and memory while deploying a VM. The
@@ -471,16 +460,16 @@ Compute Offering page. If the Custom field is checked, the end-user will
 be able to create a custom Compute Offering by filling in the desired
 values for number of CPU, CPU speed, and memory.
 
-3.1.6. Remote Access VPN for VPC
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Remote Access VPN for VPC
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Support for Remote access VPN in Isolated networks is now extended to
 VPC networks. Remote users will now be able to initiate a VPN connection
 to a VPC network. To enable this feature, enable VPN in the Source NAT
 IP of the VPC.
 
-3.1.7. Site to Site VPN Connection Between VPC Networks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Site to Site VPN Connection Between VPC Networks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack provides you with the ability to establish a site-to-site VPN
 connection between CloudStack virtual routers. With this functionality,
@@ -523,8 +512,8 @@ networks involves the following:
    Wait for few seconds. The default is 30 seconds for both the VPN
    connections to show the Connected state.
 
-3.1.8. Reporting CPU Sockets
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Reporting CPU Sockets
+~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack now provides an additional infrastructure statistics for CPU
 sockets managed by CloudStack, which in turn reflects the size of the
@@ -532,8 +521,8 @@ cloud. The Infrastructure tab has a new tab for sockets. The Socket page
 will give you the number of hosts an sockets used for each hypervisor
 type. This feature is not supported in versions prior to XenServer 6.2.
 
-3.1.9. Database High Availability
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Database High Availability
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To help ensure high availability of the databases that store the
 internal data for CloudStack, you can set up database replication. This
@@ -543,8 +532,8 @@ replication. Tested with MySQL 5.1 and 5.5. Database replication in
 CloudStack is provided using the MySQL replication capabilities. The
 steps to set up replication can be found in the MySQL documentation.
 
-3.1.10. LDAP User Provisioning
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+LDAP User Provisioning
+~~~~~~~~~~~~~~~~~~~~~~
 
 LDAP user provisioning has been enhanced by allowing user import from
 the configured LDAP servers. You will be able to add multiple LDAP
@@ -554,8 +543,8 @@ imported to CloudStack, in contrast to manually adding them in previous
 releases, users are allowed to directly log in to CloudStack by using
 the LDAP credentials.
 
-3.1.11. Migrating NFS Secondary Storage to Object Store
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Migrating NFS Secondary Storage to Object Store
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In an existing zone that is using NFS for secondary storage, you can
 upgrade the zone to use a region-wide object storage without causing
@@ -567,8 +556,8 @@ old NFS storage will remain accessible for read and delete operations
 only. Newly created snapshots and templates will be placed in the newly
 configured object storage.
 
-3.1.12. VXLAN Plugin Support
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VXLAN Plugin Support
+~~~~~~~~~~~~~~~~~~~~
 
 The VXLAN plugin adds VXLAN as one of the guest network isolation
 methods in CloudStack. This plugin enables more than 4096 isolated guest
@@ -576,8 +565,8 @@ networks in a Zone, with almost the same usability as VLAN isolation.
 This plugin provides no network services. Use virtual router for network
 services. This plugin is supported on KVM hypervisors.
 
-3.1.13. Contrail Network Plugin Support
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Contrail Network Plugin Support
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Contrail virtual network controller is an open source project that
 provides an overlay implementation of network virtualization that is
@@ -588,8 +577,8 @@ supports isolated networks, Static NAT implemented by the VRouter
 dataplane, and Source NAT implemented by using a virtual appliance with
 full NAT functionality.
 
-3.1.14. Publishing Alert Using the Web ROOT Admin API
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Publishing Alert Using the Web ROOT Admin API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In previous releases of CloudStack code alerts are generated for
 CloudStack services (Usage service) only if they run on the same host as
@@ -614,15 +603,15 @@ The main advantage of this feature is that the third party systems
 integrating with CloudStack will be able to utilize the Alert
 notification system publish alerts.
 
-3.1.15. Support for Palo Alto Firewall Service
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Support for Palo Alto Firewall Service
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack supports Palo Alto firewall services. Use the Create Network
 Offering dialog to create an offering which has the Palo Alto firewall
 services. What is not supported and not supported are given below:
 
-3.1.15.1. Supported Functionalities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Supported Functionalities
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  
 
@@ -648,8 +637,8 @@ services. What is not supported and not supported are given below:
 
    Connectivity status of the firewall service on the CloudStack UI.
 
-3.1.15.2. Unsupported Functionalities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Unsupported Functionalities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  
 
@@ -666,8 +655,8 @@ services. What is not supported and not supported are given below:
 For more information, see `Palo Alto Firewall
 Integration <https://cwiki.apache.org/confluence/display/CLOUDSTACK/Palo+Alto+Firewall+Integration>`__.
 
-3.1.16. Root Volume Metering
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Root Volume Metering
+~~~~~~~~~~~~~~~~~~~~
 
 CloudStack supports recording usage events as per the dynamically
 assigned resources. Usage events are registered when a VM is created
@@ -676,16 +665,16 @@ CPU, speed, RAM are recorded. If VM is deployed by using template and
 dynamic root disk size is mentioned, the same value is recorded in the
 usage event.
 
-3.1.17. Support for SSL Termination
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Support for SSL Termination
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 SSL Offloading allows load balancers to handle encryption and decryption
 of HTTP(s) traffic giving plain text HTTP to the back end servers
 freeing them from the resource intensive task of handling encryption and
 decryption. Supported for Citrix NetScaler.
 
-3.1.18. Support for Pluggable VM Snapshots
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Support for Pluggable VM Snapshots
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CloudStack implements a plugin to integrate a third-party storage
 provider. Third party storage providers can integrate with CloudStack to
@@ -696,8 +685,8 @@ additional input fields may appear so that the user can provide the
 additional details required by that provider, such as a user name and
 password for a third-party storage account.
 
-3.1.19. Enhanced CloudStack UI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Enhanced CloudStack UI
+~~~~~~~~~~~~~~~~~~~~~~
 
 A complete UI makeover is implemented to enhance the usability and user
 experience in modern browsers. The visual look-and-feel has been changed
@@ -707,8 +696,8 @@ Apache branding.
 
 The current UI flow remains the same.
 
-3.2. Issues Fixed in 4.3.0
---------------------------
+Issues Fixed in 4.3.0
+---------------------
 
 Apache CloudStack uses
 `Jira <https://issues.apache.org/jira/browse/CLOUDSTACK>`__ to track its
@@ -719,8 +708,8 @@ the issue number.
 For the list of issues fixed, see `Issues Fixed in
 4.3 <https://issues.apache.org/jira/issues/?filter=12326161>`__.
 
-3.3. Known Issues in 4.3.0
---------------------------
+Known Issues in 4.3.0
+---------------------
 
 Apache CloudStack uses
 `Jira <https://issues.apache.org/jira/browse/CLOUDSTACK>`__ to track its
@@ -731,15 +720,9 @@ the issue number.
 For the list of known issues, see `Known Issues in
 4.3 <https://issues.apache.org/jira/issues/?filter=12326162>`__.
 
-`4.1. Upgrade from 4.2.0 to 4.3 <#upgrade-from-4.2-to-4.3>`__
 
-`4.2. Upgrade from 4.1.x to 4.3 <#upgrade-from-4.1-to-4.3>`__
-
-`4.3. Upgrade from 4.0.x to 4.3 <#upgrade-from-4.0-to-4.3>`__
-
-`4.4. Upgrade from 3.0.x to 4.3 <#upgrade-from-3.0.x-to-4.3>`__
-
-`4.5. Upgrade from 2.2.14 to 4.3 <#upgrade-from-2.2.x-to-4.3>`__
+Upgrade Instructions for 4.3
+============================
 
 This section contains upgrade instructions from prior versions of
 CloudStack to Apache CloudStack 4.3. We include instructions on
@@ -750,8 +733,8 @@ made while CloudStack was in the Apache Incubator.
 If you run into any issues during upgrades, please feel free to ask
 questions on users@cloudstack.apache.org or dev@cloudstack.apache.org.
 
-4.1. Upgrade from 4.2.0 to 4.3
-------------------------------
+Upgrade from 4.2.0 to 4.3
+-------------------------
 
 This section will guide you from CloudStack 4.2 to CloudStack 4.3.
 
@@ -761,11 +744,7 @@ We recommend reading through this section once or twice before beginning
 your upgrade procedure, and working through it on a test system before
 working on a production system.
 
-Note
-----
-
-The following upgrade instructions should be performed regardless of
-hypervisor type.
+.. note:: The following upgrade instructions should be performed regardless of hypervisor type.
 
 #. 
 
@@ -899,7 +878,7 @@ hypervisor type.
    Stop your management server or servers. Run this on all management
    server hosts:
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloudstack-management stop
 
@@ -908,7 +887,7 @@ hypervisor type.
    If you are running a usage server or usage servers, stop those as
    well:
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloudstack-usage stop
 
@@ -919,7 +898,7 @@ hypervisor type.
    restoring your existing environment. You'll be prompted for your
    password.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # mysqldump -u root -p cloud > cloudstack-backup.sql
 
@@ -931,7 +910,7 @@ hypervisor type.
 
       (optional) Install GPG keys if needed:
 
-      .. code:: programlisting
+      .. code:: bash
 
           sudo apt-get install gpg
 
@@ -939,7 +918,7 @@ hypervisor type.
 
       Import the GPG keys stored in the source distribution's KEYS file
 
-      .. code:: programlisting
+      .. code:: bash
 
           gpg --import KEYS
 
@@ -948,7 +927,7 @@ hypervisor type.
 
       For example:
 
-      .. code:: programlisting
+      .. code:: bash
 
           gpg --recv-keys CC56CEA8
 
@@ -956,7 +935,7 @@ hypervisor type.
 
       Verify signatures and hash files:
 
-      .. code:: programlisting
+      .. code:: bash
 
           #gpg --verify apache-cloudstack-4.3-src.tar.bz2.asc
           #gpg --print-md MD5 apache-cloudstack-4.3-src.tar.bz2 | diff - apache-cloudstack-4.3-src.tar.bz2.md5
@@ -978,7 +957,7 @@ hypervisor type.
 
       Create two new temporary directories:
 
-      .. code:: programlisting
+      .. code:: bash
 
           #mkdir /tmp/cloudstack/git
           #mkdir /tmp/cloudstack/tree
@@ -987,7 +966,7 @@ hypervisor type.
 
       Check out the 4.3 branch:
 
-      .. code:: programlisting
+      .. code:: bash
 
           #git clone https://git-wip-us.apache.org/repos/asf/cloudstack.git /tmp/cloudstack/git
           #cd /tmp/cloudstack/git
@@ -997,7 +976,7 @@ hypervisor type.
 
       Unpack the release artifact:
 
-      .. code:: programlisting
+      .. code:: bash
 
           #cd /tmp/cloudstack
           #tar xvfj apache-cloudstack-4.3-src.tar.bz2
@@ -1007,7 +986,7 @@ hypervisor type.
       Compare the contents of the release artifact with the contents
       pulled from the repo:
 
-      .. code:: programlisting
+      .. code:: bash
 
           #diff -r /tmp/cloudstack/apache-cloudstack-4.3-src /tmp/cloudstack/tree
 
@@ -1017,7 +996,7 @@ hypervisor type.
 
       Verify the Code License Headers:
 
-      .. code:: programlisting
+      .. code:: bash
 
           #cd /tmp/cloudstack/apache-cloudstack-4.3-src
           #mvn --projects='org.apache.cloudstack:cloudstack' org.apache.rat:apache-rat-plugin:0.8:check
@@ -1035,14 +1014,14 @@ hypervisor type.
    validation. Check local storage by querying the cloud.storage\_pool
    table:
 
-   .. code:: programlisting
+   .. code:: bash
 
        #mysql -u cloud -p -e "select id,name,path from cloud.storage_pool where pool_type='Filesystem'"
 
    If local storage paths are found to have a trailing forward slash,
    remove it:
 
-   .. code:: programlisting
+   .. code:: bash
 
        #mysql -u cloud -p -e 'update cloud.storage_pool set path="/var/lib/libvirt/images" where path="/var/lib/libvirt/images/"';
 
@@ -1051,12 +1030,7 @@ hypervisor type.
    If you are using Ubuntu, follow this procedure to upgrade your
    packages. If not, skip to step `12 <#upgrade-rpm-packages-4.3>`__.
 
-   Community Packages
-   ------------------
-
-   This section assumes you're using the community supplied packages for
-   CloudStack. If you've created your own packages and APT repository,
-   substitute your own URL for the ones used in these examples.
+   .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and APT repository, substitute your own URL for the ones used in these examples.
 
    #. 
 
@@ -1070,13 +1044,13 @@ hypervisor type.
 
       This file should have one line, which contains:
 
-      .. code:: programlisting
+      .. code:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
 
       We'll change it to point to the new package repository:
 
-      .. code:: programlisting
+      .. code:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
 
@@ -1087,7 +1061,7 @@ hypervisor type.
 
       Now update your apt package list:
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get update
 
@@ -1097,7 +1071,7 @@ hypervisor type.
       the ``cloudstack-management`` package. This will pull in any other
       dependencies you need.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get install cloudstack-management
 
@@ -1106,7 +1080,7 @@ hypervisor type.
       You will need to manually install the ``cloudstack-agent``
       package:
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get install cloudstack-agent
 
@@ -1124,7 +1098,7 @@ hypervisor type.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: programlisting
+      .. code:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -1134,7 +1108,7 @@ hypervisor type.
 
       Restart the agent:
 
-      .. code:: programlisting
+      .. code:: bash
 
           service cloudstack-agent stop
           killall jsvc
@@ -1150,7 +1124,7 @@ hypervisor type.
 
       Stop the Management Server:
 
-      .. code:: programlisting
+      .. code:: bash
 
           service cloudstack-management stop
 
@@ -1158,7 +1132,7 @@ hypervisor type.
 
       Generate the encrypted equivalent of your vCenter password:
 
-      .. code:: programlisting
+      .. code:: bash
 
           java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.0.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input="_your_vCenter_password_" password="`cat /etc/cloudstack/management/key`" verbose=false
 
@@ -1171,11 +1145,11 @@ hypervisor type.
       Find the ID of the row of cluster\_details table that you have to
       update:
 
-      .. code:: programlisting
+      .. code:: bash
 
           mysql -u <username> -p<password>
 
-      .. code:: programlisting
+      .. code:: bash
 
           select * from cloud.cluster_details;
 
@@ -1183,7 +1157,7 @@ hypervisor type.
 
       Update the plain text password with the encrypted one
 
-      .. code:: programlisting
+      .. code:: bash
 
           update cloud.cluster_details set value = '_ciphertext_from_step_1_' where id = _id_from_step_2_;
 
@@ -1191,7 +1165,7 @@ hypervisor type.
 
       Confirm that the table is updated:
 
-      .. code:: programlisting
+      .. code:: bash
 
           select * from cloud.cluster_details;
 
@@ -1200,7 +1174,7 @@ hypervisor type.
       Find the ID of the correct row of vmware\_data\_center that you
       want to update
 
-      .. code:: programlisting
+      .. code:: bash
 
           select * from cloud.vmware_data_center;
 
@@ -1208,7 +1182,7 @@ hypervisor type.
 
       update the plain text password with the encrypted one:
 
-      .. code:: programlisting
+      .. code:: bash
 
           update cloud.vmware_data_center set password = '_ciphertext_from_step_1_' where id = _id_from_step_5_;
 
@@ -1216,7 +1190,7 @@ hypervisor type.
 
       Confirm that the table is updated:
 
-      .. code:: programlisting
+      .. code:: bash
 
           select * from cloud.vmware_data_center;
 
@@ -1224,7 +1198,7 @@ hypervisor type.
 
       Start the CloudStack Management server
 
-      .. code:: programlisting
+      .. code:: bash
 
           service cloudstack-management start
 
@@ -1243,7 +1217,7 @@ hypervisor type.
 
       Stop the running agent.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # service cloud-agent stop
 
@@ -1251,7 +1225,7 @@ hypervisor type.
 
       Update the agent software.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # yum update cloudstack-agent
 
@@ -1259,7 +1233,7 @@ hypervisor type.
 
       Start the agent.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # service cloudstack-agent start
 
@@ -1268,12 +1242,7 @@ hypervisor type.
    If you are using CentOS or RHEL, follow this procedure to upgrade
    your packages. If not, skip to step `14 <#restart-system-vms-4.3>`__.
 
-   Community Packages
-   ------------------
-
-   This section assumes you're using the community supplied packages for
-   CloudStack. If you've created your own packages and yum repository,
-   substitute your own URL for the ones used in these examples.
+   .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and yum repository, substitute your own URL for the ones used in these examples.
 
    #. 
 
@@ -1289,7 +1258,7 @@ hypervisor type.
 
       This file should have content similar to the following:
 
-      .. code:: programlisting
+      .. code:: bash
 
           [apache-cloudstack]
           name=Apache CloudStack
@@ -1309,7 +1278,7 @@ hypervisor type.
       the ``cloudstack-management`` package by upgrading the older
       ``cloudstack-management`` package.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo yum upgrade cloudstack-management
 
@@ -1319,7 +1288,7 @@ hypervisor type.
       package, similarly installing the new version as
       ``cloudstack-agent``.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo yum upgrade cloudstack-agent
 
@@ -1329,7 +1298,7 @@ hypervisor type.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: programlisting
+      .. code:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -1339,7 +1308,7 @@ hypervisor type.
 
       Restart the agent:
 
-      .. code:: programlisting
+      .. code:: bash
 
           service cloudstack-agent stop
           killall jsvc
@@ -1349,7 +1318,7 @@ hypervisor type.
 
    Now it's time to restart the management server
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloudstack-management start
 
@@ -1368,20 +1337,20 @@ hypervisor type.
    run the script and supply the IP address for your MySQL instance and
    your MySQL credentials:
 
-   .. code:: programlisting
+   .. code:: bash
 
        # nohup cloudstack-sysvmadm -d IP address -u cloud -p -a > sysvm.log 2>&1 &
 
    You can monitor the log for progress. The process of restarting the
    system VMs can take an hour or more.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # tail -f sysvm.log
 
    The output to ``sysvm.log`` will look something like this:
 
-   .. code:: programlisting
+   .. code:: bash
 
        Stopping and starting 1 secondary storage vm(s)...
        Done stopping and starting secondary storage vm(s)
@@ -1390,19 +1359,15 @@ hypervisor type.
        Stopping and starting 4 running routing vm(s)...
        Done restarting router(s).
 
-#. For Xen Hosts: Copy vhd-utils
-   -----------------------------
-
-   This step is only for CloudStack installs that are using Xen hosts.
+#. .. note:: **For Xen Hosts: Copy vhd-utils:** This step is only for CloudStack installs that are using Xen hosts.
 
    Copy the file ``vhd-utils`` to
    ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
 
-4.2. Upgrade from 4.1.x to 4.3
+Upgrade from 4.1.x to 4.3
 ------------------------------
 
-This section will guide you from CloudStack 4.1.x versions to CloudStack
-4.3.
+This section will guide you from CloudStack 4.1.x versions to CloudStack 4.3.
 
 Any steps that are hypervisor-specific will be called out with a note.
 
@@ -1417,11 +1382,9 @@ working on a production system.
    APT. This guide assumes you'll be using RPM and Yum (for Red Hat
    Enterprise Linux or CentOS), or APT and Debian packages (for Ubuntu).
 
-#. Note
-   ----
+#.
 
-   The following upgrade instructions should be performed regardless of
-   hypervisor type.
+   .. note:: The following upgrade instructions should be performed regardless of hypervisor type.
 
    #. 
 
@@ -1546,7 +1509,7 @@ working on a production system.
    Stop your management server or servers. Run this on all management
    server hosts:
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloudstack-management stop
 
@@ -1555,7 +1518,7 @@ working on a production system.
    If you are running a usage server or usage servers, stop those as
    well:
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloudstack-usage stop
 
@@ -1566,7 +1529,7 @@ working on a production system.
    restoring your existing environment. You'll be prompted for your
    password.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # mysqldump -u root -p cloud > cloudstack-backup.sql
 
@@ -1577,14 +1540,14 @@ working on a production system.
    validation. Check local storage by querying the cloud.storage\_pool
    table:
 
-   .. code:: programlisting
+   .. code:: bash
 
        #mysql -u cloud -p -e "select id,name,path from cloud.storage_pool where pool_type='Filesystem'"
 
    If local storage paths are found to have a trailing forward slash,
    remove it:
 
-   .. code:: programlisting
+   .. code:: bash
 
        #mysql -u cloud -p -e 'update cloud.storage_pool set path="/var/lib/libvirt/images" where path="/var/lib/libvirt/images/"';
 
@@ -1593,12 +1556,7 @@ working on a production system.
    If you are using Ubuntu, follow this procedure to upgrade your
    packages. If not, skip to step `11 <#upgrade-rpm-packages-41to42>`__.
 
-   Community Packages
-   ------------------
-
-   This section assumes you're using the community supplied packages for
-   CloudStack. If you've created your own packages and APT repository,
-   substitute your own URL for the ones used in these examples.
+   .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and APT repository, substitute your own URL for the ones used in these examples.
 
    #. 
 
@@ -1612,13 +1570,13 @@ working on a production system.
 
       This file should have one line, which contains:
 
-      .. code:: programlisting
+      .. code:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
 
       We'll change it to point to the new package repository:
 
-      .. code:: programlisting
+      .. code:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
 
@@ -1629,7 +1587,7 @@ working on a production system.
 
       Now update your apt package list:
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get update
 
@@ -1639,7 +1597,7 @@ working on a production system.
       the ``cloudstack-management`` package. This will pull in any other
       dependencies you need.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get install cloudstack-management
 
@@ -1648,7 +1606,7 @@ working on a production system.
       You will need to manually install the ``cloudstack-agent``
       package:
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get install cloudstack-agent
 
@@ -1666,7 +1624,7 @@ working on a production system.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: programlisting
+      .. code:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -1676,7 +1634,7 @@ working on a production system.
 
       Restart the agent:
 
-      .. code:: programlisting
+      .. code:: bash
 
           service cloudstack-agent stop
           killall jsvc
@@ -1692,7 +1650,7 @@ working on a production system.
 
       Stop the Management Server:
 
-      .. code:: programlisting
+      .. code:: bash
 
           service cloudstack-management stop
 
@@ -1700,7 +1658,7 @@ working on a production system.
 
       Generate the encrypted equivalent of your vCenter password:
 
-      .. code:: programlisting
+      .. code:: bash
 
           java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.0.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input="_your_vCenter_password_" password="`cat /etc/cloudstack/management/key`" verbose=false
 
@@ -1713,11 +1671,11 @@ working on a production system.
       Find the ID of the row of cluster\_details table that you have to
       update:
 
-      .. code:: programlisting
+      .. code:: bash
 
           mysql -u <username> -p<password>
 
-      .. code:: programlisting
+      .. code:: bash
 
           select * from cloud.cluster_details;
 
@@ -1725,7 +1683,7 @@ working on a production system.
 
       Update the plain text password with the encrypted one
 
-      .. code:: programlisting
+      .. code:: bash
 
           update cloud.cluster_details set value = '_ciphertext_from_step_1_' where id = _id_from_step_2_;
 
@@ -1733,7 +1691,7 @@ working on a production system.
 
       Confirm that the table is updated:
 
-      .. code:: programlisting
+      .. code:: bash
 
           select * from cloud.cluster_details;
 
@@ -1742,7 +1700,7 @@ working on a production system.
       Find the ID of the correct row of vmware\_data\_center that you
       want to update
 
-      .. code:: programlisting
+      .. code:: bash
 
           select * from cloud.vmware_data_center;
 
@@ -1750,7 +1708,7 @@ working on a production system.
 
       update the plain text password with the encrypted one:
 
-      .. code:: programlisting
+      .. code:: bash
 
           update cloud.vmware_data_center set password = '_ciphertext_from_step_1_' where id = _id_from_step_5_;
 
@@ -1758,7 +1716,7 @@ working on a production system.
 
       Confirm that the table is updated:
 
-      .. code:: programlisting
+      .. code:: bash
 
           select * from cloud.vmware_data_center;
 
@@ -1766,7 +1724,7 @@ working on a production system.
 
       Start the CloudStack Management server
 
-      .. code:: programlisting
+      .. code:: bash
 
           service cloudstack-management start
 
@@ -1785,7 +1743,7 @@ working on a production system.
 
       Stop the running agent.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # service cloud-agent stop
 
@@ -1793,7 +1751,7 @@ working on a production system.
 
       Update the agent software.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # yum update cloudstack-agent
 
@@ -1801,7 +1759,7 @@ working on a production system.
 
       Start the agent.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # service cloudstack-agent start
 
@@ -1811,12 +1769,7 @@ working on a production system.
    your packages. If not, skip to step
    `13 <#restart-system-vms-41to42>`__.
 
-   Community Packages
-   ------------------
-
-   This section assumes you're using the community supplied packages for
-   CloudStack. If you've created your own packages and yum repository,
-   substitute your own URL for the ones used in these examples.
+   .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and yum repository, substitute your own URL for the ones used in these examples.
 
    #. 
 
@@ -1832,7 +1785,7 @@ working on a production system.
 
       This file should have content similar to the following:
 
-      .. code:: programlisting
+      .. code:: bash
 
           [apache-cloudstack]
           name=Apache CloudStack
@@ -1852,7 +1805,7 @@ working on a production system.
       the ``cloudstack-management`` package by upgrading the older
       ``cloudstack-management`` package.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo yum upgrade cloudstack-management
 
@@ -1862,7 +1815,7 @@ working on a production system.
       package, similarly installing the new version as
       ``cloudstack-agent``.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo yum upgrade cloudstack-agent
 
@@ -1872,7 +1825,7 @@ working on a production system.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: programlisting
+      .. code:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -1882,7 +1835,7 @@ working on a production system.
 
       Restart the agent:
 
-      .. code:: programlisting
+      .. code:: bash
 
           service cloudstack-agent stop
           killall jsvc
@@ -1892,7 +1845,7 @@ working on a production system.
 
    Now it's time to restart the management server
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloudstack-management start
 
@@ -1911,20 +1864,20 @@ working on a production system.
    run the script and supply the IP address for your MySQL instance and
    your MySQL credentials:
 
-   .. code:: programlisting
+   .. code:: bash
 
        # nohup cloudstack-sysvmadm -d IP address -u cloud -p -a > sysvm.log 2>&1 &
 
    You can monitor the log for progress. The process of restarting the
    system VMs can take an hour or more.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # tail -f sysvm.log
 
    The output to ``sysvm.log`` will look something like this:
 
-   .. code:: programlisting
+   .. code:: bash
 
        Stopping and starting 1 secondary storage vm(s)...
        Done stopping and starting secondary storage vm(s)
@@ -1933,33 +1886,19 @@ working on a production system.
        Stopping and starting 4 running routing vm(s)...
        Done restarting router(s).
 
-#. For Xen Hosts: Copy vhd-utils
-   -----------------------------
-
-   This step is only for CloudStack installs that are using Xen hosts.
+#. .. note:: **For Xen Hosts: Copy vhd-utils:** This step is only for CloudStack installs that are using Xen hosts.
 
    Copy the file ``vhd-utils`` to
    ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
 
-4.3. Upgrade from 4.0.x to 4.3
-------------------------------
+Upgrade from 4.0.x to 4.3
+-------------------------
 
-This section will guide you from CloudStack 4.0.x versions to CloudStack
-4.3.
+This section will guide you from CloudStack 4.0.x versions to CloudStack 4.3.
 
 Any steps that are hypervisor-specific will be called out with a note.
 
-Package Structure Changes
--------------------------
-
-The package structure for CloudStack has changed significantly since the
-4.0.x releases. If you've compiled your own packages, you'll notice that
-the package names and the number of packages has changed. This is *not*
-a bug.
-
-However, this *does* mean that the procedure is not as simple as an
-``apt-get upgrade`` or ``yum update``, so please follow this section
-carefully.
+.. warning:: **Package Structure Changes:** The package structure for CloudStack has changed significantly since the 4.0.x releases. If you've compiled your own packages, you'll notice that the package names and the number of packages has changed. This is *not* a bug. However, this *does* mean that the procedure is not as simple as an ``apt-get upgrade`` or ``yum update``, so please follow this section carefully.
 
 We recommend reading through this section once or twice before beginning
 your upgrade procedure, and working through it on a test system before
@@ -1983,11 +1922,7 @@ working on a production system.
    the `Installation
    Guide <http://cloudstack.apache.org/docs/en-US/index.html>`__.
 
-#. Note
-   ----
-
-   The following upgrade instructions should be performed regardless of
-   hypervisor type.
+   .. note:: The following upgrade instructions should be performed regardless of hypervisor type.
 
    #. 
 
@@ -2099,7 +2034,7 @@ working on a production system.
    Stop your management server or servers. Run this on all management
    server hosts:
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloud-management stop
 
@@ -2108,7 +2043,7 @@ working on a production system.
    If you are running a usage server or usage servers, stop those as
    well:
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloud-usage stop
 
@@ -2119,7 +2054,7 @@ working on a production system.
    restoring your existing environment. You'll be prompted for your
    password.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # mysqldump -u root -p cloud > cloudstack-backup.sql
 
@@ -2129,7 +2064,7 @@ working on a production system.
    based system, you're going to need to stop the CloudStack management
    server before proceeding.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloud-management stop
 
@@ -2152,7 +2087,7 @@ working on a production system.
    the default authenticator (1st entry in the userAuthenticators
    adapter list is default)
 
-   .. code:: programlisting
+   .. code:: bash
 
        <!-- Security adapters -->
        <bean id="userAuthenticators" class="com.cloud.utils.component.AdapterList">
@@ -2173,12 +2108,7 @@ working on a production system.
    If you are using Ubuntu, follow this procedure to upgrade your
    packages. If not, skip to step `10 <#upgrade-rpm-packages-40to41>`__.
 
-   Community Packages
-   ------------------
-
-   This section assumes you're using the community supplied packages for
-   CloudStack. If you've created your own packages and APT repository,
-   substitute your own URL for the ones used in these examples.
+   .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and APT repository, substitute your own URL for the ones used in these examples.
 
    #. 
 
@@ -2192,13 +2122,13 @@ working on a production system.
 
       This file should have one line, which contains:
 
-      .. code:: programlisting
+      .. code:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
 
       We'll change it to point to the new package repository:
 
-      .. code:: programlisting
+      .. code:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.1
 
@@ -2209,7 +2139,7 @@ working on a production system.
 
       Now update your apt package list:
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get update
 
@@ -2219,7 +2149,7 @@ working on a production system.
       the ``cloudstack-management`` package. This will pull in any other
       dependencies you need.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get install cloudstack-management
 
@@ -2228,7 +2158,7 @@ working on a production system.
       You will need to manually install the ``cloudstack-agent``
       package:
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get install cloudstack-agent
 
@@ -2246,7 +2176,7 @@ working on a production system.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: programlisting
+      .. code:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -2256,7 +2186,7 @@ working on a production system.
 
       Restart the agent:
 
-      .. code:: programlisting
+      .. code:: bash
 
                                           service cloud-agent stop
                                           killall jsvc
@@ -2270,7 +2200,7 @@ working on a production system.
       this, but if you prefer to be consistent, you can change this by
       copying over the sample configuration file:
 
-      .. code:: programlisting
+      .. code:: bash
 
                                           cd /etc/cloudstack/agent
                                           mv log4j-cloud.xml.dpkg-dist log4j-cloud.xml
@@ -2281,7 +2211,7 @@ working on a production system.
       Once the agent is running, you can uninstall the old cloud-\*
       packages from your system:
 
-      .. code:: programlisting
+      .. code:: bash
 
           sudo dpkg --purge cloud-agent
 
@@ -2291,12 +2221,7 @@ working on a production system.
    your packages. If not, skip to step
    `11 <#restart-system-vms-40to41>`__.
 
-   Community Packages
-   ------------------
-
-   This section assumes you're using the community supplied packages for
-   CloudStack. If you've created your own packages and yum repository,
-   substitute your own URL for the ones used in these examples.
+   .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and yum repository, substitute your own URL for the ones used in these examples.
 
    #. 
 
@@ -2311,7 +2236,7 @@ working on a production system.
 
       This file should have content similar to the following:
 
-      .. code:: programlisting
+      .. code:: bash
 
                                           [apache-cloudstack]
                                           name=Apache CloudStack
@@ -2331,7 +2256,7 @@ working on a production system.
       the ``cloudstack-management`` package by upgrading the older
       ``cloud-client`` package.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo yum upgrade cloud-client
 
@@ -2341,7 +2266,7 @@ working on a production system.
       package, similarly installing the new version as
       ``cloudstack-agent``.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo yum upgrade cloud-agent
 
@@ -2356,7 +2281,7 @@ working on a production system.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: programlisting
+      .. code:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -2366,7 +2291,7 @@ working on a production system.
 
       Restart the agent:
 
-      .. code:: programlisting
+      .. code:: bash
 
                                           service cloud-agent stop
                                           killall jsvc
@@ -2382,20 +2307,20 @@ working on a production system.
    run the script and supply the IP address for your MySQL instance and
    your MySQL credentials:
 
-   .. code:: programlisting
+   .. code:: bash
 
        # nohup cloudstack-sysvmadm -d IP address -u cloud -p -a > sysvm.log 2>&1 &
 
    You can monitor the log for progress. The process of restarting the
    system VMs can take an hour or more.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # tail -f sysvm.log
 
    The output to ``sysvm.log`` will look something like this:
 
-   .. code:: programlisting
+   .. code:: bash
 
                                Stopping and starting 1 secondary storage vm(s)...
                                Done stopping and starting secondary storage vm(s)
@@ -2404,26 +2329,19 @@ working on a production system.
                                Stopping and starting 4 running routing vm(s)...
                                Done restarting router(s).
 
-#. For Xen Hosts: Copy vhd-utils
-   -----------------------------
-
-   This step is only for CloudStack installs that are using Xen hosts.
+#. .. note:: *For Xen Hosts: Copy vhd-utils:** This step is only for CloudStack installs that are using Xen hosts.
 
    Copy the file ``vhd-utils`` to
    ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
 
-4.4. Upgrade from 3.0.x to 4.3
-------------------------------
+Upgrade from 3.0.x to 4.3
+-------------------------
 
 This section will guide you from Citrix CloudStack 3.0.x to Apache
 CloudStack 4.3. Sections that are hypervisor-specific will be called out
 with a note.
 
-#. Note
-   ----
-
-   The following upgrade instructions should be performed regardless of
-   hypervisor type.
+   .. note::  The following upgrade instructions should be performed regardless of hypervisor type.
 
    #. 
 
@@ -2560,7 +2478,7 @@ with a note.
 
       Edit as follows:
 
-      .. code:: programlisting
+      .. code:: bash
 
                       [upgrade]
                       name=rhel63
@@ -2584,7 +2502,7 @@ with a note.
       Now that you have the repository configured, upgrade the host
       operating system from RHEL 6.0 to 6.3:
 
-      .. code:: programlisting
+      .. code:: bash
 
           # yum upgrade
 
@@ -2593,7 +2511,7 @@ with a note.
    Stop all Usage Servers if running. Run this on all Usage Server
    hosts.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloud-usage stop
 
@@ -2601,7 +2519,7 @@ with a note.
 
    Stop the Management Servers. Run this on all Management Server hosts.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloud-management stop
 
@@ -2615,7 +2533,7 @@ with a note.
    password on the database, which is a CloudStack recommended best
    practice. Substitute your own MySQL root password.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # mysqldump -u root -pmysql_password cloud > cloud-backup.dmp
                                # mysqldump -u root -pmysql_password cloud_usage > cloud-usage-backup.dmp
@@ -2631,12 +2549,7 @@ with a note.
    If you are using Ubuntu, follow this procedure to upgrade your
    packages. If not, skip to step `8 <#upgrade-rpm-packages-302>`__.
 
-   Community Packages
-   ------------------
-
-   This section assumes you're using the community supplied packages for
-   CloudStack. If you've created your own packages and APT repository,
-   substitute your own URL for the ones used in these examples.
+   .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and APT repository, substitute your own URL for the ones used in these examples.
 
    #. 
 
@@ -2650,13 +2563,13 @@ with a note.
 
       This file should have one line, which contains:
 
-      .. code:: programlisting
+      .. code:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
 
       We'll change it to point to the new package repository:
 
-      .. code:: programlisting
+      .. code:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
 
@@ -2667,7 +2580,7 @@ with a note.
 
       Now update your apt package list:
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get update
 
@@ -2677,7 +2590,7 @@ with a note.
       the ``cloudstack-management`` package. This will pull in any other
       dependencies you need.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get install cloudstack-management
 
@@ -2686,7 +2599,7 @@ with a note.
       You will need to manually install the ``cloudstack-agent``
       package:
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get install cloudstack-agent
 
@@ -2704,7 +2617,7 @@ with a note.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: programlisting
+      .. code:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -2714,7 +2627,7 @@ with a note.
 
       Restart the agent:
 
-      .. code:: programlisting
+      .. code:: bash
 
           service cloud-agent stop
           killall jsvc
@@ -2728,7 +2641,7 @@ with a note.
       this, but if you prefer to be consistent, you can change this by
       copying over the sample configuration file:
 
-      .. code:: programlisting
+      .. code:: bash
 
           cd /etc/cloudstack/agent
           mv log4j-cloud.xml.dpkg-dist log4j-cloud.xml
@@ -2739,7 +2652,7 @@ with a note.
       Once the agent is running, you can uninstall the old cloud-\*
       packages from your system:
 
-      .. code:: programlisting
+      .. code:: bash
 
           sudo dpkg --purge cloud-agent
 
@@ -2749,12 +2662,7 @@ with a note.
    your packages. If not, skip to step
    `9 <#correct-components-xml-302>`__.
 
-   Community Packages
-   ------------------
-
-   This section assumes you're using the community supplied packages for
-   CloudStack. If you've created your own packages and yum repository,
-   substitute your own URL for the ones used in these examples.
+   .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and yum repository, substitute your own URL for the ones used in these examples.
 
    #. 
 
@@ -2769,7 +2677,7 @@ with a note.
 
       This file should have content similar to the following:
 
-      .. code:: programlisting
+      .. code:: bash
 
           [apache-cloudstack]
           name=Apache CloudStack
@@ -2789,7 +2697,7 @@ with a note.
       the ``cloudstack-management`` package by upgrading the older
       ``cloud-client`` package.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo yum upgrade cloud-client
 
@@ -2799,7 +2707,7 @@ with a note.
       package, similarly installing the new version as
       ``cloudstack-agent``.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo yum upgrade cloud-agent
 
@@ -2814,7 +2722,7 @@ with a note.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: programlisting
+      .. code:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -2824,7 +2732,7 @@ with a note.
 
       Restart the agent:
 
-      .. code:: programlisting
+      .. code:: bash
 
           service cloud-agent stop
           killall jsvc
@@ -2843,7 +2751,7 @@ with a note.
       Make a backup copy of ``/etc/cloud/management/components.xml``.
       For example:
 
-      .. code:: programlisting
+      .. code:: bash
 
           # mv /etc/cloud/management/components.xml /etc/cloud/management/components.xml-backup
 
@@ -2852,7 +2760,7 @@ with a note.
       Copy ``/etc/cloud/management/components.xml.rpmnew`` to create a
       new ``/etc/cloud/management/components.xml``:
 
-      .. code:: programlisting
+      .. code:: bash
 
           # cp -ap /etc/cloud/management/components.xml.rpmnew /etc/cloud/management/components.xml
 
@@ -2861,15 +2769,11 @@ with a note.
       Merge your changes from the backup file into the new
       ``components.xml``.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # vi /etc/cloudstack/management/components.xml
 
-   Note
-   ----
-
-   If you have more than one management server node, repeat the upgrade
-   steps on each node.
+   .. note::  If you have more than one management server node, repeat the upgrade steps on each node.
 
 #. 
 
@@ -2882,7 +2786,7 @@ with a note.
    the default authenticator (1st entry in the userAuthenticators
    adapter list is default)
 
-   .. code:: programlisting
+   .. code:: bash
 
        <!-- Security adapters -->
        <bean id="userAuthenticators" class="com.cloud.utils.component.AdapterList">
@@ -2903,7 +2807,7 @@ with a note.
    Start the first Management Server. Do not start any other Management
    Server nodes yet.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloudstack-management start
 
@@ -2911,12 +2815,7 @@ with a note.
    upgrade is complete. After confirmation, start the other Management
    Servers one at a time by running the same command on each node.
 
-   Note
-   ----
-
-   Failing to restart the Management Server indicates a problem in the
-   upgrade. Having the Management Server restarted without any issues
-   indicates that the upgrade is successfully completed.
+   .. note:: Failing to restart the Management Server indicates a problem in the upgrade. Having the Management Server restarted without any issues indicates that the upgrade is successfully completed.
 
 #. 
 
@@ -2965,7 +2864,7 @@ with a note.
       Upgrade all the existing bridge names to new bridge names by
       running this script:
 
-      .. code:: programlisting
+      .. code:: bash
 
            # cloudstack-agent-upgrade
 
@@ -2973,7 +2872,7 @@ with a note.
 
       Install a libvirt hook with the following commands:
 
-      .. code:: programlisting
+      .. code:: bash
 
            # mkdir /etc/libvirt/hooks
            # cp /usr/share/cloudstack-agent/lib/libvirtqemuhook /etc/libvirt/hooks/qemu
@@ -2983,7 +2882,7 @@ with a note.
 
       Restart libvirtd.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # service libvirtd restart
 
@@ -2991,7 +2890,7 @@ with a note.
 
       Start the agent.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # service cloudstack-agent start
 
@@ -3008,11 +2907,7 @@ with a note.
    know to be offline). You may need to wait 20 or 30 minutes, depending
    on the number of hosts.
 
-   Note
-   ----
-
-   Troubleshooting: If login fails, clear your browser cache and reload
-   the page.
+   .. note:: Troubleshooting: If login fails, clear your browser cache and reload the page.
 
    Do not proceed to the next step until the hosts show in Up state.
 
@@ -3034,11 +2929,7 @@ with a note.
 
       Restart the Management Server.
 
-      Note
-      ----
-
-      If you don't want the admin port to remain open, you can set it to
-      null after the upgrade is done and restart the management server.
+      .. note:: If you don't want the admin port to remain open, you can set it to null after the upgrade is done and restart the management server.
 
 #. 
 
@@ -3116,12 +3007,7 @@ with a note.
       Make a note of the output from this command, which is a UUID for
       the hotfix file. You'll need it in another step later.
 
-      Note
-      ----
-
-      (Optional) If you are applying other hotfixes as well, you can
-      repeat the commands in this section with the appropriate hotfix
-      number. For example, XS602E004.xsupdate.
+      .. note:: (Optional) If you are applying other hotfixes as well, you can repeat the commands in this section with the appropriate hotfix number. For example, XS602E004.xsupdate.
 
    #. 
 
@@ -3135,20 +3021,13 @@ with a note.
 
       ``# xe vm-migrate live=true host=host-name`` vm=\ *``VM-name``*
 
-      Troubleshooting
-      ---------------
-
-      If you see a message like "You attempted an operation on a VM
-      which requires PV drivers to be installed but the drivers were not
-      detected," run:
-
-      ``/opt/xensource/bin/make_migratable.sh b6cf79c8-02ee-050b-922f-49583d9f1a14``.
+      .. note:: **Troubleshooting:** If you see a message like "You attempted an operation on a VM which requires PV drivers to be installed but the drivers were not detected," run: ``/opt/xensource/bin/make_migratable.sh b6cf79c8-02ee-050b-922f-49583d9f1a14``.
 
    #. 
 
       Apply the hotfix. First, get the UUID of this host:
 
-      .. code:: programlisting
+      .. code:: bash
 
           # xe host-list
 
@@ -3158,7 +3037,7 @@ with a note.
       machine earlier. You can also get the hotfix UUID by running xe
       patch-list.
 
-      .. code:: programlisting
+      .. code:: bash
 
           xe patch-apply host-uuid=host-uuid uuid=hotfix-uuid
 
@@ -3203,7 +3082,7 @@ with a note.
 
          Extract the file:
 
-         .. code:: programlisting
+         .. code:: bash
 
              # tar xf xenserver-cloud-supp.tgz
 
@@ -3211,7 +3090,7 @@ with a note.
 
          Run the following script:
 
-         .. code:: programlisting
+         .. code:: bash
 
              # xe-install-supplemental-pack xenserver-cloud-supp.iso
 
@@ -3220,7 +3099,7 @@ with a note.
          If the XenServer host is part of a zone that uses basic
          networking, disable Open vSwitch (OVS):
 
-         .. code:: programlisting
+         .. code:: bash
 
              # xe-switch-network-backend  bridge
 
@@ -3232,21 +3111,17 @@ with a note.
 
       Run the following:
 
-      .. code:: programlisting
+      .. code:: bash
 
           /opt/xensource/bin/setupxenserver.sh
 
-      Note
-      ----
-
-      If the message "mv: cannot stat \`/etc/cron.daily/logrotate': No
-      such file or directory" appears, you can safely ignore it.
+      .. note:: If the message "mv: cannot stat \`/etc/cron.daily/logrotate': No such file or directory" appears, you can safely ignore it.
 
    #. 
 
       Run the following:
 
-      .. code:: programlisting
+      .. code:: bash
 
           for pbd in `xe pbd-list currently-attached=false| grep ^uuid | awk '{print $NF}'`; do xe pbd-plug uuid=$pbd ;
 
@@ -3255,15 +3130,10 @@ with a note.
       On each slave host in the Xen pool, repeat these steps, starting
       from "manually live migrate VMs."
 
-Troubleshooting Tip
--------------------
+.. note:: **Troubleshooting Tip:** If passwords which you know to be valid appear not to work after upgrade, or other UI issues are seen, try clearing your browser cache and reloading the UI page.
 
-If passwords which you know to be valid appear not to work after
-upgrade, or other UI issues are seen, try clearing your browser cache
-and reloading the UI page.
-
-4.5. Upgrade from 2.2.14 to 4.3
--------------------------------
+Upgrade from 2.2.14 to 4.3
+--------------------------
 
 #. 
 
@@ -3284,14 +3154,7 @@ and reloading the UI page.
    using the instructions in the `2.2.14 Release
    Notes <http://download.cloud.com/releases/2.2.0/CloudStack2.2.14ReleaseNotes.pdf>`__.
 
-   KVM Hosts
-   ---------
-
-   If KVM hypervisor is used in your cloud, be sure you completed the
-   step to insert a valid username and password into the host\_details
-   table on each KVM node as described in the 2.2.14 Release Notes. This
-   step is critical, as the database will be encrypted after the upgrade
-   to 4.3.
+   .. warning:: **KVM Hosts:** If KVM hypervisor is used in your cloud, be sure you completed the step to insert a valid username and password into the host\_details table on each KVM node as described in the 2.2.14 Release Notes. This step is critical, as the database will be encrypted after the upgrade to 4.3.
 
 #. 
 
@@ -3440,7 +3303,7 @@ and reloading the UI page.
 
       Edit as follows:
 
-      .. code:: programlisting
+      .. code:: bash
 
                       [upgrade]
                       name=rhel63
@@ -3464,7 +3327,7 @@ and reloading the UI page.
       Now that you have the repository configured, upgrade the host
       operating system from RHEL 6.0 to 6.3:
 
-      .. code:: programlisting
+      .. code:: bash
 
           # yum upgrade
 
@@ -3473,7 +3336,7 @@ and reloading the UI page.
    Stop all Usage Servers if running. Run this on all Usage Server
    hosts.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloud-usage stop
 
@@ -3481,7 +3344,7 @@ and reloading the UI page.
 
    Stop the Management Servers. Run this on all Management Server hosts.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloud-management stop
 
@@ -3495,7 +3358,7 @@ and reloading the UI page.
    password on the database, which is a CloudStack recommended best
    practice. Substitute your own MySQL root password.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # mysqldump -u root -pmysql_password cloud > cloud-backup.dmp
                                # mysqldump -u root -pmysql_password cloud_usage > cloud-usage-backup.dmp
@@ -3511,12 +3374,7 @@ and reloading the UI page.
    If you are using Ubuntu, follow this procedure to upgrade your
    packages. If not, skip to step `13 <#upgrade-rpm-packages-22>`__.
 
-   Community Packages
-   ------------------
-
-   This section assumes you're using the community supplied packages for
-   CloudStack. If you've created your own packages and APT repository,
-   substitute your own URL for the ones used in these examples.
+   .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and APT repository, substitute your own URL for the ones used in these examples.
 
    #. 
 
@@ -3530,13 +3388,13 @@ and reloading the UI page.
 
       This file should have one line, which contains:
 
-      .. code:: programlisting
+      .. code:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
 
       We'll change it to point to the new package repository:
 
-      .. code:: programlisting
+      .. code:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
 
@@ -3547,7 +3405,7 @@ and reloading the UI page.
 
       Now update your apt package list:
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get update
 
@@ -3557,7 +3415,7 @@ and reloading the UI page.
       the ``cloudstack-management`` package. This will pull in any other
       dependencies you need.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get install cloudstack-management
 
@@ -3566,7 +3424,7 @@ and reloading the UI page.
       On KVM hosts, you will need to manually install the
       ``cloudstack-agent`` package:
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo apt-get install cloudstack-agent
 
@@ -3584,7 +3442,7 @@ and reloading the UI page.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: programlisting
+      .. code:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -3594,7 +3452,7 @@ and reloading the UI page.
 
       Restart the agent:
 
-      .. code:: programlisting
+      .. code:: bash
 
           service cloud-agent stop
           killall jsvc
@@ -3608,7 +3466,7 @@ and reloading the UI page.
       this, but if you prefer to be consistent, you can change this by
       copying over the sample configuration file:
 
-      .. code:: programlisting
+      .. code:: bash
 
           cd /etc/cloudstack/agent
           mv log4j-cloud.xml.dpkg-dist log4j-cloud.xml
@@ -3619,7 +3477,7 @@ and reloading the UI page.
       Once the agent is running, you can uninstall the old cloud-\*
       packages from your system:
 
-      .. code:: programlisting
+      .. code:: bash
 
           sudo dpkg --purge cloud-agent
 
@@ -3629,12 +3487,7 @@ and reloading the UI page.
    your packages. If not, skip to step
    `14 <#correct-components-xml-22>`__.
 
-   Community Packages
-   ------------------
-
-   This section assumes you're using the community supplied packages for
-   CloudStack. If you've created your own packages and yum repository,
-   substitute your own URL for the ones used in these examples.
+   .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and yum repository, substitute your own URL for the ones used in these examples.
 
    #. 
 
@@ -3649,7 +3502,7 @@ and reloading the UI page.
 
       This file should have content similar to the following:
 
-      .. code:: programlisting
+      .. code:: bash
 
           [apache-cloudstack]
           name=Apache CloudStack
@@ -3669,7 +3522,7 @@ and reloading the UI page.
       the ``cloudstack-management`` package by upgrading the older
       ``cloud-client`` package.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo yum upgrade cloud-client
 
@@ -3679,7 +3532,7 @@ and reloading the UI page.
       package, similarly installing the new version as
       ``cloudstack-agent``.
 
-      .. code:: programlisting
+      .. code:: bash
 
           $ sudo yum upgrade cloud-agent
 
@@ -3694,7 +3547,7 @@ and reloading the UI page.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: programlisting
+      .. code:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -3704,7 +3557,7 @@ and reloading the UI page.
 
       Restart the agent:
 
-      .. code:: programlisting
+      .. code:: bash
 
           service cloud-agent stop
           killall jsvc
@@ -3718,15 +3571,9 @@ and reloading the UI page.
    following steps to place these changes in a new version of the file
    which is compatible with version 4.0.0-incubating.
 
-   Note
-   ----
+   .. note:: How will you know whether you need to do this? If the upgrade output in the previous step included a message like the following, then some custom content was found in your old components.xml, and you need to merge the two files:
 
-   How will you know whether you need to do this? If the upgrade output
-   in the previous step included a message like the following, then some
-   custom content was found in your old components.xml, and you need to
-   merge the two files:
-
-   .. code:: programlisting
+   .. code:: bash
 
        warning: /etc/cloud/management/components.xml created as /etc/cloud/management/components.xml.rpmnew
 
@@ -3735,7 +3582,7 @@ and reloading the UI page.
       Make a backup copy of your
       ``/etc/cloud/management/components.xml`` file. For example:
 
-      .. code:: programlisting
+      .. code:: bash
 
           # mv /etc/cloud/management/components.xml /etc/cloud/management/components.xml-backup
 
@@ -3744,7 +3591,7 @@ and reloading the UI page.
       Copy ``/etc/cloud/management/components.xml.rpmnew`` to create a
       new ``/etc/cloud/management/components.xml``:
 
-      .. code:: programlisting
+      .. code:: bash
 
           # cp -ap /etc/cloud/management/components.xml.rpmnew /etc/cloud/management/components.xml
 
@@ -3753,7 +3600,7 @@ and reloading the UI page.
       Merge your changes from the backup file into the new
       components.xml file.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # vi /etc/cloudstack/management/components.xml
 
@@ -3768,7 +3615,7 @@ and reloading the UI page.
    the default authenticator (1st entry in the userAuthenticators
    adapter list is default)
 
-   .. code:: programlisting
+   .. code:: xml
 
        <!-- Security adapters -->
        <bean id="userAuthenticators" class="com.cloud.utils.component.AdapterList">
@@ -3798,7 +3645,7 @@ and reloading the UI page.
       Make a backup copy of your file
       ``/etc/cloud/management/db.properties``. For example:
 
-      .. code:: programlisting
+      .. code:: bash
 
           # mv /etc/cloud/management/db.properties /etc/cloud/management/db.properties-backup
 
@@ -3807,7 +3654,7 @@ and reloading the UI page.
       Copy ``/etc/cloud/management/db.properties.rpmnew`` to create a
       new ``/etc/cloud/management/db.properties``:
 
-      .. code:: programlisting
+      .. code:: bash
 
           # cp -ap /etc/cloud/management/db.properties.rpmnew etc/cloud/management/db.properties
 
@@ -3816,7 +3663,7 @@ and reloading the UI page.
       Merge your changes from the backup file into the new db.properties
       file.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # vi /etc/cloudstack/management/db.properties
 
@@ -3827,7 +3674,7 @@ and reloading the UI page.
    encryption keys. See Password and Key Encryption in the Installation
    Guide.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # cloudstack-setup-encryption -e encryption_type -m management_server_key -k database_key
 
@@ -3865,7 +3712,7 @@ and reloading the UI page.
    Start the first Management Server. Do not start any other Management
    Server nodes yet.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloudstack-management start
 
@@ -3879,7 +3726,7 @@ and reloading the UI page.
    Start all Usage Servers (if they were running on your previous
    version). Perform this on each Usage Server host.
 
-   .. code:: programlisting
+   .. code:: bash
 
        # service cloudstack-usage start
 
@@ -3900,7 +3747,7 @@ and reloading the UI page.
 
       Stop the running agent.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # service cloud-agent stop
 
@@ -3909,11 +3756,11 @@ and reloading the UI page.
       Update the agent software with one of the following command sets
       as appropriate.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # yum update cloud-*
 
-      .. code:: programlisting
+      .. code:: bash
 
            # apt-get update
            # apt-get upgrade cloud-*
@@ -3923,7 +3770,7 @@ and reloading the UI page.
       Copy the contents of the ``agent.properties`` file to the new
       ``agent.properties`` file by using the following command
 
-      .. code:: programlisting
+      .. code:: bash
 
           sed -i 's/com.cloud.agent.resource.computing.LibvirtComputingResource/com.cloud.hypervisor.kvm.resource.LibvirtComputingResource/g' /etc/cloudstack/agent/agent.properties
 
@@ -3932,7 +3779,7 @@ and reloading the UI page.
       Upgrade all the existing bridge names to new bridge names by
       running this script:
 
-      .. code:: programlisting
+      .. code:: bash
 
            # cloudstack-agent-upgrade
 
@@ -3940,7 +3787,7 @@ and reloading the UI page.
 
       Install a libvirt hook with the following commands:
 
-      .. code:: programlisting
+      .. code:: bash
 
            # mkdir /etc/libvirt/hooks
            # cp /usr/share/cloudstack-agent/lib/libvirtqemuhook /etc/libvirt/hooks/qemu
@@ -3950,7 +3797,7 @@ and reloading the UI page.
 
       Restart libvirtd.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # service libvirtd restart
 
@@ -3958,7 +3805,7 @@ and reloading the UI page.
 
       Start the agent.
 
-      .. code:: programlisting
+      .. code:: bash
 
           # service cloudstack-agent start
 
@@ -3990,7 +3837,7 @@ and reloading the UI page.
       and the password to use for that user. In addition to those
       parameters, provide the "-c" and "-r" arguments. For example:
 
-      .. code:: programlisting
+      .. code:: bash
 
           # nohup cloudstack-sysvmadm -d 192.168.1.5 -u cloud -p password -c -r > sysvm.log 2>&1 &
           # tail -f sysvm.log
@@ -4003,13 +3850,13 @@ and reloading the UI page.
       After the script terminates, check the log to verify correct
       execution:
 
-      .. code:: programlisting
+      .. code:: bash
 
           # tail -f sysvm.log
 
       The content should be like the following:
 
-      .. code:: programlisting
+      .. code:: bash
 
                                           Stopping and starting 1 secondary storage vm(s)...
                                           Done stopping and starting secondary storage vm(s)
@@ -4026,8 +3873,7 @@ and reloading the UI page.
 
    Use one of the following techniques, depending on the hypervisor.
 
-   XenServer or KVM:
-   '''''''''''''''''
+   **XenServer or KVM:**
 
    SSH in by using the link local IP address of the system VM. For
    example, in the command below, substitute your own path to the
@@ -4037,19 +3883,18 @@ and reloading the UI page.
    Run the following commands on the XenServer or KVM host on which the
    system VM is present:
 
-   .. code:: programlisting
+   .. code:: bash
 
        # ssh -i private-key-path link-local-ip -p 3922
                                # cat /etc/cloudstack-release
 
    The output should be like the following:
 
-   .. code:: programlisting
+   .. code:: bash
 
        Cloudstack Release 4.0.0-incubating Mon Oct 9 15:10:04 PST 2012
 
-   ESXi
-   ''''
+   **ESXi:**
 
    SSH in using the private IP address of the system VM. For example, in
    the command below, substitute your own path to the private key used
@@ -4057,14 +3902,14 @@ and reloading the UI page.
 
    Run the following commands on the Management Server:
 
-   .. code:: programlisting
+   .. code:: bash
 
        # ssh -i private-key-path private-ip -p 3922
                                # cat /etc/cloudstack-release
 
    The output should be like the following:
 
-   .. code:: programlisting
+   .. code:: bash
 
        Cloudstack Release 4.0.0-incubating Mon Oct 9 15:10:04 PST 2012
 
@@ -4102,7 +3947,7 @@ and reloading the UI page.
 
       To clean up the VLAN, log in to one XenServer host and run:
 
-      .. code:: programlisting
+      .. code:: bash
 
           /opt/xensource/bin/cloud-clean-vlan.sh
 
@@ -4111,7 +3956,7 @@ and reloading the UI page.
       Prepare the upgrade by running the following on one XenServer
       host:
 
-      .. code:: programlisting
+      .. code:: bash
 
           /opt/xensource/bin/cloud-prepare-upgrade.sh
 
@@ -4127,44 +3972,32 @@ and reloading the UI page.
 
       On the Xen pool master, upload the hotfix with this command:
 
-      .. code:: programlisting
+      .. code:: bash
 
           xe patch-upload file-name=XS602E003.xsupdate
 
       Make a note of the output from this command, which is a UUID for
       the hotfix file. You'll need it in another step later.
 
-      Note
-      ----
-
-      (Optional) If you are applying other hotfixes as well, you can
-      repeat the commands in this section with the appropriate hotfix
-      number. For example, XS602E004.xsupdate.
+      .. note:: (Optional) If you are applying other hotfixes as well, you can repeat the commands in this section with the appropriate hotfix number. For example, XS602E004.xsupdate.
 
    #. 
 
       Manually live migrate all VMs on this host to another host. First,
       get a list of the VMs on this host:
 
-      .. code:: programlisting
+      .. code:: bash
 
           # xe vm-list
 
       Then use this command to migrate each VM. Replace the example host
       name and VM name with your own:
 
-      .. code:: programlisting
+      .. code:: bash
 
           # xe vm-migrate live=true host=host-name vm=VM-name
 
-      Troubleshooting
-      ---------------
-
-      If you see a message like "You attempted an operation on a VM
-      which requires PV drivers to be installed but the drivers were not
-      detected," run:
-
-      ``/opt/xensource/bin/make_migratable.sh b6cf79c8-02ee-050b-922f-49583d9f1a14``.
+      .. note:: **Troubleshooting:** If you see a message like "You attempted an operation on a VM which requires PV drivers to be installed but the drivers were not detected," run: ``/opt/xensource/bin/make_migratable.sh b6cf79c8-02ee-050b-922f-49583d9f1a14``.
 
    #. 
 
@@ -4246,190 +4079,104 @@ and reloading the UI page.
 
       ``/opt/xensource/bin/setupxenserver.sh``
 
-      Note
-      ----
-
-      If the message "mv: cannot stat \`/etc/cron.daily/logrotate': No
-      such file or directory" appears, you can safely ignore it.
+      .. note:: If the message "mv: cannot stat \`/etc/cron.daily/logrotate': No such file or directory" appears, you can safely ignore it.
 
    #. 
 
       Run the following:
 
-      ``for pbd in `xe pbd-list currently-attached=false| grep ^uuid | awk '{print $NF}'`; do xe pbd-plug uuid=$pbd ; ``
+      .. code:: bash
+
+        ``for pbd in `xe pbd-list currently-attached=false| grep ^uuid | awk '{print $NF}'`; do xe pbd-plug uuid=$pbd ; ``
 
    #. 
 
       On each slave host in the Xen pool, repeat these steps, starting
       from "manually live migrate VMs."
 
-`5.1. Hyper-V <#hyperv-api>`__
+API Changes Introduced in 4.3
+=============================
 
-`5.2. Reporting CPU Sockets <#socket-api>`__
-
-`5.3. Publishing Alerts Using the Web ROOT Admin API <#alert-api>`__
-
-`5.4. Dynamic Compute Offering <#dynamic-compute>`__
-
-`5.5. Enhanced Upgrade for Virtual Routers <#vr-api>`__
-
-5.1. Hyper-V
+Hyper-V
 ------------
 
-API
-
-Description
-
-addPrimaryStorage
-
-To this existing API, the following field has been added: smb
-
-addImageStore
-
-To this existing API, the following field has been added: smb
-
-5.2. Reporting CPU Sockets
---------------------------
-
-API
-
-Description
-
-listhost
-
-To this existing API, the following request parameter has been added:
-hypervisor.
-
-The new response parameter added is: cpusockets
-
-5.3. Publishing Alerts Using the Web ROOT Admin API
----------------------------------------------------
-
-API
-
-Description
-
-generateAlert
-
-A new API has been added to generate and publish alerts for usage
-services. The usage services can be installed on a different host or the
-same host where the Management Server is running. This API is available
-only to the Root Admin.
-
-listAlerts
-
-To this existing API, a new response parameter has been added: name. An
-alert can be searched on the basis of alert name.
-
-5.4. Dynamic Compute Offering
------------------------------
-
-API
-
-Description
-
-DeployVM
-
-To this existing API, the following request parameter has been added:
-details.
-
-ScaleVM
-
-To this existing API, the following request parameter has been added:
-details.
-
-ScaleSystemVM
-
-To this existing API, the following request parameter has been added:
-details.
-
-UpgradeVM
-
-To this existing API, the following request parameter has been added:
-details.
-
-UpgradeSysytemVM
-
-To this existing API, the following request parameter has been added:
-details.
-
-5.5. Enhanced Upgrade for Virtual Routers
------------------------------------------
-
-API
-
-Description
-
-upgradeRouterTemplate
-
-This is a new API which has been added in this release.
-
-The following are the request parameters:
-
--  
-
-   id: Upgrade the specified VR
-
--  
-
-   zone\_id : Upgrade the VRs in the specified zone.
-
--  
-
-   pod\_id : Upgrade the VRs in the specified pod.
-
--  
-
-   cluster\_id : Upgrade the VRs in the specified cluster.
-
--  
-
-   domain\_id : Upgrade the VRs belonging to the specified domain.
-
--  
-
-   account\_id : Upgrade the VRs belonging to the specified account.
-
-listRouters
-
-For this existing API, the following request parameters has been added:
-
--  
-
-   version: Lists routers by specified version.
-
--  
-
-   zone\_id : lists routers in specified zone.
-
--  
-
-   pod\_id : Lists routers in the specified pod.
-
--  
-
-   cluster\_id : Lists routers in the specified cluster.
-
--  
-
-   domain\_id : Lists routers owned by specified domain.
-
--  
-
-   account: Lists routers owned by specified account.
-
-The following response parameters has been added:
-
--  
-
-   version : (String) The router version. For example, 4.3.0.
-
--  
-
-   requiresupgrade: (Boolean) The flag to indicate if the router
-   template requires an upgrade.
-
-.. |Product Site| image:: Common_Content/images//image_left.png
-   :target: http://cloudstack.org
-.. |Documentation Site| image:: Common_Content/images//image_right.png
-   :target: http://docs.cloudstack.org
+=================  =============================================================
+API                Description
+=================  =============================================================
+addPrimaryStorage  To this existing API, the following field has been added: smb
+addImageStore      To this existing API, the following field has been added: smb
+=================  =============================================================
+
+Reporting CPU Sockets
+---------------------
+
+========  ================================================================================
+API       Description
+========  ================================================================================
+listhost  To this existing API, the following request parameter has been added: hypervisor. The new response parameter added is: cpusockets
+========  ================================================================================
+
+Publishing Alerts Using the Web ROOT Admin API
+----------------------------------------------
+
+=============  ===============================================================================================================
+API            Description
+=============  ===============================================================================================================
+generateAlert  A new API has been added to generate and publish alerts for usage services. 
+               The usage services can be installed on a different host or the same host where the Management Server is running.           This API is available only to the Root Admin.
+listAlerts     To this existing API, a new response parameter has been added: name. An alert can be searched on the basis of alert name.
+=============  ===============================================================================================================
+
+Dynamic Compute Offering
+------------------------
+
+================  ==============================================================================
+API               Description
+================  ==============================================================================
+DeployVM          To this existing API, the following request parameter has been added: details.
+ScaleVM           To this existing API, the following request parameter has been added: details.
+ScaleSystemVM     To this existing API, the following request parameter has been added: details.
+UpgradeVM         To this existing API, the following request parameter has been added: details.
+UpgradeSysytemVM  To this existing API, the following request parameter has been added: details.
+================  ==============================================================================
+
+Enhanced Upgrade for Virtual Routers
+------------------------------------
+
+=====================   ===========================================================================================================================API                     Description
+=====================   ===========================================================================================================================upgradeRouterTemplate   This is a new API which has been added in this release.
+                        The following are the request parameters:
+                        -  
+                            id: Upgrade the specified VR
+						-  
+   							zone\_id : Upgrade the VRs in the specified zone.
+						-  
+   							pod\_id : Upgrade the VRs in the specified pod.
+						-  
+   							cluster\_id : Upgrade the VRs in the specified cluster.
+						-  
+   							domain\_id : Upgrade the VRs belonging to the specified domain.
+						-  
+   							account\_id : Upgrade the VRs belonging to the specified account.
+
+listRouters             For this existing API, the following request parameters has been added:
+						-  
+   							version: Lists routers by specified version.
+						-  
+   							zone\_id : lists routers in specified zone.
+						-  
+   							pod\_id : Lists routers in the specified pod.
+						-  
+   							cluster\_id : Lists routers in the specified cluster.
+						-  
+   							domain\_id : Lists routers owned by specified domain.
+						- 
+   							account: Lists routers owned by specified account.
+
+						The following response parameters has been added:
+						-  
+   							version : (String) The router version. For example, 4.3.0.
+						-  
+   							requiresupgrade: (Boolean) The flag to indicate if the router template requires an upgrade.
+
+=====================   ===========================================================================================================================
