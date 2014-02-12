@@ -910,9 +910,9 @@ working on a production system.
 
       (optional) Install GPG keys if needed:
 
-      .. code:: bash
-
-          sudo apt-get install gpg
+      .. code::
+	  
+          $sudo apt-get install gpg
 
    #. 
 
@@ -920,22 +920,22 @@ working on a production system.
 
       .. code:: bash
 
-          gpg --import KEYS
+          $gpg --import KEYS
 
       Alternatively, download the signing keys, the IDs found in the
       KEYS file, individually by using a keyserver.
 
       For example:
 
-      .. code:: bash
+      .. code::
 
-          gpg --recv-keys CC56CEA8
+          $ gpg --recv-keys CC56CEA8
 
    #. 
 
       Verify signatures and hash files:
 
-      .. code:: bash
+      .. code::
 
           #gpg --verify apache-cloudstack-4.3-src.tar.bz2.asc
           #gpg --print-md MD5 apache-cloudstack-4.3-src.tar.bz2 | diff - apache-cloudstack-4.3-src.tar.bz2.md5
@@ -957,7 +957,7 @@ working on a production system.
 
       Create two new temporary directories:
 
-      .. code:: bash
+      .. code::
 
           #mkdir /tmp/cloudstack/git
           #mkdir /tmp/cloudstack/tree
@@ -966,7 +966,7 @@ working on a production system.
 
       Check out the 4.3 branch:
 
-      .. code:: bash
+      .. code::
 
           #git clone https://git-wip-us.apache.org/repos/asf/cloudstack.git /tmp/cloudstack/git
           #cd /tmp/cloudstack/git
@@ -976,7 +976,7 @@ working on a production system.
 
       Unpack the release artifact:
 
-      .. code:: bash
+      .. code::
 
           #cd /tmp/cloudstack
           #tar xvfj apache-cloudstack-4.3-src.tar.bz2
@@ -986,7 +986,7 @@ working on a production system.
       Compare the contents of the release artifact with the contents
       pulled from the repo:
 
-      .. code:: bash
+      .. code::
 
           #diff -r /tmp/cloudstack/apache-cloudstack-4.3-src /tmp/cloudstack/tree
 
@@ -996,7 +996,7 @@ working on a production system.
 
       Verify the Code License Headers:
 
-      .. code:: bash
+      .. code::
 
           #cd /tmp/cloudstack/apache-cloudstack-4.3-src
           #mvn --projects='org.apache.cloudstack:cloudstack' org.apache.rat:apache-rat-plugin:0.8:check
@@ -1044,13 +1044,13 @@ working on a production system.
 
       This file should have one line, which contains:
 
-      .. code:: bash
+      .. code::
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
 
       We'll change it to point to the new package repository:
 
-      .. code:: bash
+      .. code::
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
 
@@ -1061,7 +1061,7 @@ working on a production system.
 
       Now update your apt package list:
 
-      .. code:: bash
+      .. code::
 
           $ sudo apt-get update
 
@@ -1071,7 +1071,7 @@ working on a production system.
       the ``cloudstack-management`` package. This will pull in any other
       dependencies you need.
 
-      .. code:: bash
+      .. code::
 
           $ sudo apt-get install cloudstack-management
 
@@ -1080,14 +1080,12 @@ working on a production system.
       You will need to manually install the ``cloudstack-agent``
       package:
 
-      .. code:: bash
+      .. code::
 
           $ sudo apt-get install cloudstack-agent
 
-      During the installation of ``cloudstack-agent``, APT will copy
-      your ``agent.properties``, ``log4j-cloud.xml``, and
-      ``environment.properties`` from ``/etc/cloud/agent`` to
-      ``/etc/cloudstack/agent``.
+      During the installation of ``cloudstack-agent``, APT will copy your ``agent.properties``, ``log4j-cloud.xml``, and
+      ``environment.properties`` from ``/etc/cloud/agent`` to ``/etc/cloudstack/agent``.
 
       When prompted whether you wish to keep your configuration, say
       Yes.
@@ -1110,9 +1108,9 @@ working on a production system.
 
       .. code:: bash
 
-          service cloudstack-agent stop
-          killall jsvc
-          service cloudstack-agent start
+          #service cloudstack-agent stop
+          #killall jsvc
+          #service cloudstack-agent start
 
 #. 
 
