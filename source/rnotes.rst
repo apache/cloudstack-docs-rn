@@ -6,719 +6,12 @@
    "License"); you may not use this file except in compliance
    with the License.  You may obtain a copy of the License at
    http://www.apache.org/licenses/LICENSE-2.0
-
    Unless required by applicable law or agreed to in writing,
    software distributed under the License is distributed on an
    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
    KIND, either express or implied.  See the License for the
    specific language governing permissions and limitations
    under the License.
-
-Welcome to the 4.3 release of CloudStack. This version is the first
-feature release of CloudStack in the 4.3.x line.
-
-This document contains information specific to this release of
-CloudStack, including upgrade instructions from prior releases, new
-features added to CloudStack, API changes, and issues fixed in the
-release. For installation instructions, please see the `Installation
-Guide <http://cloudstack.apache.org/docs/en-US/Apache_CloudStack/4.3.0/html/Installation_Guide/index.html>`__.
-For usage and administration instructions, please see the `CloudStack
-Administrator's
-Guide <http://cloudstack.apache.org/docs/en-US/Apache_CloudStack/4.3.0/html/Admin_Guide/index.html>`__.
-Developers and users who wish to work with the API will find instruction
-in the `CloudStack API Developer's
-Guide <http://cloudstack.apache.org/docs/en-US/Apache_CloudStack/4.0.1-incubating/html/API_Developers_Guide/index.html>`__.
-
-Welcome to Apache CloudStack 4.3
-================================
-
-This section describes the operating systems, browsers, and hypervisors
-that have been newly tested and certified compatible with CloudStack
-4.3. Most earlier OS and hypervisor versions are also still supported
-for use with 4.3 It might work well on other platforms, but the
-platforms listed below are the ones that are specifically tested against
-and are more likely to be able to help troubleshoot if you run into any
-issues.
-
-Compatibility Matrix
-====================
-
-Supported OS Versions for Management Server
--------------------------------------------
-
-This section lists the operating systems that are supported for running
-CloudStack Management Server. Note that specific versions of the
-operating systems are tested, so compatibility with CentOS 6.3 may not
-indicate compatibility with CentOS 6.2, 6.1 and so on.
-
--  
-
-   RHEL versions 5.5, 6.2, 6.3, and 6.4
-
--  
-
-   CentOS versions 6.3, and 6.4
-
--  
-
-   Ubuntu 12.04 LTS
-
-Supported Hypervisor Versions
------------------------------
-
-CloudStack supports three hypervisor families, XenServer with XAPI, KVM,
-and VMware with vSphere.
-
--  
-
-   Windows Server 2012 R2 (with Hyper-V Role enabled)
-
--  
-
-   Hyper-V 2012 R2
-
--  
-
-   CentOS 6.2 with KVM
-
--  
-
-   Red Hat Enterprise Linux 6.2 with KVM
-
--  
-
-   XenServer 6.0.2 (with Hotfix)
-
--  
-
-   XenServer versions 6.1 and 6.2 SPI with latest hotfixes
-
--  
-
-   VMware versions 5.0, 5.1, and 5.5
-
--  
-
-   Bare metal hosts are supported, which have no hypervisor. These hosts
-   can run the following operating systems:
-
-   -  
-
-      RHEL or CentOS, v6.2 or 6.3
-
-      .. note:: Use libvirt version 0.9.10 for CentOS 6.3
-
-   -  
-
-      Fedora 17
-
-   -  
-
-      Ubuntu 12.04
-
-For more information, see the Hypervisor Compatibility Matrix in the
-CloudStack Installation Guide.
-
-Supported External Devices
---------------------------
-
--  
-
-   Netscaler VPX and MPX versions 9.3 and 10.e
-
--  
-
-   Netscaler SDX version 9.3
-
--  
-
-   SRX (Model srx100b) versions 10.3 or higher
-
--  
-
-   F5 10.1.0 (Build 3341.1084)
-
-Supported Browsers
-------------------
-
-The CloudStack Web-based UI should be compatible with any modern
-browser, but it's possible that some browsers will not render portions
-of the UI reliably, depending on their support of Web standards. For
-best results, one of the following browsers recommended:
-
--  
-
-   Internet Explorer versions 10 and 11
-
--  
-
-   Firefox version 26 or lower
-
--  
-
-   Google Chrome version 31
-
--  
-
-   Safari 5
-
-
-About this new Release
-======================
-
-What's New in 4.3
------------------
-
-CloudStack 4.3 includes the following new features.
-
-Optional 64-Bit System VM Template Support
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-CloudStack now provides 64-bit templates for System VMs. With this
-support, you will be able to upgrade virtual routers in a zone. The
-following parameters have been introduced for the same purpose:
-
--  
-
-   XenServer: *``router.template.xen``*
-
--  
-
-   KVM: *``router.template.kvm``*
-
--  
-
-   VMware:
-
--  
-
-   Hyper-V:
-
-Hyper-V Support
-~~~~~~~~~~~~~~~
-
-CloudStack 4.3 Beta rolls out support for Hyper-V hosts. For Hyper-V,
-CloudStack supports SMB-based storage. If you want to run guest VMs on
-Hyper-V hosts, install CloudStack Agents on each Hyper-V hosts. Before
-you use Hyper-V, review the following list of supported and
-non-supported features. For detailed instruction, see Hyper-V Quick
-Start Guide. You can also see the chapter Installing Hyper-V for
-CloudStack in the CloudStack 4.3 Beta Installation Guide.
-
-Supported Functionalities
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
--  
-
-   VM Compute
-
-   -  
-
-      All the VM operations, except VM Snapshots
-
-   -  
-
-      Live Migration
-
-   -  
-
-      Service Offerings (Scale up on stopped VMs)
-
-   -  
-
-      Console access
-
-   -  
-
-      SSH key and reseting SSH key
-
-   -  
-
-      Upload and download templates, volumes, and ISO
-
-   -  
-
-      Create VMs from template and ISO
-
-   -  
-
-      Create template from volume
-
-   -  
-
-      Attach and detach VMs from ISO and password-enabled template
-
-   -  
-
-      Copy template across zone
-
--  
-
-   Storage
-
-   -  
-
-      Primary Storage (SMB and Local)
-
-   -  
-
-      Root and data volumes on Local and SMB
-
-   -  
-
-      Add, delete, attach, detach volumes (one or more volumes per VM)
-
-   -  
-
-      Single and multiple secondary storage (SMB)
-
--  
-
-   Network
-
-   -  
-
-      VLANs (Isolated and Shared)
-
-   -  
-
-      All VR services: DNS, DHCP, SourceNAT, LB, PF, Firewall,
-      StaticNAT, Userdata, and VPN
-
-   -  
-
-      External device support for both Isolated and Shared networks:
-      Netscaler, SRX, F5
-
-   -  
-
-      Multiple physical networks
-
-   -  
-
-      Dedicated IP range, Public VLANs (to account)
-
-   -  
-
-      Network Offering upgrades and updates
-
-   -  
-
-      L4-L7 services in Shared network
-
-   -  
-
-      Multiple IP ranges and portable IPs
-
--  
-
-   Host and Storage in maintenance mode
-
-Unsupported Functionalities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
--  
-
-   Affinity an Anti-Affinity Groups
-
--  
-
-   Network throttling
-
--  
-
-   Security groups (Advanced Zone)
-
--  
-
-   IPv6
-
--  
-
-   Snapshot: VM and disk
-
--  
-
-   PVLAN
-
--  
-
-   VPC
-
--  
-
-   HA of guest VMs
-
--  
-
-   Redundant VR
-
--  
-
-   Object Store
-
--  
-
-   Mixed hypervisor zone
-
--  
-
-   Zone-wide Primary storage
-
--  
-
-   NIC bonding
-
-Enhanced Upgrade for Virtual Routers
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Upgrading VRs is made flexible. The CloudStack administrators will be
-able to control the sequence of the VR upgrades. The sequencing is based
-on Infrastructure hierarchy, such as by Cluster, Pod, or Zone, and
-Administrative hierarchy, such as by Tenant or Domain. This implies, for
-example, that you will have the flexibility to upgrade a VR in a
-specified zone. As an administrator, you can also determine when a
-particular VR can be upgraded within a specified upgrade interval.
-Additionally, upgrade operation is enhanced to increase the upgrade
-speed by allowing as many upgrade operations in parallel as possible.
-During the entire duration of the upgrade, users cannot launch new
-services or make changes to an existing service.
-
-To support this feature, a new API, upgradeRouterTemplate, has been
-introduced.
-
-The detailed instruction is provided in the CloudStack 4.3 Beta
-Administration Guide. See section 17.5.5. Enhanced Upgrade for Virtual
-Routers.
-
-Service Monitoring Tool for Virtual Router
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Various services running on the CloudStack virtual routers can be
-monitored by using a Service Monitoring tool. The tool ensures that
-services are successfully running until CloudStack deliberately disables
-them. If a service goes down, the tool automatically performs a restart,
-and if that does not help bringing up the service, an alert as well as
-an event is generated indicating the failure.
-
-The following services are monitored in a VR:
-
--  
-
-   DNS
-
--  
-
-   HA Proxy
-
--  
-
-   SSH
-
--  
-
-   Apache Web Server
-
-Only the services with daemons are monitored.
-
-The following networks are supported:
-
--  
-
-   Isolated Networks
-
--  
-
-   Shared Networks in both Advanced and Basic zone
-
-This feature is supported on the following hypervisors: XenServer,
-VMware, and KVM.
-
-The detailed instruction is provided in the CloudStack 4.3 Beta
-Administration Guide. See section 17.5.4. Service Monitoring Tool for
-Virtual Router.
-
-Custom Compute Offering
-~~~~~~~~~~~~~~~~~~~~~~~
-
-CloudStack provides you the flexibility to specify the desired values
-for the number of CPU, CPU speed, and memory while deploying a VM. The
-admin creates a Compute Offering by marking it as custom, and as an
-user, you will be able to customize this dynamic Compute Offering by
-specifying the memory, CPU and root disk at the time of VM creation or
-upgrade.
-
-Custom Compute Offering is same as the normal Compute Offering except
-that the values of the dynamic parameters will be set to zeros in the
-given set of templates. Use this offering to deploy VM by specifying
-custom values for the dynamic parameters. Memory, CPU and number of CPUs
-are considered as dynamic parameters. Dynamic Compute Offerings can be
-used in following cases: deploying a VM, changing the compute offering
-of a stopped VM and running VMs, which is nothing but scaling up. To
-support this feature a new field, Custom, has been added to the Create
-Compute Offering page. If the Custom field is checked, the end-user will
-be able to create a custom Compute Offering by filling in the desired
-values for number of CPU, CPU speed, and memory.
-
-Remote Access VPN for VPC
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Support for Remote access VPN in Isolated networks is now extended to
-VPC networks. Remote users will now be able to initiate a VPN connection
-to a VPC network. To enable this feature, enable VPN in the Source NAT
-IP of the VPC.
-
-Site to Site VPN Connection Between VPC Networks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-CloudStack provides you with the ability to establish a site-to-site VPN
-connection between CloudStack virtual routers. With this functionality,
-users can deploy applications in multiple Availability Zones or VPCs,
-which can communicate with each other by using a secure Site-to-Site VPN
-Tunnel. Creating a typical Site to Site VPN connection between VPC
-networks involves the following:
-
-#. 
-
-   Create two VPCs. For example, VPC A and VPC B.
-
-#. 
-
-   Create VPN gateways on both the VPCs you created.
-
-#. 
-
-   Create VPN customer gateway for both the VPCs.
-
-#. 
-
-   Enable a VPN connection on VPC A in passive mode.
-
-   Ensure that the customer gateway is pointed to VPC B. The VPN
-   connection is shown in the Disconnected state.
-
-#. 
-
-   Enable a VPN connection on VPC B.
-
-   Ensure that the customer gateway is pointed to VPC A. Because virtual
-   router of VPC A, in this case, is in passive mode and is waiting for
-   the virtual router of VPC B to initiate the connection. The virtual
-   router of VPC B should not be in passive mode.
-
-   The VPN connection is shown in the Disconnected state.
-
-   Creating VPN connection on both the VPCs initiates a VPN connection.
-   Wait for few seconds. The default is 30 seconds for both the VPN
-   connections to show the Connected state.
-
-Reporting CPU Sockets
-~~~~~~~~~~~~~~~~~~~~~
-
-CloudStack now provides an additional infrastructure statistics for CPU
-sockets managed by CloudStack, which in turn reflects the size of the
-cloud. The Infrastructure tab has a new tab for sockets. The Socket page
-will give you the number of hosts an sockets used for each hypervisor
-type. This feature is not supported in versions prior to XenServer 6.2.
-
-Database High Availability
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To help ensure high availability of the databases that store the
-internal data for CloudStack, you can set up database replication. This
-covers both the main CloudStack database and the Usage database.
-Replication is achieved using the MySQL connector parameters and two-way
-replication. Tested with MySQL 5.1 and 5.5. Database replication in
-CloudStack is provided using the MySQL replication capabilities. The
-steps to set up replication can be found in the MySQL documentation.
-
-LDAP User Provisioning
-~~~~~~~~~~~~~~~~~~~~~~
-
-LDAP user provisioning has been enhanced by allowing user import from
-the configured LDAP servers. You will be able to add multiple LDAP
-servers and selectively import LDAP users. You can o filter by group
-name and import all the users within a group. After they have been
-imported to CloudStack, in contrast to manually adding them in previous
-releases, users are allowed to directly log in to CloudStack by using
-the LDAP credentials.
-
-Migrating NFS Secondary Storage to Object Store
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In an existing zone that is using NFS for secondary storage, you can
-upgrade the zone to use a region-wide object storage without causing
-downtime. The existing NFS storage in the zone will be converted to an
-NFS Staging Store. After migration, the data that was on the NFS storage
-remains there. CloudStack does not provide a way to automatically
-migrate all data to the new object storage. The data remaining on the
-old NFS storage will remain accessible for read and delete operations
-only. Newly created snapshots and templates will be placed in the newly
-configured object storage.
-
-VXLAN Plugin Support
-~~~~~~~~~~~~~~~~~~~~
-
-The VXLAN plugin adds VXLAN as one of the guest network isolation
-methods in CloudStack. This plugin enables more than 4096 isolated guest
-networks in a Zone, with almost the same usability as VLAN isolation.
-This plugin provides no network services. Use virtual router for network
-services. This plugin is supported on KVM hypervisors.
-
-Contrail Network Plugin Support
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The Contrail virtual network controller is an open source project that
-provides an overlay implementation of network virtualization that is
-interoperable with network devices that support existing network
-virtualization standards. Support for the Contrail plugin has been added
-to CloudStack to provide NAT services to the XenServer hosts. The plugin
-supports isolated networks, Static NAT implemented by the VRouter
-dataplane, and Source NAT implemented by using a virtual appliance with
-full NAT functionality.
-
-Publishing Alert Using the Web ROOT Admin API
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In previous releases of CloudStack code alerts are generated for
-CloudStack services (Usage service) only if they run on the same host as
-the Management Server. A new API has been introduced in 4.3, which can
-be used by the following services to generate and publish. The services
-need not be running on the same host where the Management Server is
-running.
-
--  
-
-   Any new services added to CloudStack.
-
--  
-
-   Usage service when run on a separate storage host.
-
--  
-
-   Console Proxy and Secondary Storage VM services.
-
-The main advantage of this feature is that the third party systems
-integrating with CloudStack will be able to utilize the Alert
-notification system publish alerts.
-
-Support for Palo Alto Firewall Service
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-CloudStack supports Palo Alto firewall services. Use the Create Network
-Offering dialog to create an offering which has the Palo Alto firewall
-services. What is not supported and not supported are given below:
-
-Supported Functionalities
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
--  
-
-   Advanced Network
-
--  
-
-   Parallel deployment with hardware Load balancer
-
--  
-
-   Virtual Palo Alto firewall.
-
--  
-
-   Communication layer with Palo Alto APIs.
-
--  
-
-   Mapping of CloudStack APIs to corresponding Palo Alto APIs.
-
--  
-
-   Connectivity status of the firewall service on the CloudStack UI.
-
-Unsupported Functionalities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
--  
-
-   Inline deployment with hardware Load balancer
-
--  
-
-   Firewall between VLANs within an advanced network
-
--  
-
-   Firewall between VM instances
-
-For more information, see `Palo Alto Firewall
-Integration <https://cwiki.apache.org/confluence/display/CLOUDSTACK/Palo+Alto+Firewall+Integration>`__.
-
-Root Volume Metering
-~~~~~~~~~~~~~~~~~~~~
-
-CloudStack supports recording usage events as per the dynamically
-assigned resources. Usage events are registered when a VM is created
-from dynamic service offering, and the values of parameters, such as
-CPU, speed, RAM are recorded. If VM is deployed by using template and
-dynamic root disk size is mentioned, the same value is recorded in the
-usage event.
-
-Support for SSL Termination
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-SSL Offloading allows load balancers to handle encryption and decryption
-of HTTP(s) traffic giving plain text HTTP to the back end servers
-freeing them from the resource intensive task of handling encryption and
-decryption. Supported for Citrix NetScaler.
-
-Support for Pluggable VM Snapshots
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-CloudStack implements a plugin to integrate a third-party storage
-provider. Third party storage providers can integrate with CloudStack to
-provide either primary storage or secondary storage. The user enables a
-storage plugin through the UI. A new dialog box choice is offered to
-select the storage provider. Depending on which provider is selected,
-additional input fields may appear so that the user can provide the
-additional details required by that provider, such as a user name and
-password for a third-party storage account.
-
-Enhanced CloudStack UI
-~~~~~~~~~~~~~~~~~~~~~~
-
-A complete UI makeover is implemented to enhance the usability and user
-experience in modern browsers. The visual look-and-feel has been changed
-for the Header, Navigation, Buttons, text fields, drop-downs, tables and
-so on. Consistent color themes has been introduced to match with the
-Apache branding.
-
-The current UI flow remains the same.
-
-Issues Fixed in 4.3.0
----------------------
-
-Apache CloudStack uses
-`Jira <https://issues.apache.org/jira/browse/CLOUDSTACK>`__ to track its
-issues. All new features and bugs for 4.3 have been tracked in Jira, and
-have a standard naming convention of "CLOUDSTACK-NNNN" where "NNNN" is
-the issue number.
-
-For the list of issues fixed, see `Issues Fixed in
-4.3 <https://issues.apache.org/jira/issues/?filter=12326161>`__.
-
-Known Issues in 4.3.0
----------------------
-
-Apache CloudStack uses
-`Jira <https://issues.apache.org/jira/browse/CLOUDSTACK>`__ to track its
-issues. All new features and bugs for 4.3 have been tracked in Jira, and
-have a standard naming convention of "CLOUDSTACK-NNNN" where "NNNN" is
-the issue number.
-
-For the list of known issues, see `Known Issues in
-4.3 <https://issues.apache.org/jira/issues/?filter=12326162>`__.
 
 
 Upgrade Instructions for 4.3
@@ -772,86 +65,89 @@ working on a production system.
       In the Register template dialog box, specify the following values
       (do not change these):
 
-      Hypervisor
-
-      Description
-
-      XenServer
-
-      Name: systemvm-xenserver-4.2
-
-      Description: systemvm-xenserver-4.2
-
-      URL:http://download.cloud.com/templates/4.2/systemvmtemplate-2013-07-12-master-xen.vhd.bz2
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: XenServer
-
-      Format: VHD
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
-
-      KVM
-
-      Name: systemvm-kvm-4.2
-
-      Description: systemvm-kvm-4.2
-
-      URL:
-      http://download.cloud.com/templates/4.2/systemvmtemplate-2013-06-12-master-kvm.qcow2.bz2
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: KVM
-
-      Format: QCOW2
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
-
-      VMware
-
-      Name: systemvm-vmware-4.2
-
-      Description: systemvm-vmware-4.2
-
-      URL:
-      http://download.cloud.com/templates/4.2/systemvmtemplate-4.2-vh7.ova
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: VMware
-
-      Format: OVA
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
+       +-------------------------+-------------------------------------------------+
+       | Hypervisor              | Description                                     |
+       +=========================+=================================================+
+       | XenServer               | Name: systemvm-xenserver-4.2                    |
+       |                         |                                                 |
+       |                         | Description: systemvm-xenserver-4.2             |
+       |                         |                                                 |
+       |                         | URL:http://download.cloud.com/templates/4.2/sys |
+       |                         | temvmtemplate-2013-07-12-master-xen.vhd.bz2     |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: XenServer                           |
+       |                         |                                                 |
+       |                         | Format: VHD                                     |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
+       | KVM                     | Name: systemvm-kvm-4.2                          |
+       |                         |                                                 |
+       |                         | Description: systemvm-kvm-4.2                   |
+       |                         |                                                 |
+       |                         | URL:                                            |
+       |                         | http://download.cloud.com/templates/4.2/systemv |
+       |                         | mtemplate-2013-06-12-master-kvm.qcow2.bz2       |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: KVM                                 |
+       |                         |                                                 |
+       |                         | Format: QCOW2                                   |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
+       | VMware                  | Name: systemvm-vmware-4.2                       |
+       |                         |                                                 |
+       |                         | Description: systemvm-vmware-4.2                |
+       |                         |                                                 |
+       |                         | URL:                                            |
+       |                         | http://download.cloud.com/templates/4.2/systemv |
+       |                         | mtemplate-4.2-vh7.ova                           |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: VMware                              |
+       |                         |                                                 |
+       |                         | Format: OVA                                     |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
 
 #. 
 
@@ -1357,7 +653,9 @@ working on a production system.
        Stopping and starting 4 running routing vm(s)...
        Done restarting router(s).
 
-#. .. note:: **For Xen Hosts: Copy vhd-utils:** This step is only for CloudStack installs that are using Xen hosts.
+#. 
+
+   .. note:: **For Xen Hosts: Copy vhd-utils:** This step is only for CloudStack installs that are using Xen hosts.
 
    Copy the file ``vhd-utils`` to
    ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
@@ -1408,86 +706,90 @@ working on a production system.
       In the Register template dialog box, specify the following values
       (do not change these):
 
-      Hypervisor
+       +-------------------------+-------------------------------------------------+
+       | Hypervisor              | Description                                     |
+       +=========================+=================================================+
+       | XenServer               | Name: systemvm-xenserver-4.3                    |
+       |                         |                                                 |
+       |                         | Description: systemvm-xenserver-4.3             |
+       |                         |                                                 |
+       |                         | URL:http://download.cloud.com/templates/4.3/sys |
+       |                         | temvmtemplate-2014-07-12-master-xen.vhd.bz2     |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: XenServer                           |
+       |                         |                                                 |
+       |                         | Format: VHD                                     |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
+       | KVM                     | Name: systemvm-kvm-4.3                          |
+       |                         |                                                 |
+       |                         | Description: systemvm-kvm-4.3                   |
+       |                         |                                                 |
+       |                         | URL:                                            |
+       |                         | http://download.cloud.com/templates/4.3/systemv |
+       |                         | mtemplate-2014-06-12-master-kvm.qcow2.bz2       |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: KVM                                 |
+       |                         |                                                 |
+       |                         | Format: QCOW2                                   |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
+       | VMware                  | Name: systemvm-vmware-4.3                       |
+       |                         |                                                 |
+       |                         | Description: systemvm-vmware-4.3                |
+       |                         |                                                 |
+       |                         | URL:                                            |
+       |                         | http://download.cloud.com/templates/4.3/systemv |
+       |                         | mtemplate-4.3-vh7.ova                           |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: VMware                              |
+       |                         |                                                 |
+       |                         | Format: OVA                                     |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
 
-      Description
-
-      XenServer
-
-      Name: systemvm-xenserver-4.3
-
-      Description: systemvm-xenserver-4.3
-
-      URL:http://download.cloud.com/templates/4.3/systemvmtemplate-2014-07-12-master-xen.vhd.bz2
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: XenServer
-
-      Format: VHD
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
-
-      KVM
-
-      Name: systemvm-kvm-4.3
-
-      Description: systemvm-kvm-4.3
-
-      URL:
-      http://download.cloud.com/templates/4.3/systemvmtemplate-2014-06-12-master-kvm.qcow2.bz2
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: KVM
-
-      Format: QCOW2
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
-
-      VMware
-
-      Name: systemvm-vmware-4.3
-
-      Description: systemvm-vmware-4.3
-
-      URL:
-      http://download.cloud.com/templates/4.3/systemvmtemplate-4.3-vh7.ova
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: VMware
-
-      Format: OVA
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
 
 #. 
 
@@ -1554,7 +856,9 @@ working on a production system.
    If you are using Ubuntu, follow this procedure to upgrade your
    packages. If not, skip to step `11 <#upgrade-rpm-packages-41to42>`__.
 
-   .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and APT repository, substitute your own URL for the ones used in these examples.
+   .. note::
+   
+      **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and APT repository, substitute your own URL for the ones used in these examples.
 
    #. 
 
@@ -1767,7 +1071,9 @@ working on a production system.
    your packages. If not, skip to step
    `13 <#restart-system-vms-41to42>`__.
 
-   .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and yum repository, substitute your own URL for the ones used in these examples.
+   .. note:: 
+   
+      **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and yum repository, substitute your own URL for the ones used in these examples.
 
    #. 
 
@@ -1884,7 +1190,11 @@ working on a production system.
        Stopping and starting 4 running routing vm(s)...
        Done restarting router(s).
 
-#. .. note:: **For Xen Hosts: Copy vhd-utils:** This step is only for CloudStack installs that are using Xen hosts.
+#.
+
+   .. note::
+   
+      **For Xen Hosts: Copy vhd-utils:** This step is only for CloudStack installs that are using Xen hosts.
 
    Copy the file ``vhd-utils`` to
    ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
@@ -1946,86 +1256,89 @@ working on a production system.
       In the Register template dialog box, specify the following values
       (do not change these):
 
-      Hypervisor
-
-      Description
-
-      XenServer
-
-      Name: systemvm-xenserver-4.3
-
-      Description: systemvm-xenserver-4.3
-
-      URL:http://download.cloud.com/templates/4.3/systemvmtemplate-2013-07-12-master-xen.vhd.bz2
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: XenServer
-
-      Format: VHD
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
-
-      KVM
-
-      Name: systemvm-kvm-4.3
-
-      Description: systemvm-kvm-4.3
-
-      URL:
-      http://download.cloud.com/templates/4.3/systemvmtemplate-2013-06-12-master-kvm.qcow2.bz2
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: KVM
-
-      Format: QCOW2
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
-
-      VMware
-
-      Name: systemvm-vmware-4.3
-
-      Description: systemvm-vmware-4.3
-
-      URL:
-      http://download.cloud.com/templates/4.3/systemvmtemplate-4.2-vh7.ova
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: VMware
-
-      Format: OVA
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
+       +-------------------------+-------------------------------------------------+
+       | Hypervisor              | Description                                     |
+       +=========================+=================================================+
+       | XenServer               | Name: systemvm-xenserver-4.3                    |
+       |                         |                                                 |
+       |                         | Description: systemvm-xenserver-4.3             |
+       |                         |                                                 |
+       |                         | URL:http://download.cloud.com/templates/4.3/sys |
+       |                         | temvmtemplate-2013-07-12-master-xen.vhd.bz2     |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: XenServer                           |
+       |                         |                                                 |
+       |                         | Format: VHD                                     |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
+       | KVM                     | Name: systemvm-kvm-4.3                          |
+       |                         |                                                 |
+       |                         | Description: systemvm-kvm-4.3                   |
+       |                         |                                                 |
+       |                         | URL:                                            |
+       |                         | http://download.cloud.com/templates/4.3/systemv |
+       |                         | mtemplate-2013-06-12-master-kvm.qcow2.bz2       |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: KVM                                 |
+       |                         |                                                 |
+       |                         | Format: QCOW2                                   |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
+       | VMware                  | Name: systemvm-vmware-4.3                       |
+       |                         |                                                 |
+       |                         | Description: systemvm-vmware-4.3                |
+       |                         |                                                 |
+       |                         | URL:                                            |
+       |                         | http://download.cloud.com/templates/4.3/systemv |
+       |                         | mtemplate-4.2-vh7.ova                           |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: VMware                              |
+       |                         |                                                 |
+       |                         | Format: OVA                                     |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
 
 #. 
 
@@ -2365,87 +1678,90 @@ with a note.
       In the Register template dialog box, specify the following values
       (do not change these):
 
-      Hypervisor
-
-      Description
-
-      XenServer
-
-      Name: systemvm-xenserver-4.2
-
-      Description: systemvm-xenserver-4.2
-
-      URL:http://download.cloud.com/templates/4.2/systemvmtemplate-2013-07-12-master-xen.vhd.bz2
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: XenServer
-
-      Format: VHD
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
-
-      KVM
-
-      Name: systemvm-kvm-4.2
-
-      Description: systemvm-kvm-4.2
-
-      URL:
-      http://download.cloud.com/templates/4.2/systemvmtemplate-2013-06-12-master-kvm.qcow2.bz2
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: KVM
-
-      Format: QCOW2
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
-
-      VMware
-
-      Name: systemvm-vmware-4.2
-
-      Description: systemvm-vmware-4.2
-
-      URL:
-      http://download.cloud.com/templates/4.2/systemvmtemplate-4.2-vh7.ova
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: VMware
-
-      Format: OVA
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
-
+       +-------------------------+-------------------------------------------------+
+       | Hypervisor              | Description                                     |
+       +=========================+=================================================+
+       | XenServer               | Name: systemvm-xenserver-4.2                    |
+       |                         |                                                 |
+       |                         | Description: systemvm-xenserver-4.2             |
+       |                         |                                                 |
+       |                         | URL:http://download.cloud.com/templates/4.2/sys |
+       |                         | temvmtemplate-2013-07-12-master-xen.vhd.bz2     |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: XenServer                           |
+       |                         |                                                 |
+       |                         | Format: VHD                                     |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
+       | KVM                     | Name: systemvm-kvm-4.2                          |
+       |                         |                                                 |
+       |                         | Description: systemvm-kvm-4.2                   |
+       |                         |                                                 |
+       |                         | URL:                                            |
+       |                         | http://download.cloud.com/templates/4.2/systemv |
+       |                         | mtemplate-2013-06-12-master-kvm.qcow2.bz2       |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: KVM                                 |
+       |                         |                                                 |
+       |                         | Format: QCOW2                                   |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
+       | VMware                  | Name: systemvm-vmware-4.2                       |
+       |                         |                                                 |
+       |                         | Description: systemvm-vmware-4.2                |
+       |                         |                                                 |
+       |                         | URL:                                            |
+       |                         | http://download.cloud.com/templates/4.2/systemv |
+       |                         | mtemplate-4.2-vh7.ova                           |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: VMware                              |
+       |                         |                                                 |
+       |                         | Format: OVA                                     |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
+	   
    #. 
 
       Watch the screen to be sure that the template downloads
@@ -3044,21 +2360,26 @@ with a note.
       Copy the following files from the CloudStack Management Server to
       the host.
 
-      Copy from here...
 
-      ...to here
+       +-------------------------+-------------------------------------------------+
+       | Copy from here...       | ...to here                                      |
+       +=========================+=================================================+
+       | /usr/lib64/cloud/common | /opt/xensource/sm/NFSSR.py                      |
+       | /scripts/vm/hypervisor/ |                                                 |
+       | xenserver/xenserver60/N |                                                 |
+       | FSSR.py                 |                                                 |
+       +-------------------------+-------------------------------------------------+
+       | /usr/lib64/cloud/common | /opt/xensource/bin/setupxenserver.sh            |
+       | /scripts/vm/hypervisor/ |                                                 |
+       | xenserver/setupxenserve |                                                 |
+       | r.sh                    |                                                 |
+       +-------------------------+-------------------------------------------------+
+       | /usr/lib64/cloud/common | /opt/xensource/bin/make\_migratable.sh          |
+       | /scripts/vm/hypervisor/ |                                                 |
+       | xenserver/make\_migrata |                                                 |
+       | ble.sh                  |                                                 |
+       +-------------------------+-------------------------------------------------+
 
-      /usr/lib64/cloud/common/scripts/vm/hypervisor/xenserver/xenserver60/NFSSR.py
-
-      /opt/xensource/sm/NFSSR.py
-
-      /usr/lib64/cloud/common/scripts/vm/hypervisor/xenserver/setupxenserver.sh
-
-      /opt/xensource/bin/setupxenserver.sh
-
-      /usr/lib64/cloud/common/scripts/vm/hypervisor/xenserver/make\_migratable.sh
-
-      /opt/xensource/bin/make\_migratable.sh
 
    #. 
 
@@ -3184,86 +2505,90 @@ Upgrade from 2.2.14 to 4.3
       In the Register template dialog box, specify the following values
       depending on the hypervisor type (do not change these):
 
-      Hypervisor
+       +-------------------------+-------------------------------------------------+
+       | Hypervisor              | Description                                     |
+       +=========================+=================================================+
+       | XenServer               | Name: systemvm-xenserver-4.3                    |
+       |                         |                                                 |
+       |                         | Description: systemvm-xenserver-4.3             |
+       |                         |                                                 |
+       |                         | URL:http://download.cloud.com/templates/4.3/sys |
+       |                         | temvmtemplate-2013-07-12-master-xen.vhd.bz2     |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: XenServer                           |
+       |                         |                                                 |
+       |                         | Format: VHD                                     |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
+       | KVM                     | Name: systemvm-kvm-4.3                          |
+       |                         |                                                 |
+       |                         | Description: systemvm-kvm-4.3                   |
+       |                         |                                                 |
+       |                         | URL:                                            |
+       |                         | http://download.cloud.com/templates/4.3/systemv |
+       |                         | mtemplate-2013-06-12-master-kvm.qcow2.bz2       |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: KVM                                 |
+       |                         |                                                 |
+       |                         | Format: QCOW2                                   |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
+       | VMware                  | Name: systemvm-vmware-4.3                       |
+       |                         |                                                 |
+       |                         | Description: systemvm-vmware-4.3                |
+       |                         |                                                 |
+       |                         | URL:                                            |
+       |                         | http://download.cloud.com/templates/4.3/systemv |
+       |                         | mtemplate-4.2-vh7.ova                           |
+       |                         |                                                 |
+       |                         | Zone: Choose the zone where this hypervisor is  |
+       |                         | used                                            |
+       |                         |                                                 |
+       |                         | Hypervisor: VMware                              |
+       |                         |                                                 |
+       |                         | Format: OVA                                     |
+       |                         |                                                 |
+       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | highest Debian release number available in the  |
+       |                         | dropdown)                                       |
+       |                         |                                                 |
+       |                         | Extractable: no                                 |
+       |                         |                                                 |
+       |                         | Password Enabled: no                            |
+       |                         |                                                 |
+       |                         | Public: no                                      |
+       |                         |                                                 |
+       |                         | Featured: no                                    |
+       +-------------------------+-------------------------------------------------+
 
-      Description
-
-      XenServer
-
-      Name: systemvm-xenserver-4.3
-
-      Description: systemvm-xenserver-4.3
-
-      URL:http://download.cloud.com/templates/4.3/systemvmtemplate-2013-07-12-master-xen.vhd.bz2
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: XenServer
-
-      Format: VHD
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
-
-      KVM
-
-      Name: systemvm-kvm-4.3
-
-      Description: systemvm-kvm-4.3
-
-      URL:
-      http://download.cloud.com/templates/4.3/systemvmtemplate-2013-06-12-master-kvm.qcow2.bz2
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: KVM
-
-      Format: QCOW2
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
-
-      VMware
-
-      Name: systemvm-vmware-4.3
-
-      Description: systemvm-vmware-4.3
-
-      URL:
-      http://download.cloud.com/templates/4.3/systemvmtemplate-4.2-vh7.ova
-
-      Zone: Choose the zone where this hypervisor is used
-
-      Hypervisor: VMware
-
-      Format: OVA
-
-      OS Type: Debian GNU/Linux 7.0 (32-bit) (or the highest Debian
-      release number available in the dropdown)
-
-      Extractable: no
-
-      Password Enabled: no
-
-      Public: no
-
-      Featured: no
 
 #. 
 
@@ -4016,21 +3341,24 @@ Upgrade from 2.2.14 to 4.3
       Copy the following files from the CloudStack Management Server to
       the host.
 
-      Copy from here...
-
-      ...to here
-
-      ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver/xenserver60/NFSSR.py``
-
-      ``/opt/xensource/sm/NFSSR.py``
-
-      ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver/setupxenserver.sh``
-
-      ``/opt/xensource/bin/setupxenserver.sh``
-
-      ``/usr/lib64/cloudstack-common/scripts/vm/hypervisor/xenserver/make_migratable.sh``
-
-      ``/opt/xensource/bin/make_migratable.sh``
+       +-------------------------+-------------------------------------------------+
+       | Copy from here...       | ...to here                                      |
+       +=========================+=================================================+
+       | ``/usr/share/cloudstack | ``/opt/xensource/sm/NFSSR.py``                  |
+       | -common/scripts/vm/hype |                                                 |
+       | rvisor/xenserver/xenser |                                                 |
+       | ver60/NFSSR.py``        |                                                 |
+       +-------------------------+-------------------------------------------------+
+       | ``/usr/share/cloudstack | ``/opt/xensource/bin/setupxenserver.sh``        |
+       | -common/scripts/vm/hype |                                                 |
+       | rvisor/xenserver/setupx |                                                 |
+       | enserver.sh``           |                                                 |
+       +-------------------------+-------------------------------------------------+
+       | ``/usr/lib64/cloudstack | ``/opt/xensource/bin/make_migratable.sh``       |
+       | -common/scripts/vm/hype |                                                 |
+       | rvisor/xenserver/make_m |                                                 |
+       | igratable.sh``          |                                                 |
+       +-------------------------+-------------------------------------------------+
 
    #. 
 
@@ -4091,90 +3419,3 @@ Upgrade from 2.2.14 to 4.3
 
       On each slave host in the Xen pool, repeat these steps, starting
       from "manually live migrate VMs."
-
-API Changes Introduced in 4.3
-=============================
-
-Hyper-V
-------------
-
-=================  =============================================================
-API                Description
-=================  =============================================================
-addPrimaryStorage  To this existing API, the following field has been added: smb
-addImageStore      To this existing API, the following field has been added: smb
-=================  =============================================================
-
-Reporting CPU Sockets
----------------------
-
-========  ================================================================================
-API       Description
-========  ================================================================================
-listhost  To this existing API, the following request parameter has been added: hypervisor. The new response parameter added is: cpusockets
-========  ================================================================================
-
-Publishing Alerts Using the Web ROOT Admin API
-----------------------------------------------
-
-=============  ===============================================================================================================
-API            Description
-=============  ===============================================================================================================
-generateAlert  A new API has been added to generate and publish alerts for usage services. 
-               The usage services can be installed on a different host or the same host where the Management Server is running.           This API is available only to the Root Admin.
-listAlerts     To this existing API, a new response parameter has been added: name. An alert can be searched on the basis of alert name.
-=============  ===============================================================================================================
-
-Dynamic Compute Offering
-------------------------
-
-================  ==============================================================================
-API               Description
-================  ==============================================================================
-DeployVM          To this existing API, the following request parameter has been added: details.
-ScaleVM           To this existing API, the following request parameter has been added: details.
-ScaleSystemVM     To this existing API, the following request parameter has been added: details.
-UpgradeVM         To this existing API, the following request parameter has been added: details.
-UpgradeSysytemVM  To this existing API, the following request parameter has been added: details.
-================  ==============================================================================
-
-Enhanced Upgrade for Virtual Routers
-------------------------------------
-
-=====================   ===========================================================================================================================API                     Description
-=====================   ===========================================================================================================================upgradeRouterTemplate   This is a new API which has been added in this release.
-                        The following are the request parameters:
-                        -  
-                            id: Upgrade the specified VR
-						-  
-   							zone\_id : Upgrade the VRs in the specified zone.
-						-  
-   							pod\_id : Upgrade the VRs in the specified pod.
-						-  
-   							cluster\_id : Upgrade the VRs in the specified cluster.
-						-  
-   							domain\_id : Upgrade the VRs belonging to the specified domain.
-						-  
-   							account\_id : Upgrade the VRs belonging to the specified account.
-
-listRouters             For this existing API, the following request parameters has been added:
-						-  
-   							version: Lists routers by specified version.
-						-  
-   							zone\_id : lists routers in specified zone.
-						-  
-   							pod\_id : Lists routers in the specified pod.
-						-  
-   							cluster\_id : Lists routers in the specified cluster.
-						-  
-   							domain\_id : Lists routers owned by specified domain.
-						- 
-   							account: Lists routers owned by specified account.
-
-						The following response parameters has been added:
-						-  
-   							version : (String) The router version. For example, 4.3.0.
-						-  
-   							requiresupgrade: (Boolean) The flag to indicate if the router template requires an upgrade.
-
-=====================   ===========================================================================================================================
