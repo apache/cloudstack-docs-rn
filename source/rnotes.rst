@@ -174,7 +174,7 @@ working on a production system.
    Stop your management server or servers. Run this on all management
    server hosts:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloudstack-management stop
 
@@ -183,7 +183,7 @@ working on a production system.
    If you are running a usage server or usage servers, stop those as
    well:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloudstack-usage stop
 
@@ -194,7 +194,7 @@ working on a production system.
    restoring your existing environment. You'll be prompted for your
    password.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # mysqldump -u root -p cloud > cloudstack-backup.sql
 
@@ -206,15 +206,15 @@ working on a production system.
 
       (optional) Install GPG keys if needed:
 
-      ::
-	  
+   .. sourcecode:: bash
+   	  
           $sudo apt-get install gpg
 
    #. 
 
       Import the GPG keys stored in the source distribution's KEYS file
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $gpg --import KEYS
 
@@ -223,7 +223,7 @@ working on a production system.
 
       For example:
 
-      .. code::
+      .. sourcecode:: bash
 
           $ gpg --recv-keys CC56CEA8
 
@@ -231,7 +231,7 @@ working on a production system.
 
       Verify signatures and hash files:
 
-      .. code::
+      .. sourcecode:: bash
 
           #gpg --verify apache-cloudstack-4.3-src.tar.bz2.asc
           #gpg --print-md MD5 apache-cloudstack-4.3-src.tar.bz2 | diff - apache-cloudstack-4.3-src.tar.bz2.md5
@@ -253,7 +253,7 @@ working on a production system.
 
       Create two new temporary directories:
 
-      .. code::
+      .. sourcecode:: bash
 
           #mkdir /tmp/cloudstack/git
           #mkdir /tmp/cloudstack/tree
@@ -262,7 +262,7 @@ working on a production system.
 
       Check out the 4.3 branch:
 
-      .. code::
+      .. sourcecode:: bash
 
           #git clone https://git-wip-us.apache.org/repos/asf/cloudstack.git /tmp/cloudstack/git
           #cd /tmp/cloudstack/git
@@ -272,7 +272,7 @@ working on a production system.
 
       Unpack the release artifact:
 
-      .. code::
+      .. sourcecode:: bash
 
           #cd /tmp/cloudstack
           #tar xvfj apache-cloudstack-4.3-src.tar.bz2
@@ -282,7 +282,7 @@ working on a production system.
       Compare the contents of the release artifact with the contents
       pulled from the repo:
 
-      .. code::
+      .. sourcecode:: bash
 
           #diff -r /tmp/cloudstack/apache-cloudstack-4.3-src /tmp/cloudstack/tree
 
@@ -292,7 +292,7 @@ working on a production system.
 
       Verify the Code License Headers:
 
-      .. code::
+      .. sourcecode:: bash
 
           #cd /tmp/cloudstack/apache-cloudstack-4.3-src
           #mvn --projects='org.apache.cloudstack:cloudstack' org.apache.rat:apache-rat-plugin:0.8:check
@@ -310,14 +310,14 @@ working on a production system.
    validation. Check local storage by querying the cloud.storage\_pool
    table:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        #mysql -u cloud -p -e "select id,name,path from cloud.storage_pool where pool_type='Filesystem'"
 
    If local storage paths are found to have a trailing forward slash,
    remove it:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        #mysql -u cloud -p -e 'update cloud.storage_pool set path="/var/lib/libvirt/images" where path="/var/lib/libvirt/images/"';
 
@@ -340,13 +340,13 @@ working on a production system.
 
       This file should have one line, which contains:
 
-      .. code::
+      .. sourcecode:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
 
       We'll change it to point to the new package repository:
 
-      .. code::
+      .. sourcecode:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
 
@@ -357,7 +357,7 @@ working on a production system.
 
       Now update your apt package list:
 
-      .. code::
+      .. sourcecode:: bash
 
           $ sudo apt-get update
 
@@ -367,7 +367,7 @@ working on a production system.
       the ``cloudstack-management`` package. This will pull in any other
       dependencies you need.
 
-      .. code::
+      .. sourcecode:: bash
 
           $ sudo apt-get install cloudstack-management
 
@@ -376,7 +376,7 @@ working on a production system.
       You will need to manually install the ``cloudstack-agent``
       package:
 
-      .. code::
+      .. sourcecode:: bash
 
           $ sudo apt-get install cloudstack-agent
 
@@ -392,7 +392,7 @@ working on a production system.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -402,7 +402,7 @@ working on a production system.
 
       Restart the agent:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           #service cloudstack-agent stop
           #killall jsvc
@@ -418,7 +418,7 @@ working on a production system.
 
       Stop the Management Server:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           service cloudstack-management stop
 
@@ -426,7 +426,7 @@ working on a production system.
 
       Generate the encrypted equivalent of your vCenter password:
 
-      .. code::
+      .. sourcecode:: bash
 
           java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.0.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input="_your_vCenter_password_" password="`cat /etc/cloudstack/management/key`" verbose=false
 
@@ -439,11 +439,11 @@ working on a production system.
       Find the ID of the row of cluster\_details table that you have to
       update:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           mysql -u <username> -p<password>
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           select * from cloud.cluster_details;
 
@@ -451,7 +451,7 @@ working on a production system.
 
       Update the plain text password with the encrypted one
 
-      .. code::
+      .. sourcecode:: bash
 
           update cloud.cluster_details set value = '_ciphertext_from_step_1_' where id = _id_from_step_2_;
 
@@ -459,7 +459,7 @@ working on a production system.
 
       Confirm that the table is updated:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           select * from cloud.cluster_details;
 
@@ -468,7 +468,7 @@ working on a production system.
       Find the ID of the correct row of vmware\_data\_center that you
       want to update
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           select * from cloud.vmware_data_center;
 
@@ -476,7 +476,7 @@ working on a production system.
 
       update the plain text password with the encrypted one:
 
-      .. code::
+      .. sourcecode:: bash
 
           update cloud.vmware_data_center set password = '_ciphertext_from_step_1_' where id = _id_from_step_5_;
 
@@ -484,7 +484,7 @@ working on a production system.
 
       Confirm that the table is updated:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           select * from cloud.vmware_data_center;
 
@@ -492,7 +492,7 @@ working on a production system.
 
       Start the CloudStack Management server
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           service cloudstack-management start
 
@@ -511,7 +511,7 @@ working on a production system.
 
       Stop the running agent.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # service cloud-agent stop
 
@@ -519,7 +519,7 @@ working on a production system.
 
       Update the agent software.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # yum update cloudstack-agent
 
@@ -527,7 +527,7 @@ working on a production system.
 
       Start the agent.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # service cloudstack-agent start
 
@@ -552,7 +552,7 @@ working on a production system.
 
       This file should have content similar to the following:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           [apache-cloudstack]
           name=Apache CloudStack
@@ -572,7 +572,7 @@ working on a production system.
       the ``cloudstack-management`` package by upgrading the older
       ``cloudstack-management`` package.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo yum upgrade cloudstack-management
 
@@ -582,7 +582,7 @@ working on a production system.
       package, similarly installing the new version as
       ``cloudstack-agent``.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo yum upgrade cloudstack-agent
 
@@ -592,7 +592,7 @@ working on a production system.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -602,7 +602,7 @@ working on a production system.
 
       Restart the agent:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           service cloudstack-agent stop
           killall jsvc
@@ -612,7 +612,7 @@ working on a production system.
 
    Now it's time to restart the management server
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloudstack-management start
 
@@ -631,20 +631,20 @@ working on a production system.
    run the script and supply the IP address for your MySQL instance and
    your MySQL credentials:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # nohup cloudstack-sysvmadm -d IP address -u cloud -p -a > sysvm.log 2>&1 &
 
    You can monitor the log for progress. The process of restarting the
    system VMs can take an hour or more.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # tail -f sysvm.log
 
    The output to ``sysvm.log`` will look something like this:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        Stopping and starting 1 secondary storage vm(s)...
        Done stopping and starting secondary storage vm(s)
@@ -809,7 +809,7 @@ working on a production system.
    Stop your management server or servers. Run this on all management
    server hosts:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloudstack-management stop
 
@@ -818,7 +818,7 @@ working on a production system.
    If you are running a usage server or usage servers, stop those as
    well:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloudstack-usage stop
 
@@ -829,7 +829,7 @@ working on a production system.
    restoring your existing environment. You'll be prompted for your
    password.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # mysqldump -u root -p cloud > cloudstack-backup.sql
 
@@ -840,14 +840,14 @@ working on a production system.
    validation. Check local storage by querying the cloud.storage\_pool
    table:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        #mysql -u cloud -p -e "select id,name,path from cloud.storage_pool where pool_type='Filesystem'"
 
    If local storage paths are found to have a trailing forward slash,
    remove it:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        #mysql -u cloud -p -e 'update cloud.storage_pool set path="/var/lib/libvirt/images" where path="/var/lib/libvirt/images/"';
 
@@ -872,13 +872,13 @@ working on a production system.
 
       This file should have one line, which contains:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
 
       We'll change it to point to the new package repository:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
 
@@ -889,7 +889,7 @@ working on a production system.
 
       Now update your apt package list:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo apt-get update
 
@@ -899,7 +899,7 @@ working on a production system.
       the ``cloudstack-management`` package. This will pull in any other
       dependencies you need.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo apt-get install cloudstack-management
 
@@ -908,7 +908,7 @@ working on a production system.
       You will need to manually install the ``cloudstack-agent``
       package:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo apt-get install cloudstack-agent
 
@@ -926,7 +926,7 @@ working on a production system.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -936,7 +936,7 @@ working on a production system.
 
       Restart the agent:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           service cloudstack-agent stop
           killall jsvc
@@ -952,7 +952,7 @@ working on a production system.
 
       Stop the Management Server:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           service cloudstack-management stop
 
@@ -960,7 +960,7 @@ working on a production system.
 
       Generate the encrypted equivalent of your vCenter password:
 
-      .. code::
+      .. sourcecode:: bash
 
           java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.0.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input="_your_vCenter_password_" password="`cat /etc/cloudstack/management/key`" verbose=false
 
@@ -973,11 +973,11 @@ working on a production system.
       Find the ID of the row of cluster\_details table that you have to
       update:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           mysql -u <username> -p<password>
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           select * from cloud.cluster_details;
 
@@ -985,7 +985,7 @@ working on a production system.
 
       Update the plain text password with the encrypted one
 
-      .. code::
+      .. sourcecode:: bash
 
           update cloud.cluster_details set value = '_ciphertext_from_step_1_' where id = _id_from_step_2_;
 
@@ -993,7 +993,7 @@ working on a production system.
 
       Confirm that the table is updated:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           select * from cloud.cluster_details;
 
@@ -1002,7 +1002,7 @@ working on a production system.
       Find the ID of the correct row of vmware\_data\_center that you
       want to update
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           select * from cloud.vmware_data_center;
 
@@ -1010,7 +1010,7 @@ working on a production system.
 
       update the plain text password with the encrypted one:
 
-      .. code::
+      .. sourcecode:: bash
 
           update cloud.vmware_data_center set password = '_ciphertext_from_step_1_' where id = _id_from_step_5_;
 
@@ -1018,7 +1018,7 @@ working on a production system.
 
       Confirm that the table is updated:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           select * from cloud.vmware_data_center;
 
@@ -1026,7 +1026,7 @@ working on a production system.
 
       Start the CloudStack Management server
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           service cloudstack-management start
 
@@ -1045,7 +1045,7 @@ working on a production system.
 
       Stop the running agent.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # service cloud-agent stop
 
@@ -1053,7 +1053,7 @@ working on a production system.
 
       Update the agent software.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # yum update cloudstack-agent
 
@@ -1061,7 +1061,7 @@ working on a production system.
 
       Start the agent.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # service cloudstack-agent start
 
@@ -1089,7 +1089,7 @@ working on a production system.
 
       This file should have content similar to the following:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           [apache-cloudstack]
           name=Apache CloudStack
@@ -1109,7 +1109,7 @@ working on a production system.
       the ``cloudstack-management`` package by upgrading the older
       ``cloudstack-management`` package.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo yum upgrade cloudstack-management
 
@@ -1119,7 +1119,7 @@ working on a production system.
       package, similarly installing the new version as
       ``cloudstack-agent``.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo yum upgrade cloudstack-agent
 
@@ -1129,7 +1129,7 @@ working on a production system.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -1139,7 +1139,7 @@ working on a production system.
 
       Restart the agent:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           service cloudstack-agent stop
           killall jsvc
@@ -1149,7 +1149,7 @@ working on a production system.
 
    Now it's time to restart the management server
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloudstack-management start
 
@@ -1168,20 +1168,20 @@ working on a production system.
    run the script and supply the IP address for your MySQL instance and
    your MySQL credentials:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # nohup cloudstack-sysvmadm -d IP address -u cloud -p -a > sysvm.log 2>&1 &
 
    You can monitor the log for progress. The process of restarting the
    system VMs can take an hour or more.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # tail -f sysvm.log
 
    The output to ``sysvm.log`` will look something like this:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        Stopping and starting 1 secondary storage vm(s)...
        Done stopping and starting secondary storage vm(s)
@@ -1345,7 +1345,7 @@ working on a production system.
    Stop your management server or servers. Run this on all management
    server hosts:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloud-management stop
 
@@ -1354,7 +1354,7 @@ working on a production system.
    If you are running a usage server or usage servers, stop those as
    well:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloud-usage stop
 
@@ -1365,7 +1365,7 @@ working on a production system.
    restoring your existing environment. You'll be prompted for your
    password.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # mysqldump -u root -p cloud > cloudstack-backup.sql
 
@@ -1375,7 +1375,7 @@ working on a production system.
    based system, you're going to need to stop the CloudStack management
    server before proceeding.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloud-management stop
 
@@ -1398,7 +1398,7 @@ working on a production system.
    the default authenticator (1st entry in the userAuthenticators
    adapter list is default)
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        <!-- Security adapters -->
        <bean id="userAuthenticators" class="com.cloud.utils.component.AdapterList">
@@ -1433,13 +1433,13 @@ working on a production system.
 
       This file should have one line, which contains:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
 
       We'll change it to point to the new package repository:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.1
 
@@ -1450,7 +1450,7 @@ working on a production system.
 
       Now update your apt package list:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo apt-get update
 
@@ -1460,7 +1460,7 @@ working on a production system.
       the ``cloudstack-management`` package. This will pull in any other
       dependencies you need.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo apt-get install cloudstack-management
 
@@ -1469,7 +1469,7 @@ working on a production system.
       You will need to manually install the ``cloudstack-agent``
       package:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo apt-get install cloudstack-agent
 
@@ -1487,7 +1487,7 @@ working on a production system.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -1497,7 +1497,7 @@ working on a production system.
 
       Restart the agent:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
                                           service cloud-agent stop
                                           killall jsvc
@@ -1511,7 +1511,7 @@ working on a production system.
       this, but if you prefer to be consistent, you can change this by
       copying over the sample configuration file:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
                                           cd /etc/cloudstack/agent
                                           mv log4j-cloud.xml.dpkg-dist log4j-cloud.xml
@@ -1522,7 +1522,7 @@ working on a production system.
       Once the agent is running, you can uninstall the old cloud-\*
       packages from your system:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           sudo dpkg --purge cloud-agent
 
@@ -1547,7 +1547,7 @@ working on a production system.
 
       This file should have content similar to the following:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
                                           [apache-cloudstack]
                                           name=Apache CloudStack
@@ -1567,7 +1567,7 @@ working on a production system.
       the ``cloudstack-management`` package by upgrading the older
       ``cloud-client`` package.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo yum upgrade cloud-client
 
@@ -1577,7 +1577,7 @@ working on a production system.
       package, similarly installing the new version as
       ``cloudstack-agent``.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo yum upgrade cloud-agent
 
@@ -1592,7 +1592,7 @@ working on a production system.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -1602,7 +1602,7 @@ working on a production system.
 
       Restart the agent:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
                                           service cloud-agent stop
                                           killall jsvc
@@ -1618,20 +1618,20 @@ working on a production system.
    run the script and supply the IP address for your MySQL instance and
    your MySQL credentials:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # nohup cloudstack-sysvmadm -d IP address -u cloud -p -a > sysvm.log 2>&1 &
 
    You can monitor the log for progress. The process of restarting the
    system VMs can take an hour or more.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # tail -f sysvm.log
 
    The output to ``sysvm.log`` will look something like this:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
                                Stopping and starting 1 secondary storage vm(s)...
                                Done stopping and starting secondary storage vm(s)
@@ -1792,7 +1792,7 @@ with a note.
 
       Edit as follows:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
                       [upgrade]
                       name=rhel63
@@ -1816,7 +1816,7 @@ with a note.
       Now that you have the repository configured, upgrade the host
       operating system from RHEL 6.0 to 6.3:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # yum upgrade
 
@@ -1825,7 +1825,7 @@ with a note.
    Stop all Usage Servers if running. Run this on all Usage Server
    hosts.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloud-usage stop
 
@@ -1833,7 +1833,7 @@ with a note.
 
    Stop the Management Servers. Run this on all Management Server hosts.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloud-management stop
 
@@ -1847,7 +1847,7 @@ with a note.
    password on the database, which is a CloudStack recommended best
    practice. Substitute your own MySQL root password.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # mysqldump -u root -pmysql_password cloud > cloud-backup.dmp
                                # mysqldump -u root -pmysql_password cloud_usage > cloud-usage-backup.dmp
@@ -1877,13 +1877,13 @@ with a note.
 
       This file should have one line, which contains:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
 
       We'll change it to point to the new package repository:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
 
@@ -1894,7 +1894,7 @@ with a note.
 
       Now update your apt package list:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo apt-get update
 
@@ -1904,7 +1904,7 @@ with a note.
       the ``cloudstack-management`` package. This will pull in any other
       dependencies you need.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo apt-get install cloudstack-management
 
@@ -1913,7 +1913,7 @@ with a note.
       You will need to manually install the ``cloudstack-agent``
       package:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo apt-get install cloudstack-agent
 
@@ -1931,7 +1931,7 @@ with a note.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -1941,7 +1941,7 @@ with a note.
 
       Restart the agent:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           service cloud-agent stop
           killall jsvc
@@ -1955,7 +1955,7 @@ with a note.
       this, but if you prefer to be consistent, you can change this by
       copying over the sample configuration file:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           cd /etc/cloudstack/agent
           mv log4j-cloud.xml.dpkg-dist log4j-cloud.xml
@@ -1966,7 +1966,7 @@ with a note.
       Once the agent is running, you can uninstall the old cloud-\*
       packages from your system:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           sudo dpkg --purge cloud-agent
 
@@ -1991,7 +1991,7 @@ with a note.
 
       This file should have content similar to the following:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           [apache-cloudstack]
           name=Apache CloudStack
@@ -2011,7 +2011,7 @@ with a note.
       the ``cloudstack-management`` package by upgrading the older
       ``cloud-client`` package.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo yum upgrade cloud-client
 
@@ -2021,7 +2021,7 @@ with a note.
       package, similarly installing the new version as
       ``cloudstack-agent``.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo yum upgrade cloud-agent
 
@@ -2036,7 +2036,7 @@ with a note.
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -2046,7 +2046,7 @@ with a note.
 
       Restart the agent:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           service cloud-agent stop
           killall jsvc
@@ -2065,7 +2065,7 @@ with a note.
       Make a backup copy of ``/etc/cloud/management/components.xml``.
       For example:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # mv /etc/cloud/management/components.xml /etc/cloud/management/components.xml-backup
 
@@ -2074,7 +2074,7 @@ with a note.
       Copy ``/etc/cloud/management/components.xml.rpmnew`` to create a
       new ``/etc/cloud/management/components.xml``:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # cp -ap /etc/cloud/management/components.xml.rpmnew /etc/cloud/management/components.xml
 
@@ -2083,7 +2083,7 @@ with a note.
       Merge your changes from the backup file into the new
       ``components.xml``.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # vi /etc/cloudstack/management/components.xml
 
@@ -2100,7 +2100,7 @@ with a note.
    the default authenticator (1st entry in the userAuthenticators
    adapter list is default)
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        <!-- Security adapters -->
        <bean id="userAuthenticators" class="com.cloud.utils.component.AdapterList">
@@ -2121,7 +2121,7 @@ with a note.
    Start the first Management Server. Do not start any other Management
    Server nodes yet.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloudstack-management start
 
@@ -2178,7 +2178,7 @@ with a note.
       Upgrade all the existing bridge names to new bridge names by
       running this script:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
            # cloudstack-agent-upgrade
 
@@ -2186,7 +2186,7 @@ with a note.
 
       Install a libvirt hook with the following commands:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
            # mkdir /etc/libvirt/hooks
            # cp /usr/share/cloudstack-agent/lib/libvirtqemuhook /etc/libvirt/hooks/qemu
@@ -2196,7 +2196,7 @@ with a note.
 
       Restart libvirtd.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # service libvirtd restart
 
@@ -2204,7 +2204,7 @@ with a note.
 
       Start the agent.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # service cloudstack-agent start
 
@@ -2341,7 +2341,7 @@ with a note.
 
       Apply the hotfix. First, get the UUID of this host:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # xe host-list
 
@@ -2351,7 +2351,7 @@ with a note.
       machine earlier. You can also get the hotfix UUID by running xe
       patch-list.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           xe patch-apply host-uuid=host-uuid uuid=hotfix-uuid
 
@@ -2401,7 +2401,7 @@ with a note.
 
          Extract the file:
 
-         .. code:: bash
+         .. sourcecode:: bash
 
              # tar xf xenserver-cloud-supp.tgz
 
@@ -2409,7 +2409,7 @@ with a note.
 
          Run the following script:
 
-         .. code:: bash
+         .. sourcecode:: bash
 
              # xe-install-supplemental-pack xenserver-cloud-supp.iso
 
@@ -2418,7 +2418,7 @@ with a note.
          If the XenServer host is part of a zone that uses basic
          networking, disable Open vSwitch (OVS):
 
-         .. code:: bash
+         .. sourcecode:: bash
 
              # xe-switch-network-backend  bridge
 
@@ -2430,7 +2430,7 @@ with a note.
 
       Run the following:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           /opt/xensource/bin/setupxenserver.sh
 
@@ -2440,10 +2440,9 @@ with a note.
 
       Run the following:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
-          for pbd in `xe pbd-list currently-attached=false| grep ^uuid | 
-          awk '{print $NF}'`; do xe pbd-plug uuid=$pbd ;
+          for pbd in `xe pbd-list currently-attached=false| grep ^uuid | awk '{print $NF}'`; do xe pbd-plug uuid=$pbd ;
 
    #. 
 
@@ -2627,7 +2626,7 @@ Upgrade from 2.2.14 to 4.3
 
       Edit as follows:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
                       [upgrade]
                       name=rhel63
@@ -2651,7 +2650,7 @@ Upgrade from 2.2.14 to 4.3
       Now that you have the repository configured, upgrade the host
       operating system from RHEL 6.0 to 6.3:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # yum upgrade
 
@@ -2660,7 +2659,7 @@ Upgrade from 2.2.14 to 4.3
    Stop all Usage Servers if running. Run this on all Usage Server
    hosts.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloud-usage stop
 
@@ -2668,7 +2667,7 @@ Upgrade from 2.2.14 to 4.3
 
    Stop the Management Servers. Run this on all Management Server hosts.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloud-management stop
 
@@ -2682,7 +2681,7 @@ Upgrade from 2.2.14 to 4.3
    password on the database, which is a CloudStack recommended best
    practice. Substitute your own MySQL root password.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # mysqldump -u root -pmysql_password cloud > cloud-backup.dmp
                                # mysqldump -u root -pmysql_password cloud_usage > cloud-usage-backup.dmp
@@ -2712,13 +2711,13 @@ Upgrade from 2.2.14 to 4.3
 
       This file should have one line, which contains:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
 
       We'll change it to point to the new package repository:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
 
@@ -2729,7 +2728,7 @@ Upgrade from 2.2.14 to 4.3
 
       Now update your apt package list:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo apt-get update
 
@@ -2739,7 +2738,7 @@ Upgrade from 2.2.14 to 4.3
       the ``cloudstack-management`` package. This will pull in any other
       dependencies you need.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo apt-get install cloudstack-management
 
@@ -2748,7 +2747,7 @@ Upgrade from 2.2.14 to 4.3
       On KVM hosts, you will need to manually install the
       ``cloudstack-agent`` package:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo apt-get install cloudstack-agent
 
@@ -2766,7 +2765,7 @@ Upgrade from 2.2.14 to 4.3
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -2776,7 +2775,7 @@ Upgrade from 2.2.14 to 4.3
 
       Restart the agent:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           service cloud-agent stop
           killall jsvc
@@ -2790,7 +2789,7 @@ Upgrade from 2.2.14 to 4.3
       this, but if you prefer to be consistent, you can change this by
       copying over the sample configuration file:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           cd /etc/cloudstack/agent
           mv log4j-cloud.xml.dpkg-dist log4j-cloud.xml
@@ -2801,7 +2800,7 @@ Upgrade from 2.2.14 to 4.3
       Once the agent is running, you can uninstall the old cloud-\*
       packages from your system:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           sudo dpkg --purge cloud-agent
 
@@ -2826,7 +2825,7 @@ Upgrade from 2.2.14 to 4.3
 
       This file should have content similar to the following:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           [apache-cloudstack]
           name=Apache CloudStack
@@ -2846,7 +2845,7 @@ Upgrade from 2.2.14 to 4.3
       the ``cloudstack-management`` package by upgrading the older
       ``cloud-client`` package.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo yum upgrade cloud-client
 
@@ -2856,7 +2855,7 @@ Upgrade from 2.2.14 to 4.3
       package, similarly installing the new version as
       ``cloudstack-agent``.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           $ sudo yum upgrade cloud-agent
 
@@ -2871,7 +2870,7 @@ Upgrade from 2.2.14 to 4.3
       ``/etc/cloudstack/agent/environment.properties`` has a line that
       reads:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           paths.script=/usr/share/cloudstack-common
 
@@ -2881,7 +2880,7 @@ Upgrade from 2.2.14 to 4.3
 
       Restart the agent:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           service cloud-agent stop
           killall jsvc
@@ -2897,7 +2896,7 @@ Upgrade from 2.2.14 to 4.3
 
    .. note:: How will you know whether you need to do this? If the upgrade output in the previous step included a message like the following, then some custom content was found in your old components.xml, and you need to merge the two files:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        warning: /etc/cloud/management/components.xml created as 
        /etc/cloud/management/components.xml.rpmnew
@@ -2907,7 +2906,7 @@ Upgrade from 2.2.14 to 4.3
       Make a backup copy of your
       ``/etc/cloud/management/components.xml`` file. For example:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # mv /etc/cloud/management/components.xml /etc/cloud/management/components.xml-backup
 
@@ -2916,7 +2915,7 @@ Upgrade from 2.2.14 to 4.3
       Copy ``/etc/cloud/management/components.xml.rpmnew`` to create a
       new ``/etc/cloud/management/components.xml``:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # cp -ap /etc/cloud/management/components.xml.rpmnew /etc/cloud/management/components.xml
 
@@ -2925,7 +2924,7 @@ Upgrade from 2.2.14 to 4.3
       Merge your changes from the backup file into the new
       components.xml file.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # vi /etc/cloudstack/management/components.xml
 
@@ -2940,7 +2939,7 @@ Upgrade from 2.2.14 to 4.3
    the default authenticator (1st entry in the userAuthenticators
    adapter list is default)
 
-   .. code:: xml
+   .. sourcecode:: xml
 
        <!-- Security adapters -->
        <bean id="userAuthenticators" 
@@ -2971,7 +2970,7 @@ Upgrade from 2.2.14 to 4.3
       Make a backup copy of your file
       ``/etc/cloud/management/db.properties``. For example:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # mv /etc/cloud/management/db.properties /etc/cloud/management/db.properties-backup
 
@@ -2980,7 +2979,7 @@ Upgrade from 2.2.14 to 4.3
       Copy ``/etc/cloud/management/db.properties.rpmnew`` to create a
       new ``/etc/cloud/management/db.properties``:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # cp -ap /etc/cloud/management/db.properties.rpmnew etc/cloud/management/db.properties
 
@@ -2989,7 +2988,7 @@ Upgrade from 2.2.14 to 4.3
       Merge your changes from the backup file into the new db.properties
       file.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # vi /etc/cloudstack/management/db.properties
 
@@ -3000,7 +2999,7 @@ Upgrade from 2.2.14 to 4.3
    encryption keys. See Password and Key Encryption in the Installation
    Guide.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # cloudstack-setup-encryption -e encryption_type -m management_server_key -k database_key
 
@@ -3038,7 +3037,7 @@ Upgrade from 2.2.14 to 4.3
    Start the first Management Server. Do not start any other Management
    Server nodes yet.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloudstack-management start
 
@@ -3052,7 +3051,7 @@ Upgrade from 2.2.14 to 4.3
    Start all Usage Servers (if they were running on your previous
    version). Perform this on each Usage Server host.
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # service cloudstack-usage start
 
@@ -3073,7 +3072,7 @@ Upgrade from 2.2.14 to 4.3
 
       Stop the running agent.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # service cloud-agent stop
 
@@ -3082,11 +3081,11 @@ Upgrade from 2.2.14 to 4.3
       Update the agent software with one of the following command sets
       as appropriate.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # yum update cloud-*
 
-      .. code:: bash
+      .. sourcecode:: bash
 
            # apt-get update
            # apt-get upgrade cloud-*
@@ -3096,7 +3095,7 @@ Upgrade from 2.2.14 to 4.3
       Copy the contents of the ``agent.properties`` file to the new
       ``agent.properties`` file by using the following command
 
-      .. code::
+      .. sourcecode:: bash
 
           sed -i 's/com.cloud.agent.resource.computing.LibvirtComputingResource/com.cloud.hypervisor.kvm.resource.LibvirtComputingResource/g' /etc/cloudstack/agent/agent.properties
 
@@ -3105,7 +3104,7 @@ Upgrade from 2.2.14 to 4.3
       Upgrade all the existing bridge names to new bridge names by
       running this script:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
            # cloudstack-agent-upgrade
 
@@ -3113,7 +3112,7 @@ Upgrade from 2.2.14 to 4.3
 
       Install a libvirt hook with the following commands:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
            # mkdir /etc/libvirt/hooks
            # cp /usr/share/cloudstack-agent/lib/libvirtqemuhook /etc/libvirt/hooks/qemu
@@ -3123,7 +3122,7 @@ Upgrade from 2.2.14 to 4.3
 
       Restart libvirtd.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # service libvirtd restart
 
@@ -3131,7 +3130,7 @@ Upgrade from 2.2.14 to 4.3
 
       Start the agent.
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # service cloudstack-agent start
 
@@ -3163,7 +3162,7 @@ Upgrade from 2.2.14 to 4.3
       and the password to use for that user. In addition to those
       parameters, provide the "-c" and "-r" arguments. For example:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # nohup cloudstack-sysvmadm -d 192.168.1.5 -u cloud -p password -c -r > sysvm.log 2>&1 &
           # tail -f sysvm.log
@@ -3176,13 +3175,13 @@ Upgrade from 2.2.14 to 4.3
       After the script terminates, check the log to verify correct
       execution:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # tail -f sysvm.log
 
       The content should be like the following:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
                                           Stopping and starting 1 secondary storage vm(s)...
                                           Done stopping and starting secondary storage vm(s)
@@ -3209,14 +3208,14 @@ Upgrade from 2.2.14 to 4.3
    Run the following commands on the XenServer or KVM host on which the
    system VM is present:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # ssh -i private-key-path link-local-ip -p 3922
                                # cat /etc/cloudstack-release
 
    The output should be like the following:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        Cloudstack Release 4.0.0-incubating Mon Oct 9 15:10:04 PST 2012
 
@@ -3228,14 +3227,14 @@ Upgrade from 2.2.14 to 4.3
 
    Run the following commands on the Management Server:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        # ssh -i private-key-path private-ip -p 3922
                                # cat /etc/cloudstack-release
 
    The output should be like the following:
 
-   .. code:: bash
+   .. sourcecode:: bash
 
        Cloudstack Release 4.0.0-incubating Mon Oct 9 15:10:04 PST 2012
 
@@ -3273,7 +3272,7 @@ Upgrade from 2.2.14 to 4.3
 
       To clean up the VLAN, log in to one XenServer host and run:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           /opt/xensource/bin/cloud-clean-vlan.sh
 
@@ -3282,7 +3281,7 @@ Upgrade from 2.2.14 to 4.3
       Prepare the upgrade by running the following on one XenServer
       host:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           /opt/xensource/bin/cloud-prepare-upgrade.sh
 
@@ -3298,7 +3297,7 @@ Upgrade from 2.2.14 to 4.3
 
       On the Xen pool master, upload the hotfix with this command:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           xe patch-upload file-name=XS602E003.xsupdate
 
@@ -3312,14 +3311,14 @@ Upgrade from 2.2.14 to 4.3
       Manually live migrate all VMs on this host to another host. First,
       get a list of the VMs on this host:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # xe vm-list
 
       Then use this command to migrate each VM. Replace the example host
       name and VM name with your own:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
           # xe vm-migrate live=true host=host-name vm=VM-name
 
@@ -3414,10 +3413,9 @@ Upgrade from 2.2.14 to 4.3
 
       Run the following:
 
-      .. code:: bash
+      .. sourcecode:: bash
 
-        ``for pbd in `xe pbd-list currently-attached=false| grep ^uuid | 
-        awk '{print $NF}'`; do xe pbd-plug uuid=$pbd ; ``
+        ``for pbd in `xe pbd-list currently-attached=false| grep ^uuid | awk '{print $NF}'`; do xe pbd-plug uuid=$pbd ; ``
 
    #. 
 
