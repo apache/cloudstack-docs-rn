@@ -426,7 +426,7 @@ working on a production system.
 
       Generate the encrypted equivalent of your vCenter password:
 
-      .. code:: bash
+      .. code::
 
           java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.0.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input="_your_vCenter_password_" password="`cat /etc/cloudstack/management/key`" verbose=false
 
@@ -451,7 +451,7 @@ working on a production system.
 
       Update the plain text password with the encrypted one
 
-      .. code:: bash
+      .. code::
 
           update cloud.cluster_details set value = '_ciphertext_from_step_1_' where id = _id_from_step_2_;
 
@@ -476,7 +476,7 @@ working on a production system.
 
       update the plain text password with the encrypted one:
 
-      .. code:: bash
+      .. code::
 
           update cloud.vmware_data_center set password = '_ciphertext_from_step_1_' where id = _id_from_step_5_;
 
@@ -960,7 +960,7 @@ working on a production system.
 
       Generate the encrypted equivalent of your vCenter password:
 
-      .. code:: bash
+      .. code::
 
           java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.0.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input="_your_vCenter_password_" password="`cat /etc/cloudstack/management/key`" verbose=false
 
@@ -985,7 +985,7 @@ working on a production system.
 
       Update the plain text password with the encrypted one
 
-      .. code:: bash
+      .. code::
 
           update cloud.cluster_details set value = '_ciphertext_from_step_1_' where id = _id_from_step_2_;
 
@@ -1010,7 +1010,7 @@ working on a production system.
 
       update the plain text password with the encrypted one:
 
-      .. code:: bash
+      .. code::
 
           update cloud.vmware_data_center set password = '_ciphertext_from_step_1_' where id = _id_from_step_5_;
 
@@ -2442,7 +2442,8 @@ with a note.
 
       .. code:: bash
 
-          for pbd in `xe pbd-list currently-attached=false| grep ^uuid | awk '{print $NF}'`; do xe pbd-plug uuid=$pbd ;
+          for pbd in `xe pbd-list currently-attached=false| grep ^uuid | 
+          awk '{print $NF}'`; do xe pbd-plug uuid=$pbd ;
 
    #. 
 
@@ -2898,7 +2899,8 @@ Upgrade from 2.2.14 to 4.3
 
    .. code:: bash
 
-       warning: /etc/cloud/management/components.xml created as /etc/cloud/management/components.xml.rpmnew
+       warning: /etc/cloud/management/components.xml created as 
+       /etc/cloud/management/components.xml.rpmnew
 
    #. 
 
@@ -2941,7 +2943,8 @@ Upgrade from 2.2.14 to 4.3
    .. code:: xml
 
        <!-- Security adapters -->
-       <bean id="userAuthenticators" class="com.cloud.utils.component.AdapterList">
+       <bean id="userAuthenticators" 
+                       class="com.cloud.utils.component.AdapterList">
          <property name="Adapters">
            <list>
              <ref bean="PlainTextUserAuthenticator"/>
@@ -3093,7 +3096,7 @@ Upgrade from 2.2.14 to 4.3
       Copy the contents of the ``agent.properties`` file to the new
       ``agent.properties`` file by using the following command
 
-      .. code:: bash
+      .. code::
 
           sed -i 's/com.cloud.agent.resource.computing.LibvirtComputingResource/com.cloud.hypervisor.kvm.resource.LibvirtComputingResource/g' /etc/cloudstack/agent/agent.properties
 
@@ -3413,7 +3416,8 @@ Upgrade from 2.2.14 to 4.3
 
       .. code:: bash
 
-        ``for pbd in `xe pbd-list currently-attached=false| grep ^uuid | awk '{print $NF}'`; do xe pbd-plug uuid=$pbd ; ``
+        ``for pbd in `xe pbd-list currently-attached=false| grep ^uuid | 
+        awk '{print $NF}'`; do xe pbd-plug uuid=$pbd ; ``
 
    #. 
 
