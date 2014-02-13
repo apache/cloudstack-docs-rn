@@ -24,6 +24,11 @@ Website
 
 These release notes are on-line at <http://apache-cloudstack-release-notes.readthedocs.org/en/latest/>
 
+Utils
+==============
+
+`utils/jira.py` is a script to get the list of known issues and fixed issues from JIRA. It takes a filter id as argument and outputs a .rst formatted table.
+
 Feedback
 ========
 
