@@ -68,12 +68,12 @@ working on a production system.
        +-------------------------+-------------------------------------------------+
        | Hypervisor              | Description                                     |
        +=========================+=================================================+
-       | XenServer               | Name: systemvm-xenserver-4.2                    |
+       | XenServer               | Name: systemvm-xenserver-4.3                    |
        |                         |                                                 |
-       |                         | Description: systemvm-xenserver-4.2             |
+       |                         | Description: systemvm-xenserver-4.3             |
        |                         |                                                 |
-       |                         | URL:http://download.cloud.com/templates/4.2/sys |
-       |                         | temvmtemplate-2013-07-12-master-xen.vhd.bz2     |
+       |                         | URL:http://download.cloud.com/templates/4.3/sys |
+       |                         | temvm64template-2014-01-14-master-xen.vhd.bz2   |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -82,7 +82,7 @@ working on a production system.
        |                         |                                                 |
        |                         | Format: VHD                                     |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -94,13 +94,13 @@ working on a production system.
        |                         |                                                 |
        |                         | Featured: no                                    |
        +-------------------------+-------------------------------------------------+
-       | KVM                     | Name: systemvm-kvm-4.2                          |
+       | KVM                     | Name: systemvm-kvm-4.3                          |
        |                         |                                                 |
-       |                         | Description: systemvm-kvm-4.2                   |
+       |                         | Description: systemvm-kvm-4.3                   |
        |                         |                                                 |
        |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.2/systemv |
-       |                         | mtemplate-2013-06-12-master-kvm.qcow2.bz2       |
+       |                         | http://download.cloud.com/templates/4.3/systemv |
+       |                         | m64template-2014-01-14-master-kvm.qcow2.bz2     |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -109,7 +109,7 @@ working on a production system.
        |                         |                                                 |
        |                         | Format: QCOW2                                   |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -121,13 +121,13 @@ working on a production system.
        |                         |                                                 |
        |                         | Featured: no                                    |
        +-------------------------+-------------------------------------------------+
-       | VMware                  | Name: systemvm-vmware-4.2                       |
+       | VMware                  | Name: systemvm-vmware-4.3                       |
        |                         |                                                 |
-       |                         | Description: systemvm-vmware-4.2                |
+       |                         | Description: systemvm-vmware-4.3                |
        |                         |                                                 |
        |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.2/systemv |
-       |                         | mtemplate-4.2-vh7.ova                           |
+       |                         | http://download.cloud.com/templates/4.3/systemv |
+       |                         | m64template-2014-01-14-master-vmware.ova        |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -136,7 +136,7 @@ working on a production system.
        |                         |                                                 |
        |                         | Format: OVA                                     |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -714,7 +714,7 @@ working on a production system.
        |                         | Description: systemvm-xenserver-4.3             |
        |                         |                                                 |
        |                         | URL:http://download.cloud.com/templates/4.3/sys |
-       |                         | temvmtemplate-2014-07-12-master-xen.vhd.bz2     |
+       |                         | temvm64template-2014-01-14-master-xen.vhd.bz2   |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -723,7 +723,7 @@ working on a production system.
        |                         |                                                 |
        |                         | Format: VHD                                     |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -741,7 +741,7 @@ working on a production system.
        |                         |                                                 |
        |                         | URL:                                            |
        |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | mtemplate-2014-06-12-master-kvm.qcow2.bz2       |
+       |                         | m64template-2014-01-14-master-kvm.qcow2.bz2     |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -750,7 +750,7 @@ working on a production system.
        |                         |                                                 |
        |                         | Format: QCOW2                                   |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -768,7 +768,7 @@ working on a production system.
        |                         |                                                 |
        |                         | URL:                                            |
        |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | mtemplate-4.3-vh7.ova                           |
+       |                         | m64template-2014-01-14-master-vmware.ova        |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -777,7 +777,7 @@ working on a production system.
        |                         |                                                 |
        |                         | Format: OVA                                     |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -1264,7 +1264,7 @@ working on a production system.
        |                         | Description: systemvm-xenserver-4.3             |
        |                         |                                                 |
        |                         | URL:http://download.cloud.com/templates/4.3/sys |
-       |                         | temvmtemplate-2013-07-12-master-xen.vhd.bz2     |
+       |                         | temvm64template-2014-01-14-master-xen.vhd.bz2   |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -1273,7 +1273,7 @@ working on a production system.
        |                         |                                                 |
        |                         | Format: VHD                                     |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -1291,7 +1291,7 @@ working on a production system.
        |                         |                                                 |
        |                         | URL:                                            |
        |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | mtemplate-2013-06-12-master-kvm.qcow2.bz2       |
+       |                         | m64template-2014-01-14-master-kvm.qcow2.bz2     |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -1300,7 +1300,7 @@ working on a production system.
        |                         |                                                 |
        |                         | Format: QCOW2                                   |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -1318,7 +1318,7 @@ working on a production system.
        |                         |                                                 |
        |                         | URL:                                            |
        |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | mtemplate-4.2-vh7.ova                           |
+       |                         | m64template-2014-01-14-master-vmware.ova        |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -1327,7 +1327,7 @@ working on a production system.
        |                         |                                                 |
        |                         | Format: OVA                                     |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -1681,12 +1681,12 @@ with a note.
        +-------------------------+-------------------------------------------------+
        | Hypervisor              | Description                                     |
        +=========================+=================================================+
-       | XenServer               | Name: systemvm-xenserver-4.2                    |
+       | XenServer               | Name: systemvm-xenserver-4.3                    |
        |                         |                                                 |
-       |                         | Description: systemvm-xenserver-4.2             |
+       |                         | Description: systemvm-xenserver-4.3             |
        |                         |                                                 |
-       |                         | URL:http://download.cloud.com/templates/4.2/sys |
-       |                         | temvmtemplate-2013-07-12-master-xen.vhd.bz2     |
+       |                         | URL:http://download.cloud.com/templates/4.3/sys |
+       |                         | temvm64template-2014-01-14-master-xen.vhd.bz2   |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -1695,7 +1695,7 @@ with a note.
        |                         |                                                 |
        |                         | Format: VHD                                     |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -1707,13 +1707,13 @@ with a note.
        |                         |                                                 |
        |                         | Featured: no                                    |
        +-------------------------+-------------------------------------------------+
-       | KVM                     | Name: systemvm-kvm-4.2                          |
+       | KVM                     | Name: systemvm-kvm-4.3                          |
        |                         |                                                 |
-       |                         | Description: systemvm-kvm-4.2                   |
+       |                         | Description: systemvm-kvm-4.3                   |
        |                         |                                                 |
        |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.2/systemv |
-       |                         | mtemplate-2013-06-12-master-kvm.qcow2.bz2       |
+       |                         | http://download.cloud.com/templates/4.3/systemv |
+       |                         | m64template-2014-01-14-master-kvm.qcow2.bz2     |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -1722,7 +1722,7 @@ with a note.
        |                         |                                                 |
        |                         | Format: QCOW2                                   |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -1734,13 +1734,13 @@ with a note.
        |                         |                                                 |
        |                         | Featured: no                                    |
        +-------------------------+-------------------------------------------------+
-       | VMware                  | Name: systemvm-vmware-4.2                       |
+       | VMware                  | Name: systemvm-vmware-4.3                       |
        |                         |                                                 |
-       |                         | Description: systemvm-vmware-4.2                |
+       |                         | Description: systemvm-vmware-4.3                |
        |                         |                                                 |
        |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.2/systemv |
-       |                         | mtemplate-4.2-vh7.ova                           |
+       |                         | http://download.cloud.com/templates/4.3/systemv |
+       |                         | m64template-2014-01-14-master-vmware.ova        |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -1749,7 +1749,7 @@ with a note.
        |                         |                                                 |
        |                         | Format: OVA                                     |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -2513,7 +2513,7 @@ Upgrade from 2.2.14 to 4.3
        |                         | Description: systemvm-xenserver-4.3             |
        |                         |                                                 |
        |                         | URL:http://download.cloud.com/templates/4.3/sys |
-       |                         | temvmtemplate-2013-07-12-master-xen.vhd.bz2     |
+       |                         | temvm64template-2014-01-14-master-xen.vhd.bz2   |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -2522,7 +2522,7 @@ Upgrade from 2.2.14 to 4.3
        |                         |                                                 |
        |                         | Format: VHD                                     |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -2540,7 +2540,7 @@ Upgrade from 2.2.14 to 4.3
        |                         |                                                 |
        |                         | URL:                                            |
        |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | mtemplate-2013-06-12-master-kvm.qcow2.bz2       |
+       |                         | m64template-2014-01-14-master-kvm.qcow2.bz2     |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -2549,7 +2549,7 @@ Upgrade from 2.2.14 to 4.3
        |                         |                                                 |
        |                         | Format: QCOW2                                   |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
@@ -2567,7 +2567,7 @@ Upgrade from 2.2.14 to 4.3
        |                         |                                                 |
        |                         | URL:                                            |
        |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | mtemplate-4.2-vh7.ova                           |
+       |                         | m64template-2014-01-14-master-vmware.ova        |
        |                         |                                                 |
        |                         | Zone: Choose the zone where this hypervisor is  |
        |                         | used                                            |
@@ -2576,7 +2576,7 @@ Upgrade from 2.2.14 to 4.3
        |                         |                                                 |
        |                         | Format: OVA                                     |
        |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (32-bit) (or the  |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
        |                         | highest Debian release number available in the  |
        |                         | dropdown)                                       |
        |                         |                                                 |
