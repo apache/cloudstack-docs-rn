@@ -65,89 +65,84 @@ working on a production system.
       In the Register template dialog box, specify the following values
       (do not change these):
 
-       +-------------------------+-------------------------------------------------+
-       | Hypervisor              | Description                                     |
-       +=========================+=================================================+
-       | XenServer               | Name: systemvm-xenserver-4.3                    |
-       |                         |                                                 |
-       |                         | Description: systemvm-xenserver-4.3             |
-       |                         |                                                 |
-       |                         | URL:http://download.cloud.com/templates/4.3/sys |
-       |                         | temvm64template-2014-01-14-master-xen.vhd.bz2   |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: XenServer                           |
-       |                         |                                                 |
-       |                         | Format: VHD                                     |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
-       | KVM                     | Name: systemvm-kvm-4.3                          |
-       |                         |                                                 |
-       |                         | Description: systemvm-kvm-4.3                   |
-       |                         |                                                 |
-       |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | m64template-2014-01-14-master-kvm.qcow2.bz2     |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: KVM                                 |
-       |                         |                                                 |
-       |                         | Format: QCOW2                                   |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
-       | VMware                  | Name: systemvm-vmware-4.3                       |
-       |                         |                                                 |
-       |                         | Description: systemvm-vmware-4.3                |
-       |                         |                                                 |
-       |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | m64template-2014-01-14-master-vmware.ova        |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: VMware                              |
-       |                         |                                                 |
-       |                         | Format: OVA                                     |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | Hypervisor              | Description                                                                                   |
+       +=========================+===============================================================================================+
+       | XenServer               | Name: systemvm-xenserver-4.3                                                                  |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-xenserver-4.3                                                           |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-xen.vhd.bz2      |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         |                                                                                               |
+       |                         | Hypervisor: XenServer                                                                         |
+       |                         |                                                                                               |
+       |                         | Format: VHD                                                                                   |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | KVM                     | Name: systemvm-kvm-4.3                                                                        |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-kvm-4.3                                                                 |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |	
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-kvm.qcow2.bz2    |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         |                                                                                               |
+       |                         | Hypervisor: KVM                                                                               |
+       |                         |                                                                                               |
+       |                         | Format: QCOW2                                                                                 |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | VMware                  | Name: systemvm-vmware-4.3                                                                     |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-vmware-4.3                                                              |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-vmware.ova       |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         |                                                                                               |
+       |                         | Hypervisor: VMware                                                                            |
+       |                         |                                                                                               |
+       |                         | Format: OVA                                                                                   |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
 
 #. 
 
@@ -706,89 +701,84 @@ working on a production system.
       In the Register template dialog box, specify the following values
       (do not change these):
 
-       +-------------------------+-------------------------------------------------+
-       | Hypervisor              | Description                                     |
-       +=========================+=================================================+
-       | XenServer               | Name: systemvm-xenserver-4.3                    |
-       |                         |                                                 |
-       |                         | Description: systemvm-xenserver-4.3             |
-       |                         |                                                 |
-       |                         | URL:http://download.cloud.com/templates/4.3/sys |
-       |                         | temvm64template-2014-01-14-master-xen.vhd.bz2   |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: XenServer                           |
-       |                         |                                                 |
-       |                         | Format: VHD                                     |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
-       | KVM                     | Name: systemvm-kvm-4.3                          |
-       |                         |                                                 |
-       |                         | Description: systemvm-kvm-4.3                   |
-       |                         |                                                 |
-       |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | m64template-2014-01-14-master-kvm.qcow2.bz2     |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: KVM                                 |
-       |                         |                                                 |
-       |                         | Format: QCOW2                                   |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
-       | VMware                  | Name: systemvm-vmware-4.3                       |
-       |                         |                                                 |
-       |                         | Description: systemvm-vmware-4.3                |
-       |                         |                                                 |
-       |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | m64template-2014-01-14-master-vmware.ova        |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: VMware                              |
-       |                         |                                                 |
-       |                         | Format: OVA                                     |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | Hypervisor              | Description                                                                                   |
+       +=========================+===============================================================================================+
+       | XenServer               | Name: systemvm-xenserver-4.3                                                                  |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-xenserver-4.3                                                           |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-xen.vhd.bz2      |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         |                                                                                               |
+       |                         | Hypervisor: XenServer                                                                         |
+       |                         |                                                                                               |
+       |                         | Format: VHD                                                                                   |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | KVM                     | Name: systemvm-kvm-4.3                                                                        |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-kvm-4.3                                                                 |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-kvm.qcow2.bz2    |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         |                                                                                               |
+       |                         | Hypervisor: KVM                                                                               |
+       |                         |                                                                                               |
+       |                         | Format: QCOW2                                                                                 |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | VMware                  | Name: systemvm-vmware-4.3                                                                     |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-vmware-4.3                                                              |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-vmware.ova       |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         |                                                                                               |
+       |                         | Hypervisor: VMware                                                                            |
+       |                         |                                                                                               |
+       |                         | Format: OVA                                                                                   |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
 
 
 #. 
@@ -1256,89 +1246,85 @@ working on a production system.
       In the Register template dialog box, specify the following values
       (do not change these):
 
-       +-------------------------+-------------------------------------------------+
-       | Hypervisor              | Description                                     |
-       +=========================+=================================================+
-       | XenServer               | Name: systemvm-xenserver-4.3                    |
-       |                         |                                                 |
-       |                         | Description: systemvm-xenserver-4.3             |
-       |                         |                                                 |
-       |                         | URL:http://download.cloud.com/templates/4.3/sys |
-       |                         | temvm64template-2014-01-14-master-xen.vhd.bz2   |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: XenServer                           |
-       |                         |                                                 |
-       |                         | Format: VHD                                     |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
-       | KVM                     | Name: systemvm-kvm-4.3                          |
-       |                         |                                                 |
-       |                         | Description: systemvm-kvm-4.3                   |
-       |                         |                                                 |
-       |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | m64template-2014-01-14-master-kvm.qcow2.bz2     |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: KVM                                 |
-       |                         |                                                 |
-       |                         | Format: QCOW2                                   |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
-       | VMware                  | Name: systemvm-vmware-4.3                       |
-       |                         |                                                 |
-       |                         | Description: systemvm-vmware-4.3                |
-       |                         |                                                 |
-       |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | m64template-2014-01-14-master-vmware.ova        |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: VMware                              |
-       |                         |                                                 |
-       |                         | Format: OVA                                     |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | Hypervisor              | Description                                                                                   |
+       +=========================+===============================================================================================+
+       | XenServer               | Name: systemvm-xenserver-4.3                                                                  |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-xenserver-4.3                                                           |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-xen.vhd.bz2      |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         |                                                                                               |
+       |                         | Hypervisor: XenServer                                                                         |
+       |                         |                                                                                               |
+       |                         | Format: VHD                                                                                   |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | KVM                     | Name: systemvm-kvm-4.3                                                                        |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-kvm-4.3                                                                 |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-kvm.qcow2.bz2    |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         |                                                                                               |
+       |                         | Hypervisor: KVM                                                                               |
+       |                         |                                                                                               |
+       |                         | Format: QCOW2                                                                                 |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | VMware                  | Name: systemvm-vmware-4.3                                                                     |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-vmware-4.3                                                              |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-vmware.ova       |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         |                                                                                               |
+       |                         | Hypervisor: VMware                                                                            |
+       |                         |                                                                                               |
+       |                         | Format: OVA                                                                                   |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+
 
 #. 
 
@@ -1678,89 +1664,87 @@ with a note.
       In the Register template dialog box, specify the following values
       (do not change these):
 
-       +-------------------------+-------------------------------------------------+
-       | Hypervisor              | Description                                     |
-       +=========================+=================================================+
-       | XenServer               | Name: systemvm-xenserver-4.3                    |
-       |                         |                                                 |
-       |                         | Description: systemvm-xenserver-4.3             |
-       |                         |                                                 |
-       |                         | URL:http://download.cloud.com/templates/4.3/sys |
-       |                         | temvm64template-2014-01-14-master-xen.vhd.bz2   |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: XenServer                           |
-       |                         |                                                 |
-       |                         | Format: VHD                                     |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
-       | KVM                     | Name: systemvm-kvm-4.3                          |
-       |                         |                                                 |
-       |                         | Description: systemvm-kvm-4.3                   |
-       |                         |                                                 |
-       |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | m64template-2014-01-14-master-kvm.qcow2.bz2     |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: KVM                                 |
-       |                         |                                                 |
-       |                         | Format: QCOW2                                   |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
-       | VMware                  | Name: systemvm-vmware-4.3                       |
-       |                         |                                                 |
-       |                         | Description: systemvm-vmware-4.3                |
-       |                         |                                                 |
-       |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | m64template-2014-01-14-master-vmware.ova        |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: VMware                              |
-       |                         |                                                 |
-       |                         | Format: OVA                                     |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | Hypervisor              | Description                                                                                   |
+       +=========================+===============================================================================================+
+       | XenServer               | Name: systemvm-xenserver-4.3                                                                  |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-xenserver-4.3                                                           |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-xen.vhd.bz2      |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         | used                                                                                          |
+       |                         |                                                                                               |
+       |                         | Hypervisor: XenServer                                                                         |
+       |                         |                                                                                               |
+       |                         | Format: VHD                                                                                   |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | KVM                     | Name: systemvm-kvm-4.3                                                                        |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-kvm-4.3                                                                 |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-kvm.qcow2.bz2    |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         | used                                                                                          |
+       |                         |                                                                                               |
+       |                         | Hypervisor: KVM                                                                               |
+       |                         |                                                                                               |
+       |                         | Format: QCOW2                                                                                 |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | VMware                  | Name: systemvm-vmware-4.3                                                                     |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-vmware-4.3                                                              |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-vmware.ova       |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         | used                                                                                          |
+       |                         |                                                                                               |
+       |                         | Hypervisor: VMware                                                                            |
+       |                         |                                                                                               |
+       |                         | Format: OVA                                                                                   |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
 	   
    #. 
 
@@ -2505,89 +2489,85 @@ Upgrade from 2.2.14 to 4.3
       In the Register template dialog box, specify the following values
       depending on the hypervisor type (do not change these):
 
-       +-------------------------+-------------------------------------------------+
-       | Hypervisor              | Description                                     |
-       +=========================+=================================================+
-       | XenServer               | Name: systemvm-xenserver-4.3                    |
-       |                         |                                                 |
-       |                         | Description: systemvm-xenserver-4.3             |
-       |                         |                                                 |
-       |                         | URL:http://download.cloud.com/templates/4.3/sys |
-       |                         | temvm64template-2014-01-14-master-xen.vhd.bz2   |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: XenServer                           |
-       |                         |                                                 |
-       |                         | Format: VHD                                     |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
-       | KVM                     | Name: systemvm-kvm-4.3                          |
-       |                         |                                                 |
-       |                         | Description: systemvm-kvm-4.3                   |
-       |                         |                                                 |
-       |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | m64template-2014-01-14-master-kvm.qcow2.bz2     |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: KVM                                 |
-       |                         |                                                 |
-       |                         | Format: QCOW2                                   |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
-       | VMware                  | Name: systemvm-vmware-4.3                       |
-       |                         |                                                 |
-       |                         | Description: systemvm-vmware-4.3                |
-       |                         |                                                 |
-       |                         | URL:                                            |
-       |                         | http://download.cloud.com/templates/4.3/systemv |
-       |                         | m64template-2014-01-14-master-vmware.ova        |
-       |                         |                                                 |
-       |                         | Zone: Choose the zone where this hypervisor is  |
-       |                         | used                                            |
-       |                         |                                                 |
-       |                         | Hypervisor: VMware                              |
-       |                         |                                                 |
-       |                         | Format: OVA                                     |
-       |                         |                                                 |
-       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the  |
-       |                         | highest Debian release number available in the  |
-       |                         | dropdown)                                       |
-       |                         |                                                 |
-       |                         | Extractable: no                                 |
-       |                         |                                                 |
-       |                         | Password Enabled: no                            |
-       |                         |                                                 |
-       |                         | Public: no                                      |
-       |                         |                                                 |
-       |                         | Featured: no                                    |
-       +-------------------------+-------------------------------------------------+
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | Hypervisor              | Description                                                                                   |
+       +=========================+===============================================================================================+
+       | XenServer               | Name: systemvm-xenserver-4.3                                                                  |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-xenserver-4.3                                                           |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-xen.vhd.bz2      |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         |                                                                                               |
+       |                         | Hypervisor: XenServer                                                                         |
+       |                         |                                                                                               |
+       |                         | Format: VHD                                                                                   |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | KVM                     | Name: systemvm-kvm-4.3                                                                        |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-kvm-4.3                                                                 |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-kvm.qcow2.bz2    |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         |                                                                                               |
+       |                         | Hypervisor: KVM                                                                               |
+       |                         |                                                                                               |
+       |                         | Format: QCOW2                                                                                 |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+       | VMware                  | Name: systemvm-vmware-4.3                                                                     |
+       |                         |                                                                                               |
+       |                         | Description: systemvm-vmware-4.3                                                              |
+       |                         |                                                                                               |
+       |                         | URL:                                                                                          |
+       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-vmware.ova       |
+       |                         |                                                                                               |
+       |                         | Zone: Choose the zone where this hypervisor is used                                           |
+       |                         |                                                                                               |
+       |                         | Hypervisor: VMware                                                                            |
+       |                         |                                                                                               |
+       |                         | Format: OVA                                                                                   |
+       |                         |                                                                                               |
+       |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the                                                |
+       |                         | highest Debian release number available in the                                                |
+       |                         | dropdown)                                                                                     |
+       |                         |                                                                                               |
+       |                         | Extractable: no                                                                               |
+       |                         |                                                                                               |
+       |                         | Password Enabled: no                                                                          |
+       |                         |                                                                                               |
+       |                         | Public: no                                                                                    |
+       |                         |                                                                                               |
+       |                         | Featured: no                                                                                  |
+       +-------------------------+-----------------------------------------------------------------------------------------------+
+
 
 
 #. 
