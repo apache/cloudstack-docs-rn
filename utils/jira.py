@@ -24,15 +24,15 @@ filterid=str(sys.argv[1])
 filterurl='https://issues.apache.org/jira/rest/api/2/filter/' + filterid
  
 r=requests.get(filterurl)
-rlist=r.json['searchUrl']
+rlist=r.json()['searchUrl']
 
-count=requests.get(rlist).json['total']
+count=requests.get(rlist).json()['total']
 
 n, m = divmod(count, 50)
 
 for i in range(n+1):
 
-    issueslist=requests.get(rlist+'&startAt='+str(i*50)).json['issues']
+    issueslist=requests.get(rlist+'&startAt='+str(i*50)).json()['issues']
 
     for issue in issueslist:
         '''assignee=issue['fields']['assignee']['displayName']
