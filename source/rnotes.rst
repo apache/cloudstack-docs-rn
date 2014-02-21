@@ -337,13 +337,13 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
+          deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
 
       We'll change it to point to the new package repository:
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
+          deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
 
       If you're using your own package repository, change this line to
       read as appropriate for your 4.3 repository.
@@ -551,12 +551,12 @@ working on a production system.
 
           [apache-cloudstack]
           name=Apache CloudStack
-          baseurl=http://cloudstack.apt-get.eu/rhel/4.0/
+          baseurl=http://cloudstack.apt-get.eu/rhel/4.2/
           enabled=1
           gpgcheck=0
 
       If you are using the community provided package repository, change
-      the base url to http://cloudstack.apt-get.eu/rhel/4.2/
+      the base url to http://cloudstack.apt-get.eu/rhel/4.3/
 
       If you're using your own package repository, change this line to
       read as appropriate for your 4.3 repository.
