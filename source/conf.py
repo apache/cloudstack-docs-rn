@@ -50,7 +50,7 @@ extensions = []
 templates_path = ['_templates']
 
 # Localization
-locale_dirs = ['locale/']
+locale_dirs = ['./locale/']
 gettext_compact = False
 
 # The suffix of source filenames.
