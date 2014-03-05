@@ -1,0 +1,154 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Apache CloudStack Release Notes 4.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-05 14:09+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../source/compat.rst:17
+msgid "Compatibility Matrix"
+msgstr ""
+
+#: ../../source/compat.rst:20
+msgid "Supported OS Versions for Management Server"
+msgstr ""
+
+#: ../../source/compat.rst:22
+msgid ""
+"This section lists the operating systems that are supported for running "
+"CloudStack Management Server. Note that specific versions of the operating "
+"systems are tested, so compatibility with CentOS 6.3 may not indicate "
+"compatibility with CentOS 6.2, 6.1 and so on."
+msgstr ""
+
+#: ../../source/compat.rst:29
+msgid "RHEL versions 5.5, 6.2, 6.3, and 6.4"
+msgstr ""
+
+#: ../../source/compat.rst:33
+msgid "CentOS versions 6.3, and 6.4"
+msgstr ""
+
+#: ../../source/compat.rst:37
+msgid "Ubuntu 12.04 LTS"
+msgstr ""
+
+#: ../../source/compat.rst:40
+msgid "Supported Hypervisor Versions"
+msgstr ""
+
+#: ../../source/compat.rst:42
+msgid ""
+"CloudStack supports three hypervisor families, XenServer with XAPI, KVM, and"
+" VMware with vSphere."
+msgstr ""
+
+#: ../../source/compat.rst:47
+msgid "Windows Server 2012 R2 (with Hyper-V Role enabled)"
+msgstr ""
+
+#: ../../source/compat.rst:51
+msgid "Hyper-V 2012 R2"
+msgstr ""
+
+#: ../../source/compat.rst:55
+msgid "CentOS 6.2 with KVM"
+msgstr ""
+
+#: ../../source/compat.rst:59
+msgid "Red Hat Enterprise Linux 6.2 with KVM"
+msgstr ""
+
+#: ../../source/compat.rst:63
+msgid "XenServer 6.0.2 (with Hotfix)"
+msgstr ""
+
+#: ../../source/compat.rst:67
+msgid "XenServer versions 6.1 and 6.2 SPI with latest hotfixes"
+msgstr ""
+
+#: ../../source/compat.rst:71
+msgid "VMware versions 5.0, 5.1, and 5.5"
+msgstr ""
+
+#: ../../source/compat.rst:75
+msgid ""
+"Bare metal hosts are supported, which have no hypervisor. These hosts can "
+"run the following operating systems:"
+msgstr ""
+
+#: ../../source/compat.rst:80
+msgid "RHEL or CentOS, v6.2 or 6.3"
+msgstr ""
+
+#: ../../source/compat.rst:82
+msgid "Use libvirt version 0.9.10 for CentOS 6.3"
+msgstr ""
+
+#: ../../source/compat.rst:86
+msgid "Fedora 17"
+msgstr ""
+
+#: ../../source/compat.rst:90
+msgid "Ubuntu 12.04"
+msgstr ""
+
+#: ../../source/compat.rst:92
+msgid ""
+"For more information, see the Hypervisor Compatibility Matrix in the "
+"CloudStack Installation Guide."
+msgstr ""
+
+#: ../../source/compat.rst:96
+msgid "Supported External Devices"
+msgstr ""
+
+#: ../../source/compat.rst:100
+msgid "Netscaler VPX and MPX versions 9.3 and 10.e"
+msgstr ""
+
+#: ../../source/compat.rst:104
+msgid "Netscaler SDX version 9.3"
+msgstr ""
+
+#: ../../source/compat.rst:108
+msgid "SRX (Model srx100b) versions 10.3 or higher"
+msgstr ""
+
+#: ../../source/compat.rst:112
+msgid "F5 10.1.0 (Build 3341.1084)"
+msgstr ""
+
+#: ../../source/compat.rst:115
+msgid "Supported Browsers"
+msgstr ""
+
+#: ../../source/compat.rst:117
+msgid ""
+"The CloudStack Web-based UI should be compatible with any modern browser, "
+"but it's possible that some browsers will not render portions of the UI "
+"reliably, depending on their support of Web standards. For best results, one"
+" of the following browsers recommended:"
+msgstr ""
+
+#: ../../source/compat.rst:124
+msgid "Internet Explorer versions 10 and 11"
+msgstr ""
+
+#: ../../source/compat.rst:128
+msgid "Firefox version 26 or lower"
+msgstr ""
+
+#: ../../source/compat.rst:132
+msgid "Google Chrome version 31"
+msgstr ""
+
+#: ../../source/compat.rst:136
+msgid "Safari 5"
+msgstr ""
