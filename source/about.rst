@@ -47,13 +47,13 @@ following parameters have been introduced for the same purpose:
 Hyper-V Support
 ~~~~~~~~~~~~~~~
 
-CloudStack 4.3 Beta rolls out support for Hyper-V hosts. For Hyper-V,
+CloudStack 4.3 rolls out support for Hyper-V hosts. For Hyper-V,
 CloudStack supports SMB-based storage. If you want to run guest VMs on
 Hyper-V hosts, install CloudStack Agents on each Hyper-V hosts. Before
 you use Hyper-V, review the following list of supported and
 non-supported features. For detailed instruction, see Hyper-V Quick
 Start Guide. You can also see the chapter Installing Hyper-V for
-CloudStack in the CloudStack 4.3 Beta Installation Guide.
+CloudStack in the CloudStack 4.3 Installation Guide.
 
 Supported Functionalities on Hyper-V
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -237,8 +237,7 @@ services or make changes to an existing service.
 To support this feature, a new API, upgradeRouterTemplate, has been
 introduced.
 
-The detailed instruction is provided in the CloudStack 4.3 Beta
-Administration Guide. See section 17.5.5. Enhanced Upgrade for Virtual
+The detailed instruction is provided in the CloudStack 4.3 Administration Guide. See section 17.5.5. Enhanced Upgrade for Virtual
 Routers.
 
 Service Monitoring Tool for Virtual Router
@@ -284,8 +283,7 @@ The following networks are supported:
 This feature is supported on the following hypervisors: XenServer,
 VMware, and KVM.
 
-The detailed instruction is provided in the CloudStack 4.3 Beta
-Administration Guide. See section 17.5.4. Service Monitoring Tool for
+The detailed instruction is provided in the CloudStack 4.3 Administration Guide. See section 17.5.4. Service Monitoring Tool for
 Virtual Router.
 
 Custom Compute Offering
