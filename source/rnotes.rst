@@ -171,7 +171,7 @@ working on a production system.
 
    .. sourcecode:: bash
 
-       # service cloudstack-management stop
+       $ sudo service cloudstack-management stop
 
 #. 
 
@@ -180,7 +180,7 @@ working on a production system.
 
    .. sourcecode:: bash
 
-       # service cloudstack-usage stop
+       $ sudo service cloudstack-usage stop
 
 #. 
 
@@ -191,7 +191,7 @@ working on a production system.
 
    .. sourcecode:: bash
 
-       # mysqldump -u root -p cloud > cloudstack-backup.sql
+       $ mysqldump -u root -p cloud > cloudstack-backup.sql
 
 #. 
 
@@ -203,7 +203,7 @@ working on a production system.
 
    .. sourcecode:: bash
    	  
-          $sudo apt-get install gpg
+       $ sudo apt-get install gpg
 
    #. 
 
@@ -211,7 +211,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          $gpg --import KEYS
+          $ gpg --import KEYS
 
       Alternatively, download the signing keys, the IDs found in the
       KEYS file, individually by using a keyserver.
@@ -228,9 +228,9 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          #gpg --verify apache-cloudstack-4.3-src.tar.bz2.asc
-          #gpg --print-md MD5 apache-cloudstack-4.3-src.tar.bz2 | diff - apache-cloudstack-4.3-src.tar.bz2.md5
-          #gpg --print-md SHA512 apache-cloudstack-4.3-src.tar.bz2 | diff - apache-cloudstack-4.3-src.tar.bz2.sha
+          $ gpg --verify apache-cloudstack-4.3-src.tar.bz2.asc
+          $ gpg --print-md MD5 apache-cloudstack-4.3-src.tar.bz2 | diff - apache-cloudstack-4.3-src.tar.bz2.md5
+          $ gpg --print-md SHA512 apache-cloudstack-4.3-src.tar.bz2 | diff - apache-cloudstack-4.3-src.tar.bz2.sha
 
       Each of these commands should return no output. Any output from
       them implies that there is a difference between the hash you
@@ -250,8 +250,8 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          #mkdir /tmp/cloudstack/git
-          #mkdir /tmp/cloudstack/tree
+          $ mkdir /tmp/cloudstack/git
+          $ mkdir /tmp/cloudstack/tree
 
    #. 
 
@@ -259,9 +259,9 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          #git clone https://git-wip-us.apache.org/repos/asf/cloudstack.git /tmp/cloudstack/git
-          #cd /tmp/cloudstack/git
-          #git archive --format=tar --prefix=/tmp/cloudstack/tree/ <commit-hash> | tar Pxf -
+          $ git clone https://git-wip-us.apache.org/repos/asf/cloudstack.git /tmp/cloudstack/git
+          $ cd /tmp/cloudstack/git
+          $ git archive --format=tar --prefix=/tmp/cloudstack/tree/ <commit-hash> | tar Pxf -
 
    #. 
 
@@ -269,8 +269,8 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          #cd /tmp/cloudstack
-          #tar xvfj apache-cloudstack-4.3-src.tar.bz2
+          $ cd /tmp/cloudstack
+          $ tar xvfj apache-cloudstack-4.3-src.tar.bz2
 
    #. 
 
@@ -279,7 +279,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          #diff -r /tmp/cloudstack/apache-cloudstack-4.3-src /tmp/cloudstack/tree
+          $ diff -r /tmp/cloudstack/apache-cloudstack-4.3-src /tmp/cloudstack/tree
 
       Ensure that content is the same.
 
@@ -289,8 +289,8 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          #cd /tmp/cloudstack/apache-cloudstack-4.3-src
-          #mvn --projects='org.apache.cloudstack:cloudstack' org.apache.rat:apache-rat-plugin:0.8:check
+          $ cd /tmp/cloudstack/apache-cloudstack-4.3-src
+          $ mvn --projects='org.apache.cloudstack:cloudstack' org.apache.rat:apache-rat-plugin:0.8:check
 
       The build fails if any non-compliant files are present that are
       not specifically excluded from the ASF license header requirement.
@@ -307,14 +307,14 @@ working on a production system.
 
    .. sourcecode:: bash
 
-       #mysql -u cloud -p -e "select id,name,path from cloud.storage_pool where pool_type='Filesystem'"
+       $ mysql -u cloud -p -e "select id,name,path from cloud.storage_pool where pool_type='Filesystem'"
 
    If local storage paths are found to have a trailing forward slash,
    remove it:
 
    .. sourcecode:: bash
 
-       #mysql -u cloud -p -e 'update cloud.storage_pool set path="/var/lib/libvirt/images" where path="/var/lib/libvirt/images/"';
+       $ mysql -u cloud -p -e 'update cloud.storage_pool set path="/var/lib/libvirt/images" where path="/var/lib/libvirt/images/"';
 
 #. 
 
@@ -399,9 +399,9 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          #service cloudstack-agent stop
-          #killall jsvc
-          #service cloudstack-agent start
+          $ sudo service cloudstack-agent stop
+          $ sudo killall jsvc
+          $ sudo service cloudstack-agent start
 
 #. 
 
@@ -508,7 +508,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          # service cloud-agent stop
+          $ sudo service cloud-agent stop
 
    #. 
 
@@ -516,7 +516,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          # yum update cloudstack-agent
+          $ sudo yum update cloudstack-agent
 
    #. 
 
@@ -524,7 +524,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          # service cloudstack-agent start
+          $ sudo service cloudstack-agent start
 
 #. 
 
@@ -599,9 +599,9 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          service cloudstack-agent stop
-          killall jsvc
-          service cloudstack-agent start
+          $ sudo service cloudstack-agent stop
+          $ sudo killall jsvc
+          $ sudo service cloudstack-agent start
 
 #. 
 
@@ -609,7 +609,7 @@ working on a production system.
 
    .. sourcecode:: bash
 
-       # service cloudstack-management start
+       $ sudo service cloudstack-management start
 
 #. 
 
