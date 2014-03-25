@@ -201,9 +201,9 @@ working on a production system.
 
       (optional) Install GPG keys if needed:
 
-   .. sourcecode:: bash
+      .. sourcecode:: bash
    	  
-       $ sudo apt-get install gpg
+          $ sudo apt-get install gpg
 
    #. 
 
@@ -358,50 +358,28 @@ working on a production system.
 
    #. 
 
-      Now that you have the repository configured, it's time to install
-      the ``cloudstack-management`` package. This will pull in any other
-      dependencies you need.
+      Now that you have the repository configured, it's time to upgrade
+      the ``cloudstack-management`` package. 
 
       .. sourcecode:: bash
 
-          $ sudo apt-get install cloudstack-management
+          $ sudo apt-get upgrade cloudstack-management
 
    #. 
 
-      You will need to manually install the ``cloudstack-agent``
-      package:
+      Now it's time to start the management server
 
       .. sourcecode:: bash
 
-          $ sudo apt-get install cloudstack-agent
-
-      During the installation of ``cloudstack-agent``, APT will copy your ``agent.properties``, ``log4j-cloud.xml``, and
-      ``environment.properties`` from ``/etc/cloud/agent`` to ``/etc/cloudstack/agent``.
-
-      When prompted whether you wish to keep your configuration, say
-      Yes.
+          $ sudo service cloudstack-management start
 
    #. 
 
-      Verify that the file
-      ``/etc/cloudstack/agent/environment.properties`` has a line that
-      reads:
+      If you use it, start the usage server
 
       .. sourcecode:: bash
 
-          paths.script=/usr/share/cloudstack-common
-
-      If not, add the line.
-
-   #. 
-
-      Restart the agent:
-
-      .. sourcecode:: bash
-
-          $ sudo service cloudstack-agent stop
-          $ sudo killall jsvc
-          $ sudo service cloudstack-agent start
+          $ sudo service cloudstack-usage start
 
 #. 
 
@@ -415,7 +393,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          service cloudstack-management stop
+          $ sudo service cloudstack-management stop
 
    #. 
 
@@ -423,7 +401,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.0.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input="_your_vCenter_password_" password="`cat /etc/cloudstack/management/key`" verbose=false
+          $ java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.0.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input="_your_vCenter_password_" password="`cat /etc/cloudstack/management/key`" verbose=false
 
       Store the output from this step, we need to add this in
       cluster\_details table and vmware\_data\_center tables in place of
@@ -436,7 +414,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          mysql -u <username> -p<password>
+          $ mysql -u <username> -p<password>
 
       .. sourcecode:: bash
 
@@ -489,7 +467,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          service cloudstack-management start
+          $ sudo service cloudstack-management start
 
 #. 
 
@@ -500,7 +478,7 @@ working on a production system.
 
    #. 
 
-      Configure the CloudStack yum repository as detailed above.
+      Configure the CloudStack apt repository as detailed above.
 
    #. 
 
@@ -508,7 +486,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          $ sudo service cloud-agent stop
+          $ sudo service cloudstack-agent stop
 
    #. 
 
@@ -516,7 +494,19 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          $ sudo yum update cloudstack-agent
+          $ sudo apt-get update cloudstack-agent
+
+   #. 
+
+      Verify that the file
+      ``/etc/cloudstack/agent/environment.properties`` has a line that
+      reads:
+
+      .. sourcecode:: bash
+
+          paths.script=/usr/share/cloudstack-common
+
+      If not, add the line.
 
    #. 
 
@@ -573,9 +563,15 @@ working on a production system.
 
    #. 
 
-      For KVM hosts, you will need to upgrade the ``cloud-agent``
-      package, similarly installing the new version as
-      ``cloudstack-agent``.
+      Now it's time to restart the management server
+
+      .. sourcecode:: bash
+
+          $ sudo service cloudstack-management start
+
+   #. 
+
+      For KVM hosts, upgrade the ``cloudstack-agent`` package
 
       .. sourcecode:: bash
 
