@@ -546,6 +546,13 @@ Apache branding.
 
 The current UI flow remains the same.
 
+Depreciation of realhostip.com DNS and SSL certificate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The realhostip.com dynamic DNS resolution service is being retired this
+summer. In advance of that, CloudStack 4.3 no longer uses realhostip.com
+DNS domains or SSL certificates to encrypt Console Proxy or file copy
+communications.
+
 Issues Fixed in 4.3.0
 ---------------------
 
