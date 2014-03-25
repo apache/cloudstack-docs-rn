@@ -55,8 +55,8 @@ non-supported features. For detailed instruction, see Hyper-V Quick
 Start Guide. You can also see the chapter Installing Hyper-V for
 CloudStack in the CloudStack 4.3 Beta Installation Guide.
 
-Supported Functionalities
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Supported Functionalities on Hyper-V
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  
 
@@ -164,8 +164,8 @@ Supported Functionalities
 
    Host and Storage in maintenance mode
 
-Unsupported Functionalities
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Unsupported Functionalities on Hyper-V
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  
 
