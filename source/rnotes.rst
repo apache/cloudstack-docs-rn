@@ -26,10 +26,10 @@ made while CloudStack was in the Apache Incubator.
 If you run into any issues during upgrades, please feel free to ask
 questions on users@cloudstack.apache.org or dev@cloudstack.apache.org.
 
-Upgrade from 4.2.0 to 4.3
+Upgrade from 4.2.x to 4.3
 -------------------------
 
-This section will guide you from CloudStack 4.2 to CloudStack 4.3.
+This section will guide you from CloudStack 4.2.x to CloudStack 4.3.
 
 Any steps that are hypervisor-specific will be called out with a note.
 
@@ -43,7 +43,7 @@ working on a production system.
 
    #. 
 
-      While running the existing 4.2.0 system, log in to the UI as root
+      While running the existing 4.2.x system, log in to the UI as root
       administrator.
 
    #. 
@@ -1789,7 +1789,7 @@ with a note.
       the baseurl to http:// cloudstack.apt-get.eu/rhel/4.2/
 
       If you are using your own package repository, change this line to
-      read as appropriate for your 4.2.0 repository.
+      read as appropriate for your 4.2 repository.
 
    #. 
 
@@ -1983,7 +1983,7 @@ with a note.
       the baseurl to http://cloudstack.apt-get.eu/rhel/4.2/
 
       If you're using your own package repository, change this line to
-      read as appropriate for your 4.2.0 repository.
+      read as appropriate for your 4.2 repository.
 
    #. 
 
@@ -2038,7 +2038,7 @@ with a note.
    ``/etc/cloud/management/components.xml`` the changes will be
    preserved in the upgrade. However, you need to do the following steps
    to place these changes in a new version of the file which is
-   compatible with version 4.2.0.
+   compatible with version 4.2.x.
 
    #. 
 
@@ -2619,7 +2619,7 @@ Upgrade from 2.2.14 to 4.3
       the baseurl to http:// cloudstack.apt-get.eu/rhel/4.2/
 
       If you are using your own package repository, change this line to
-      read as appropriate for your 4.2.0 repository.
+      read as appropriate for your 4.2 repository.
 
    #. 
 
@@ -2698,7 +2698,7 @@ Upgrade from 2.2.14 to 4.3
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
 
       If you're using your own package repository, change this line to
-      read as appropriate for your 4.2.0 repository.
+      read as appropriate for your 4.2 repository.
 
    #. 
 
