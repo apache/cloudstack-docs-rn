@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Apache CloudStack Release Notes RTD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-05 14:09+0100\n"
-"PO-Revision-Date: 2014-03-31 12:58+0000\n"
+"PO-Revision-Date: 2014-03-31 15:24+0000\n"
 "Last-Translator: sebgoa <runseb@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/apache-cloudstack-release-notes-rtd/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -146,7 +146,7 @@ msgstr ""
 # 12fce5e639a646158f1dc86dfa7e398b
 #: ../../source/about.rst:107
 msgid "Storage"
-msgstr ""
+msgstr "ストレージ"
 
 # 6998aae328cd44ec81dea862ddbc8b88
 #: ../../source/about.rst:111
@@ -171,7 +171,7 @@ msgstr ""
 # b026291779464da3801d90e1ddde3180
 #: ../../source/about.rst:127
 msgid "Network"
-msgstr ""
+msgstr "ネットワーク"
 
 # 23e7c8c98c714ed9b36b1d580e4fd189
 #: ../../source/about.rst:131
@@ -261,7 +261,7 @@ msgstr ""
 # e561849c04c944f8be5a80462ef529e7
 #: ../../source/about.rst:196
 msgid "VPC"
-msgstr ""
+msgstr "VPC"
 
 # 8274ec6f81de48a7bbdf53bc6db095ed
 #: ../../source/about.rst:200
@@ -353,7 +353,7 @@ msgstr ""
 # ba9f7906e3fc407bb578f3e382709e7f
 #: ../../source/about.rst:258
 msgid "DNS"
-msgstr ""
+msgstr "DNS"
 
 # f106a0ddd91d4a79b85ab48bda92d0b3
 #: ../../source/about.rst:262
@@ -822,7 +822,7 @@ msgstr ""
 # af767f946b1347dbbce5a5a9ad2407cb
 #: ../../source/about.rst:559 ../../source/about.rst:734
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 # b3c560a66bcd42b5bf60b8464ce65e1e
 #: ../../source/about.rst:561

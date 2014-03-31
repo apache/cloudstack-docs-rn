@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Apache CloudStack Release Notes RTD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-05 14:09+0100\n"
-"PO-Revision-Date: 2014-03-31 13:20+0000\n"
+"PO-Revision-Date: 2014-03-31 18:33+0000\n"
 "Last-Translator: sebgoa <runseb@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/apache-cloudstack-release-notes-rtd/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgid ""
 "installation.readthedocs.org/en/latest/>`__. For usage and administration "
 "instructions, please see the `CloudStack Administrator's Guide <http"
 "://cloudstack-administration.readthedocs.org/en/latest/>`__."
-msgstr "このドキュメントは本 &PRODUCT; リリースの特定情報を含んでおり、以前のバージョンからのアップグレード方法、&PRODUCT; に追加された新機能、API の変更点、修正された問題が含まれます。インストール方法に関しては `インストールガイド <http://cloudstack-installation.readthedocs.org/en/latest/>`__.  を参照してください。使い方と管理方法に関しては `CloudStack 管理者ガイド <http://cloudstack-administration.readthedocs.org/en/latest/>`__.   を参照してください。"
+msgstr "このドキュメントは本 CloudStack リリースの特定情報を含んでおり、以前のバージョンからのアップグレード方法、CloudStack に追加された新機能、API の変更点、修正された問題が含まれます。インストール方法に関しては `インストールガイド <http://cloudstack-installation.readthedocs.org/en/latest/>`__.  を参照してください。使い方と管理方法に関しては `CloudStack 管理者ガイド <http://cloudstack-administration.readthedocs.org/en/latest/>`__.   を参照してください。"
 
 # a0536e5ac6e44bf2a3fb53a10aaac844
 #: ../../source/index.rst:38

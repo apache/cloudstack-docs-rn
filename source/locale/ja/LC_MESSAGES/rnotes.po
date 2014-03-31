@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Apache CloudStack Release Notes RTD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-05 14:09+0100\n"
-"PO-Revision-Date: 2014-03-31 12:58+0000\n"
+"PO-Revision-Date: 2014-03-31 15:24+0000\n"
 "Last-Translator: sebgoa <runseb@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/apache-cloudstack-release-notes-rtd/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -150,7 +150,7 @@ msgstr ""
 #: ../../source/rnotes.rst:1250 ../../source/rnotes.rst:1668
 #: ../../source/rnotes.rst:2493
 msgid "Hypervisor"
-msgstr ""
+msgstr "ハイパーバイザー"
 
 # d1781bdac5cb40e684a6888e8eb052fd
 # a861163d98014b449c8b501efb2812ce
@@ -161,7 +161,7 @@ msgstr ""
 #: ../../source/rnotes.rst:1250 ../../source/rnotes.rst:1668
 #: ../../source/rnotes.rst:2493
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 # 85616c2b776642458b6b074f0955b7ec
 # 390402007d6748c1bfbc48a03eb1ff4a
