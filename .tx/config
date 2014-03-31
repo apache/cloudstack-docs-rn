@@ -1,0 +1,29 @@
+[main]
+host = https://www.transifex.com
+type = PO
+
+[apache-cloudstack-release-notes-rtd.about]
+file_filter = source/locale/<lang>/LC_MESSAGES/about.po
+source_file = source/locale/pot/about.pot
+source_lang = en
+
+[apache-cloudstack-release-notes-rtd.api-changes]
+file_filter = source/locale/<lang>/LC_MESSAGES/api-changes.po
+source_file = source/locale/pot/api-changes.pot
+source_lang = en
+
+[apache-cloudstack-release-notes-rtd.compat]
+file_filter = source/locale/<lang>/LC_MESSAGES/compat.po
+source_file = source/locale/pot/compat.pot
+source_lang = en
+
+[apache-cloudstack-release-notes-rtd.index]
+file_filter = source/locale/<lang>/LC_MESSAGES/index.po
+source_file = source/locale/pot/index.pot
+source_lang = en
+
+[apache-cloudstack-release-notes-rtd.rnotes]
+file_filter = source/locale/<lang>/LC_MESSAGES/rnotes.po
+source_file = source/locale/pot/rnotes.pot
+source_lang = en
+
