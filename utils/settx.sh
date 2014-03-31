@@ -14,10 +14,10 @@
 #specific language governing permissions and limitations
 #under the License.
 
-for file in `ls pot | grep .pot`; do
+for file in `ls ./build/locale | grep .pot`; do
     resource=`basename $file .pot`
     echo $resource
     tx set -t PO --auto-local -r apache-cloudstack-release-notes-rtd.$resource "<lang>/$resource.po" \
     --source-lang=en \
-    --source-file "pot/$resource.pot" --execute
+    --source-file "./build/locale/$resource.pot" --execute
 done
