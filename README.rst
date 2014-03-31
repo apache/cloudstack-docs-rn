@@ -35,21 +35,25 @@ Translation
 Generate the .pot files with:
 
 ::
+
    sphinx-intl update-txconfig-resources --pot-dir source/locale/pot --transifex-project-name apache-cloudstack-release-notes-rtd --locale-dir source/locale
 
 Push the .pot files to transifex with:
 
 ::
+
    tx push -s
 
 Download the translated strings, for example Japanese (ja):
 
 ::
+
    tx pull -l ja
 
 Build the translated docs:
 
 ::
+
    sphinx-intl build --locale-dir source/locale
    make -e SPHINXOPTS="-D language='ja'" html
 
