@@ -16,10 +16,10 @@
 About this new Release
 ======================
 
-What's New in 4.3
------------------
+What's New in |version|
+-----------------------
 
-CloudStack 4.3 includes the following new features.
+CloudStack |version| includes the following new features.
 
 Optional 64-Bit System VM Template Support
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -47,13 +47,13 @@ following parameters have been introduced for the same purpose:
 Hyper-V Support
 ~~~~~~~~~~~~~~~
 
-CloudStack 4.3 rolls out support for Hyper-V hosts. For Hyper-V,
+CloudStack |version| rolls out support for Hyper-V hosts. For Hyper-V,
 CloudStack supports SMB-based storage. If you want to run guest VMs on
 Hyper-V hosts, install CloudStack Agents on each Hyper-V hosts. Before
 you use Hyper-V, review the following list of supported and
 non-supported features. For detailed instruction, see Hyper-V Quick
 Start Guide. You can also see the chapter Installing Hyper-V for
-CloudStack in the CloudStack 4.3 Installation Guide.
+CloudStack in the CloudStack |version| Installation Guide.
 
 Supported Functionalities on Hyper-V
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -237,7 +237,7 @@ services or make changes to an existing service.
 To support this feature, a new API, upgradeRouterTemplate, has been
 introduced.
 
-The detailed instruction is provided in the CloudStack 4.3 Administration Guide. See section 17.5.5. Enhanced Upgrade for Virtual
+The detailed instruction is provided in the CloudStack |version| Administration Guide. See section 17.5.5. Enhanced Upgrade for Virtual
 Routers.
 
 Service Monitoring Tool for Virtual Router
@@ -283,7 +283,7 @@ The following networks are supported:
 This feature is supported on the following hypervisors: XenServer,
 VMware, and KVM.
 
-The detailed instruction is provided in the CloudStack 4.3 Administration Guide. See section 17.5.4. Service Monitoring Tool for
+The detailed instruction is provided in the CloudStack |version| Administration Guide. See section 17.5.4. Service Monitoring Tool for
 Virtual Router.
 
 Custom Compute Offering
@@ -430,7 +430,7 @@ Publishing Alert Using the Web ROOT Admin API
 
 In previous releases of CloudStack code alerts are generated for
 CloudStack services (Usage service) only if they run on the same host as
-the Management Server. A new API has been introduced in 4.3, which can
+the Management Server. A new API has been introduced in |version|, which can
 be used by the following services to generate and publish. The services
 need not be running on the same host where the Management Server is
 running.
@@ -547,18 +547,17 @@ The current UI flow remains the same.
 Depreciation of realhostip.com DNS and SSL certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The realhostip.com dynamic DNS resolution service is being retired this
-summer. In advance of that, CloudStack 4.3 no longer uses realhostip.com
+summer. In advance of that, CloudStack |version| no longer uses realhostip.com
 DNS domains or SSL certificates to encrypt Console Proxy or file copy
 communications.
 
-Issues Fixed in 4.3.0
----------------------
+Issues Fixed in |release|
+-------------------------
 
-Apache CloudStack uses `Jira <https://issues.apache.org/jira/browse/CLOUDSTACK>`__ to track its
-issues. All new features and bugs for 4.3 have been tracked in Jira, and have a standard naming convention of "CLOUDSTACK-NNNN" where "NNNN" is the issue number.
+Apache CloudStack uses `Jira <https://issues.apache.org/jira/browse/CLOUDSTACK>`_ to track its
+issues. All new features and bugs for |release| have been tracked in Jira, and have a standard naming convention of "CLOUDSTACK-NNNN" where "NNNN" is the issue number.
 
-For the list of issues fixed, see `Issues Fixed in
-4.3 <https://issues.apache.org/jira/issues/?filter=12326161>`__.
+For the list of issues fixed, see `Issues Fixed in <https://issues.apache.org/jira/issues/?filter=12326161>`_ |release|.
 
 ==========================================================================  ===================================================================================
 Bug ID                                                                      Description
@@ -587,7 +586,7 @@ Bug ID                                                                      Desc
 `CLOUDSTACK-5661 <https://issues.apache.org/jira/browse/CLOUDSTACK-5661>`_  [VMware] DetachIsoCmd succeeds even though cdrom is locked by VM as cdrom is mou...
 `CLOUDSTACK-5653 <https://issues.apache.org/jira/browse/CLOUDSTACK-5653>`_  S3 object store as Secondary Storage, the template created from different zone i...
 `CLOUDSTACK-5613 <https://issues.apache.org/jira/browse/CLOUDSTACK-5613>`_  CloudStack 4.2.0 - Usage server is running but tables remain empty...
-`CLOUDSTACK-5608 <https://issues.apache.org/jira/browse/CLOUDSTACK-5608>`_  HyperV Builtin and System vm template entries missing in 4.3 upgrade setup...
+`CLOUDSTACK-5608 <https://issues.apache.org/jira/browse/CLOUDSTACK-5608>`_  HyperV Builtin and System vm template entries missing in |version| upgrade setup...
 `CLOUDSTACK-5534 <https://issues.apache.org/jira/browse/CLOUDSTACK-5534>`_  MySQL exception raised when searching for users with keyword...
 `CLOUDSTACK-5533 <https://issues.apache.org/jira/browse/CLOUDSTACK-5533>`_  Virtual router in shared network does respond to DNS even when no DNS service is...
 `CLOUDSTACK-5532 <https://issues.apache.org/jira/browse/CLOUDSTACK-5532>`_  Long tag values are not readable within the UI...
@@ -726,14 +725,13 @@ Bug ID                                                                      Desc
 ==========================================================================  ===================================================================================
 
 
-Known Issues in 4.3.0
----------------------
+Known Issues in |release|
+-------------------------
 
 Apache CloudStack uses
-`Jira <https://issues.apache.org/jira/browse/CLOUDSTACK>`__ to track its issues. All new features and bugs for 4.3 have been tracked in Jira, and have a standard naming convention of "CLOUDSTACK-NNNN" where "NNNN" is the issue number.
+`Jira <https://issues.apache.org/jira/browse/CLOUDSTACK>`_ to track its issues. All new features and bugs for |release| have been tracked in Jira, and have a standard naming convention of "CLOUDSTACK-NNNN" where "NNNN" is the issue number.
 
-For the list of known issues, see `Known Issues in
-4.3 <https://issues.apache.org/jira/issues/?filter=12326162>`__.
+For the list of known issues, see `Known Issues in <https://issues.apache.org/jira/issues/?filter=12326162>`_ |release|.
 
 ==========================================================================  ===================================================================================
 Bug ID                                                                      Description
