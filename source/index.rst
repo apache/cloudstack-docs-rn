@@ -31,9 +31,9 @@ issues.
 
 This document contains information specific to this release of CloudStack, including upgrade instructions from prior releases, new
 features added to CloudStack, API changes, and issues fixed in the release. For installation instructions, please see the `Installation
-Guide <http://cloudstack-installation.readthedocs.org/en/latest/>`__.
+Guide <http://docs.cloudstack.apache.org/projects/cloudstack-installation/>`__.
 For usage and administration instructions, please see the `CloudStack Administrator's
-Guide <http://cloudstack-administration.readthedocs.org/en/latest/>`__.
+Guide <http://docs.cloudstack.apache.org/projects/cloudstack-administration/>`__.
 
 Contents:
 
