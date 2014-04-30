@@ -13,7 +13,7 @@
    specific language governing permissions and limitations
    under the License.
    
-API Changes Introduced in 4.3
+API Changes Introduced in |version|
 =============================
 
 Hyper-V
@@ -120,7 +120,7 @@ Enhanced Upgrade for Virtual Routers
 |                       |                                                                   |
 |                       | The following response parameters has been added:                 |
 |                       |                                                                   |
-|                       | -  version : (String) The router version. For example, 4.3.0.     |
+|                       | -  version : (String) The router version. For example, |release|. |
 |                       |                                                                   |
 |                       | -  requiresupgrade: (Boolean) The flag to indicate if the router  |
 |                       |    template requires an upgrade.                                  |
