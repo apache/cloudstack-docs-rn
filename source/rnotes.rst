@@ -346,7 +346,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise |version|
+          deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
 
       If you're using your own package repository, change this line to
       read as appropriate for your |version| repository.
@@ -869,7 +869,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
+          deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
 
       If you're using your own package repository, change this line to
       read as appropriate for your |version| repository.
@@ -1426,7 +1426,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise 4.1
+          deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
 
       If you're using your own package repository, change this line to
       read as appropriate for your 4.1.0 repository.
@@ -1865,7 +1865,7 @@ with a note.
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
+          deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
 
       If you're using your own package repository, change this line to
       read as appropriate for your |version| repository.
@@ -2695,7 +2695,7 @@ Upgrade from 2.2.14 to |version|
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
+          deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
 
       If you're using your own package repository, change this line to
       read as appropriate for your 4.2 repository.
