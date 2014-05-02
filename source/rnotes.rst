@@ -549,7 +549,7 @@ working on a production system.
           gpgcheck=0
 
       If you are using the community provided package repository, change
-      the base url to http://cloudstack.apt-get.eu/rhel/|version|/
+      the base url to http://cloudstack.apt-get.eu/rhel/4.3/
 
       If you're using your own package repository, change this line to
       read as appropriate for your |version| repository.
@@ -783,11 +783,11 @@ working on a production system.
 #. 
 
    Create RPM or Debian packages (as appropriate) and a repository from
-   the 4.2.1 source, or check the Apache CloudStack downloads page at
+   the 4.3.0 source, or check the Apache CloudStack downloads page at
    `http://cloudstack.apache.org/downloads.html <http://cloudstack.apache.org/downloads.html>`__
    for package repositories supplied by community members. You will need
    them for step `8 <#upgrade-deb-packages-41to42>`__ or step
-   `11 <#upgrade-rpm-packages-41to42>`__.
+   `11 <#upgrade-rpm-packages-41to43>`__.
 
    Instructions for creating packages from the CloudStack source are in
    the `Installation
@@ -863,7 +863,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
+          deb http://cloudstack.apt-get.eu/ubuntu precise 4.1
 
       We'll change it to point to the new package repository:
 
@@ -1087,7 +1087,7 @@ working on a production system.
           gpgcheck=0
 
       If you are using the community provided package repository, change
-      the base url to http://cloudstack.apt-get.eu/rhel/4.2/
+      the base url to http://cloudstack.apt-get.eu/rhel/4.3/
 
       If you're using your own package repository, change this line to
       read as appropriate for your |version| repository.
@@ -1209,10 +1209,10 @@ working on a production system.
    Enterprise Linux or CentOS), or APT and Debian packages (for Ubuntu).
 
    Create RPM or Debian packages (as appropriate) and a repository from
-   the 4.1.0 source, or check the Apache CloudStack downloads page at
+   the 4.3.0 source, or check the Apache CloudStack downloads page at
    `http://cloudstack.apache.org/downloads.html <http://cloudstack.apache.org/downloads.html>`__
    for package repositories supplied by community members. You will need
-   them for step `9 <#upgrade-deb-packages-40to41>`__ or step
+   them for step `9 <#upgrade-deb-packages-40to43>`__ or step
    `10 <#upgrade-rpm-packages-40to41>`__.
 
    Instructions for creating packages from the CloudStack source are in
@@ -1402,7 +1402,7 @@ working on a production system.
 #. 
 
    If you are using Ubuntu, follow this procedure to upgrade your
-   packages. If not, skip to step `10 <#upgrade-rpm-packages-40to41>`__.
+   packages. If not, skip to step `10 <#upgrade-rpm-packages-40to43>`__.
 
    .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and APT repository, substitute your own URL for the ones used in these examples.
 
@@ -1429,7 +1429,7 @@ working on a production system.
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
 
       If you're using your own package repository, change this line to
-      read as appropriate for your 4.1.0 repository.
+      read as appropriate for your 4.3.0 repository.
 
    #. 
 
@@ -1541,7 +1541,7 @@ working on a production system.
                                           gpgcheck=0
 
       If you are using the community provided package repository, change
-      the baseurl to http://cloudstack.apt-get.eu/rhel/4.1/
+      the baseurl to http://cloudstack.apt-get.eu/rhel/4.3/
 
       If you're using your own package repository, change this line to
       read as appropriate for your |version| repository.
@@ -1786,10 +1786,10 @@ with a note.
                       gpgcheck=0
 
       If you are using the community provided package repository, change
-      the baseurl to http:// cloudstack.apt-get.eu/rhel/4.2/
+      the baseurl to http:// cloudstack.apt-get.eu/rhel/4.3/
 
       If you are using your own package repository, change this line to
-      read as appropriate for your 4.2 repository.
+      read as appropriate for your 4.3 repository.
 
    #. 
 
@@ -1980,10 +1980,10 @@ with a note.
           gpgcheck=0
 
       If you are using the community provided package repository, change
-      the baseurl to http://cloudstack.apt-get.eu/rhel/4.2/
+      the baseurl to http://cloudstack.apt-get.eu/rhel/4.3/
 
       If you're using your own package repository, change this line to
-      read as appropriate for your 4.2 repository.
+      read as appropriate for your 4.3 repository.
 
    #. 
 
@@ -2611,15 +2611,15 @@ Upgrade from 2.2.14 to |version|
                       gpgcheck=0
                       [apache CloudStack]
                       name= Apache CloudStack
-                      baseurl= http://cloudstack.apt-get.eu/rhel/4.2/
+                      baseurl= http://cloudstack.apt-get.eu/rhel/4.3/
                       enabled=1
                       gpgcheck=0
 
       If you are using the community provided package repository, change
-      the baseurl to http:// cloudstack.apt-get.eu/rhel/4.2/
+      the baseurl to http:// cloudstack.apt-get.eu/rhel/4.3/
 
       If you are using your own package repository, change this line to
-      read as appropriate for your 4.2 repository.
+      read as appropriate for your 4.3 repository.
 
    #. 
 
@@ -2698,7 +2698,7 @@ Upgrade from 2.2.14 to |version|
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
 
       If you're using your own package repository, change this line to
-      read as appropriate for your 4.2 repository.
+      read as appropriate for your 4.3 repository.
 
    #. 
 
@@ -2810,7 +2810,7 @@ Upgrade from 2.2.14 to |version|
           gpgcheck=0
 
       If you are using the community provided package repository, change
-      the baseurl to http://cloudstack.apt-get.eu/rhel/4.2/
+      the baseurl to http://cloudstack.apt-get.eu/rhel/4.3/
 
       If you're using your own package repository, change this line to
       read as appropriate for your |version| repository.
