@@ -14,11 +14,11 @@
    under the License.
 
 
-Upgrade Instructions for 4.3
-============================
+Upgrade Instructions for |version|
+==================================
 
 This section contains upgrade instructions from prior versions of
-CloudStack to Apache CloudStack 4.3. We include instructions on
+CloudStack to Apache CloudStack |version|. We include instructions on
 upgrading to Apache CloudStack from pre-Apache versions of Citrix
 CloudStack (last version prior to Apache is 3.0.2) and from the releases
 made while CloudStack was in the Apache Incubator.
@@ -26,8 +26,8 @@ made while CloudStack was in the Apache Incubator.
 If you run into any issues during upgrades, please feel free to ask
 questions on users@cloudstack.apache.org or dev@cloudstack.apache.org.
 
-Validate 4.3 source code tarball
---------------------------------
+Validate |version| source code tarball
+--------------------------------------
 
 #. 
 
@@ -64,9 +64,9 @@ Validate 4.3 source code tarball
 
       .. sourcecode:: bash
 
-          $ gpg --verify apache-cloudstack-4.3-src.tar.bz2.asc
-          $ gpg --print-md MD5 apache-cloudstack-4.3-src.tar.bz2 | diff - apache-cloudstack-4.3-src.tar.bz2.md5
-          $ gpg --print-md SHA512 apache-cloudstack-4.3-src.tar.bz2 | diff - apache-cloudstack-4.3-src.tar.bz2.sha
+          $ gpg --verify apache-cloudstack-4.4-src.tar.bz2.asc
+          $ gpg --print-md MD5 apache-cloudstack-4.4-src.tar.bz2 | diff - apache-cloudstack-4.4-src.tar.bz2.md5
+          $ gpg --print-md SHA512 apache-cloudstack-4.4-src.tar.bz2 | diff - apache-cloudstack-4.4-src.tar.bz2.sha
 
       Each of these commands should return no output. Any output from
       them implies that there is a difference between the hash you
@@ -91,7 +91,7 @@ Validate 4.3 source code tarball
 
    #. 
 
-      Check out the 4.3 branch:
+      Check out the |version| branch:
 
       .. sourcecode:: bash
 
@@ -106,7 +106,7 @@ Validate 4.3 source code tarball
       .. sourcecode:: bash
 
           $ cd /tmp/cloudstack
-          $ tar xvfj apache-cloudstack-4.3-src.tar.bz2
+          $ tar xvfj apache-cloudstack-4.4-src.tar.bz2
 
    #. 
 
@@ -115,7 +115,7 @@ Validate 4.3 source code tarball
 
       .. sourcecode:: bash
 
-          $ diff -r /tmp/cloudstack/apache-cloudstack-4.3-src /tmp/cloudstack/tree
+          $ diff -r /tmp/cloudstack/apache-cloudstack-4.4-src /tmp/cloudstack/tree
 
       Ensure that content is the same.
 
@@ -125,7 +125,7 @@ Validate 4.3 source code tarball
 
       .. sourcecode:: bash
 
-          $ cd /tmp/cloudstack/apache-cloudstack-4.3-src
+          $ cd /tmp/cloudstack/apache-cloudstack-4.4-src
           $ mvn --projects='org.apache.cloudstack:cloudstack' org.apache.rat:apache-rat-plugin:0.8:check
 
       The build fails if any non-compliant files are present that are
@@ -134,10 +134,10 @@ Validate 4.3 source code tarball
       completes. Passing the build implies that RAT certifies that the
       files are compliant and this test is passed.
 
-Upgrade from 4.2.x to 4.3
--------------------------
+Upgrade from 4.2.x to |version|
+-------------------------------
 
-This section will guide you from CloudStack 4.2.x to CloudStack 4.3.
+This section will guide you from CloudStack 4.2.x to CloudStack |version|.
 
 Any steps that are hypervisor-specific will be called out with a note.
 
@@ -176,12 +176,12 @@ working on a production system.
        +-------------------------+-----------------------------------------------------------------------------------------------+
        | Hypervisor              | Description                                                                                   |
        +=========================+===============================================================================================+
-       | XenServer               | Name: systemvm-xenserver-4.3                                                                  |
+       | XenServer               | Name: systemvm-xenserver-|version|                                                            |
        |                         |                                                                                               |
-       |                         | Description: systemvm-xenserver-4.3                                                           |
+       |                         | Description: systemvm-xenserver-|version|                                                     |
        |                         |                                                                                               |
        |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-xen.vhd.bz2      |
+       |                         | |sysvm-url-xen|                                                                               |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
        |                         |                                                                                               |
@@ -201,12 +201,12 @@ working on a production system.
        |                         |                                                                                               |
        |                         | Featured: no                                                                                  |
        +-------------------------+-----------------------------------------------------------------------------------------------+
-       | KVM                     | Name: systemvm-kvm-4.3                                                                        |
+       | KVM                     | Name: systemvm-kvm-|version|                                                                  |
        |                         |                                                                                               |
-       |                         | Description: systemvm-kvm-4.3                                                                 |
+       |                         | Description: systemvm-kvm-|version|                                                           |
        |                         |                                                                                               |
        |                         | URL:                                                                                          |	
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-kvm.qcow2.bz2    |
+       |                         | |sysvm-url-kvm|                                                                               |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
        |                         |                                                                                               |
@@ -226,12 +226,12 @@ working on a production system.
        |                         |                                                                                               |
        |                         | Featured: no                                                                                  |
        +-------------------------+-----------------------------------------------------------------------------------------------+
-       | VMware                  | Name: systemvm-vmware-4.3                                                                     |
+       | VMware                  | Name: systemvm-vmware-|version|                                                               |
        |                         |                                                                                               |
-       |                         | Description: systemvm-vmware-4.3                                                              |
+       |                         | Description: systemvm-vmware-|version|                                                        |
        |                         |                                                                                               |
        |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-vmware.ova       |
+       |                         | |sysvm-url-vmware|                                                                            |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
        |                         |                                                                                               |
@@ -262,11 +262,11 @@ working on a production system.
 #. 
 
    Create RPM or Debian packages (as appropriate) and a repository from
-   the 4.3 source, or check the Apache CloudStack downloads page at
+   the |version| source, or check the Apache CloudStack downloads page at
    `http://cloudstack.apache.org/downloads.html <http://cloudstack.apache.org/downloads.html>`__
    for package repositories supplied by community members. You will need
-   them for step `8 <#upgrade-deb-packages-4.3>`__ or step
-   `11 <#upgrade-rpm-packages-4.3>`__.
+   them for step `8 <#upgrade-deb-packages-|version|>`__ or step
+   `11 <#upgrade-rpm-packages-|version|>`__.
 
    Instructions for creating packages from the CloudStack source are in
    the `Installation
@@ -322,7 +322,7 @@ working on a production system.
 #. 
 
    If you are using Ubuntu, follow this procedure to upgrade your
-   packages. If not, skip to step `11 <#upgrade-rpm-packages-4.3>`__.
+   packages. If not, skip to step `11 <#upgrade-rpm-packages-|version|>`__.
 
    .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and APT repository, substitute your own URL for the ones used in these examples.
 
@@ -349,7 +349,7 @@ working on a production system.
           deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
 
       If you're using your own package repository, change this line to
-      read as appropriate for your 4.3 repository.
+      read as appropriate for your |version| repository.
 
    #. 
 
@@ -522,7 +522,7 @@ working on a production system.
 #. 
 
    If you are using CentOS or RHEL, follow this procedure to upgrade
-   your packages. If not, skip to step `14 <#restart-system-vms-4.3>`__.
+   your packages. If not, skip to step `14 <#restart-system-vms-|version|>`__.
 
    .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and yum repository, substitute your own URL for the ones used in these examples.
 
@@ -549,10 +549,10 @@ working on a production system.
           gpgcheck=0
 
       If you are using the community provided package repository, change
-      the base url to http://cloudstack.apt-get.eu/rhel/4.3/
+      the base url to http://cloudstack.apt-get.eu/rhel/|version|/
 
       If you're using your own package repository, change this line to
-      read as appropriate for your 4.3 repository.
+      read as appropriate for your |version| repository.
 
    #. 
 
@@ -654,10 +654,10 @@ working on a production system.
    Copy the file ``vhd-utils`` to
    ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
 
-Upgrade from 4.1.x to 4.3
-------------------------------
+Upgrade from 4.1.x to |version|
+-------------------------------
 
-This section will guide you from CloudStack 4.1.x versions to CloudStack 4.3.
+This section will guide you from CloudStack 4.1.x versions to CloudStack |version|.
 
 Any steps that are hypervisor-specific will be called out with a note.
 
@@ -703,12 +703,12 @@ working on a production system.
        +-------------------------+-----------------------------------------------------------------------------------------------+
        | Hypervisor              | Description                                                                                   |
        +=========================+===============================================================================================+
-       | XenServer               | Name: systemvm-xenserver-4.3                                                                  |
+       | XenServer               | Name: systemvm-xenserver-|version|                                                            |
        |                         |                                                                                               |
-       |                         | Description: systemvm-xenserver-4.3                                                           |
+       |                         | Description: systemvm-xenserver-|version|                                                     |
        |                         |                                                                                               |
        |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-xen.vhd.bz2      |
+       |                         | |sysvm-url-xen|                                                                               |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
        |                         |                                                                                               |
@@ -728,12 +728,12 @@ working on a production system.
        |                         |                                                                                               |
        |                         | Featured: no                                                                                  |
        +-------------------------+-----------------------------------------------------------------------------------------------+
-       | KVM                     | Name: systemvm-kvm-4.3                                                                        |
+       | KVM                     | Name: systemvm-kvm-|version|                                                                  |
        |                         |                                                                                               |
-       |                         | Description: systemvm-kvm-4.3                                                                 |
+       |                         | Description: systemvm-kvm-|version|                                                           |
        |                         |                                                                                               |
-       |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-kvm.qcow2.bz2    |
+       |                         | URL:                                                                                          |	
+       |                         | |sysvm-url-kvm|                                                                               |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
        |                         |                                                                                               |
@@ -753,12 +753,12 @@ working on a production system.
        |                         |                                                                                               |
        |                         | Featured: no                                                                                  |
        +-------------------------+-----------------------------------------------------------------------------------------------+
-       | VMware                  | Name: systemvm-vmware-4.3                                                                     |
+       | VMware                  | Name: systemvm-vmware-|version|                                                               |
        |                         |                                                                                               |
-       |                         | Description: systemvm-vmware-4.3                                                              |
+       |                         | Description: systemvm-vmware-|version|                                                        |
        |                         |                                                                                               |
        |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-vmware.ova       |
+       |                         | |sysvm-url-vmware|                                                                            |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
        |                         |                                                                                               |
@@ -869,10 +869,10 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
+          deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
 
       If you're using your own package repository, change this line to
-      read as appropriate for your 4.3 repository.
+      read as appropriate for your |version| repository.
 
    #. 
 
@@ -1090,7 +1090,7 @@ working on a production system.
       the base url to http://cloudstack.apt-get.eu/rhel/4.2/
 
       If you're using your own package repository, change this line to
-      read as appropriate for your 4.3 repository.
+      read as appropriate for your |version| repository.
 
    #. 
 
@@ -1188,10 +1188,10 @@ working on a production system.
    Copy the file ``vhd-utils`` to
    ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
 
-Upgrade from 4.0.x to 4.3
--------------------------
+Upgrade from 4.0.x to |version|
+-------------------------------
 
-This section will guide you from CloudStack 4.0.x versions to CloudStack 4.3.
+This section will guide you from CloudStack 4.0.x versions to CloudStack |version|.
 
 Any steps that are hypervisor-specific will be called out with a note.
 
@@ -1248,12 +1248,12 @@ working on a production system.
        +-------------------------+-----------------------------------------------------------------------------------------------+
        | Hypervisor              | Description                                                                                   |
        +=========================+===============================================================================================+
-       | XenServer               | Name: systemvm-xenserver-4.3                                                                  |
+       | XenServer               | Name: systemvm-xenserver-|version|                                                            |
        |                         |                                                                                               |
-       |                         | Description: systemvm-xenserver-4.3                                                           |
+       |                         | Description: systemvm-xenserver-|version|                                                     |
        |                         |                                                                                               |
        |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-xen.vhd.bz2      |
+       |                         | |sysvm-url-xen|                                                                               |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
        |                         |                                                                                               |
@@ -1273,12 +1273,12 @@ working on a production system.
        |                         |                                                                                               |
        |                         | Featured: no                                                                                  |
        +-------------------------+-----------------------------------------------------------------------------------------------+
-       | KVM                     | Name: systemvm-kvm-4.3                                                                        |
+       | KVM                     | Name: systemvm-kvm-|version|                                                                  |
        |                         |                                                                                               |
-       |                         | Description: systemvm-kvm-4.3                                                                 |
+       |                         | Description: systemvm-kvm-|version|                                                           |
        |                         |                                                                                               |
-       |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-kvm.qcow2.bz2    |
+       |                         | URL:                                                                                          |	
+       |                         | |sysvm-url-kvm|                                                                               |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
        |                         |                                                                                               |
@@ -1298,12 +1298,12 @@ working on a production system.
        |                         |                                                                                               |
        |                         | Featured: no                                                                                  |
        +-------------------------+-----------------------------------------------------------------------------------------------+
-       | VMware                  | Name: systemvm-vmware-4.3                                                                     |
+       | VMware                  | Name: systemvm-vmware-|version|                                                               |
        |                         |                                                                                               |
-       |                         | Description: systemvm-vmware-4.3                                                              |
+       |                         | Description: systemvm-vmware-|version|                                                        |
        |                         |                                                                                               |
        |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-vmware.ova       |
+       |                         | |sysvm-url-vmware|                                                                            |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
        |                         |                                                                                               |
@@ -1374,7 +1374,7 @@ working on a production system.
 
 #. 
 
-   After upgrading to 4.3, API clients are expected to send plain text
+   After upgrading to |version|, API clients are expected to send plain text
    passwords for login and user creation, instead of MD5 hash. Incase,
    api client changes are not acceptable, following changes are to be
    made for backward compatibility:
@@ -1397,7 +1397,7 @@ working on a production system.
        </bean>
 
    PlainTextUserAuthenticator works the same way MD5UserAuthenticator
-   worked prior to 4.3.
+   worked prior to |version|.
 
 #. 
 
@@ -1426,7 +1426,7 @@ working on a production system.
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise 4.1
+          deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
 
       If you're using your own package repository, change this line to
       read as appropriate for your 4.1.0 repository.
@@ -1544,7 +1544,7 @@ working on a production system.
       the baseurl to http://cloudstack.apt-get.eu/rhel/4.1/
 
       If you're using your own package repository, change this line to
-      read as appropriate for your 4.3 repository.
+      read as appropriate for your |version| repository.
 
    #. 
 
@@ -1630,11 +1630,11 @@ working on a production system.
    Copy the file ``vhd-utils`` to
    ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
 
-Upgrade from 3.0.x to 4.3
--------------------------
+Upgrade from 3.0.x to |version|
+-------------------------------
 
 This section will guide you from Citrix CloudStack 3.0.x to Apache
-CloudStack 4.3. Sections that are hypervisor-specific will be called out
+CloudStack |version|. Sections that are hypervisor-specific will be called out
 with a note.
 
    .. note::  The following upgrade instructions should be performed regardless of hypervisor type.
@@ -1666,15 +1666,14 @@ with a note.
        +-------------------------+-----------------------------------------------------------------------------------------------+
        | Hypervisor              | Description                                                                                   |
        +=========================+===============================================================================================+
-       | XenServer               | Name: systemvm-xenserver-4.3                                                                  |
+       | XenServer               | Name: systemvm-xenserver-|version|                                                            |
        |                         |                                                                                               |
-       |                         | Description: systemvm-xenserver-4.3                                                           |
+       |                         | Description: systemvm-xenserver-|version|                                                     |
        |                         |                                                                                               |
        |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-xen.vhd.bz2      |
+       |                         | |sysvm-url-xen|                                                                               |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
-       |                         | used                                                                                          |
        |                         |                                                                                               |
        |                         | Hypervisor: XenServer                                                                         |
        |                         |                                                                                               |
@@ -1692,15 +1691,14 @@ with a note.
        |                         |                                                                                               |
        |                         | Featured: no                                                                                  |
        +-------------------------+-----------------------------------------------------------------------------------------------+
-       | KVM                     | Name: systemvm-kvm-4.3                                                                        |
+       | KVM                     | Name: systemvm-kvm-|version|                                                                  |
        |                         |                                                                                               |
-       |                         | Description: systemvm-kvm-4.3                                                                 |
+       |                         | Description: systemvm-kvm-|version|                                                           |
        |                         |                                                                                               |
-       |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-kvm.qcow2.bz2    |
+       |                         | URL:                                                                                          |	
+       |                         | |sysvm-url-kvm|                                                                               |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
-       |                         | used                                                                                          |
        |                         |                                                                                               |
        |                         | Hypervisor: KVM                                                                               |
        |                         |                                                                                               |
@@ -1718,15 +1716,14 @@ with a note.
        |                         |                                                                                               |
        |                         | Featured: no                                                                                  |
        +-------------------------+-----------------------------------------------------------------------------------------------+
-       | VMware                  | Name: systemvm-vmware-4.3                                                                     |
+       | VMware                  | Name: systemvm-vmware-|version|                                                               |
        |                         |                                                                                               |
-       |                         | Description: systemvm-vmware-4.3                                                              |
+       |                         | Description: systemvm-vmware-|version|                                                        |
        |                         |                                                                                               |
        |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-vmware.ova       |
+       |                         | |sysvm-url-vmware|                                                                            |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
-       |                         | used                                                                                          |
        |                         |                                                                                               |
        |                         | Hypervisor: VMware                                                                            |
        |                         |                                                                                               |
@@ -1868,10 +1865,10 @@ with a note.
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
+          deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
 
       If you're using your own package repository, change this line to
-      read as appropriate for your 4.3 repository.
+      read as appropriate for your |version| repository.
 
    #. 
 
@@ -2074,7 +2071,7 @@ with a note.
 
 #. 
 
-   After upgrading to 4.3, API clients are expected to send plain text
+   After upgrading to |version|, API clients are expected to send plain text
    passwords for login and user creation, instead of MD5 hash. Incase,
    api client changes are not acceptable, following changes are to be
    made for backward compatibility:
@@ -2097,7 +2094,7 @@ with a note.
        </bean>
 
    PlainTextUserAuthenticator works the same way MD5UserAuthenticator
-   worked prior to 4.3
+   worked prior to |version|
 
 #. 
 
@@ -2247,9 +2244,9 @@ with a note.
 #. 
 
    If needed, upgrade all Citrix XenServer hypervisor hosts in your
-   cloud to a version supported by CloudStack 4.3. The supported
+   cloud to a version supported by CloudStack |version|. The supported
    versions are XenServer 5.6 SP2 and 6.0.2. Instructions for upgrade
-   can be found in the CloudStack 4.3 Installation Guide under
+   can be found in the CloudStack |version| Installation Guide under
    "Upgrading XenServer Versions."
 
 #. 
@@ -2434,8 +2431,8 @@ with a note.
 
 .. note:: **Troubleshooting Tip:** If passwords which you know to be valid appear not to work after upgrade, or other UI issues are seen, try clearing your browser cache and reloading the UI page.
 
-Upgrade from 2.2.14 to 4.3
---------------------------
+Upgrade from 2.2.14 to |version|
+--------------------------------
 
 #. 
 
@@ -2446,7 +2443,7 @@ Upgrade from 2.2.14 to 4.3
    Starting in 3.0.2, the usage record format for IP addresses is the
    same as the rest of the usage types. Instead of a single record with
    the assignment and release dates, separate records are generated per
-   aggregation period with start and end dates. After upgrading to 4.3,
+   aggregation period with start and end dates. After upgrading to |version|,
    any existing IP address usage records in the old format will no
    longer be available.
 
@@ -2456,7 +2453,7 @@ Upgrade from 2.2.14 to 4.3
    using the instructions in the `2.2.14 Release
    Notes <http://download.cloud.com/releases/2.2.0/CloudStack2.2.14ReleaseNotes.pdf>`__.
 
-   .. warning:: **KVM Hosts:** If KVM hypervisor is used in your cloud, be sure you completed the step to insert a valid username and password into the host\_details table on each KVM node as described in the 2.2.14 Release Notes. This step is critical, as the database will be encrypted after the upgrade to 4.3.
+   .. warning:: **KVM Hosts:** If KVM hypervisor is used in your cloud, be sure you completed the step to insert a valid username and password into the host\_details table on each KVM node as described in the 2.2.14 Release Notes. This step is critical, as the database will be encrypted after the upgrade to |version|.
 
 #. 
 
@@ -2491,12 +2488,12 @@ Upgrade from 2.2.14 to 4.3
        +-------------------------+-----------------------------------------------------------------------------------------------+
        | Hypervisor              | Description                                                                                   |
        +=========================+===============================================================================================+
-       | XenServer               | Name: systemvm-xenserver-4.3                                                                  |
+       | XenServer               | Name: systemvm-xenserver-|version|                                                            |
        |                         |                                                                                               |
-       |                         | Description: systemvm-xenserver-4.3                                                           |
+       |                         | Description: systemvm-xenserver-|version|                                                     |
        |                         |                                                                                               |
        |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-xen.vhd.bz2      |
+       |                         | |sysvm-url-xen|                                                                               |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
        |                         |                                                                                               |
@@ -2516,12 +2513,12 @@ Upgrade from 2.2.14 to 4.3
        |                         |                                                                                               |
        |                         | Featured: no                                                                                  |
        +-------------------------+-----------------------------------------------------------------------------------------------+
-       | KVM                     | Name: systemvm-kvm-4.3                                                                        |
+       | KVM                     | Name: systemvm-kvm-|version|                                                                  |
        |                         |                                                                                               |
-       |                         | Description: systemvm-kvm-4.3                                                                 |
+       |                         | Description: systemvm-kvm-|version|                                                           |
        |                         |                                                                                               |
-       |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-kvm.qcow2.bz2    |
+       |                         | URL:                                                                                          |	
+       |                         | |sysvm-url-kvm|                                                                               |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
        |                         |                                                                                               |
@@ -2541,12 +2538,12 @@ Upgrade from 2.2.14 to 4.3
        |                         |                                                                                               |
        |                         | Featured: no                                                                                  |
        +-------------------------+-----------------------------------------------------------------------------------------------+
-       | VMware                  | Name: systemvm-vmware-4.3                                                                     |
+       | VMware                  | Name: systemvm-vmware-|version|                                                               |
        |                         |                                                                                               |
-       |                         | Description: systemvm-vmware-4.3                                                              |
+       |                         | Description: systemvm-vmware-|version|                                                        |
        |                         |                                                                                               |
        |                         | URL:                                                                                          |
-       |                         | http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-vmware.ova       |
+       |                         | |sysvm-url-vmware|                                                                            |
        |                         |                                                                                               |
        |                         | Zone: Choose the zone where this hypervisor is used                                           |
        |                         |                                                                                               |
@@ -2698,7 +2695,7 @@ Upgrade from 2.2.14 to 4.3
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
+          deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
 
       If you're using your own package repository, change this line to
       read as appropriate for your 4.2 repository.
@@ -2816,7 +2813,7 @@ Upgrade from 2.2.14 to 4.3
       the baseurl to http://cloudstack.apt-get.eu/rhel/4.2/
 
       If you're using your own package repository, change this line to
-      read as appropriate for your 4.3 repository.
+      read as appropriate for your |version| repository.
 
    #. 
 
@@ -2909,7 +2906,7 @@ Upgrade from 2.2.14 to 4.3
 
 #. 
 
-   After upgrading to 4.3, API clients are expected to send plain text
+   After upgrading to |version|, API clients are expected to send plain text
    passwords for login and user creation, instead of MD5 hash. If API
    client changes are not acceptable, following changes are to be made
    for backward compatibility:
@@ -3400,3 +3397,7 @@ Upgrade from 2.2.14 to 4.3
 
       On each slave host in the Xen pool, repeat these steps, starting
       from "manually live migrate VMs."
+
+.. |sysvm-url-xen| replace:: http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-xen.vhd.bz2
+.. |sysvm-url-kvm| replace:: http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-kvm.qcow2.bz2
+.. |sysvm-url-vmware| replace:: http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-vmware.ova
