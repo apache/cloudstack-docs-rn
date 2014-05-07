@@ -57,8 +57,6 @@ Build the translated docs:
    sphinx-intl build --locale-dir source/locale
    make -e SPHINXOPTS="-D language='ja'" html
 
-
-
 Feedback
 ========
 
