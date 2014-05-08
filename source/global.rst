@@ -18,3 +18,6 @@
 .. _CloudStack Installation Guide: http://docs.cloudstack.apache.org/projects/cloudstack-installation
 .. _CloudStack Administrator's Guide: http://docs.cloudstack.apache.org/projects/cloudstack-administration
 
+.. |sysvm-url-xen| replace:: http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-xen.vhd.bz2
+.. |sysvm-url-kvm| replace:: http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-kvm.qcow2.bz2
+.. |sysvm-url-vmware| replace:: http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-vmware.ova
