@@ -24,16 +24,13 @@ Welcome to Apache CloudStack Release Notes
 This section describes the operating systems, browsers, and hypervisors
 that have been newly tested and certified compatible with CloudStack
 |version|. Most earlier OS and hypervisor versions are also still supported
-for use with |version| It might work well on other platforms, but the
+for use with |version|. It might work well on other platforms, but the
 platforms listed below are the ones that are specifically tested against
 and are more likely to be able to help troubleshoot if you run into any
 issues.
 
-This document contains information specific to this release of CloudStack, including upgrade instructions from prior releases, new
-features added to CloudStack, API changes, and issues fixed in the release. For installation instructions, please see the `Installation
-Guide <http://docs.cloudstack.apache.org/projects/cloudstack-installation/>`__.
-For usage and administration instructions, please see the `CloudStack Administrator's
-Guide <http://docs.cloudstack.apache.org/projects/cloudstack-administration/>`__.
+This document contains information specific to this release of CloudStack, including upgrade instructions from prior releases, new features added to CloudStack, API changes, and issues fixed in the release. For installation instructions, please see the `CloudStack Installation Guide`_. For usage and administration instructions, please see the `CloudStack Administrator's Guide`_.
+
 
 Contents:
 
@@ -57,3 +54,5 @@ Contents:
 
    api-changes
    
+
+.. include:: global.rst
