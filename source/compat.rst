@@ -19,10 +19,16 @@ Compatibility Matrix
 Supported OS Versions for Management Server
 -------------------------------------------
 
-This section lists the operating systems that are supported for running
-CloudStack Management Server. Note that specific versions of the
-operating systems are tested, so compatibility with CentOS 6.3 may not
-indicate compatibility with CentOS 6.2, 6.1 and so on.
+This section describes the operating systems, browsers, and hypervisors
+that have been newly tested and certified compatible with CloudStack
+|version|. Most earlier OS and hypervisor versions are also still supported
+for use with |version|. It might work well on other platforms, but the
+platforms listed below are the ones that are specifically tested against
+and are more likely to be able to help troubleshoot if you run into any
+issues.
+
+.. note:: that specific versions of the operating systems are tested, so compatibility with CentOS 6.3 may not
+          indicate compatibility with CentOS 6.2, 6.1 and so on.
 
 -  
 
