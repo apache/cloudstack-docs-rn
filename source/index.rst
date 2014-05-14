@@ -36,21 +36,10 @@ Contents:
    :maxdepth: 2
 
    about
-   
-.. toctree::
-   :maxdepth: 2
-
+   fixed_issues
    compat
-      
-.. toctree::
-   :maxdepth: 2
-
    rnotes
-   
-.. toctree::
-   :maxdepth: 2
-
    api-changes
-   
+   known_issues   
 
 .. include:: global.rst

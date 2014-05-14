@@ -13,7 +13,7 @@
    specific language governing permissions and limitations
    under the License.
    
-.. This file contain Variables shared across files in this project
+.. This file contain Variables shared across .rst files in this project
 
 .. _CloudStack Installation Guide: http://docs.cloudstack.apache.org/projects/cloudstack-installation
 .. _CloudStack Administrator's Guide: http://docs.cloudstack.apache.org/projects/cloudstack-administration
