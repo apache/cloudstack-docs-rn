@@ -26,6 +26,15 @@ made while CloudStack was in the Apache Incubator.
 If you run into any issues during upgrades, please feel free to ask
 questions on users@cloudstack.apache.org or dev@cloudstack.apache.org.
 
+.. warning::
+   :name: Depreciation of realhostip.com DNS and SSL certificate
+   
+   The realhostip.com dynamic DNS resolution service is being retired this
+   summer. In advance of that, CloudStack 4.3 and later no longer uses realhostip.com
+   DNS domains or SSL certificates to encrypt Console Proxy or file copy
+   communications.
+
+
 Validate |version| source code tarball
 --------------------------------------
 
