@@ -21,13 +21,11 @@
 Welcome to Apache CloudStack Release Notes
 ==========================================
 
-This section describes the operating systems, browsers, and hypervisors
-that have been newly tested and certified compatible with CloudStack
-|version|. Most earlier OS and hypervisor versions are also still supported
-for use with |version|. It might work well on other platforms, but the
-platforms listed below are the ones that are specifically tested against
-and are more likely to be able to help troubleshoot if you run into any
-issues.
+.. figure:: /_static/images/acslogo.png
+    :align: center
+
+.. warning:: We are in the process of changing documentation format as well as hosting mechanism.
+             Please be patient with us as we migrate our entire documentation to this new setup.
 
 This document contains information specific to this release of CloudStack, including upgrade instructions from prior releases, new features added to CloudStack, API changes, and issues fixed in the release. For installation instructions, please see the `CloudStack Installation Guide`_. For usage and administration instructions, please see the `CloudStack Administrator's Guide`_.
 
@@ -38,10 +36,30 @@ Contents:
    :maxdepth: 2
 
    about
+
+.. toctree::
+   :maxdepth: 2
+
    fixed_issues
+
+.. toctree::
+   :maxdepth: 2
+
    compat
+
+.. toctree::
+   :maxdepth: 2
+
    rnotes
+
+.. toctree::
+   :maxdepth: 2
+
    api-changes
+
+.. toctree::
+   :maxdepth: 2
+
    known_issues   
 
 .. include:: global.rst
