@@ -19,14 +19,14 @@ API Changes Introduced in |version|
 List Instances
 --------------
 
-   +---------------------+-------------------------------------------------------------------+
-   | API                 | Description                                                       |
-   +=====================+===================================================================+
-   | listVirtualMachines | For this existing API, the following request parameters has       |
-   |                     | been added                                                        |
-   |                     |                                                                   |
-   |                     | - ids : comma seperated VM ID's                                   |
-   +---------------------+-------------------------------------------------------------------+
+   +-------------------------+-------------------------------------------------------------------+
+   | API                     | Description                                                       |
+   +=========================+===================================================================+
+   |   listVirtualMachines   | For this existing API, the following request parameters has       |
+   |                         | been added                                                        |
+   |                         |                                                                   |
+   |                         | - ``ids`` : comma seperated VM ID's                               |
+   +-------------------------+-------------------------------------------------------------------+
    
    `CLOUDSTACK-6052 <https://issues.apache.org/jira/browse/CLOUDSTACK-6052>`_
 
@@ -34,13 +34,13 @@ List Instances
 Retrieving UserData
 -------------------
 
-   +---------------------------+-------------------------------------------------------------------+
-   | API                       | Description                                                       |
-   +===========================+===================================================================+
-   | getVirtualMachineUserData | Returns vmId and userData associated with this vm (if not null)   |
-   |                           |                                                                   |
-   |                           | - vmId : VM ID (required)                                         |
-   +---------------------------+-------------------------------------------------------------------+
+   +-------------------------------+-------------------------------------------------------------------+
+   | API                           | Description                                                       |
+   +===============================+===================================================================+
+   |   getVirtualMachineUserData   | Returns vmId and userData associated with this vm (if not null)   |
+   |                               |                                                                   |
+   |                               | - ``vmId`` : VM ID (required)                                     |
+   +-------------------------------+-------------------------------------------------------------------+
 
    `CLOUDSTACK-5870 <https://issues.apache.org/jira/browse/CLOUDSTACK-5870>`_
 
