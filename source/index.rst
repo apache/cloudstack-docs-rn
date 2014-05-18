@@ -33,7 +33,7 @@ This document contains information specific to this release of CloudStack, inclu
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    about
    fixed_issues

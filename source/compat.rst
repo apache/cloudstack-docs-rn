@@ -30,92 +30,26 @@ issues.
 .. note:: that specific versions of the operating systems are tested, so compatibility with CentOS 6.3 may not
           indicate compatibility with CentOS 6.2, 6.1 and so on.
 
--  
+- CentOS versions 6.5 (32 and 64 bit)
+- FreeBSD 10 (32 and 64 bit)
+- Microsoft Winows 8.1 (32 and 64 bit)
+- Windows XP SP3 (32 and 64 bit)
 
-   RHEL versions 5.5, 6.2, 6.3, and 6.4
-
--  
-
-   CentOS versions 6.3, and 6.4
-
--  
-
-   Ubuntu 12.04 LTS
 
 Supported Hypervisor Versions
 -----------------------------
 
-CloudStack supports three hypervisor families, XenServer with XAPI, KVM,
-and VMware with vSphere.
+No new supported hypervisors in |version|.
 
--  
-
-   Windows Server 2012 R2 (with Hyper-V Role enabled)
-
--  
-
-   Hyper-V 2012 R2
-
--  
-
-   CentOS 6.2 with KVM
-
--  
-
-   Red Hat Enterprise Linux 6.2 with KVM
-
--  
-
-   XenServer 6.0.2 (with Hotfix)
-
--  
-
-   XenServer versions 6.1 and 6.2 SPI with latest hotfixes
-
--  
-
-   VMware versions 5.0, 5.1, and 5.5
-
--  
-
-   Bare metal hosts are supported, which have no hypervisor. These hosts
-   can run the following operating systems:
-
-   -  
-
-      RHEL or CentOS, v6.2 or 6.3
-
-      .. note:: Use libvirt version 0.9.10 for CentOS 6.3
-
-   -  
-
-      Fedora 17
-
-   -  
-
-      Ubuntu 12.04
-
-For more information, see the Hypervisor Compatibility Matrix in the
-CloudStack Installation Guide.
+For more information, see the Hypervisor Compatibility Matrix in the `CloudStack Installation Guide`_.
 
 Supported External Devices
 --------------------------
 
--  
+No new supported External Devices in |version|.
 
-   Netscaler VPX and MPX versions 9.3 and 10.e
+For more information, see the `CloudStack Installation Guide`_.
 
--  
-
-   Netscaler SDX version 9.3
-
--  
-
-   SRX (Model srx100b) versions 10.3 or higher
-
--  
-
-   F5 10.1.0 (Build 3341.1084)
 
 Supported Browsers
 ------------------
@@ -140,3 +74,6 @@ best results, one of the following browsers recommended:
 -  
 
    Safari 5
+
+
+.. include:: global.rst

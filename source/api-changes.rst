@@ -14,7 +14,28 @@
    under the License.
    
 API Changes Introduced in |version|
-=============================
+===================================
+
+List Instances
+--------------
+
++---------------------+-------------------------------------------------------------------+
+| API                 | Description                                                       |
++=====================+===================================================================+
+| listVirtualMachines | For this existing API, the following request parameters has       |
+|                     | been added                                                        |
+|                     |                                                                   |
+|                     | - ids : comma seperated VM ID's                                   |
++---------------------+-------------------------------------------------------------------+
+
+https://issues.apache.org/jira/browse/CLOUDSTACK-6052
+
+
+API support for retrieving UserData
+-----------------------------------
+
+
+
 
 Hyper-V
 -------
