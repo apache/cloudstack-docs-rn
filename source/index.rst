@@ -46,17 +46,6 @@ Contents:
    :maxdepth: 2
 
    compat
-
-.. toctree::
-   :maxdepth: 1
-
-   upgrade/upgrade-4.3
-
-.. toctree::
-   :maxdepth: 2
-
-   rnotes
-
 .. toctree::
    :maxdepth: 2
 
@@ -67,4 +56,14 @@ Contents:
 
    known_issues   
 
+.. toctree::
+   :maxdepth: 1
+
+   upgrade/upgrade-4.3
+   upgrade/upgrade-4.2
+   upgrade/upgrade-4.1
+   upgrade/upgrade-4.0
+   upgrade/upgrade-3.0.x
+   upgrade/upgrade-2.2.14
+   
 .. include:: global.rst
