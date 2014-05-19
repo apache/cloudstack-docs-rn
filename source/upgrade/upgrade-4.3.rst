@@ -1,5 +1,5 @@
-Upgrade from 4.3
-================
+Upgrade Instruction from 4.3
+============================
 
 This section will guide you from CloudStack 4.3.x to CloudStack |version|.
 
