@@ -33,13 +33,38 @@ This document contains information specific to this release of CloudStack, inclu
 Contents:
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
 
    about
+
+.. toctree::
+   :maxdepth: 2
+
    fixed_issues
+
+.. toctree::
+   :maxdepth: 2
+
    compat
+
+.. toctree::
+   :maxdepth: 1
+
+   upgrade/upgrade-4.3
+
+.. toctree::
+   :maxdepth: 2
+
    rnotes
+
+.. toctree::
+   :maxdepth: 2
+
    api-changes
+
+.. toctree::
+   :maxdepth: 2
+
    known_issues   
 
 .. include:: global.rst
