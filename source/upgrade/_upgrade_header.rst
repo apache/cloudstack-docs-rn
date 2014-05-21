@@ -13,30 +13,23 @@
    specific language governing permissions and limitations
    under the License.
 
-
-Upgrade Instructions for |version|
-==================================
-
-This section contains upgrade instructions from prior versions of
-CloudStack to Apache CloudStack |version|. We include instructions on
-upgrading to Apache CloudStack from pre-Apache versions of Citrix
-CloudStack (last version prior to Apache is 3.0.2) and from the releases
-made while CloudStack was in the Apache Incubator.
+.. sub-section included in upgrade notes.
 
 If you run into any issues during upgrades, please feel free to ask
 questions on users@cloudstack.apache.org or dev@cloudstack.apache.org.
 
-.. warning::
-   :name: Depreciation of realhostip.com DNS and SSL certificate
+.. warning:: 
+   Depreciation of realhostip.com DNS and SSL certificate
    
    The realhostip.com dynamic DNS resolution service is being retired this
    summer. In advance of that, CloudStack 4.3 and later no longer uses realhostip.com
    DNS domains or SSL certificates to encrypt Console Proxy or file copy
    communications.
 
+Any steps that are hypervisor-specific will be called out with a note.
 
+We recommend reading through this section once or twice before beginning
+your upgrade procedure, and working through it on a test system before
+working on a production system.
 
-.. include:: upgrade/valid_source.rst
-
-
-.. include:: global.rst
+.. note:: The following upgrade instructions should be performed regardless of hypervisor type.

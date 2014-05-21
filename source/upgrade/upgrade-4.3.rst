@@ -1,7 +1,24 @@
-Upgrade Instruction from 4.3
-============================
+.. Licensed to the Apache Software Foundation (ASF) under one
+   or more contributor license agreements.  See the NOTICE file
+   distributed with this work for additional information#
+   regarding copyright ownership.  The ASF licenses this file
+   to you under the Apache License, Version 2.0 (the
+   "License"); you may not use this file except in compliance
+   with the License.  You may obtain a copy of the License at
+   http://www.apache.org/licenses/LICENSE-2.0
+   Unless required by applicable law or agreed to in writing,
+   software distributed under the License is distributed on an
+   "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+   KIND, either express or implied.  See the License for the
+   specific language governing permissions and limitations
+   under the License.
 
-This section will guide you from CloudStack 4.3.x to CloudStack |version|.
+.. |version_to_upgrade| replace:: 4.3
+
+Upgrade Instruction from |version_to_upgrade|
+=============================================
+
+This section will guide you from CloudStack |version_to_upgrade| to CloudStack |version|.
 
 Any steps that are hypervisor-specific will be called out with a note.
 
@@ -32,66 +49,33 @@ Create RPM or Debian packages (as appropriate) and a repository from
 the |version| source, or check the Apache CloudStack downloads page at
 http://cloudstack.apache.org/downloads.html
 for package repositories supplied by community members. You will need
-them for :ref:`ubuntu` or :ref:`rhel` and :ref:`kvm` hosts upgrade. 
+them for :ref:`ubuntu43` or :ref:`rhel43` and :ref:`kvm43` hosts upgrade. 
 
 Instructions for creating packages from the CloudStack source are in the `CloudStack Installation Guide`_.
 
-Update System-VM template
--------------------------
-
-#. 
-
-   While running the existing 4.3.x system, log in to the UI as root
-   administrator.
-
-#. 
-
-   In the left navigation bar, click Templates.
-
-#. 
-
-   In Select view, click Templates.
-
-#. 
-
-   Click Register template.
-
-   The Register template dialog box is displayed.
-
-#. 
-
-   In the Register template dialog box, specify the following values
-   (do not change these):
-
-   .. include:: /systemvm_templates.rst
+.. include:: _sysvm_templates.rst
 
 
-Prepare Databases
------------------
+Database Preparation
+--------------------
 
 Backup current database
 
-#. 
-
-   Stop your management server or servers. Run this on all management
+#. Stop your management server or servers. Run this on all management
    server hosts:
 
    .. sourcecode:: bash
 
        $ sudo service cloudstack-management stop
 
-#. 
-
-   If you are running a usage server or usage servers, stop those as
+#. If you are running a usage server or usage servers, stop those as
    well:
 
    .. sourcecode:: bash
 
        $ sudo service cloudstack-usage stop
 
-#. 
-
-   Make a backup of your MySQL database. If you run into any issues or
+#. Make a backup of your MySQL database. If you run into any issues or
    need to roll back the upgrade, this will assist in debugging or
    restoring your existing environment. You'll be prompted for your
    password.
@@ -100,9 +84,7 @@ Backup current database
 
        $ mysqldump -u root -p cloud > cloudstack-backup.sql
 
-#. 
-
-   **(KVM Only)** If primary storage of type local storage is in use, the
+#. **(KVM Only)** If primary storage of type local storage is in use, the
    path for this storage needs to be verified to ensure it passes new
    validation. Check local storage by querying the cloud.storage\_pool
    table:
@@ -119,12 +101,12 @@ Backup current database
        $ mysql -u cloud -p -e 'update cloud.storage_pool set path="/var/lib/libvirt/images" where path="/var/lib/libvirt/images/"';
 
 
-.. _ubuntu:
+.. _ubuntu43:
 
-Ubuntu management server
-------------------------
+Management Server on Ubuntu
+---------------------------
 
-If you are using Ubuntu, follow this procedure to upgrade your packages. If not, skip to step `11 <#upgrade-rpm-packages-|version|>`__.
+If you are using Ubuntu, follow this procedure to upgrade your packages. If not, skip to step :ref:`rhel43`.
 
 .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and APT repository, substitute your own URL for the ones used in these examples.
 
@@ -133,7 +115,7 @@ each system with CloudStack packages. This means all management
 servers, and any hosts that have the KVM agent. (No changes should
 be necessary for hosts that are running VMware or Xen.)
 
-.. _apt-repo:
+.. _apt-repo43:
 
 CloudStack apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -156,51 +138,43 @@ CloudStack apt repository
    If you're using your own package repository, change this line to
    read as appropriate for your |version| repository.
 
-#. 
-
-   Now update your apt package list:
+#. Now update your apt package list:
 
    .. sourcecode:: bash
 
        $ sudo apt-get update
 
-#. 
-
-   Now that you have the repository configured, it's time to upgrade
+#. Now that you have the repository configured, it's time to upgrade
    the ``cloudstack-management`` package. 
 
    .. sourcecode:: bash
 
        $ sudo apt-get upgrade cloudstack-management
 
-#. 
-
-   Now it's time to start the management server
+#. Now it's time to start the management server
 
    .. sourcecode:: bash
 
        $ sudo service cloudstack-management start
 
-#. 
-
-   If you use it, start the usage server
+#. If you use it, start the usage server
 
    .. sourcecode:: bash
 
        $ sudo service cloudstack-usage start
 
 
-.. _rhel:
+.. _rhel43:
 
-CentOS/RHEL management server
------------------------------
+Management Server on CentOS/RHEL
+--------------------------------
 
-If you are using CentOS or RHEL, follow this procedure to upgrade your packages. If not, skip to step `14 <#restart-system-vms-|version|>`__.
+If you are using CentOS or RHEL, follow this procedure to upgrade your packages. If not, skip to hypervisors section, then :ref:`upg-sysvm43`.
 
 .. note:: 
    **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and yum repository, substitute your own URL for the ones used in these examples.
 
-.. _rpm-repo:
+.. _rpm-repo43:
 
 CloustStack RPM repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -231,24 +205,20 @@ CloustStack RPM repository
    If you're using your own package repository, change this line to
    read as appropriate for your |version| repository.
 
-#. 
-
-   Now that you have the repository configured, it's time to upgrade the ``cloudstack-management``.
+#. Now that you have the repository configured, it's time to upgrade the ``cloudstack-management``.
 
    .. sourcecode:: bash
 
        $ sudo yum upgrade cloudstack-management
 
-#. 
-
-   Now it's time to restart the management server
+#. Now it's time to restart the management server
 
    .. sourcecode:: bash
 
        $ sudo service cloudstack-management start
 
 
-Xen/XenServer hypervisor
+hypervisor: XenServer
 ------------------------
 
    **(XenServer only)** Copy vhd-utils file on CloudStack management servers.
@@ -256,8 +226,8 @@ Xen/XenServer hypervisor
    Copy the file `vhd-utils <http://download.cloud.com.s3.amazonaws.com/tools/vhd-util>`_ to
    ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
 
-VMware hypervisor
------------------
+hypervisor: VMware
+------------------
 
    .. warning::
       For VMware hypervisor CloudStack management server packages must be build using "noredist".
@@ -267,17 +237,13 @@ VMware hypervisor
    These steps will not affect running guests in the cloud. These steps
    are required only for clouds using VMware clusters:
 
-#. 
-
-   Stop the Management Server:
+#. Stop the Management Server:
 
    .. sourcecode:: bash
 
        $ sudo service cloudstack-management stop
 
-#. 
-
-   Generate the encrypted equivalent of your vCenter password:
+#. Generate the encrypted equivalent of your vCenter password:
 
    .. sourcecode:: bash
 
@@ -287,9 +253,7 @@ VMware hypervisor
    cluster\_details table and vmware\_data\_center tables in place of
    the plain text password
 
-#. 
-
-   Find the ID of the row of cluster\_details table that you have to
+#. Find the ID of the row of cluster\_details table that you have to
    update:
 
    .. sourcecode:: bash
@@ -300,59 +264,47 @@ VMware hypervisor
 
        select * from cloud.cluster_details;
 
-#. 
-
-   Update the plain text password with the encrypted one
+#. Update the plain text password with the encrypted one
 
    .. sourcecode:: bash
 
        update cloud.cluster_details set value = '_ciphertext_from_step_1_' where id = _id_from_step_2_;
 
-#. 
-
-   Confirm that the table is updated:
+#. Confirm that the table is updated:
 
    .. sourcecode:: bash
 
        select * from cloud.cluster_details;
 
-#. 
-
-   Find the ID of the correct row of vmware\_data\_center that you
+#. Find the ID of the correct row of vmware\_data\_center that you
    want to update
 
    .. sourcecode:: bash
 
        select * from cloud.vmware_data_center;
 
-#. 
-
-   update the plain text password with the encrypted one:
+#. update the plain text password with the encrypted one:
 
    .. sourcecode:: bash
 
        update cloud.vmware_data_center set password = '_ciphertext_from_step_1_' where id = _id_from_step_5_;
 
-#. 
-
-   Confirm that the table is updated:
+#. Confirm that the table is updated:
 
    .. sourcecode:: bash
 
        select * from cloud.vmware_data_center;
 
-#. 
-
-   Start the CloudStack Management server
+#. Start the CloudStack Management server
 
    .. sourcecode:: bash
 
        $ sudo service cloudstack-management start
 
-.. _kvm:
+.. _kvm43:
 
-KVM hypervisor
---------------
+hypervisor: KVM
+---------------
 
 KVM on Ubuntu
 ^^^^^^^^^^^^^
@@ -362,29 +314,21 @@ steps will not affect running guests in the cloud. These steps are
 required only for clouds using KVM as hosts and only on the KVM
 hosts.
 
-#. 
+#. Configure the :ref:`apt-repo43` as detailed above.
 
-   Configure the :ref:`apt-repo` as detailed above.
-
-#. 
-
-   Stop the running agent.
+#. Stop the running agent.
 
    .. sourcecode:: bash
 
        $ sudo service cloudstack-agent stop
 
-#. 
-
-   Update the agent software.
+#. Update the agent software.
 
    .. sourcecode:: bash
 
        $ sudo apt-get update cloudstack-agent
 
-#. 
-
-   Verify that the file
+#. Verify that the file
    ``/etc/cloudstack/agent/environment.properties`` has a line that
    reads:
 
@@ -394,9 +338,7 @@ hosts.
 
    If not, add the line.
 
-#. 
-
-   Start the agent.
+#. Start the agent.
 
    .. sourcecode:: bash
 
@@ -407,17 +349,13 @@ KVM on CentOS/RHEL
 ^^^^^^^^^^^^^^^^^^
 For KVM hosts, upgrade the ``cloudstack-agent`` package
 
-#. 
-
-   Configure the :ref:`rpm-repo` as detailed above.
+#. Configure the :ref:`rpm-repo43` as detailed above.
 
    .. sourcecode:: bash
 
       $ sudo yum upgrade cloudstack-agent
 
-#. 
-
-   Verify that the file
+#. Verify that the file
    ``/etc/cloudstack/agent/environment.properties`` has a line that
    reads:
 
@@ -427,9 +365,7 @@ For KVM hosts, upgrade the ``cloudstack-agent`` package
 
    If not, add the line.
 
-#. 
-
-   Restart the agent:
+#. Restart the agent:
 
    .. sourcecode:: bash
 
@@ -437,53 +373,13 @@ For KVM hosts, upgrade the ``cloudstack-agent`` package
        $ sudo killall jsvc
        $ sudo service cloudstack-agent start
 
-#. 
-
-   Now it's time to restart the management server
+#. Now it's time to restart the management server
 
    .. sourcecode:: bash
 
        $ sudo service cloudstack-management start
 
-.. _upg-sysvm:
-
-System-VMs and Virtual-Routers
-------------------------------
-
-Once you've upgraded the packages on your management servers, you'll
-need to restart the system VMs. Ensure that the admin port is set to
-8096 by using the "integration.api.port" global parameter. This port
-is used by the cloud-sysvmadm script at the end of the upgrade
-procedure. For information about how to set this parameter, see
-`Setting Global Configuration Parameters <http://docs.cloudstack.apache.org/projects/cloudstack-installation/en/latest/configuration.html#setting-global-configuration-parameters>`_ in the Installation Guide.
-Changing this parameter will require management server restart. Also
-make sure port 8096 is open in your local host firewall to do this.
-
-There is a script that will do this for you, all you need to do is
-run the script and supply the IP address for your MySQL instance and
-your MySQL credentials:
-
-.. sourcecode:: bash
-
-    # nohup cloudstack-sysvmadm -d IP address -u cloud -p -a > sysvm.log 2>&1 &
-
-You can monitor the log for progress. The process of restarting the
-system VMs can take an hour or more.
-
-.. sourcecode:: bash
-
-    # tail -f sysvm.log
-
-The output to ``sysvm.log`` will look something like this:
-
-.. sourcecode:: bash
-
-    Stopping and starting 1 secondary storage vm(s)...
-    Done stopping and starting secondary storage vm(s)
-    Stopping and starting 1 console proxy vm(s)...
-    Done stopping and starting console proxy vm(s).
-    Stopping and starting 4 running routing vm(s)...
-    Done restarting router(s).
-
+.. _upg-sysvm43:
+.. include:: _sysvm_restart.rst
 
 .. include:: /global.rst
