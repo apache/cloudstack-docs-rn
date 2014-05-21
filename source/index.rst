@@ -65,5 +65,6 @@ Contents:
    upgrade/upgrade-4.0
    upgrade/upgrade-3.0.x
    upgrade/upgrade-2.2.14
+   upgrade/valid_source
    
 .. include:: global.rst
