@@ -22,7 +22,7 @@ This section will guide you from CloudStack |version_to_upgrade| versions to Clo
 
 .. include:: _upgrade_header.rst
 
-.. warning:: **Package Structure Changes:** The package structure for CloudStack has changed significantly since the |version_to_upgrade| releases. If you've compiled your own packages, you'll notice that the package names and the number of packages has changed. This is *not* a bug. However, this *does* mean that the procedure is not as simple as an ``apt-get upgrade`` or ``yum update``, so please follow this section carefully.
+.. important:: **Package Structure Changes:** The package structure for CloudStack has changed significantly since the |version_to_upgrade| releases. If you've compiled your own packages, you'll notice that the package names and the number of packages has changed. This is *not* a bug. However, this *does* mean that the procedure is not as simple as an ``apt-get upgrade`` or ``yum update``, so please follow this section carefully.
 
 Packages repository
 -------------------
