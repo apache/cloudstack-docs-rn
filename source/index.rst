@@ -57,6 +57,11 @@ Contents:
    known_issues   
 
 .. toctree::
+   :maxdepth: 2
+
+   upgrade/upgrade_notes
+
+.. toctree::
    :maxdepth: 1
 
    upgrade/upgrade-4.3
