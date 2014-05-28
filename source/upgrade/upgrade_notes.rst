@@ -32,8 +32,9 @@ All clusters created after the upgrade will get created with the Global Settings
 values for ``mem.overporvisioning.factor`` and ``cpu.overporvisioning.factor``.
 
 
-Build From Sources
-------------------
-
-Since CloudStack 4.2.1 build packages from source using non opensource modules param ``-nonosss`` changed to ``-noredist``.
-
+.. not confirmed 
+   Build From Sources
+   ------------------
+   
+   Since CloudStack 4.2.1 build packages from source using non opensource modules param ``-nonoss`` changed to ``-   noredist``.
+   
