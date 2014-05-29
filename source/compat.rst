@@ -12,7 +12,8 @@
    KIND, either express or implied.  See the License for the
    specific language governing permissions and limitations
    under the License.
-   
+
+
 Compatibility Matrix
 ====================
 
@@ -27,13 +28,18 @@ platforms listed below are the ones that are specifically tested against
 and are more likely to be able to help troubleshoot if you run into any
 issues.
 
-.. note:: that specific versions of the operating systems are tested, so compatibility with CentOS 6.3 may not
-          indicate compatibility with CentOS 6.2, 6.1 and so on.
+.. note:: 
+   That specific versions of the operating systems are tested, so 
+   compatibility with CentOS 6.3 may not indicate compatibility with CentOS 
+   6.2, 6.1 and so on.
 
-- CentOS versions 6.5 (32 and 64 bit)
-- FreeBSD 10 (32 and 64 bit)
-- Microsoft Winows 8.1 (32 and 64 bit)
-- Windows XP SP3 (32 and 64 bit)
+-  CentOS versions 6.5 (32 and 64 bit)
+
+-  FreeBSD 10 (32 and 64 bit)
+
+-  Microsoft Winows 8.1 (32 and 64 bit)
+
+-  Windows XP SP3 (32 and 64 bit)
 
 
 Supported Hypervisor Versions
@@ -41,7 +47,9 @@ Supported Hypervisor Versions
 
 No new supported hypervisors in |version|.
 
-For more information, see the Hypervisor Compatibility Matrix in the `CloudStack Installation Guide`_.
+For more information, see the Hypervisor Compatibility Matrix in the 
+`CloudStack Installation Guide`_.
+
 
 Supported External Devices
 --------------------------
@@ -59,21 +67,12 @@ browser, but it's possible that some browsers will not render portions
 of the UI reliably, depending on their support of Web standards. For
 best results, one of the following browsers recommended:
 
--  
+-  Internet Explorer versions 10 and 11
 
-   Internet Explorer versions 10 and 11
+-  Firefox version 26 or lower
 
--  
+-  Google Chrome version 31
 
-   Firefox version 26 or lower
-
--  
-
-   Google Chrome version 31
-
--  
-
-   Safari 5
-
+-  Safari 5
 
 .. include:: global.rst
