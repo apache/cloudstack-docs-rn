@@ -13,16 +13,25 @@
    specific language governing permissions and limitations
    under the License.
 
+
 .. |version_to_upgrade| replace:: 3.0.x
 
 Upgrade Instruction from |version_to_upgrade|
 =============================================
 
-This section will guide you from Citrix CloudStack |version_to_upgrade| to Apache CloudStack |version|.
+This section will guide you from Citrix CloudStack |version_to_upgrade| to 
+Apache CloudStack |version|.
 
 .. include:: _upgrade_header.rst
 
-.. important:: **Package Structure Changes:** The package structure for CloudStack has changed significantly since the |version_to_upgrade| releases. If you've compiled your own packages, you'll notice that the package names and the number of packages has changed. This is *not* a bug. However, this *does* mean that the procedure is not as simple as an ``apt-get upgrade`` or ``yum update``, so please follow this section carefully.
+.. important:: 
+   **Package Structure Changes:** The package structure for CloudStack has 
+   changed significantly since the |version_to_upgrade| releases. If you've 
+   compiled your own packages, you'll notice that the package names and the 
+   number of packages has changed. This is *not* a bug. However, this *does* 
+   mean that the procedure is not as simple as an ``apt-get upgrade`` or 
+   ``yum update``, so please follow this section carefully.
+
 
 Packages repository
 -------------------
@@ -38,12 +47,14 @@ http://cloudstack.apache.org/downloads.html
 for package repositories supplied by community members. You will need
 them for :ref:`ubuntu40` or :ref:`rhel40` hosts upgrade. 
 
-Instructions for creating packages from the CloudStack source are in the `CloudStack Installation Guide`_.
+Instructions for creating packages from the CloudStack source are in the 
+`CloudStack Installation Guide`_.
 
 .. include:: _sysvm_templates.rst
 
+
 Upgrade Steps
--------------------
+-------------
 
 #. (KVM on RHEL 6.0/6.1 only) If your existing CloudStack deployment
    includes one or more clusters of KVM hosts running RHEL 6.0 or RHEL
@@ -85,20 +96,20 @@ Upgrade Steps
 
       .. sourcecode:: bash
 
-          # yum upgrade
+         # yum upgrade
 
 #. Stop all Usage Servers if running. Run this on all Usage Server
    hosts.
 
    .. sourcecode:: bash
 
-       # service cloud-usage stop
+      # service cloud-usage stop
 
 #. Stop the Management Servers. Run this on all Management Server hosts.
 
    .. sourcecode:: bash
 
-       # service cloud-management stop
+      # service cloud-management stop
 
 #. On the MySQL master, take a backup of the MySQL databases. We
    recommend performing this step even in test upgrades. If there is an
@@ -110,16 +121,21 @@ Upgrade Steps
 
    .. sourcecode:: bash
 
-       # mysqldump -u root -pmysql_password cloud > cloud-backup.dmp
-       # mysqldump -u root -pmysql_password cloud_usage > cloud-usage-backup.dmp
+      # mysqldump -u root -pmysql_password cloud > cloud-backup.dmp
+      # mysqldump -u root -pmysql_password cloud_usage > cloud-usage-backup.dmp
 
 #. Either build RPM/DEB packages as detailed in the Installation Guide,
    or use one of the community provided yum/apt repositories to gain
    access to the CloudStack binaries.
 
-#. If you are using Ubuntu, follow this procedure to upgrade your packages. If not, skip to step `8 <#upgrade-rpm-packages-302>`__.
+#. If you are using Ubuntu, follow this procedure to upgrade your packages. If 
+   not, skip to step `8 <#upgrade-rpm-packages-302>`__.
 
-   .. note:: **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and APT repository, substitute your own URL for the ones used in these examples.
+   .. note:: 
+      **Community Packages:** This section assumes you're using the community 
+      supplied packages for CloudStack. If you've created your own packages 
+      and APT repository, substitute your own URL for the ones used in these 
+      examples.
 
    #. The first order of business will be to change the sources list for
       each system with CloudStack packages. This means all management
@@ -133,13 +149,13 @@ Upgrade Steps
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
+         deb http://cloudstack.apt-get.eu/ubuntu precise 4.0
 
       We'll change it to point to the new package repository:
 
       .. sourcecode:: bash
 
-          deb http://cloudstack.apt-get.eu/ubuntu precise 4.4
+         deb http://cloudstack.apt-get.eu/ubuntu precise 4.4
 
       If you're using your own package repository, change this line to
       read as appropriate for your |version| repository.
@@ -148,7 +164,7 @@ Upgrade Steps
 
       .. sourcecode:: bash
 
-          $ sudo apt-get update
+         $ sudo apt-get update
 
    #. Now that you have the repository configured, it's time to install
       the ``cloudstack-management`` package. This will pull in any other
@@ -156,13 +172,13 @@ Upgrade Steps
 
       .. sourcecode:: bash
 
-          $ sudo apt-get install cloudstack-management
+         $ sudo apt-get install cloudstack-management
 
    #. You will need to manually install the ``cloudstack-agent`` package:
 
       .. sourcecode:: bash
 
-          $ sudo apt-get install cloudstack-agent
+         $ sudo apt-get install cloudstack-agent
 
       During the installation of ``cloudstack-agent``, APT will copy
       your ``agent.properties``, ``log4j-cloud.xml``, and
@@ -172,7 +188,8 @@ Upgrade Steps
       When prompted whether you wish to keep your configuration, say
       Yes.
 
-   #. Verify that the file ``/etc/cloudstack/agent/environment.properties`` has a line that reads:
+   #. Verify that the file ``/etc/cloudstack/agent/environment.properties`` 
+      has a line that reads:
 
       .. sourcecode:: bash
 
@@ -205,12 +222,16 @@ Upgrade Steps
 
       .. sourcecode:: bash
 
-          sudo dpkg --purge cloud-agent
+         sudo dpkg --purge cloud-agent
 
-#. If you are using CentOS or RHEL, follow this procedure to upgrade your packages. If not, skip to step `9 <#correct-components-xml-302>`__.
+#. If you are using CentOS or RHEL, follow this procedure to upgrade your 
+   packages. If not, skip to step `9 <#correct-components-xml-302>`__.
 
    .. note:: 
-      **Community Packages:** This section assumes you're using the community supplied packages for CloudStack. If you've created your own packages and yum repository, substitute your own URL for the ones used in these examples.
+      **Community Packages:** This section assumes you're using the community
+      supplied packages for CloudStack. If you've created your own packages 
+      and yum repository, substitute your own URL for the ones used in these 
+      examples.
 
    #. The first order of business will be to change the yum repository
       for each system with CloudStack packages. This means all
@@ -243,7 +264,7 @@ Upgrade Steps
 
       .. sourcecode:: bash
 
-          $ sudo yum upgrade cloud-client
+         $ sudo yum upgrade cloud-client
 
    #. For KVM hosts, you will need to upgrade the ``cloud-agent``
       package, similarly installing the new version as
@@ -251,7 +272,7 @@ Upgrade Steps
 
       .. sourcecode:: bash
 
-          $ sudo yum upgrade cloud-agent
+         $ sudo yum upgrade cloud-agent
 
       During the installation of ``cloudstack-agent``, the RPM will copy
       your ``agent.properties``, ``log4j-cloud.xml``, and
@@ -264,7 +285,7 @@ Upgrade Steps
 
       .. sourcecode:: bash
 
-          paths.script=/usr/share/cloudstack-common
+         paths.script=/usr/share/cloudstack-common
 
       If not, add the line.
 
@@ -272,9 +293,9 @@ Upgrade Steps
 
       .. sourcecode:: bash
 
-          service cloud-agent stop
-          killall jsvc
-          service cloudstack-agent start
+         service cloud-agent stop
+         killall jsvc
+         service cloudstack-agent start
 
 #. If you have made changes to your copy of
    ``/etc/cloud/management/components.xml`` the changes will be
@@ -287,23 +308,25 @@ Upgrade Steps
 
       .. sourcecode:: bash
 
-          # mv /etc/cloud/management/components.xml /etc/cloud/management/components.xml-backup
+         # mv /etc/cloud/management/components.xml /etc/cloud/management/components.xml-backup
 
    #. Copy ``/etc/cloud/management/components.xml.rpmnew`` to create a
       new ``/etc/cloud/management/components.xml``:
 
       .. sourcecode:: bash
 
-          # cp -ap /etc/cloud/management/components.xml.rpmnew /etc/cloud/management/components.xml
+         # cp -ap /etc/cloud/management/components.xml.rpmnew /etc/cloud/management/components.xml
 
    #. Merge your changes from the backup file into the new
       ``components.xml``.
 
       .. sourcecode:: bash
 
-          # vi /etc/cloudstack/management/components.xml
+         # vi /etc/cloudstack/management/components.xml
 
-   .. note::  If you have more than one management server node, repeat the upgrade steps on each node.
+   .. note::  
+      If you have more than one management server node, repeat the upgrade 
+      steps on each node.
 
 #. After upgrading to |version|, API clients are expected to send plain text
    passwords for login and user creation, instead of MD5 hash. Incase,
@@ -316,16 +339,16 @@ Upgrade Steps
 
    .. sourcecode:: bash
 
-       <!-- Security adapters -->
-       <bean id="userAuthenticators" class="com.cloud.utils.component.AdapterList">
-         <property name="Adapters">
-           <list>
-             <ref bean="PlainTextUserAuthenticator"/>
-             <ref bean="MD5UserAuthenticator"/>
-             <ref bean="LDAPUserAuthenticator"/>
-           </list>
-         </property>
-       </bean>
+      <!-- Security adapters -->
+      <bean id="userAuthenticators" class="com.cloud.utils.component.AdapterList">
+        <property name="Adapters">
+          <list>
+            <ref bean="PlainTextUserAuthenticator"/>
+            <ref bean="MD5UserAuthenticator"/>
+            <ref bean="LDAPUserAuthenticator"/>
+          </list>
+        </property>
+      </bean>
 
    PlainTextUserAuthenticator works the same way MD5UserAuthenticator
    worked prior to |version|
@@ -335,13 +358,16 @@ Upgrade Steps
 
    .. sourcecode:: bash
 
-       # service cloudstack-management start
+      # service cloudstack-management start
 
    Wait until the databases are upgraded. Ensure that the database
    upgrade is complete. After confirmation, start the other Management
    Servers one at a time by running the same command on each node.
 
-   .. note:: Failing to restart the Management Server indicates a problem in the upgrade. Having the Management Server restarted without any issues indicates that the upgrade is successfully completed.
+   .. note:: 
+      Failing to restart the Management Server indicates a problem in the 
+      upgrade. Having the Management Server restarted without any issues 
+      indicates that the upgrade is successfully completed.
 
 #. Start all Usage Servers (if they were running on your previous
    version). Perform this on each Usage Server host.
@@ -378,27 +404,27 @@ Upgrade Steps
 
       .. sourcecode:: bash
 
-           # cloudstack-agent-upgrade
+         # cloudstack-agent-upgrade
 
    #. Install a libvirt hook with the following commands:
 
       .. sourcecode:: bash
 
-           # mkdir /etc/libvirt/hooks
-           # cp /usr/share/cloudstack-agent/lib/libvirtqemuhook /etc/libvirt/hooks/qemu
-           # chmod +x /etc/libvirt/hooks/qemu
+         # mkdir /etc/libvirt/hooks
+         # cp /usr/share/cloudstack-agent/lib/libvirtqemuhook /etc/libvirt/hooks/qemu
+         # chmod +x /etc/libvirt/hooks/qemu
 
    #. Restart libvirtd.
 
       .. sourcecode:: bash
 
-          # service libvirtd restart
+         # service libvirtd restart
 
    #. Start the agent.
 
       .. sourcecode:: bash
 
-          # service cloudstack-agent start
+         # service cloudstack-agent start
 
    #. When the Management Server is up and running, log in to the
       CloudStack UI and restart the virtual router for proper
@@ -409,7 +435,9 @@ Upgrade Steps
    know to be offline). You may need to wait 20 or 30 minutes, depending
    on the number of hosts.
 
-   .. note:: Troubleshooting: If login fails, clear your browser cache and reload the page.
+   .. note:: 
+      Troubleshooting: If login fails, clear your browser cache and reload the 
+      page.
 
    Do not proceed to the next step until the hosts show in Up state.
 
@@ -424,7 +452,9 @@ Upgrade Steps
 
    #. Restart the Management Server.
 
-      .. note:: If you don't want the admin port to remain open, you can set it to null after the upgrade is done and restart the management server.
+      .. note:: 
+         If you don't want the admin port to remain open, you can set it to 
+         null after the upgrade is done and restart the management server.
 
 #. Run the ``cloudstack-sysvmadm`` script to stop, then start, all
    Secondary Storage VMs, Console Proxy VMs, and virtual routers. Run
@@ -488,7 +518,10 @@ Upgrade Steps
       Make a note of the output from this command, which is a UUID for
       the hotfix file. You'll need it in another step later.
 
-      .. note:: (Optional) If you are applying other hotfixes as well, you can repeat the commands in this section with the appropriate hotfix number. For example, XS602E004.xsupdate.
+      .. note:: 
+         (Optional) If you are applying other hotfixes as well, you can repeat 
+         the commands in this section with the appropriate hotfix number. For 
+         example, XS602E004.xsupdate.
 
    #. Manually live migrate all VMs on this host to another host. First,
       get a list of the VMs on this host:
@@ -500,13 +533,17 @@ Upgrade Steps
 
       ``# xe vm-migrate live=true host=host-name`` vm=\ *``VM-name``*
 
-      .. note:: **Troubleshooting:** If you see a message like "You attempted an operation on a VM which requires PV drivers to be installed but the drivers were not detected," run: ``/opt/xensource/bin/make_migratable.sh b6cf79c8-02ee-050b-922f-49583d9f1a14``.
+      .. note:: 
+         **Troubleshooting:** If you see a message like "You attempted an 
+         operation on a VM which requires PV drivers to be installed but the 
+         drivers were not detected," run: 
+         ``/opt/xensource/bin/make_migratable.sh b6cf79c8-02ee-050b-922f-49583d9f1a14``.
 
    #. Apply the hotfix. First, get the UUID of this host:
 
       .. sourcecode:: bash
 
-          # xe host-list
+         # xe host-list
 
       Then use the following command to apply the hotfix. Replace the
       example host UUID with the current host ID, and replace the hotfix
@@ -516,30 +553,30 @@ Upgrade Steps
 
       .. sourcecode:: bash
 
-          xe patch-apply host-uuid=host-uuid uuid=hotfix-uuid
+         xe patch-apply host-uuid=host-uuid uuid=hotfix-uuid
 
    #. Copy the following files from the CloudStack Management Server to
       the host.
 
 
-       +-------------------------+-------------------------------------------------+
-       | Copy from here...       | ...to here                                      |
-       +=========================+=================================================+
-       | /usr/lib64/cloud/common | /opt/xensource/sm/NFSSR.py                      |
-       | /scripts/vm/hypervisor/ |                                                 |
-       | xenserver/xenserver60/N |                                                 |
-       | FSSR.py                 |                                                 |
-       +-------------------------+-------------------------------------------------+
-       | /usr/lib64/cloud/common | /opt/xensource/bin/setupxenserver.sh            |
-       | /scripts/vm/hypervisor/ |                                                 |
-       | xenserver/setupxenserve |                                                 |
-       | r.sh                    |                                                 |
-       +-------------------------+-------------------------------------------------+
-       | /usr/lib64/cloud/common | /opt/xensource/bin/make\_migratable.sh          |
-       | /scripts/vm/hypervisor/ |                                                 |
-       | xenserver/make\_migrata |                                                 |
-       | ble.sh                  |                                                 |
-       +-------------------------+-------------------------------------------------+
+      +-------------------------+------------------------------------------+
+      | Copy from here...       | ...to here                               |
+      +=========================+==========================================+
+      | /usr/lib64/cloud/common | /opt/xensource/sm/NFSSR.py               |
+      | /scripts/vm/hypervisor/ |                                          |
+      | xenserver/xenserver60/N |                                          |
+      | FSSR.py                 |                                          |
+      +-------------------------+------------------------------------------+
+      | /usr/lib64/cloud/common | /opt/xensource/bin/setupxenserver.sh     |
+      | /scripts/vm/hypervisor/ |                                          |
+      | xenserver/setupxenserve |                                          |
+      | r.sh                    |                                          |
+      +-------------------------+------------------------------------------+
+      | /usr/lib64/cloud/common | /opt/xensource/bin/make\_migratable.sh   |
+      | /scripts/vm/hypervisor/ |                                          |
+      | xenserver/make\_migrata |                                          |
+      | ble.sh                  |                                          |
+      +-------------------------+------------------------------------------+
 
 
    #. (Only for hotfixes XS602E005 and XS602E007) You need to apply a
@@ -581,7 +618,9 @@ Upgrade Steps
 
          /opt/xensource/bin/setupxenserver.sh
 
-      .. note:: If the message "mv: cannot stat \`/etc/cron.daily/logrotate': No such file or directory" appears, you can safely ignore it.
+      .. note:: 
+         If the message "mv: cannot stat \`/etc/cron.daily/logrotate': No such 
+         file or directory" appears, you can safely ignore it.
 
    #. Run the following:
 
@@ -592,6 +631,9 @@ Upgrade Steps
    #. On each slave host in the Xen pool, repeat these steps, starting
       from "manually live migrate VMs."
 
-.. note:: **Troubleshooting Tip:** If passwords which you know to be valid appear not to work after upgrade, or other UI issues are seen, try clearing your browser cache and reloading the UI page.
+.. note:: 
+   **Troubleshooting Tip:** If passwords which you know to be valid appear not 
+   to work after upgrade, or other UI issues are seen, try clearing your 
+   browser cache and reloading the UI page.
 
 .. include:: /global.rst

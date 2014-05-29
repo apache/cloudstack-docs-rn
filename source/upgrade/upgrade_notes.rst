@@ -13,9 +13,9 @@
    specific language governing permissions and limitations
    under the License.
 
+
 General Upgrade Notes
 =====================
-
 
 Settings Changes
 ----------------
@@ -24,17 +24,18 @@ After upgrading to 4.2 and later, Settings ``mem.overporvisioning.factor`` and
 ``cpu.overporvisioning.factor`` are now at the cluster level and be set to 1 
 which is the default.
 
-If Global Settings ``mem.overporvisioning.factor`` and ``cpu.overporvisioning.factor`` 
-have been changed prior the upgrade to 4.2 and later, the upgrade process will 
-be reset them to 1. Values can be changed by editing clusters settings.
+If Global Settings ``mem.overporvisioning.factor`` and 
+``cpu.overporvisioning.factor`` have been changed prior the upgrade to 4.2 and 
+later, the upgrade process will be reset them to 1. Values can be changed by 
+editing clusters settings.
 
 All clusters created after the upgrade will get created with the Global Settings 
 values for ``mem.overporvisioning.factor`` and ``cpu.overporvisioning.factor``.
-
 
 .. not confirmed 
    Build From Sources
    ------------------
    
-   Since CloudStack 4.2.1 build packages from source using non opensource modules param ``-nonoss`` changed to ``-   noredist``.
+   Since CloudStack 4.2.1 build packages from source using non opensource 
+   modules param ``-nonoss`` changed to ``-   noredist``.
    

@@ -18,16 +18,23 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+
 Welcome to Apache CloudStack Release Notes
 ==========================================
 
 .. figure:: /_static/images/acslogo.png
-    :align: center
+   :align: center
 
-.. warning:: We are in the process of changing documentation format as well as hosting mechanism.
-             Please be patient with us as we migrate our entire documentation to this new setup.
+.. warning:: 
+   We are in the process of changing documentation format as well as hosting 
+   mechanism. Please be patient with us as we migrate our entire documentation 
+   to this new setup.
 
-This document contains information specific to this release of CloudStack, including upgrade instructions from prior releases, new features added to CloudStack, API changes, and issues fixed in the release. For installation instructions, please see the `CloudStack Installation Guide`_. For usage and administration instructions, please see the `CloudStack Administrator's Guide`_.
+This document contains information specific to this release of CloudStack, 
+including upgrade instructions from prior releases, new features added to 
+CloudStack, API changes, and issues fixed in the release. For installation 
+instructions, please see the `CloudStack Installation Guide`_. For usage and 
+administration instructions, please see the `CloudStack Administrator's Guide`_.
 
 
 Contents:
@@ -37,29 +44,36 @@ Contents:
 
    about
 
+
 .. toctree::
    :maxdepth: 2
 
    fixed_issues
 
+
 .. toctree::
    :maxdepth: 2
 
    compat
+   
+
 .. toctree::
    :maxdepth: 2
 
    api-changes
+
 
 .. toctree::
    :maxdepth: 2
 
    known_issues   
 
+
 .. toctree::
    :maxdepth: 2
 
    upgrade/upgrade_notes
+
 
 .. toctree::
    :maxdepth: 1
@@ -71,5 +85,6 @@ Contents:
    upgrade/upgrade-3.0.x
    upgrade/upgrade-2.2.14
    upgrade/valid_source
+   
    
 .. include:: global.rst
