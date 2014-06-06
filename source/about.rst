@@ -95,18 +95,7 @@ VMWare Support for DRS
    
    ====================== ============================================================================
    Supported hypervisors: VMware
-   Link                   `DRS Functional spec`_
-   ====================== ============================================================================
-
-
-Zone Wide Primary Store in Hyper-V
-----------------------------------
-
-   SMB share as zone wide primary storage.
-
-   ====================== ============================================================================
-   Supported hypervisors: Hyper-V
-   Link                   
+   Link                   `DRS functional spec`_
    ====================== ============================================================================
 
 
@@ -121,8 +110,93 @@ CloudStack on Windows
    Supported hypervisors: N/A
    Link                   `CLOUDSTACK-6105 <https://issues.apache.org/jira/browse/CLOUDSTACK-6105>`_
    ====================== ============================================================================
-   
 
+
+Region wide Guest networks and VPC 
+----------------------------------
+
+   Region level Guest networks and VPC deployment. Allowing VPC tiers and guest
+   networks accessibility across zones.
+
+   ====================== ============================================================================
+   Supported hypervisors: N/A
+   Link                   `VPC region functional spec`_
+   ====================== ============================================================================
+
+
+Virtual Router Service Failure Alerting
+---------------------------------------
+
+   Send failure alerts to management server to notify admins using `Monitoring
+   VR services <https://cwiki.apache.org/confluence/display/CLOUDSTACK/Monitoring+VR+services>`_
+   introduced in CloudStack 4.3.
+
+   ====================== ============================================================================
+   Supported hypervisors: xenserver, kvm, vmware
+   Link                   `VR failure alerting functional spec`_
+   ====================== ============================================================================
+
+
+Distributed routing and network ACL with OVS plug-in
+----------------------------------------------------
+
+   Support distributed routing and network ACL with OVS plug-in.
+
+   ====================== ============================================================================
+   Supported hypervisors: xenserver, kvm, vmware
+   Link                   `CLOUDSTACK-6161 <https://issues.apache.org/jira/browse/CLOUDSTACK-6161>`_
+   ====================== ============================================================================
+
+
+Hyper-V support improvements
+----------------------------
+
+Zone Wide Primary Store in Hyper-V
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   SMB share as zone wide primary storage.
+
+   ====================== ============================================================================
+   Supported hypervisors: Hyper-V
+   Link                   `Hyper-V zone wide storage functional spec`_
+   ====================== ============================================================================
+
+
+VPC support on Hyper-V
+~~~~~~~~~~~~~~~~~~~~~~
+
+   Provide VPC capability on Hyper-V hypervisor.
+   
+   ====================== ============================================================================
+   Supported hypervisors: Hyper-V
+   Link                   `VPC support on Hyper-V functional spec`_
+   ====================== ============================================================================
+
+
+Storage Live-Migration support for Hyper-V
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Hyper-V 2012 R2 allows migration of volumes (virtual disks) of a virtual
+   machine from one storage to another, while the virtual machine continues to
+   run. It also allows live migration of a virtual machine and its volumes to
+   another host and storage without any downtime.
+
+   The intend of this feature is to enable support of live migration of a
+   virtual machines with its volumes across hosts and storage pools. It'll
+   also migration of volumes across storage pools while the volume stays
+   attached to a running virtual machine.
+
+   ====================== ============================================================================
+   Supported hypervisors: Hyper-V
+   Link                   `Hyper-V storage motion functional spec`_
+   ====================== ============================================================================
+
+
+.. _Hyper-V storage motion functional spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/Storage+motion+for+Hyper-V
+.. _Hyper-V zone wide storage functional spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/Zone+wide+primary+storage+for+Hyper-V
+.. _VPC support on Hyper-V functional spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/VPC+support+on+Hyper-V
+.. _VR failure alerting functional spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/Virtual+Router+Service+Failure+Alerting
+.. _VPC region Functional spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/Region+level+VPC+and+guest+network+spanning+multiple+zones
 .. _Storage Over Prov. Functional spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/Storage+OverProvisioning+as+Per+Primary+Basis
-.. _Root resize Functional spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/Root+Resize+Support
-.. _DRS Functional spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/VMWare+Enhancements+-+Support+for+DRS+and+VM+HA
+.. _Root resize functional spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/Root+Resize+Support
+.. _DRS functional spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/VMWare+Enhancements+-+Support+for+DRS+and+VM+HA
