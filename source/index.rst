@@ -66,12 +66,6 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   known_issues   
-
-
-.. toctree::
-   :maxdepth: 2
-
    upgrade/upgrade_notes
 
 
@@ -85,6 +79,12 @@ Contents:
    upgrade/upgrade-3.0.x
    upgrade/upgrade-2.2.14
    upgrade/valid_source
-   
+
+
+.. toctree::
+   :maxdepth: 2
+
+   known_issues   
+  
    
 .. include:: global.rst

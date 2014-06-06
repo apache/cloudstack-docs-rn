@@ -17,6 +17,16 @@
 General Upgrade Notes
 =====================
 
+
+Depreciation of realhostip.com 
+------------------------------
+   
+The realhostip.com dynamic DNS resolution service is being retired
+summer 2014. In advance of that, CloudStack 4.3 and later no longer uses 
+realhostip.com DNS domains or SSL certificates to encrypt Console Proxy or 
+file copy communications.
+
+
 Settings Changes
 ----------------
 
@@ -38,4 +48,3 @@ values for ``mem.overporvisioning.factor`` and ``cpu.overporvisioning.factor``.
    
    Since CloudStack 4.2.1 build packages from source using non opensource 
    modules param ``-nonoss`` changed to ``-   noredist``.
-   
