@@ -33,7 +33,7 @@ your MySQL credentials:
 
 .. sourcecode:: bash
 
-   # nohup cloudstack-sysvmadm -d IP address -u cloud -p -a > sysvm.log 2>&1 &
+   # nohup cloudstack-sysvmadm -d IPaddress -u cloud -p password -a > sysvm.log 2>&1 &
 
 You can monitor the log for progress. The process of restarting the
 system VMs can take an hour or more.
