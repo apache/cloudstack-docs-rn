@@ -42,9 +42,24 @@ editing clusters settings.
 All clusters created after the upgrade will get created with the Global Settings 
 values for ``mem.overporvisioning.factor`` and ``cpu.overporvisioning.factor``.
 
+
+OVS plug-in
+-----------
+
+OVS plug-in functionality is disrupted if ovsdaemon crashes
+
+A critical functionality issue came out with CLOUDSTACK-6779. On XenServer it
+is observed that on VIF unplug Ovs-Vswitchd is crashing resulting in loosing all
+the openflow rules added to the bridge. Ovs daemon gets started and creates a
+bridge but configure openflow rules are lost resulting in the disruption of
+connectivity for the VM's on the host.
+
+
 .. not confirmed 
    Build From Sources
    ------------------
    
    Since CloudStack 4.2.1 build packages from source using non opensource 
    modules param ``-nonoss`` changed to ``-   noredist``.
+
+
