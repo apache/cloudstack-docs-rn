@@ -1379,7 +1379,7 @@ working on a production system.
    api client changes are not acceptable, following changes are to be
    made for backward compatibility:
 
-   Modify componentsContext.xml, and make PlainTextUserAuthenticator as
+   Modify componentContext.xml, and make PlainTextUserAuthenticator as
    the default authenticator (1st entry in the userAuthenticators
    adapter list is default)
 
