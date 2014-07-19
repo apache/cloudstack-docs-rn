@@ -19,6 +19,10 @@ What's New in |version|
 
 CloudStack |version| includes the following new features and improvements.
 
+.. contents::
+   :local:
+   :backlinks: top
+
 
 Support managed storage for root disks
 --------------------------------------
