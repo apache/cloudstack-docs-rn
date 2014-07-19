@@ -56,6 +56,22 @@ bridge but configure openflow rules are lost resulting in the disruption of
 connectivity for the VM's on the host.
 
 
+Active-Directory Authentication (LDAP)
+--------------------------------------
+
+If using Active-Directory (LDAP/LDAPs) as user authentication; Upgrading to 
+4.3 and later require changes in Global Settings. After upgrading CloudStack
+to 4.3 or latest, following Global Settings must be change:
+
+======================= ============== ==============
+Global Settings         Default        New
+======================= ============== ==============
+ldap.user.object        inetOrgPerson  user
+ldap.username.attribute uid            sAMAccountName
+======================= ============== ==============
+
+
+
 .. not confirmed 
    Build From Sources
    ------------------

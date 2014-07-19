@@ -20,10 +20,10 @@
 .. _CloudStack Administrator's Guide: http://docs.cloudstack.apache.org/projects/cloudstack-administration
 
 
-.. |sysvm-url-xen| replace:: http://jenkins.buildacloud.org/view/4.4/job/cloudstack-4.4-systemvm/lastSuccessfulBuild/artifact/tools/appliance/dist/systemvmtemplate-master-xen.vhd.bz2
-.. |sysvm-url-kvm| replace:: http://jenkins.buildacloud.org/view/4.4/job/cloudstack-4.4-systemvm/lastSuccessfulBuild/artifact/tools/appliance/dist/systemvmtemplate-master-kvm.qcow2.bz2
-.. |sysvm-url-vmware| replace:: http://jenkins.buildacloud.org/view/4.4/job/cloudstack-4.4-systemvm/lastSuccessfulBuild/artifact/tools/appliance/dist/systemvmtemplate-master-vmware.ova
+.. |sysvm-url-xen| replace:: http://jenkins.buildacloud.org/view/4.4/job/cloudstack-4.4-systemvm/lastSuccessfulBuild/artifact/tools/appliance/dist/systemvmtemplate-unknown-xen.vhd.bz2
+.. |sysvm-url-kvm| replace:: http://jenkins.buildacloud.org/view/4.4/job/cloudstack-4.4-systemvm/lastSuccessfulBuild/artifact/tools/appliance/dist/systemvmtemplate-unknown-kvm.qcow2.bz2
+.. |sysvm-url-vmware| replace:: http://jenkins.buildacloud.org/view/4.4/job/cloudstack-4.4-systemvm/lastSuccessfulBuild/artifact/tools/appliance/dist/systemvmtemplate-unknown-vmware.ova
 
-.. |sysvm64-url-xen| replace:: http://jenkins.buildacloud.org/view/4.4/job/cloudstack-4.4-systemvm64/lastSuccessfulBuild/artifact/tools/appliance/dist/systemvm64template-master-xen.vhd.bz2
-.. |sysvm64-url-kvm| replace:: http://jenkins.buildacloud.org/view/4.4/job/cloudstack-4.4-systemvm64/lastSuccessfulBuild/artifact/tools/appliance/dist/systemvm64template-master-kvm.qcow2.bz2
-.. |sysvm64-url-vmware| replace:: http://jenkins.buildacloud.org/view/4.4/job/cloudstack-4.4-systemvm64/lastSuccessfulBuild/artifact/tools/appliance/dist/systemvm64template-master-vmware.ova
+.. |sysvm64-url-xen| replace:: http://jenkins.buildacloud.org/view/4.4/job/cloudstack-4.4-systemvm64/lastSuccessfulBuild/artifact/tools/appliance/dist/systemvm64template-unknown-xen.vhd.bz2
+.. |sysvm64-url-kvm| replace:: http://jenkins.buildacloud.org/view/4.4/job/cloudstack-4.4-systemvm64/lastSuccessfulBuild/artifact/tools/appliance/dist/systemvm64template-unknown-kvm.qcow2.bz2
+.. |sysvm64-url-vmware| replace:: http://jenkins.buildacloud.org/view/4.4/job/cloudstack-4.4-systemvm64/lastSuccessfulBuild/artifact/tools/appliance/dist/systemvm64template-unknown-vmware.ova
