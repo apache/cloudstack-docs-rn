@@ -56,5 +56,4 @@ Contents:
    :maxdepth: 2
 
    api-changes
-   packages
    
