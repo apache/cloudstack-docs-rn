@@ -12,51 +12,69 @@
    KIND, either express or implied.  See the License for the
    specific language governing permissions and limitations
    under the License.
-
-
+   
 Compatibility Matrix
 ====================
 
 Supported OS Versions for Management Server
 -------------------------------------------
 
-This section describes the operating systems, browsers, and hypervisors
-that have been newly tested and certified compatible with CloudStack
-|release|. Most earlier OS and hypervisor versions are also still supported
-for use with |release|. It might work well on other platforms, but the
-platforms listed below are the ones that are specifically tested against
-and are more likely to be able to help troubleshoot if you run into any
-issues.
+This section lists the operating systems that are supported for running
+CloudStack Management Server. Note that specific versions of the
+operating systems are tested, so compatibility with CentOS 6.3 may not
+indicate compatibility with CentOS 6.2, 6.1 and so on.
 
-.. note:: 
-   That specific versions of the operating systems are tested, so 
-   compatibility with CentOS 6.3 may not indicate compatibility with CentOS 
-   6.2, 6.1 and so on.
+-  RHEL versions 5.5, 6.2, 6.3, and 6.4
 
--  CentOS versions 6.5 (32 and 64 bit)
+-  CentOS versions 6.3, 6.4 and 6.5
 
--  FreeBSD 10 (32 and 64 bit)
-
--  Microsoft Winows 8.1 (32 and 64 bit)
-
--  Windows XP SP3 (32 and 64 bit)
-
+-  Ubuntu 12.04 LTS
 
 Supported Hypervisor Versions
 -----------------------------
 
-No new supported hypervisors in |release|.
+CloudStack supports three hypervisor families, XenServer with XAPI, KVM,
+and VMware with vSphere.
 
-For more information, see the Hypervisor Compatibility Matrix in the 
-`CloudStack Installation Guide`_.
+-  Windows Server 2012 R2 (with Hyper-V Role enabled)
+
+-  Hyper-V 2012 R2
+
+-  CentOS 6.2 with KVM
+
+-  Red Hat Enterprise Linux 6.2 with KVM
+
+-  XenServer 6.0.2 (with Hotfix)
+
+-  XenServer versions 6.1 and 6.2 SPI with latest hotfixes
+
+-  VMware versions 5.0, 5.1, and 5.5
+
+-  Bare metal hosts are supported, which have no hypervisor. These hosts
+   can run the following operating systems:
+
+   -  RHEL or CentOS, v6.2 or 6.3
+
+      .. note:: Use libvirt version 0.9.10 for CentOS 6.3
+
+   -  Fedora 17
+
+   -  Ubuntu 12.04
+
+For more information, see the Hypervisor Compatibility Matrix in the
+CloudStack Installation Guide.
 
 
 Supported External Devices
 --------------------------
 
-No new supported External Devices in |release|.
+-  Netscaler VPX and MPX versions 9.3 and 10.e
 
-For more information, see the `CloudStack Installation Guide`_.
+-  Netscaler SDX version 9.3
+
+-  SRX (Model srx100b) versions 10.3 or higher
+
+-  F5 10.1.0 (Build 3341.1084)
 
 
 Supported Browsers
@@ -74,5 +92,3 @@ best results, one of the following browsers recommended:
 -  Google Chrome version 31
 
 -  Safari 5
-
-.. include:: global.rst
