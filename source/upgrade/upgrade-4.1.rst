@@ -67,13 +67,13 @@ Backup current database
 
    .. sourcecode:: bash
 
-      $ sudo service cloudstack-management stop
+      $ sudo service cloud-management stop
 
 #. If you are running a usage server or usage servers, stop those as well:
 
    .. sourcecode:: bash
 
-      $ sudo service cloudstack-usage stop
+      $ sudo service cloud-usage stop
 
 #. Make a backup of your MySQL database. If you run into any issues or
    need to roll back the upgrade, this will assist in debugging or
@@ -150,40 +150,13 @@ not, skip to step :ref:`rhel41`.
 
    .. sourcecode:: bash
 
-      $ sudo apt-get install cloudstack-management
+      $ sudo apt-get upgrade cloudstack-management
 
-#. You will need to manually install the ``cloudstack-agent``
-   package:
-
-   .. sourcecode:: bash
-
-       $ sudo apt-get install cloudstack-agent
-
-   During the installation of ``cloudstack-agent``, APT will copy
-   your ``agent.properties``, ``log4j-cloud.xml``, and
-   ``environment.properties`` from ``/etc/cloud/agent`` to
-   ``/etc/cloudstack/agent``.
-
-   When prompted whether you wish to keep your configuration, say
-   Yes.
-
-#. Verify that the file
-   ``/etc/cloudstack/agent/environment.properties`` has a line that
-   reads:
+#. If you use CloudStack usage server
 
    .. sourcecode:: bash
 
-      paths.script=/usr/share/cloudstack-common
-
-   If not, add the line.
-
-#. Restart the agent:
-
-   .. sourcecode:: bash
-
-      service cloudstack-agent stop
-      killall jsvc
-      service cloudstack-agent start
+      $ sudo apt-get upgrade cloudstack-usage
 
 
 .. _rhel41:
@@ -238,6 +211,12 @@ CloustStack RPM repository
    .. sourcecode:: bash
 
       $ sudo yum upgrade cloudstack-management
+
+#. If you use CloudStack usage server
+
+   .. sourcecode:: bash
+
+      $ sudo yum upgrade cloudstack-usage
 
 
 Hypervisor: Xen/XenServer
@@ -314,12 +293,6 @@ are required only for clouds using VMware clusters:
 
       select * from cloud.vmware_data_center;
 
-#. Start the CloudStack Management server
-
-   .. sourcecode:: bash
-
-      service cloudstack-management start
-
 
 .. _kvm41:
 
@@ -341,6 +314,7 @@ hosts.
    .. sourcecode:: bash
 
       $ sudo service cloud-agent stop
+      $ killall jsvc
 
 #. Update the agent software.
 
@@ -348,11 +322,30 @@ hosts.
 
       $ sudo apt-get upgrade cloudstack-agent
 
+   During the installation of ``cloudstack-agent``, APT will copy
+   your ``agent.properties``, ``log4j-cloud.xml``, and
+   ``environment.properties`` from ``/etc/cloud/agent`` to
+   ``/etc/cloudstack/agent``.
+
+   When prompted whether you wish to keep your configuration, say
+   Yes.
+
+#. Verify that the file
+   ``/etc/cloudstack/agent/environment.properties`` has a line that
+   reads:
+
+   .. sourcecode:: bash
+
+      paths.script=/usr/share/cloudstack-common
+
+   If not, add the line.
+
 #. Start the agent.
 
    .. sourcecode:: bash
 
       $ sudo service cloudstack-agent start
+
 
 KVM on CentOS
 ^^^^^^^^^^^^^
@@ -362,6 +355,7 @@ KVM on CentOS
    .. sourcecode:: bash
 
       # service cloud-agent stop
+      # killall jsvc
 
 #. Configure the :ref:`rpm-repo41` as detailed above.
 
@@ -378,19 +372,22 @@ KVM on CentOS
 
    If not, add the line.
 
-#. Restart the agent:
+
+Restart management services
+---------------------------
+
+#. Now it's time to start the management server
 
    .. sourcecode:: bash
 
-      service cloudstack-agent stop
-      killall jsvc
-      service cloudstack-agent start
+      $ sudo service cloudstack-management start
 
-#. Now it's time to restart the management server
+#. If you use it, start the usage server
 
    .. sourcecode:: bash
 
-      # service cloudstack-management start
+      $ sudo service cloudstack-usage start
+
 
 .. _upg-sysvm41:
 
