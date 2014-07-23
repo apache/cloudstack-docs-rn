@@ -18,4 +18,4 @@
 Update System-VM templates
 --------------------------
 
-This Upgrade path from version |version_to_upgrade| to |release| does not require systemvm-templates upgrade.
+Upgrade from |version_to_upgrade| to |release| does not require new systemvm-templates.
