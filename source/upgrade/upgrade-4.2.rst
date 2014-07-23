@@ -30,7 +30,7 @@ Upgrade Steps:
 
 #. Backup CloudStack database (MySQL)
 
-#. Upgrade CloudStack packages
+#. Upgrade CloudStack management server(s)
 
 #. Update hypervisors specific dependencies
 
@@ -82,7 +82,9 @@ Backup current database
 
    .. sourcecode:: bash
 
-      $ mysqldump -u root -p cloud > cloudstack-backup.sql
+      $ mysqldump -u root -p cloud > cloud-backup.sql
+      $ mysqldump -u root -p cloud_usage > cloud_usage-backup.sql
+
 
 #. **(KVM Only)** If primary storage of type local storage is in use, the
    path for this storage needs to be verified to ensure it passes new
@@ -156,17 +158,11 @@ CloudStack apt repository
 
       $ sudo apt-get upgrade cloudstack-management
 
-#. Now it's time to start the management server
+#. If you use CloudStack usage server
 
    .. sourcecode:: bash
 
-      $ sudo service cloudstack-management start
-
-#. If you use it, start the usage server
-
-   .. sourcecode:: bash
-
-      $ sudo service cloudstack-usage start
+      $ sudo apt-get upgrade cloudstack-usage
 
 
 .. _rhel42:
@@ -221,11 +217,11 @@ CloustStack RPM repository
 
       $ sudo yum upgrade cloudstack-management
 
-#. Now it's time to restart the management server
+#. If you use CloudStack usage server
 
    .. sourcecode:: bash
 
-      $ sudo service cloudstack-management start
+      $ sudo yum upgrade cloudstack-usage
 
 
 Hypervisor: Xen/XenServer
@@ -239,6 +235,7 @@ Hypervisor: Xen/XenServer
 
       wget -P /usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver \
       http://download.cloud.com.s3.amazonaws.com/tools/vhd-util
+
 
 Hypervisor: VMware
 ------------------
@@ -309,17 +306,12 @@ Hypervisor: VMware
 
       select * from cloud.vmware_data_center;
 
-#. Start the CloudStack Management server
-
-   .. sourcecode:: bash
-
-      $ sudo service cloudstack-management start
-
 
 .. _kvm42:
 
 Hypervisor: KVM
 ---------------
+
 
 KVM on Ubuntu
 ^^^^^^^^^^^^^
@@ -341,7 +333,7 @@ hosts.
 
    .. sourcecode:: bash
 
-      $ sudo apt-get update cloudstack-agent
+      $ sudo apt-get upgrade cloudstack-agent
 
 #. Verify that the file ``/etc/cloudstack/agent/environment.properties`` has a 
    line that reads:
@@ -386,13 +378,27 @@ For KVM hosts, upgrade the ``cloudstack-agent`` package
       $ sudo killall jsvc
       $ sudo service cloudstack-agent start
 
-#. Now it's time to restart the management server
+
+Restart management services
+---------------------------
+
+#. Now it's time to start the management server
 
    .. sourcecode:: bash
 
       $ sudo service cloudstack-management start
 
+#. If you use it, start the usage server
+
+   .. sourcecode:: bash
+
+      $ sudo service cloudstack-usage start
+
+
 .. _upg-sysvm42:
+
+System-VMs and Virtual-Routers
+------------------------------
 
 .. include:: _sysvm_restart.rst
 

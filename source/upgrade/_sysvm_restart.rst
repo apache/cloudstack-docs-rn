@@ -13,9 +13,7 @@
    specific language governing permissions and limitations
    under the License.
 
-
-System-VMs and Virtual-Routers
-------------------------------
+.. sub-section included in upgrade notes.
 
 Once you've upgraded the packages on your management servers, you'll
 need to restart the system VMs. Ensure that the admin port is set to

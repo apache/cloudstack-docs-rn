@@ -30,7 +30,7 @@ Upgrade Steps:
 
 #. Backup CloudStack database (MySQL)
 
-#. Upgrade CloudStack packages
+#. Upgrade CloudStack management server(s)
 
 #. Update hypervisors specific dependencies
 
@@ -82,7 +82,8 @@ Backup current database
 
    .. sourcecode:: bash
 
-      $ mysqldump -u root -p cloud > cloudstack-backup.sql
+      $ mysqldump -u root -p cloud > cloud-backup.sql
+      $ mysqldump -u root -p cloud_usage > cloud_usage-backup.sql
 
 #. **(KVM Only)** If primary storage of type local storage is in use, the
    path for this storage needs to be verified to ensure it passes new
@@ -328,38 +329,45 @@ Hypervisor: KVM
 KVM on Ubuntu
 ^^^^^^^^^^^^^
 
-   **(KVM only)** Additional steps are required for each KVM host. These
-   steps will not affect running guests in the cloud. These steps are
-   required only for clouds using KVM as hosts and only on the KVM
-   hosts.
+**(KVM only)** Additional steps are required for each KVM host. These
+steps will not affect running guests in the cloud. These steps are
+required only for clouds using KVM as hosts and only on the KVM
+hosts.
 
-   #. Configure the CloudStack yum repository as detailed above.
+#. Configure the CloudStack yum repository as detailed above.
 
-   #. Stop the running agent.
+#. Stop the running agent.
 
-      .. sourcecode:: bash
+   .. sourcecode:: bash
 
-         # service cloud-agent stop
+      $ sudo service cloud-agent stop
 
-   #. Update the agent software.
+#. Update the agent software.
 
-      .. sourcecode:: bash
+   .. sourcecode:: bash
 
-         # yum update cloudstack-agent
+      $ sudo apt-get upgrade cloudstack-agent
 
-   #. Start the agent.
+#. Start the agent.
 
-      .. sourcecode:: bash
+   .. sourcecode:: bash
 
-         # service cloudstack-agent start
+      $ sudo service cloudstack-agent start
 
 KVM on CentOS
 ^^^^^^^^^^^^^
+
+#. Stop the running agent.
+
+   .. sourcecode:: bash
+
+      # service cloud-agent stop
+
 #. Configure the :ref:`rpm-repo41` as detailed above.
 
    .. sourcecode:: bash
 
-      $ sudo yum upgrade cloudstack-agent
+      # yum upgrade cloudstack-agent
 
 #. Verify that the file ``/etc/cloudstack/agent/environment.properties`` has a 
    line that reads:
@@ -385,6 +393,9 @@ KVM on CentOS
       # service cloudstack-management start
 
 .. _upg-sysvm41:
+
+System-VMs and Virtual-Routers
+------------------------------
 
 .. include:: _sysvm_restart.rst
 

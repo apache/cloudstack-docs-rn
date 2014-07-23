@@ -13,13 +13,9 @@
    specific language governing permissions and limitations
    under the License.
 
+.. sub-section included in upgrade notes.
 
-.. This file contain Variables shared across .rst files in this project
+Update System-VM templates
+--------------------------
 
-.. _CloudStack Installation Guide: http://docs.cloudstack.apache.org/projects/cloudstack-installation
-.. _CloudStack Administrator's Guide: http://docs.cloudstack.apache.org/projects/cloudstack-administration
-
-
-.. |sysvm64-url-xen|    replace:: http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-xen.vhd.bz2
-.. |sysvm64-url-kvm|    replace:: http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-kvm.qcow2.bz2
-.. |sysvm64-url-vmware| replace:: http://download.cloud.com/templates/4.3/systemvm64template-2014-01-14-master-vmware.ova
+This Upgrade path from version |version_to_upgrade| to |release| does not require systemvm-templates upgrade.

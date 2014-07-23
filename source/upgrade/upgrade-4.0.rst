@@ -307,6 +307,9 @@ Hypervisor: XenServer
 
 .. _upg-sysvm40:
 
+System-VMs and Virtual-Routers
+------------------------------
+
 .. include:: _sysvm_restart.rst
 
 .. include:: /global.rst

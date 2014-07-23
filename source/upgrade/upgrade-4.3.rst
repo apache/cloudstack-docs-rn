@@ -14,7 +14,7 @@
    under the License.
 
 
-.. |version_to_upgrade| replace:: 4.3
+.. |version_to_upgrade| replace:: 4.3.x
 
 Upgrade Instruction from |version_to_upgrade|
 =============================================
@@ -34,15 +34,11 @@ working on a production system.
 
 Upgrade Steps:
 
-#. Install new System-VM templates
-
 #. Backup CloudStack database (MySQL)
 
-#. Upgrade CloudStack packages
+#. Upgrade CloudStack management server(s)
 
 #. Update hypervisors specific dependencies
-
-#. Restart System-VMs and Virtual-Routers
 
 
 Packages repository
@@ -62,8 +58,7 @@ them for :ref:`ubuntu43` or :ref:`rhel43` and :ref:`kvm43` hosts upgrade.
 Instructions for creating packages from the CloudStack source are in the 
 `CloudStack Installation Guide`_.
 
-.. include:: _sysvm_templates.rst
-
+.. include:: _no-sysvm_templates.rst
 
 Database Preparation
 --------------------
@@ -91,6 +86,7 @@ Backup current database
    .. sourcecode:: bash
 
       $ mysqldump -u root -p cloud > cloudstack-backup.sql
+      $ mysqldump -u root -p cloud_usage > cloud_usage-backup.sql
 
 #. **(KVM Only)** If primary storage of type local storage is in use, the
    path for this storage needs to be verified to ensure it passes new
@@ -164,17 +160,11 @@ CloudStack apt repository
 
       $ sudo apt-get upgrade cloudstack-management
 
-#. Now it's time to start the management server
+#. If you use CloudStack usage server
 
    .. sourcecode:: bash
 
-      $ sudo service cloudstack-management start
-
-#. If you use it, start the usage server
-
-   .. sourcecode:: bash
-
-      $ sudo service cloudstack-usage start
+      $ sudo apt-get upgrade cloudstack-usage
 
 
 .. _rhel43:
@@ -222,6 +212,7 @@ CloustStack RPM repository
    If you're using your own package repository, change this line to
    read as appropriate for your |version| repository.
 
+
 #. Now that you have the repository configured, it's time to upgrade the 
    ``cloudstack-management``.
 
@@ -229,11 +220,11 @@ CloustStack RPM repository
 
       $ sudo yum upgrade cloudstack-management
 
-#. Now it's time to restart the management server
+#. If you use CloudStack usage server
 
    .. sourcecode:: bash
 
-      $ sudo service cloudstack-management start
+      $ sudo yum upgrade cloudstack-usage
 
 
 hypervisor: XenServer
@@ -319,12 +310,6 @@ hypervisor: VMware
 
       select * from cloud.vmware_data_center;
 
-#. Start the CloudStack Management server
-
-   .. sourcecode:: bash
-
-      $ sudo service cloudstack-management start
-
 
 .. _kvm43:
 
@@ -351,7 +336,7 @@ hosts.
 
    .. sourcecode:: bash
 
-      $ sudo apt-get update cloudstack-agent
+      $ sudo apt-get upgrade cloudstack-agent
 
 #. Verify that the file ``/etc/cloudstack/agent/environment.properties`` has a 
    line that reads:
@@ -396,13 +381,27 @@ For KVM hosts, upgrade the ``cloudstack-agent`` package
       $ sudo killall jsvc
       $ sudo service cloudstack-agent start
 
-#. Now it's time to restart the management server
+
+Restart management services
+---------------------------
+
+#. Now it's time to start the management server
 
    .. sourcecode:: bash
 
       $ sudo service cloudstack-management start
 
+#. If you use it, start the usage server
+
+   .. sourcecode:: bash
+
+      $ sudo service cloudstack-usage start
+
+
 .. _upg-sysvm43:
+
+System-VMs and Virtual-Routers
+------------------------------
 
 .. include:: _sysvm_restart.rst
 

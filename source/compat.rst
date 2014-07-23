@@ -22,8 +22,8 @@ Supported OS Versions for Management Server
 
 This section describes the operating systems, browsers, and hypervisors
 that have been newly tested and certified compatible with CloudStack
-|version|. Most earlier OS and hypervisor versions are also still supported
-for use with |version|. It might work well on other platforms, but the
+|release|. Most earlier OS and hypervisor versions are also still supported
+for use with |release|. It might work well on other platforms, but the
 platforms listed below are the ones that are specifically tested against
 and are more likely to be able to help troubleshoot if you run into any
 issues.
@@ -45,7 +45,7 @@ issues.
 Supported Hypervisor Versions
 -----------------------------
 
-No new supported hypervisors in |version|.
+No new supported hypervisors in |release|.
 
 For more information, see the Hypervisor Compatibility Matrix in the 
 `CloudStack Installation Guide`_.
@@ -54,7 +54,7 @@ For more information, see the Hypervisor Compatibility Matrix in the
 Supported External Devices
 --------------------------
 
-No new supported External Devices in |version|.
+No new supported External Devices in |release|.
 
 For more information, see the `CloudStack Installation Guide`_.
 

@@ -15,7 +15,6 @@
 # under the License.
 
 /build
-build.sh
 
 # OS generated files #
 ######################

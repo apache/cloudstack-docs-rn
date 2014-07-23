@@ -49,7 +49,7 @@ OVS plug-in
 
 OVS plug-in functionality is disrupted if ovsdaemon crashes
 
-A critical functionality issue came out with CLOUDSTACK-6779. On XenServer it
+A critical functionality issue came out with `CLOUDSTACK-6779 <https://issues.apache.org/jira/browse/CLOUDSTACK-6779>`_. On XenServer it
 is observed that on VIF unplug Ovs-Vswitchd is crashing resulting in loosing all
 the openflow rules added to the bridge. Ovs daemon gets started and creates a
 bridge but configure openflow rules are lost resulting in the disruption of
