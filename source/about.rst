@@ -103,19 +103,6 @@ VMWare Support for DRS
    ====================== ============================================================================
 
 
-CloudStack on Windows
----------------------
-
-   Windowsfication of CloudStack Management Server, remove dependency on 
-   cygwin in order to run CloudStack Management Server on Windows based 
-   Operating System.
-   
-   ====================== ============================================================================
-   Supported hypervisors: N/A
-   Link                   `CLOUDSTACK-6105 <https://issues.apache.org/jira/browse/CLOUDSTACK-6105>`_
-   ====================== ============================================================================
-
-
 Region wide Guest networks and VPC 
 ----------------------------------
 
