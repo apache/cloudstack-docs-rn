@@ -398,11 +398,4 @@ Restart management services
       $ sudo service cloudstack-usage start
 
 
-.. _upg-sysvm43:
-
-System-VMs and Virtual-Routers
-------------------------------
-
-.. include:: _sysvm_restart.rst
-
 .. include:: /global.rst
