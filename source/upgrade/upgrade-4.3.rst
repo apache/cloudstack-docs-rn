@@ -397,5 +397,11 @@ Restart management services
 
       $ sudo service cloudstack-usage start
 
+.. _upg-sysvm42:
+
+System-VMs and Virtual-Routers
+------------------------------
+
+This upgrade does not require System-VMs or Virtual-Routers Reboot.
 
 .. include:: /global.rst
