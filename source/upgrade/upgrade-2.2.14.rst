@@ -55,7 +55,7 @@ This section will guide you from pre-Apache versions of Citrix CloudStack
       Notes. This step is critical, as the database will be encrypted after 
       the upgrade to |version|.
 
-.. include:: _sysvm_templates.rst
+.. include:: _sysvm_templates_pre43.rst
 
 
 #. **WARNING**: If you use more than one type of hypervisor in your

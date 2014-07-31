@@ -50,7 +50,7 @@ them for :ref:`ubuntu40` or :ref:`rhel40` hosts upgrade.
 Instructions for creating packages from the CloudStack source are in the 
 `CloudStack Installation Guide`_.
 
-.. include:: _sysvm_templates.rst
+.. include:: _sysvm_templates_pre43.rst
 
 
 Database Preparation
