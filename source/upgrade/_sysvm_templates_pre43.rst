@@ -32,6 +32,8 @@ Update System-VM templates
 #. In the Register template dialog box, specify the following values
    (do not change these):
 
+   *The name of the template must end by "-4.3" when you upgrade to CloudStack 4.4.0*
+
    +-------------------------+------------------------------------------------------------+
    | Hypervisor              | Description                                                |
    +=========================+============================================================+
