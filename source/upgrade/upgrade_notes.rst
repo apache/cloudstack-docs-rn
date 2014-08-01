@@ -71,6 +71,11 @@ ldap.username.attribute uid            sAMAccountName
 ======================= ============== ==============
 
 
+SystemVM 32bit
+--------------
+
+32bit version of systemvm templates are in the process of behing deprecated. Upgrade instructions from this Release Notes use 64bit templates. Follow the dev mailing list for further updates.
+
 
 .. not confirmed 
    Build From Sources
