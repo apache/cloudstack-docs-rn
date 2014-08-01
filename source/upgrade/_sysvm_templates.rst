@@ -59,7 +59,7 @@ Update System-VM templates
    |                         |                                                            |
    |                         | Featured: no                                               |
    |                         |                                                            |
-   |                         | Routing: yes                                               |
+   |                         | Routing: no                                                |
    +-------------------------+------------------------------------------------------------+
    | KVM                     | Name: systemvm-kvm-|version|                               |
    |                         |                                                            |
@@ -85,7 +85,7 @@ Update System-VM templates
    |                         |                                                            |
    |                         | Featured: no                                               |
    |                         |                                                            |
-   |                         | Routing: yes                                               |
+   |                         | Routing: no                                                |
    +-------------------------+------------------------------------------------------------+
    | VMware                  | Name: systemvm-vmware-|version|                            |
    |                         |                                                            |
@@ -111,7 +111,7 @@ Update System-VM templates
    |                         |                                                            |
    |                         | Featured: no                                               |
    |                         |                                                            |
-   |                         | Routing: yes                                               |
+   |                         | Routing: no                                                |
    +-------------------------+------------------------------------------------------------+
 
 #. Watch the screen to be sure that the template downloads successfully and 

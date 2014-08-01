@@ -19,6 +19,14 @@
 Upgrade Instruction from |version_to_upgrade|
 =============================================
 
+.. warning::
+   A recently found systemvm upgrade require manual MySQL 
+   commands in order to allow upgrade of SystemVMs and Virtual Routers.
+
+   Dependency to Java 1.7 inside SystemVM require Upgrade of systemvm-template. 
+   Templates version 4.4.0-6 must be use with CloudStack 4.4.0.
+
+
 This section will guide you from CloudStack |version_to_upgrade| to CloudStack 
 |version|.
 
@@ -59,6 +67,7 @@ Instructions for creating packages from the CloudStack source are in the
 `CloudStack Installation Guide`_.
 
 .. include:: _sysvm_templates.rst
+
 
 Database Preparation
 --------------------
@@ -397,11 +406,60 @@ Restart management services
 
       $ sudo service cloudstack-usage start
 
-.. _upg-sysvm42:
+
+Manual hotfix for systemvm upgrade
+----------------------------------
+
+Once ``cloudstack-management`` is started and have upgrade the database version to 4.4.0, 
+following MySQL queries must be executed prior to upgrade SystemVMs and Virtual Routers.
+
+
+XenServer systemvm
+^^^^^^^^^^^^^^^^^^
+
+#. execute following MySQL queries in MySQL. 
+   Please note ``<ID FROM COMMAND #1>`` from the first command
+
+   .. code-block:: mysql
+
+      select id,name from vm_template where name = 'systemvm-xenserver-4.4';
+      update vm_template set type='SYSTEM' where id='<ID FROM COMMAND #1>';
+      update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='ConsoleProxy' and hypervisor_type = 'xenserver';
+      update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='SecondaryStorageVm' and hypervisor_type = 'xenserver';
+
+#. Restart cloudstack management server
+
+   .. sourcecode:: bash
+
+      $ sudo service cloudstack-management restart
+
+
+KVM systemvms
+^^^^^^^^^^^^^
+
+#. execute following MySQL queries in MySQL. 
+   Please note ``<ID FROM COMMAND #1>`` from the first command
+
+   .. code-block:: mysql
+
+      select id,name from vm_template where name = 'systemvm-kvm-4.4';
+      update vm_template set type='SYSTEM' where id='<ID FROM COMMAND #1>';
+      update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='ConsoleProxy' and hypervisor_type = 'KVM';
+      update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='SecondaryStorageVm' and hypervisor_type = 'KVM';
+
+#. Restart cloudstack management server
+
+   .. sourcecode:: bash
+
+      $ sudo service cloudstack-management restart
+
+
+.. _upg-sysvm43:
 
 System-VMs and Virtual-Routers
 ------------------------------
 
-This upgrade does not require System-VMs or Virtual-Routers Reboot.
+.. include:: _sysvm_restart.rst
+
 
 .. include:: /global.rst
