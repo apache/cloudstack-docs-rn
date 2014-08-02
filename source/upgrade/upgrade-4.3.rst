@@ -419,6 +419,7 @@ XenServer systemvm
 
 #. execute following MySQL queries in MySQL. 
    Please note ``<ID FROM COMMAND #1>`` from the first command
+   ``mysql -u root -p cloud``
 
    .. code-block:: mysql
 
@@ -439,6 +440,7 @@ KVM systemvms
 
 #. execute following MySQL queries in MySQL. 
    Please note ``<ID FROM COMMAND #1>`` from the first command
+   ``mysql -u root -p cloud``
 
    .. code-block:: mysql
 

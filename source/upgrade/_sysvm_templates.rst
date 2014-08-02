@@ -116,3 +116,11 @@ Update System-VM templates
 
 #. Watch the screen to be sure that the template downloads successfully and 
    enters the **READY** state. Do not proceed until this is successful.
+
+#. Update following Global Settings as follow: 
+   
+   * ``router.template.xen`` to 'systemvm-xenserver-|version|'
+   * ``router.template.kvm`` to 'systemvm-kvm-|version|'
+   * ``router.template.vmware`` to 'systemvm-vmware-|version|'
+
+
