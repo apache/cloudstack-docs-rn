@@ -26,6 +26,8 @@ Upgrade Instruction from |version_to_upgrade|
    Dependency to Java 1.7 inside SystemVM require Upgrade of systemvm-template. 
    Templates version 4.4.0-6 must be use with CloudStack 4.4.0.
 
+   Refer to: :ref:`manual_hofix`
+
 
 This section will guide you from CloudStack |version_to_upgrade| to CloudStack 
 |version|.
@@ -391,6 +393,102 @@ For KVM hosts, upgrade the ``cloudstack-agent`` package
       $ sudo service cloudstack-agent start
 
 
+.. _manual_hofix:
+
+Manual hotfix for systemvm upgrade
+----------------------------------
+
+Some manual steps are required to upgrade of SystemVMs and Virtual Routers.
+
+Following MySQL commands will update the template ID used by Console Proxy VMs (CPVM)
+and Secondary Storage VMs (SSVM). It will also change the default template for
+Virtual Router to *systemvm-<hypervisor>-4.4* templates.
+
+
+XenServer SystemVMs
+^^^^^^^^^^^^^^^^^^^
+
+   Execute following MySQL queries in MySQL. 
+   Please note ``<ID FROM COMMAND #1>`` from the first command
+
+   #. Connect to the database:
+
+      .. code-block:: bash
+
+         mysql -h localhost -u root -p cloud
+
+   #. get the id of the new template:
+
+      .. code-block:: mysql
+
+         select id,name from vm_template where name = 'systemvm-xenserver-4.4';
+
+   #. Replace ``<ID FROM COMMAND #1>`` by the id from the previous command and execute following:
+
+      .. code-block:: mysql
+ 
+         update vm_template set type='SYSTEM' where id='<ID FROM COMMAND #1>';
+         update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='ConsoleProxy' and hypervisor_type = 'xenserver';
+         update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='SecondaryStorageVm' and hypervisor_type = 'xenserver';
+         update configuration set value = 'systemvm-xenserver-4.4' where name = 'router.template.xen';
+
+
+KVM SystemVMs
+^^^^^^^^^^^^^
+
+   Execute following MySQL queries in MySQL. 
+   Please note ``<ID FROM COMMAND #1>`` from the first command
+
+   #. Connect to the database:
+
+      .. code-block:: bash
+
+         mysql -h localhost -u root -p cloud
+
+   #. get the id of the new template:
+
+      .. code-block:: mysql   
+
+         select id,name from vm_template where name = 'systemvm-kvm-4.4';
+
+   #. Replace ``<ID FROM COMMAND #1>`` by the id from the previous command and execute following:
+
+      .. code-block:: mysql
+
+         update vm_template set type='SYSTEM' where id='<ID FROM COMMAND #1>';
+         update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='ConsoleProxy' and hypervisor_type = 'KVM';
+         update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='SecondaryStorageVm' and hypervisor_type = 'KVM';
+         update configuration set value = 'systemvm-kvm-4.4' where name = 'router.template.kvm';
+
+
+VMware SystemVMs
+^^^^^^^^^^^^^^^^
+
+   Execute following MySQL queries in MySQL. 
+   Please note ``<ID FROM COMMAND #1>`` from the first command
+
+   #. Connect to the database:
+
+      .. code-block:: bash
+
+         mysql -h localhost -u root -p cloud
+
+   #. get the id of the new template:
+
+      .. code-block:: mysql   
+
+         select id,name from vm_template where name = 'systemvm-vmware-4.4';
+
+   #. Replace ``<ID FROM COMMAND #1>`` by the id from the previous command and execute following:
+
+      .. code-block:: mysql
+
+         update vm_template set type='SYSTEM' where id='<ID FROM COMMAND #1>';
+         update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='ConsoleProxy' and hypervisor_type = 'vmware';
+         update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='SecondaryStorageVm' and hypervisor_type = 'vmware';
+         update configuration set value = 'systemvm-vmware-4.4' where name = 'router.template.vmware';
+
+
 Restart management services
 ---------------------------
 
@@ -405,55 +503,6 @@ Restart management services
    .. sourcecode:: bash
 
       $ sudo service cloudstack-usage start
-
-
-Manual hotfix for systemvm upgrade
-----------------------------------
-
-Once ``cloudstack-management`` is started and have upgrade the database version to 4.4.0, 
-following MySQL queries must be executed prior to upgrade SystemVMs and Virtual Routers.
-
-
-XenServer systemvm
-^^^^^^^^^^^^^^^^^^
-
-#. execute following MySQL queries in MySQL. 
-   Please note ``<ID FROM COMMAND #1>`` from the first command
-   ``mysql -u root -p cloud``
-
-   .. code-block:: mysql
-
-      select id,name from vm_template where name = 'systemvm-xenserver-4.4';
-      update vm_template set type='SYSTEM' where id='<ID FROM COMMAND #1>';
-      update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='ConsoleProxy' and hypervisor_type = 'xenserver';
-      update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='SecondaryStorageVm' and hypervisor_type = 'xenserver';
-
-#. Restart cloudstack management server
-
-   .. sourcecode:: bash
-
-      $ sudo service cloudstack-management restart
-
-
-KVM systemvms
-^^^^^^^^^^^^^
-
-#. execute following MySQL queries in MySQL. 
-   Please note ``<ID FROM COMMAND #1>`` from the first command
-   ``mysql -u root -p cloud``
-
-   .. code-block:: mysql
-
-      select id,name from vm_template where name = 'systemvm-kvm-4.4';
-      update vm_template set type='SYSTEM' where id='<ID FROM COMMAND #1>';
-      update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='ConsoleProxy' and hypervisor_type = 'KVM';
-      update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='SecondaryStorageVm' and hypervisor_type = 'KVM';
-
-#. Restart cloudstack management server
-
-   .. sourcecode:: bash
-
-      $ sudo service cloudstack-management restart
 
 
 .. _upg-sysvm43:
