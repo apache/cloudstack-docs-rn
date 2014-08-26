@@ -194,7 +194,7 @@ packages. If not, skip to hypervisors section, then :ref:`upg-sysvm43`.
 
 .. _rpm-repo43:
 
-CloustStack RPM repository
+CloudStack RPM repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    The first order of business will be to change the yum repository
@@ -238,7 +238,7 @@ CloustStack RPM repository
       $ sudo yum upgrade cloudstack-usage
 
 
-hypervisor: XenServer
+Hypervisor: XenServer
 ---------------------
 
    **(XenServer only)** Copy vhd-utils file on CloudStack management servers.
@@ -251,7 +251,7 @@ hypervisor: XenServer
       http://download.cloud.com.s3.amazonaws.com/tools/vhd-util
 
 
-hypervisor: VMware
+Hypervisor: VMware
 ------------------
 
    .. warning::
@@ -324,7 +324,7 @@ hypervisor: VMware
 
 .. _kvm43:
 
-hypervisor: KVM
+Hypervisor: KVM
 ---------------
 
 KVM on Ubuntu

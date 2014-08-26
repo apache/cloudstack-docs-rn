@@ -23,7 +23,7 @@ CloudStack |version| includes the following new features and improvements.
    :local:
    :backlinks: top
 
-Java version upgraded to java 1.7
+Java version upgraded to Java 1.7
 ---------------------------------
 
 Apache CloudStack |version| is now using Java 1.7 for the management-server, cloudstack-usage, kvm agent and in system-VMs.
