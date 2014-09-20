@@ -55,7 +55,7 @@ n, m = divmod(count, 50)
 
 for i in range(n+1):
 
-    issueslist=get_all['issues']
+    issueslist=requests.get(rlist+'&startAt='+str(i*50), auth=(arguments['USERNAME'],arguments['PASSWORD'])).json()['issues']
 
     for issue in issueslist:
         '''assignee=issue['fields']['assignee']['displayName']
