@@ -14,25 +14,48 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
- 
+"""jira.py: Output jira issues from https://issues.apache.org/jira into RST format for Apche CloudStack Release-Notes.
+
+Usage:
+  jira.py FILTERID -p USERNAME -u PASSWORD
+  jira.py (-h | --help)
+  jira.py --version
+
+Options:
+  -h --help     Show this screen.
+  --version     Show version.
+
+"""
+from docopt import docopt
 import requests
 import json
 import sys
 import pprint
- 
-filterid=str(sys.argv[1])
-filterurl='https://issues.apache.org/jira/rest/api/2/filter/' + filterid
- 
-r=requests.get(filterurl)
+
+
+if __name__ == '__main__':
+    arguments = docopt(__doc__, version='jira.py 2.0')
+    #print(arguments)
+
+#print arguments['FILTERID']
+#print arguments['PASSWORD']
+#print arguments['USERNAME']
+
+filterurl='https://issues.apache.org/jira/rest/api/2/filter/' + arguments['FILTERID']
+
+
+r=requests.get(filterurl, auth=(arguments['USERNAME'],arguments['PASSWORD']))
 rlist=r.json()['searchUrl']
 
-count=requests.get(rlist).json()['total']
+get_all=requests.get(rlist, auth=(arguments['USERNAME'],arguments['PASSWORD'])).json()
+count=get_all['total']
 
+#print count
 n, m = divmod(count, 50)
 
 for i in range(n+1):
 
-    issueslist=requests.get(rlist+'&startAt='+str(i*50)).json()['issues']
+    issueslist=get_all['issues']
 
     for issue in issueslist:
         '''assignee=issue['fields']['assignee']['displayName']
