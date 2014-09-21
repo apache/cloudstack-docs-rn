@@ -58,15 +58,23 @@ Validate 4.3 source code tarball
 
           $ gpg --recv-keys CC56CEA8
 
+   #. Get files, refer to `CloudStack Download Archive Page <http://cloudstack.apache.org/archives.html>`_ for source package download.
+      
+      .. sourcecode:: bash
+      
+         $ wget http://archive.apache.org/dist/cloudstack/releases/4.3.1/apache-cloudstack-4.3.1-src.tar.bz2
+         $ wget http://archive.apache.org/dist/cloudstack/releases/4.3.1/apache-cloudstack-4.3.1-src.tar.bz2.asc
+         $ wget http://archive.apache.org/dist/cloudstack/releases/4.3.1/apache-cloudstack-4.3.1-src.tar.bz2.md5
+
    #. 
 
       Verify signatures and hash files:
 
       .. sourcecode:: bash
 
-          $ gpg --verify apache-cloudstack-4.3-src.tar.bz2.asc
-          $ gpg --print-md MD5 apache-cloudstack-4.3-src.tar.bz2 | diff - apache-cloudstack-4.3-src.tar.bz2.md5
-          $ gpg --print-md SHA512 apache-cloudstack-4.3-src.tar.bz2 | diff - apache-cloudstack-4.3-src.tar.bz2.sha
+          $ gpg --verify apache-cloudstack-4.3.1-src.tar.bz2.asc
+          $ gpg --print-md MD5 apache-cloudstack-4.3.1-src.tar.bz2 | diff - apache-cloudstack-4.3.1-src.tar.bz2.md5
+          $ gpg --print-md SHA512 apache-cloudstack-4.3.1-src.tar.bz2 | diff - apache-cloudstack-4.3.1-src.tar.bz2.sha
 
       Each of these commands should return no output. Any output from
       them implies that there is a difference between the hash you
