@@ -48,6 +48,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   upgrade/upgrade_notes
    rnotes
    
 .. toctree::
