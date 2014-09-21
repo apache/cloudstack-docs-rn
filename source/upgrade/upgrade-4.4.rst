@@ -14,23 +14,11 @@
    under the License.
 
 
-.. |version_to_upgrade| replace:: 4.3.x
+.. |version_to_upgrade| replace:: 4.4.0
 
 Upgrade Instruction from |version_to_upgrade|
 =============================================
 
-.. warning::
-   A recently found systemvm upgrade require manual MySQL 
-   commands in order to allow upgrade of SystemVMs and Virtual Routers.
-
-   Dependency to Java 1.7 inside SystemVM require Upgrade of systemvm-template. 
-   Templates version 4.4.0-6 must be use with CloudStack 4.4.0.
-
-   Refer to: :ref:`manual_hofix`
-
-
-This section will guide you from CloudStack |version_to_upgrade| to CloudStack 
-|version|.
 
 Any steps that are hypervisor-specific will be called out with a note.
 
@@ -54,6 +42,7 @@ Upgrade Steps:
 Packages repository
 -------------------
 
+
 Most users of CloudStack manage the installation and upgrades of
 CloudStack with one of Linux's predominant package systems, RPM or
 APT. This guide assumes you'll be using RPM and Yum (for Red Hat
@@ -73,6 +62,7 @@ Instructions for creating packages from the CloudStack source are in the
 
 Database Preparation
 --------------------
+
 
 Backup current database
 
@@ -96,8 +86,8 @@ Backup current database
 
    .. sourcecode:: bash
 
-      $ mysqldump -u root -p cloud > cloudstack-backup.sql
-      $ mysqldump -u root -p cloud_usage > cloud_usage-backup.sql
+      $ mysqldump -u root -p cloud > cloud-backup_`date '+%Y-%m-%d'`.sql
+      $ mysqldump -u root -p cloud_usage > cloud_usage-backup_`date '+%Y-%m-%d'`.sql
 
 #. **(KVM Only)** If primary storage of type local storage is in use, the
    path for this storage needs to be verified to ensure it passes new
@@ -116,13 +106,14 @@ Backup current database
       $ mysql -u cloud -p -e 'update cloud.storage_pool set path="/var/lib/libvirt/images" where path="/var/lib/libvirt/images/"';
 
 
-.. _ubuntu43:
+.. _ubuntu44:
 
 Management Server on Ubuntu
 ---------------------------
 
+
 If you are using Ubuntu, follow this procedure to upgrade your packages. If 
-not, skip to step :ref:`rhel43`.
+not, skip to step :ref:`rhel44`.
 
 .. note:: 
    **Community Packages:** This section assumes you're using the community 
@@ -135,30 +126,13 @@ servers, and any hosts that have the KVM agent. (No changes should
 be necessary for hosts that are running VMware or Xen.)
 
 
-.. _apt-repo43:
+.. _apt-repo44:
 
 CloudStack apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Start by opening ``/etc/apt/sources.list.d/cloudstack.list`` on
-   any systems that have CloudStack packages installed.
-   
-   This file should have one line, which contains:
-   
-   .. sourcecode:: bash
-   
-      deb http://cloudstack.apt-get.eu/ubuntu precise 4.3
-   
-   We'll change it to point to the new package repository:
-   
-   .. sourcecode:: bash
-   
-      deb http://cloudstack.apt-get.eu/ubuntu precise 4.4
-   
-   If you're using your own package repository, change this line to
-   read as appropriate for your |version| repository.
 
-#. Now update your apt package list:
+#. Update your apt package list:
 
    .. sourcecode:: bash
 
@@ -178,13 +152,13 @@ CloudStack apt repository
       $ sudo apt-get upgrade cloudstack-usage
 
 
-.. _rhel43:
+.. _rhel44:
 
 Management Server on CentOS/RHEL
 --------------------------------
 
 If you are using CentOS or RHEL, follow this procedure to upgrade your 
-packages. If not, skip to hypervisors section, then :ref:`upg-sysvm43`.
+packages. If not, skip to hypervisors section, then :ref:`upg-sysvm44`.
 
 .. note:: 
    **Community Packages:** This section assumes you're using the community 
@@ -192,36 +166,10 @@ packages. If not, skip to hypervisors section, then :ref:`upg-sysvm43`.
    yum repository, substitute your own URL for the ones used in these examples.
 
 
-.. _rpm-repo43:
+.. _rpm-repo44:
 
-CloudStack RPM repository
+CloustStack RPM repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-   The first order of business will be to change the yum repository
-   for each system with CloudStack packages. This means all
-   management servers, and any hosts that have the KVM agent.
-
-   (No changes should be necessary for hosts that are running VMware
-   or Xen.)
-
-   Start by opening ``/etc/yum.repos.d/cloudstack.repo`` on any
-   systems that have CloudStack packages installed.
-
-   This file should have content similar to the following:
-
-   .. sourcecode:: bash
-
-      [apache-cloudstack]
-      name=Apache CloudStack
-      baseurl=http://cloudstack.apt-get.eu/rhel/4.3/
-      enabled=1
-      gpgcheck=0
-
-   If you are using the community provided package repository, change
-   the base url to ``http://cloudstack.apt-get.eu/rhel/4.4/``
-
-   If you're using your own package repository, change this line to
-   read as appropriate for your |version| repository.
 
 
 #. Now that you have the repository configured, it's time to upgrade the 
@@ -238,7 +186,7 @@ CloudStack RPM repository
       $ sudo yum upgrade cloudstack-usage
 
 
-Hypervisor: XenServer
+hypervisor: XenServer
 ---------------------
 
    **(XenServer only)** Copy vhd-utils file on CloudStack management servers.
@@ -251,7 +199,7 @@ Hypervisor: XenServer
       http://download.cloud.com.s3.amazonaws.com/tools/vhd-util
 
 
-Hypervisor: VMware
+hypervisor: VMware
 ------------------
 
    .. warning::
@@ -322,9 +270,9 @@ Hypervisor: VMware
       select * from cloud.vmware_data_center;
 
 
-.. _kvm43:
+.. _kvm44:
 
-Hypervisor: KVM
+hypervisor: KVM
 ---------------
 
 KVM on Ubuntu
@@ -335,7 +283,7 @@ steps will not affect running guests in the cloud. These steps are
 required only for clouds using KVM as hosts and only on the KVM
 hosts.
 
-#. Configure the :ref:`apt-repo43` as detailed above.
+#. Configure the :ref:`apt-repo44` as detailed above.
 
 #. Stop the running agent.
 
@@ -369,7 +317,7 @@ KVM on CentOS/RHEL
 ^^^^^^^^^^^^^^^^^^
 For KVM hosts, upgrade the ``cloudstack-agent`` package
 
-#. Configure the :ref:`rpm-repo43` as detailed above.
+#. Configure the :ref:`rpm-repo44` as detailed above.
 
    .. sourcecode:: bash
 
@@ -393,119 +341,7 @@ For KVM hosts, upgrade the ``cloudstack-agent`` package
       $ sudo service cloudstack-agent start
 
 
-.. _manual_hofix:
-
-Manual hotfix for systemvm upgrade
-----------------------------------
-
-Some manual steps are required to upgrade of SystemVMs and Virtual Routers.
-
-Following MySQL commands will update the template ID used by Console Proxy VMs (CPVM)
-and Secondary Storage VMs (SSVM). It will also change the default template for
-Virtual Router to *systemvm-<hypervisor>-4.4* templates.
-
-
-XenServer SystemVMs
-^^^^^^^^^^^^^^^^^^^
-
-   Execute following MySQL queries in MySQL. 
-   Please note ``<ID FROM COMMAND #1>`` from the first command
-
-   #. Connect to the database:
-
-      .. code-block:: bash
-
-         mysql -h localhost -u root -p cloud
-
-   #. get the id of the new template:
-
-      .. code-block:: mysql
-
-         select id,name from vm_template where name = 'systemvm-xenserver-4.4';
-
-   #. Replace ``<ID FROM COMMAND #1>`` by the id from the previous command and execute following:
-
-      .. code-block:: mysql
- 
-         update vm_template set type='SYSTEM' where id='<ID FROM COMMAND #1>';
-         update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='ConsoleProxy' and hypervisor_type = 'xenserver';
-         update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='SecondaryStorageVm' and hypervisor_type = 'xenserver';
-         update configuration set value = 'systemvm-xenserver-4.4' where name = 'router.template.xen';
-
-
-KVM SystemVMs
-^^^^^^^^^^^^^
-
-   Execute following MySQL queries in MySQL. 
-   Please note ``<ID FROM COMMAND #1>`` from the first command
-
-   #. Connect to the database:
-
-      .. code-block:: bash
-
-         mysql -h localhost -u root -p cloud
-
-   #. get the id of the new template:
-
-      .. code-block:: mysql   
-
-         select id,name from vm_template where name = 'systemvm-kvm-4.4';
-
-   #. Replace ``<ID FROM COMMAND #1>`` by the id from the previous command and execute following:
-
-      .. code-block:: mysql
-
-         update vm_template set type='SYSTEM' where id='<ID FROM COMMAND #1>';
-         update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='ConsoleProxy' and hypervisor_type = 'KVM';
-         update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='SecondaryStorageVm' and hypervisor_type = 'KVM';
-         update configuration set value = 'systemvm-kvm-4.4' where name = 'router.template.kvm';
-
-
-VMware SystemVMs
-^^^^^^^^^^^^^^^^
-
-   Execute following MySQL queries in MySQL. 
-   Please note ``<ID FROM COMMAND #1>`` from the first command
-
-   #. Connect to the database:
-
-      .. code-block:: bash
-
-         mysql -h localhost -u root -p cloud
-
-   #. get the id of the new template:
-
-      .. code-block:: mysql   
-
-         select id,name from vm_template where name = 'systemvm-vmware-4.4';
-
-   #. Replace ``<ID FROM COMMAND #1>`` by the id from the previous command and execute following:
-
-      .. code-block:: mysql
-
-         update vm_template set type='SYSTEM' where id='<ID FROM COMMAND #1>';
-         update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='ConsoleProxy' and hypervisor_type = 'vmware';
-         update vm_instance set vm_template_id = '<ID FROM COMMAND #1>' where type='SecondaryStorageVm' and hypervisor_type = 'vmware';
-         update configuration set value = 'systemvm-vmware-4.4' where name = 'router.template.vmware';
-
-
-Restart management services
----------------------------
-
-#. Now it's time to start the management server
-
-   .. sourcecode:: bash
-
-      $ sudo service cloudstack-management start
-
-#. If you use it, start the usage server
-
-   .. sourcecode:: bash
-
-      $ sudo service cloudstack-usage start
-
-
-.. _upg-sysvm43:
+.. _upg-sysvm44:
 
 System-VMs and Virtual-Routers
 ------------------------------
