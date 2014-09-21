@@ -39,7 +39,7 @@ Update System-VM templates
    |                         |                                                                                               |
    |                         | Description: systemvm-xenserver-|version|                                                     |
    |                         |                                                                                               |
-   |                         | URL: |sysvm-url-xen|                                                                          |
+   |                         | URL: |acs43-sysvm-url-xen|                                                                    |
    |                         |                                                                                               |
    |                         | Zone: Choose the zone where this hypervisor is used                                           |
    |                         |                                                                                               |
@@ -65,7 +65,7 @@ Update System-VM templates
    |                         |                                                                                               |
    |                         | Description: systemvm-kvm-|version|                                                           |
    |                         |                                                                                               |
-   |                         | URL: |sysvm-url-kvm|                                                                          |  
+   |                         | URL: |acs43-sysvm-url-kvm|                                                                    |  
    |                         |                                                                                               |
    |                         | Zone: Choose the zone where this hypervisor is used                                           |
    |                         |                                                                                               |
@@ -91,7 +91,7 @@ Update System-VM templates
    |                         |                                                                                               |
    |                         | Description: systemvm-vmware-|version|                                                        |
    |                         |                                                                                               |
-   |                         | URL: |sysvm-url-vmware|                                                                       |
+   |                         | URL: |acs43-sysvm-url-vmware|                                                                 |
    |                         |                                                                                               |
    |                         | Zone: Choose the zone where this hypervisor is used                                           |
    |                         |                                                                                               |
