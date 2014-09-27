@@ -25,11 +25,6 @@ Welcome to Apache CloudStack Release Notes
 .. figure:: /_static/images/acslogo.png
    :align: center
 
-.. warning:: 
-   We are in the process of changing documentation format as well as hosting 
-   mechanism. Please be patient with us as we migrate our entire documentation 
-   to this new setup.
-
 This document contains information specific to this release of CloudStack, 
 including upgrade instructions from prior releases, new features added to 
 CloudStack, API changes, and issues fixed in the release. For installation 
