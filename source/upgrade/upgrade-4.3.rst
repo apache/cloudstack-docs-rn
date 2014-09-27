@@ -19,16 +19,6 @@
 Upgrade Instruction from |version_to_upgrade|
 =============================================
 
-.. warning::
-   A recently found systemvm upgrade require manual MySQL 
-   commands in order to allow upgrade of SystemVMs and Virtual Routers.
-
-   Dependency to Java 1.7 inside SystemVM require Upgrade of systemvm-template. 
-   Templates version 4.4.0-6 must be use with CloudStack 4.4.0.
-
-   Refer to: :ref:`manual_hofix`
-
-
 This section will guide you from CloudStack |version_to_upgrade| to CloudStack 
 |version|.
 
