@@ -32,87 +32,87 @@ Update System-VM templates
 #. In the Register template dialog box, specify the following values
    (do not change these):
 
-   +-------------------------+------------------------------------------------------------+
-   | Hypervisor              | Description                                                |
-   +=========================+============================================================+
-   | XenServer               | Name: systemvm-xenserver-|version|                         |
-   |                         |                                                            |
-   |                         | Description: systemvm-xenserver-|version|                  |
-   |                         |                                                            |
-   |                         | URL: |sysvm64-url-xen|                                     |
-   |                         |                                                            |
-   |                         | Zone: Choose the zone where this hypervisor is used        |
-   |                         |                                                            |
-   |                         | Hypervisor: XenServer                                      |
-   |                         |                                                            |
-   |                         | Format: VHD                                                |
-   |                         |                                                            |
-   |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the             |
-   |                         | highest Debian release number available in the             |
-   |                         | dropdown)                                                  |
-   |                         |                                                            |
-   |                         | Extractable: no                                            |
-   |                         |                                                            |
-   |                         | Password Enabled: no                                       |
-   |                         |                                                            |
-   |                         | Public: no                                                 |
-   |                         |                                                            |
-   |                         | Featured: no                                               |
-   |                         |                                                            |
-   |                         | Routing: no                                                |
-   +-------------------------+------------------------------------------------------------+
-   | KVM                     | Name: systemvm-kvm-|version|                               |
-   |                         |                                                            |
-   |                         | Description: systemvm-kvm-|version|                        |
-   |                         |                                                            |
-   |                         | URL: |sysvm64-url-kvm|                                     |  
-   |                         |                                                            |
-   |                         | Zone: Choose the zone where this hypervisor is used        |
-   |                         |                                                            |
-   |                         | Hypervisor: KVM                                            |
-   |                         |                                                            |
-   |                         | Format: QCOW2                                              |
-   |                         |                                                            |
-   |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the             |
-   |                         | highest Debian release number available in the             |
-   |                         | dropdown)                                                  |
-   |                         |                                                            |
-   |                         | Extractable: no                                            |
-   |                         |                                                            |
-   |                         | Password Enabled: no                                       |
-   |                         |                                                            |
-   |                         | Public: no                                                 |
-   |                         |                                                            |
-   |                         | Featured: no                                               |
-   |                         |                                                            |
-   |                         | Routing: no                                                |
-   +-------------------------+------------------------------------------------------------+
-   | VMware                  | Name: systemvm-vmware-|version|                            |
-   |                         |                                                            |
-   |                         | Description: systemvm-vmware-|version|                     |
-   |                         |                                                            |
-   |                         | URL: |sysvm64-url-vmware|                                  |
-   |                         |                                                            |
-   |                         | Zone: Choose the zone where this hypervisor is used        |
-   |                         |                                                            |
-   |                         | Hypervisor: VMware                                         |
-   |                         |                                                            |
-   |                         | Format: OVA                                                |
-   |                         |                                                            |
-   |                         | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the             |
-   |                         | highest Debian release number available in the             |
-   |                         | dropdown)                                                  |
-   |                         |                                                            |
-   |                         | Extractable: no                                            |
-   |                         |                                                            |
-   |                         | Password Enabled: no                                       |
-   |                         |                                                            |
-   |                         | Public: no                                                 |
-   |                         |                                                            |
-   |                         | Featured: no                                               |
-   |                         |                                                            |
-   |                         | Routing: no                                                |
-   +-------------------------+------------------------------------------------------------+
+   +------------+------------------------------------------------------------+
+   | Hypervisor | Description                                                |
+   +============+============================================================+
+   | XenServer  | Name: systemvm-xenserver-|version|                         |
+   |            |                                                            |
+   |            | Description: systemvm-xenserver-|version|                  |
+   |            |                                                            |
+   |            | URL: |sysvm64-url-xen|                                     |
+   |            |                                                            |
+   |            | Zone: Choose the zone where this hypervisor is used        |
+   |            |                                                            |
+   |            | Hypervisor: XenServer                                      |
+   |            |                                                            |
+   |            | Format: VHD                                                |
+   |            |                                                            |
+   |            | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the             |
+   |            | highest Debian release number available in the             |
+   |            | dropdown)                                                  |
+   |            |                                                            |
+   |            | Extractable: no                                            |
+   |            |                                                            |
+   |            | Password Enabled: no                                       |
+   |            |                                                            |
+   |            | Public: no                                                 |
+   |            |                                                            |
+   |            | Featured: no                                               |
+   |            |                                                            |
+   |            | Routing: no                                                |
+   +------------+------------------------------------------------------------+
+   | KVM        | Name: systemvm-kvm-|version|                               |
+   |            |                                                            |
+   |            | Description: systemvm-kvm-|version|                        |
+   |            |                                                            |
+   |            | URL: |sysvm64-url-kvm|                                     |  
+   |            |                                                            |
+   |            | Zone: Choose the zone where this hypervisor is used        |
+   |            |                                                            |
+   |            | Hypervisor: KVM                                            |
+   |            |                                                            |
+   |            | Format: QCOW2                                              |
+   |            |                                                            |
+   |            | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the             |
+   |            | highest Debian release number available in the             |
+   |            | dropdown)                                                  |
+   |            |                                                            |
+   |            | Extractable: no                                            |
+   |            |                                                            |
+   |            | Password Enabled: no                                       |
+   |            |                                                            |
+   |            | Public: no                                                 |
+   |            |                                                            |
+   |            | Featured: no                                               |
+   |            |                                                            |
+   |            | Routing: no                                                |
+   +------------+------------------------------------------------------------+
+   | VMware     | Name: systemvm-vmware-|version|                            |
+   |            |                                                            |
+   |            | Description: systemvm-vmware-|version|                     |
+   |            |                                                            |
+   |            | URL: |sysvm64-url-vmware|                                  |
+   |            |                                                            |
+   |            | Zone: Choose the zone where this hypervisor is used        |
+   |            |                                                            |
+   |            | Hypervisor: VMware                                         |
+   |            |                                                            |
+   |            | Format: OVA                                                |
+   |            |                                                            |
+   |            | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the             |
+   |            | highest Debian release number available in the             |
+   |            | dropdown)                                                  |
+   |            |                                                            |
+   |            | Extractable: no                                            |
+   |            |                                                            |
+   |            | Password Enabled: no                                       |
+   |            |                                                            |
+   |            | Public: no                                                 |
+   |            |                                                            |
+   |            | Featured: no                                               |
+   |            |                                                            |
+   |            | Routing: no                                                |
+   +------------+------------------------------------------------------------+
 
 #. Watch the screen to be sure that the template downloads successfully and 
    enters the **READY** state. Do not proceed until this is successful.
