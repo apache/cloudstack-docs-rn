@@ -82,8 +82,8 @@ Backup current database
 
    .. sourcecode:: bash
 
-      $ mysqldump -u root -p cloud > cloud-backup.sql
-      $ mysqldump -u root -p cloud_usage > cloud_usage-backup.sql
+      $ mysqldump -u root -p cloud > cloud-backup_`date '+%Y-%m-%d'`.sql
+      $ mysqldump -u root -p cloud_usage > cloud_usage-backup_`date '+%Y-%m-%d'`.sql
 
 
 #. **(KVM Only)** If primary storage of type local storage is in use, the

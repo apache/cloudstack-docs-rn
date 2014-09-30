@@ -76,7 +76,8 @@ Database Preparation
 
    .. sourcecode:: bash
 
-      # mysqldump -u root -p cloud > cloudstack-backup.sql
+      $ mysqldump -u root -p cloud > cloud-backup_`date '+%Y-%m-%d'`.sql
+      $ mysqldump -u root -p cloud_usage > cloud_usage-backup_`date '+%Y-%m-%d'`.sql
 
 #. Whether you're upgrading a Red Hat/CentOS based system or Ubuntu
    based system, you're going to need to stop the CloudStack management
