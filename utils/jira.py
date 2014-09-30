@@ -17,7 +17,7 @@
 """jira.py: Output jira issues from https://issues.apache.org/jira into RST format for Apche CloudStack Release-Notes.
 
 Usage:
-  jira.py FILTERID -p USERNAME -u PASSWORD
+  jira.py FILTERID -u USERNAME -p PASSWORD
   jira.py (-h | --help)
   jira.py --version
 
