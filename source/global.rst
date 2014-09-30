@@ -20,9 +20,9 @@
 .. _CloudStack Administrator's Guide: http://docs.cloudstack.apache.org/projects/cloudstack-administration
 
 .. Latest version systemvm template URL
-.. |sysvm64-url-xen|    replace:: http://cloudstack.apt-get.eu/systemvm/4.4/systemvm64template-4.4.0-6-xen.vhd.bz2
-.. |sysvm64-url-kvm|    replace:: http://cloudstack.apt-get.eu/systemvm/4.4/systemvm64template-4.4.0-6-kvm.qcow2.bz2
-.. |sysvm64-url-vmware| replace:: http://cloudstack.apt-get.eu/systemvm/4.4/systemvm64template-4.4.0-6-vmware.ova
+.. |sysvm64-url-xen|    replace:: http://cloudstack.apt-get.eu/systemvm/4.4/systemvm64template-4.4.1-7-xen.vhd.bz2
+.. |sysvm64-url-kvm|    replace:: http://cloudstack.apt-get.eu/systemvm/4.4/systemvm64template-4.4.1-7-kvm.qcow2.bz2
+.. |sysvm64-url-vmware| replace:: http://cloudstack.apt-get.eu/systemvm/4.4/systemvm64template-4.4.1-7-vmware.ova
 
 .. Version specific: 4.3 systemvm template URL
 .. |acs43-sysvm64-url-xen|    replace:: http://download.cloud.com/templates/4.3/systemvm64template-2014-06-23-master-xen.vhd.bz2
