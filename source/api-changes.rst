@@ -17,8 +17,8 @@
 API Changes Introduced in |version|
 ===================================
 
-API Changes Introduced in |release|
------------------------------------
+API Changes Introduced in 4.4.1
+-------------------------------
 updateSnapshotPolicy (Updates the snapshot policy.)
 
 +-----------------------------------+-------------------------------------------------------------------------------------------+

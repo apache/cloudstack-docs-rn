@@ -121,8 +121,8 @@ Upgrade Steps
 
    .. sourcecode:: bash
 
-      # mysqldump -u root -pmysql_password cloud > cloud-backup.dmp
-      # mysqldump -u root -pmysql_password cloud_usage > cloud-usage-backup.dmp
+      $ mysqldump -u root -p cloud > cloud-backup_`date '+%Y-%m-%d'`.sql
+      $ mysqldump -u root -p cloud_usage > cloud_usage-backup_`date '+%Y-%m-%d'`.sql
 
 #. Either build RPM/DEB packages as detailed in the Installation Guide,
    or use one of the community provided yum/apt repositories to gain

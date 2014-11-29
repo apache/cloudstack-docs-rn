@@ -25,11 +25,6 @@ Welcome to Apache CloudStack Release Notes
 .. figure:: /_static/images/acslogo.png
    :align: center
 
-.. warning:: 
-   We are in the process of changing documentation format as well as hosting 
-   mechanism. Please be patient with us as we migrate our entire documentation 
-   to this new setup.
-
 This document contains information specific to this release of CloudStack, 
 including upgrade instructions from prior releases, new features added to 
 CloudStack, API changes, and issues fixed in the release. For installation 
@@ -72,7 +67,8 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
-   upgrade/upgrade-4.4
+   upgrade/upgrade-4.4.1
+   upgrade/upgrade-4.4.0
    upgrade/upgrade-4.3
    upgrade/upgrade-4.2
    upgrade/upgrade-4.1

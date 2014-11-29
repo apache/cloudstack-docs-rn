@@ -14,19 +14,23 @@
    under the License.
 
 
-.. |version_to_upgrade| replace:: 4.2.x
+.. |version_to_upgrade| replace:: 4.4.1
 
 Upgrade Instruction from |version_to_upgrade|
 =============================================
 
-This section will guide you from CloudStack |version_to_upgrade| to CloudStack 
-|version|.
 
-.. include:: _upgrade_header.rst
+Any steps that are hypervisor-specific will be called out with a note.
+
+We recommend reading through this section once or twice before beginning
+your upgrade procedure, and working through it on a test system before
+working on a production system.
+
+.. note:: 
+   The following upgrade instructions should be performed regardless of 
+   hypervisor type.
 
 Upgrade Steps:
-
-#. Install new System-VM templates
 
 #. Backup CloudStack database (MySQL)
 
@@ -34,11 +38,10 @@ Upgrade Steps:
 
 #. Update hypervisors specific dependencies
 
-#. Restart System-VMs and Virtual-Routers
-
 
 Packages repository
 -------------------
+
 
 Most users of CloudStack manage the installation and upgrades of
 CloudStack with one of Linux's predominant package systems, RPM or
@@ -49,16 +52,15 @@ Create RPM or Debian packages (as appropriate) and a repository from
 the |version| source, or check the Apache CloudStack downloads page at
 http://cloudstack.apache.org/downloads.html
 for package repositories supplied by community members. You will need
-them for :ref:`ubuntu42` or :ref:`rhel42` and :ref:`kvm42` hosts upgrade. 
+them for :ref:`ubuntu43` or :ref:`rhel43` and :ref:`kvm43` hosts upgrade. 
 
 Instructions for creating packages from the CloudStack source are in the 
 `CloudStack Installation Guide`_.
 
-.. include:: _sysvm_templates_pre43.rst
-
 
 Database Preparation
 --------------------
+
 
 Backup current database
 
@@ -85,7 +87,6 @@ Backup current database
       $ mysqldump -u root -p cloud > cloud-backup_`date '+%Y-%m-%d'`.sql
       $ mysqldump -u root -p cloud_usage > cloud_usage-backup_`date '+%Y-%m-%d'`.sql
 
-
 #. **(KVM Only)** If primary storage of type local storage is in use, the
    path for this storage needs to be verified to ensure it passes new
    validation. Check local storage by querying the cloud.storage\_pool
@@ -103,13 +104,14 @@ Backup current database
       $ mysql -u cloud -p -e 'update cloud.storage_pool set path="/var/lib/libvirt/images" where path="/var/lib/libvirt/images/"';
 
 
-.. _ubuntu42:
+.. _ubuntu44:
 
-Management Server Ubuntu
-------------------------
+Management Server on Ubuntu
+---------------------------
+
 
 If you are using Ubuntu, follow this procedure to upgrade your packages. If 
-not, skip to step :ref:`rhel42`.
+not, skip to step :ref:`rhel44`.
 
 .. note:: 
    **Community Packages:** This section assumes you're using the community 
@@ -122,30 +124,13 @@ servers, and any hosts that have the KVM agent. (No changes should
 be necessary for hosts that are running VMware or Xen.)
 
 
-.. _apt-repo42:
+.. _apt-repo44:
 
 CloudStack apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Start by opening ``/etc/apt/sources.list.d/cloudstack.list`` on
-   any systems that have CloudStack packages installed.
-   
-   This file should have one line, which contains:
-   
-   .. sourcecode:: bash
-   
-      deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
-   
-   We'll change it to point to the new package repository:
-   
-   .. sourcecode:: bash
-   
-      deb http://cloudstack.apt-get.eu/ubuntu precise 4.4
-   
-   If you're using your own package repository, change this line to
-   read as appropriate for your |version| repository.
 
-#. Now update your apt package list:
+#. Update your apt package list:
 
    .. sourcecode:: bash
 
@@ -165,13 +150,13 @@ CloudStack apt repository
       $ sudo apt-get upgrade cloudstack-usage
 
 
-.. _rhel42:
+.. _rhel44:
 
-Management Server CentOS/RHEL
------------------------------
+Management Server on CentOS/RHEL
+--------------------------------
 
 If you are using CentOS or RHEL, follow this procedure to upgrade your 
-packages. If not, skip to hypervisors section, then :ref:`upg-sysvm42`.
+packages. If not, skip to hypervisors section, then :ref:`upg-sysvm44`.
 
 .. note:: 
    **Community Packages:** This section assumes you're using the community 
@@ -179,36 +164,11 @@ packages. If not, skip to hypervisors section, then :ref:`upg-sysvm42`.
    yum repository, substitute your own URL for the ones used in these examples.
 
 
-.. _rpm-repo42:
+.. _rpm-repo44:
 
 CloustStack RPM repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   The first order of business will be to change the yum repository
-   for each system with CloudStack packages. This means all
-   management servers, and any hosts that have the KVM agent.
-
-   (No changes should be necessary for hosts that are running VMware
-   or Xen.)
-
-   Start by opening ``/etc/yum.repos.d/cloudstack.repo`` on any
-   systems that have CloudStack packages installed.
-
-   This file should have content similar to the following:
-
-   .. sourcecode:: bash
-
-      [apache-cloudstack]
-      name=Apache CloudStack
-      baseurl=http://cloudstack.apt-get.eu/rhel/4.2/
-      enabled=1
-      gpgcheck=0
-
-   If you are using the community provided package repository, change
-   the base url to ``http://cloudstack.apt-get.eu/rhel/4.4/``
-
-   If you're using your own package repository, change this line to
-   read as appropriate for your |version| repository.
 
 #. Now that you have the repository configured, it's time to upgrade the 
    ``cloudstack-management``.
@@ -224,8 +184,8 @@ CloustStack RPM repository
       $ sudo yum upgrade cloudstack-usage
 
 
-Hypervisor: Xen/XenServer
--------------------------
+hypervisor: XenServer
+---------------------
 
    **(XenServer only)** Copy vhd-utils file on CloudStack management servers.
    Copy the file `vhd-utils <http://download.cloud.com.s3.amazonaws.com/tools/vhd-util>`_ 
@@ -237,7 +197,7 @@ Hypervisor: Xen/XenServer
       http://download.cloud.com.s3.amazonaws.com/tools/vhd-util
 
 
-Hypervisor: VMware
+hypervisor: VMware
 ------------------
 
    .. warning::
@@ -265,7 +225,8 @@ Hypervisor: VMware
    cluster\_details table and vmware\_data\_center tables in place of
    the plain text password
 
-#. Find the ID of the row of cluster\_details table that you have to update:
+#. Find the ID of the row of cluster\_details table that you have to
+   update:
 
    .. sourcecode:: bash
 
@@ -294,7 +255,7 @@ Hypervisor: VMware
 
       select * from cloud.vmware_data_center;
 
-#. Update the plain text password with the encrypted one:
+#. update the plain text password with the encrypted one:
 
    .. sourcecode:: bash
 
@@ -307,11 +268,10 @@ Hypervisor: VMware
       select * from cloud.vmware_data_center;
 
 
-.. _kvm42:
+.. _kvm44:
 
-Hypervisor: KVM
+hypervisor: KVM
 ---------------
-
 
 KVM on Ubuntu
 ^^^^^^^^^^^^^
@@ -321,7 +281,7 @@ steps will not affect running guests in the cloud. These steps are
 required only for clouds using KVM as hosts and only on the KVM
 hosts.
 
-#. Configure the :ref:`apt-repo42` as detailed above.
+#. Configure the :ref:`apt-repo44` as detailed above.
 
 #. Stop the running agent.
 
@@ -355,7 +315,7 @@ KVM on CentOS/RHEL
 ^^^^^^^^^^^^^^^^^^
 For KVM hosts, upgrade the ``cloudstack-agent`` package
 
-#. Configure the :ref:`rpm-repo42` as detailed above.
+#. Configure the :ref:`rpm-repo44` as detailed above.
 
    .. sourcecode:: bash
 
@@ -394,12 +354,5 @@ Restart management services
 
       $ sudo service cloudstack-usage start
 
-
-.. _upg-sysvm42:
-
-System-VMs and Virtual-Routers
-------------------------------
-
-.. include:: _sysvm_restart.rst
 
 .. include:: /global.rst
