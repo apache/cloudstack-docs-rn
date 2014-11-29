@@ -341,6 +341,34 @@ For KVM hosts, upgrade the ``cloudstack-agent`` package
       $ sudo service cloudstack-agent start
 
 
+Restart management services
+---------------------------
+
+#. If upgrading fresh installation of 4.4.0
+
+   If you are upgrading fresh installation of CloudStack 4.4.0, the following MySQL
+   command must be executed before restarting the management server. If the system
+   was running pre 4.4 and then upgraded to 4.4.0, the MySQL command is not required.
+   Refer to: `CLOUDSTACK-7813 <https://issues.apache.org/jira/browse/CLOUDSTACK-7813>`_
+
+   .. sourcecode:: mysql
+
+      use cloud;
+      ALTER TABLE `snapshot_policy` ADD `display` TINYINT( 1 ) NOT NULL DEFAULT '1';
+
+#. Now it's time to start the management server
+
+   .. sourcecode:: bash
+
+      $ sudo service cloudstack-management start
+
+#. If you use it, start the usage server
+
+   .. sourcecode:: bash
+
+      $ sudo service cloudstack-usage start
+
+
 .. _upg-sysvm44:
 
 System-VMs and Virtual-Routers
