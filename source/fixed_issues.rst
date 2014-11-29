@@ -14,16 +14,41 @@
    under the License.
 
 
-Issues Fixed in |release|
--------------------------
+Issues Fixed in |version|
+=========================
 
 Apache CloudStack uses `Jira <https://issues.apache.org/jira/browse/CLOUDSTACK>`_ 
 to track its issues. All new features and bugs for |release| have been tracked 
 in Jira, and have a standard naming convention of "CLOUDSTACK-NNNN" where 
 "NNNN" is the issue number.
 
+Issues Fixed in |release|
+-------------------------
+
 For the list of issues fixed, see `Issues Fixed in 
-<https://issues.apache.org/jira/issues/?filter=12329271>`_ |release|.
+<https://issues.apache.org/jira/issues/?filter=12329678>`_ |release|.
+
+==========================================================================  ===================================================================================
+Bug ID                                                                      Description
+==========================================================================  ===================================================================================
+`CLOUDSTACK-7952 <https://issues.apache.org/jira/browse/CLOUDSTACK-7952>`_  listSslCerts returns private key...
+`CLOUDSTACK-7906 <https://issues.apache.org/jira/browse/CLOUDSTACK-7906>`_  certificate tests fail in CertServiceTest.java...
+`CLOUDSTACK-7887 <https://issues.apache.org/jira/browse/CLOUDSTACK-7887>`_  fail to push snapshot to secondary storage if using multipart using swift...
+`CLOUDSTACK-7883 <https://issues.apache.org/jira/browse/CLOUDSTACK-7883>`_  Allow infrastructure to handle delete of volume from DB...
+`CLOUDSTACK-7871 <https://issues.apache.org/jira/browse/CLOUDSTACK-7871>`_  Fix update VirtualMachine/Template API to allow nic/disk controller details for ...
+`CLOUDSTACK-7855 <https://issues.apache.org/jira/browse/CLOUDSTACK-7855>`_  Sec storage/network MTU should be on nic3 and not nic1...
+`CLOUDSTACK-7826 <https://issues.apache.org/jira/browse/CLOUDSTACK-7826>`_  UI - dialog widget - dependent dropdown field (dependsOn property specified) - f...
+`CLOUDSTACK-7822 <https://issues.apache.org/jira/browse/CLOUDSTACK-7822>`_  test SSL cert expired...
+`CLOUDSTACK-7752 <https://issues.apache.org/jira/browse/CLOUDSTACK-7752>`_  Management Server goes in infinite loop while creating a vm with tagged local da...
+`CLOUDSTACK-7722 <https://issues.apache.org/jira/browse/CLOUDSTACK-7722>`_  add.label: Add button for tags show the label not "Add" text...
+`CLOUDSTACK-7246 <https://issues.apache.org/jira/browse/CLOUDSTACK-7246>`_  VM deployment failed due to wrong in  script name createipalias.sh...
+==========================================================================  ===================================================================================
+
+Issues Fixed in 4.4.1
+---------------------
+
+For the list of issues fixed, see `Issues Fixed in 
+<https://issues.apache.org/jira/issues/?filter=12329271>`_ 4.4.1.
 
 ==========================================================================  ===================================================================================
 Bug ID                                                                      Description

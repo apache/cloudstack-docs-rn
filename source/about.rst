@@ -17,7 +17,7 @@
 What's New in |version|
 =======================
 
-CloudStack |release| is a bugfix release and does not add new features to |version|. Here is the list of new features and improvements introduce in |version|:
+Version |release| of Apache CloudStack is a bugfix release and does not add new features to |version|. Here is the list of new features and improvements introduce in |version|:
 
 .. contents::
    :local:
