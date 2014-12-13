@@ -113,6 +113,32 @@ Update System-VM templates
    |            |                                                            |
    |            | Routing: no                                                |
    +------------+------------------------------------------------------------+
+   | HyperV     | Name: systemvm-hyperv-|version|                            |
+   |            |                                                            |
+   |            | Description: systemvm-hyperv-|version|                     |
+   |            |                                                            |
+   |            | URL: |sysvm64-url-hyperv|                                  |
+   |            |                                                            |
+   |            | Zone: Choose the zone where this hypervisor is used        |
+   |            |                                                            |
+   |            | Hypervisor: VMware                                         |
+   |            |                                                            |
+   |            | Format: OVA                                                |
+   |            |                                                            |
+   |            | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the             |
+   |            | highest Debian release number available in the             |
+   |            | dropdown)                                                  |
+   |            |                                                            |
+   |            | Extractable: no                                            |
+   |            |                                                            |
+   |            | Password Enabled: no                                       |
+   |            |                                                            |
+   |            | Public: no                                                 |
+   |            |                                                            |
+   |            | Featured: no                                               |
+   |            |                                                            |
+   |            | Routing: no                                                |
+   +------------+------------------------------------------------------------+
 
 #. Watch the screen to be sure that the template downloads successfully and 
    enters the **READY** state. Do not proceed until this is successful.

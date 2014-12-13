@@ -143,7 +143,7 @@ CloudStack apt repository
    
    .. sourcecode:: bash
    
-      deb http://cloudstack.apt-get.eu/ubuntu precise 4.4
+      deb http://cloudstack.apt-get.eu/ubuntu precise 4.5
    
    If you're using your own package repository, change this line to
    read as appropriate for your |version| repository.
@@ -208,7 +208,7 @@ CloudStack RPM repository
       gpgcheck=0
 
    If you are using the community provided package repository, change
-   the base url to ``http://cloudstack.apt-get.eu/rhel/4.4/``
+   the base url to ``http://cloudstack.apt-get.eu/rhel/4.5/``
 
    If you're using your own package repository, change this line to
    read as appropriate for your |version| repository.

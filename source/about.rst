@@ -17,7 +17,8 @@
 What's New in |version|
 =======================
 
-Version |release| includes more than 180 bug fixes from previous release, the following new features and improvements.
+Version |release| includes more than 180 bug fixes from previous release, the
+following new features and improvements.
 
 .. contents::
    :local:
@@ -27,11 +28,65 @@ Version |release| includes more than 180 bug fixes from previous release, the fo
 Managed storage for KVM
 -----------------------
 
-   This adapter provides one to one mapping between SAN volume to VM's disk. This is to guarantee quality of services for performance sensitive applications. This adapter is based on nfs protocol.
+   This adapter provides one to one mapping between SAN volume to VM's disk.
+   This is to guarantee quality of services for performance sensitive
+   applications. This adapter is based on nfs protocol.
 
    ====================== ============================================================================
    Supported hypervisors: KVM
    Link                   `CLOUDSTACK-7576 <https://issues.apache.org/jira/browse/CLOUDSTACK-7576>`_
+   ====================== ============================================================================
+
+
+Improved CloudByte Storage Plugin
+---------------------------------
+
+   The new improved CloudByte plugin support the following features:
+
+   - Managed storage, where each vm disk has the guaranteed QoS.
+   - Account integration in cloudbyte with respect to domains in CloudStack.
+   - Resize of the volume.
+   - both iSCSI and nfs protocols in XenServer.
+   - iSCSI protocol for KVM and VMware ESX.
+   - Storage level snapshot capabilities as well as hypervisor level snapshot feature. 
+   - Expose custom API's for ui integration.
+   - Unlimited storage nodes across the sites.
+
+   ====================== ============================================================================
+   Supported hypervisors: KVM, VMware, XenServer
+   Link                   `CLOUDSTACK-7098 <https://issues.apache.org/jira/browse/CLOUDSTACK-7098>`_
+   ====================== ============================================================================
+
+
+Use SSH for commands sent to Virtual-Router
+-------------------------------------------
+
+   For XenServer host, sending commands to Virtual-Routers now use SSH,
+   previously using XAPI plugin, this change reduce XAPI workload and allow
+   Virtual-Router update while XenServer pool master is down.
+
+   ====================== ============================================================================
+   Supported hypervisors: XenServer
+   Link                   `CLOUDSTACK-6314 <https://issues.apache.org/jira/browse/CLOUDSTACK-6314>`_
+   ====================== ============================================================================
+
+
+Baremetal Advanced Networking Support
+-------------------------------------
+
+   This feature is about CloudStack network plugin for baremetal advanced
+   networking. With this plugin, CloudStack can automatically program vlan on
+   physical switch to which baremetal instances connect when creating/destroying
+   baremetal instance. This feature cannot work standalone, it needs support
+   from physical switch itself either from vendor's SDK or from an in-switch
+   agent for whitebox switch. When using this feature, baremetal instances gain
+   Layer 2 isolation methods provided by CloudStack advanced networking which is
+   particularly useful in public cloud that wants to provide baremetal as a
+   service.
+
+   ====================== ============================================================================
+   Supported hypervisors: N/A
+   Link                   `Baremetal feature spec`_
    ====================== ============================================================================
 
 
@@ -43,8 +98,7 @@ Improvements
 -  [LXC] storage migration for LXC VMs fixed
 -  MariaDB as cloudstack management server database
 -  VM password reset when Router VM in stopped
--  [VR] Use ssh for commands sent to VR instead of xapi
 -  Root volume detach support
 
-.. _VR failure alerting functional spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/Virtual+Router+Service+Failure+Alerting
+.. _Baremetal feature spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/Baremetal+Advanced+Networking+Support
 

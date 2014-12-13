@@ -17,17 +17,23 @@
 General Upgrade Notes
 =====================
 
+Java version upgraded to Java 1.7
+---------------------------------
+
+As of Apache CloudStack 4.4, Java version required is 1.7 for the 
+management-server, cloudstack-usage, KVM agent and system-VMs.
 
 
 Depreciation of realhostip.com 
 ------------------------------
    
 The realhostip.com dynamic DNS resolution service is being retired on
-September 30th, 2014. In advance of that, CloudStack 4.4 and later no longer uses 
+September 30th, 2014. In advance of that, CloudStack 4.3 and later no longer uses 
 realhostip.com DNS domains or SSL certificates to encrypt Console Proxy or 
 file copy communications.
 
 For latest update about realhostip.com follow `Apache CloudStack Blog <https://blogs.apache.org/cloudstack/>`_.
+
 
 Settings Changes
 ----------------

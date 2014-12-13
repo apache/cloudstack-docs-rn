@@ -54,7 +54,7 @@ them for :ref:`ubuntu42` or :ref:`rhel42` and :ref:`kvm42` hosts upgrade.
 Instructions for creating packages from the CloudStack source are in the 
 `CloudStack Installation Guide`_.
 
-.. include:: _sysvm_templates_pre43.rst
+.. include:: _sysvm_templates.rst
 
 
 Database Preparation
@@ -140,7 +140,7 @@ CloudStack apt repository
    
    .. sourcecode:: bash
    
-      deb http://cloudstack.apt-get.eu/ubuntu precise 4.4
+      deb http://cloudstack.apt-get.eu/ubuntu precise 4.5
    
    If you're using your own package repository, change this line to
    read as appropriate for your |version| repository.
@@ -205,7 +205,7 @@ CloustStack RPM repository
       gpgcheck=0
 
    If you are using the community provided package repository, change
-   the base url to ``http://cloudstack.apt-get.eu/rhel/4.4/``
+   the base url to ``http://cloudstack.apt-get.eu/rhel/4.5/``
 
    If you're using your own package repository, change this line to
    read as appropriate for your |version| repository.
