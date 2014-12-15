@@ -143,6 +143,335 @@ Validate 4.3 source code tarball
       files are compliant and this test is passed.
 
 
+Upgrade from 4.3.1 to 4.3.2
+---------------------------
+
+This section will guide you from CloudStack 4.3.1 to CloudStack 4.3.2.
+
+Any steps that are hypervisor-specific will be called out with a note.
+
+We recommend reading through this section once or twice before beginning
+your upgrade procedure, and working through it on a test system before
+working on a production system.
+
+.. note:: The following upgrade instructions should be performed regardless of hypervisor type.
+
+#.
+
+   Most users of CloudStack manage the installation and upgrades of
+   CloudStack with one of Linux's predominant package systems, RPM or
+   APT. This guide assumes you'll be using RPM and Yum (for Red Hat
+   Enterprise Linux or CentOS), or APT and Debian packages (for Ubuntu).
+
+#.
+
+   Create RPM or Debian packages (as appropriate) and a repository from
+   the 4.3 source, or check the Apache CloudStack downloads page at
+   `http://cloudstack.apache.org/downloads.html <http://cloudstack.apache.org/downloads.html>`_
+   for package repositories supplied by community members.
+
+   Instructions for creating packages from the CloudStack source are in
+   the `CloudStack Installation Guide`_.
+
+#.
+
+   Stop your management server or servers. Run this on all management
+   server hosts:
+
+   .. sourcecode:: bash
+
+       $ sudo service cloudstack-management stop
+
+#.
+
+   If you are running a usage server or usage servers, stop those as
+   well:
+
+   .. sourcecode:: bash
+
+       $ sudo service cloudstack-usage stop
+
+#.
+
+   Make a backup of your MySQL database. If you run into any issues or
+   need to roll back the upgrade, this will assist in debugging or
+   restoring your existing environment. You'll be prompted for your
+   password.
+
+   .. sourcecode:: bash
+
+       $ mysqldump -u root -p cloud > cloudstack-backup.sql
+       $ mysqldump -u root -p cloud_usage > cloud_usage-backup.sql
+
+#.
+
+   (KVM Only) If primary storage of type local storage is in use, the
+   path for this storage needs to be verified to ensure it passes new
+   validation. Check local storage by querying the cloud.storage\_pool
+   table:
+
+   .. sourcecode:: bash
+
+       $ mysql -u cloud -p -e "select id,name,path from cloud.storage_pool where pool_type='Filesystem'"
+
+   If local storage paths are found to have a trailing forward slash,
+   remove it:
+
+   .. sourcecode:: bash
+
+       $ mysql -u cloud -p -e 'update cloud.storage_pool set path="/var/lib/libvirt/images" where path="/var/lib/libvirt/images/"';
+
+#.
+
+   If you are using Ubuntu, follow this procedure to upgrade your
+   packages. If not, skip to step *upgrade-rpm-packages-4.3*.
+
+   .. note::
+      **Community Packages:** This section assumes you're using the community supplied packages for CloudStack.
+      If you've created your own packages and APT repository, substitute your own URL for the ones used in these examples.
+
+   #.
+
+      Now update your apt package list:
+
+      .. sourcecode:: bash
+
+          $ sudo apt-get update
+
+   #.
+
+      Now that you have the repository configured, it's time to upgrade
+      the ``cloudstack-management`` package.
+
+      .. sourcecode:: bash
+
+          $ sudo apt-get upgrade cloudstack-management
+          $ sudo apt-get upgrade cloudstack-usage
+
+   #.
+
+      Now it's time to start the management server
+
+      .. sourcecode:: bash
+
+          $ sudo service cloudstack-management start
+
+   #.
+
+      If you use it, start the usage server
+
+      .. sourcecode:: bash
+
+          $ sudo service cloudstack-usage start
+
+#.
+
+   (VMware only) Additional steps are required for each VMware cluster.
+   These steps will not affect running guests in the cloud. These steps
+   are required only for clouds using VMware clusters:
+
+   #.
+
+      Stop the Management Server:
+
+      .. sourcecode:: bash
+
+          $ sudo service cloudstack-management stop
+
+   #.
+
+      Generate the encrypted equivalent of your vCenter password:
+
+      .. sourcecode:: bash
+
+          $ java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.0.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input="_your_vCenter_password_" password="`cat /etc/cloudstack/management/key`" verbose=false
+
+      Store the output from this step, we need to add this in
+      cluster\_details table and vmware\_data\_center tables in place of
+      the plain text password
+
+   #.
+
+      Find the ID of the row of cluster\_details table that you have to
+      update:
+
+      .. sourcecode:: bash
+
+          $ mysql -u <username> -p<password>
+
+      .. sourcecode:: bash
+
+          select * from cloud.cluster_details;
+
+   #.
+
+      Update the plain text password with the encrypted one
+
+      .. sourcecode:: bash
+
+          update cloud.cluster_details set value = '_ciphertext_from_step_1_' where id = _id_from_step_2_;
+
+   #.
+
+      Confirm that the table is updated:
+
+      .. sourcecode:: bash
+
+          select * from cloud.cluster_details;
+
+   #.
+
+      Find the ID of the correct row of vmware\_data\_center that you
+      want to update
+
+      .. sourcecode:: bash
+
+          select * from cloud.vmware_data_center;
+
+   #.
+
+      update the plain text password with the encrypted one:
+
+      .. sourcecode:: bash
+
+          update cloud.vmware_data_center set password = '_ciphertext_from_step_1_' where id = _id_from_step_5_;
+
+   #.
+
+      Confirm that the table is updated:
+
+      .. sourcecode:: bash
+
+          select * from cloud.vmware_data_center;
+
+   #.
+
+      Start the CloudStack Management server
+
+      .. sourcecode:: bash
+
+          $ sudo service cloudstack-management start
+
+#.
+
+   (KVM only) Additional steps are required for each KVM host. These
+   steps will not affect running guests in the cloud. These steps are
+   required only for clouds using KVM as hosts and only on the KVM
+   hosts.
+
+   #.
+
+      Configure the CloudStack apt repository as detailed above.
+
+   #.
+
+      Stop the running agent.
+
+      .. sourcecode:: bash
+
+          $ sudo service cloudstack-agent stop
+
+   #.
+
+      Update the agent software.
+
+      .. sourcecode:: bash
+
+          $ sudo apt-get update cloudstack-agent
+
+   #.
+
+      Verify that the file
+      ``/etc/cloudstack/agent/environment.properties`` has a line that
+      reads:
+
+      .. sourcecode:: bash
+
+          paths.script=/usr/share/cloudstack-common
+
+      If not, add the line.
+
+   #.
+
+      Start the agent.
+
+      .. sourcecode:: bash
+
+          $ sudo service cloudstack-agent start
+
+#.
+
+   If you are using CentOS or RHEL, follow this procedure to upgrade
+   your packages. If not, skip to step *restart-system-vms-4.3*.
+
+   .. note::
+      **Community Packages:** This section assumes you're using the community supplied packages for CloudStack.
+      If you've created your own packages and yum repository, substitute your own URL for the ones used in these examples.
+
+   #.
+
+      Now that you have the repository configured, it's time to install
+      the ``cloudstack-management`` package by upgrading the older
+      ``cloudstack-management`` package.
+
+      .. sourcecode:: bash
+
+          $ sudo yum upgrade cloudstack-management
+          $ sudo yum upgrade cloudstack-usage
+
+   #.
+
+      Now it's time to restart the management server
+
+      .. sourcecode:: bash
+
+          $ sudo service cloudstack-management start
+
+   #.
+
+      For KVM hosts, upgrade the ``cloudstack-agent`` package
+
+      .. sourcecode:: bash
+
+          $ sudo yum upgrade cloudstack-agent
+
+   #.
+
+      Verify that the file
+      ``/etc/cloudstack/agent/environment.properties`` has a line that
+      reads:
+
+      .. sourcecode:: bash
+
+          paths.script=/usr/share/cloudstack-common
+
+      If not, add the line.
+
+   #.
+
+      Restart the agent:
+
+      .. sourcecode:: bash
+
+          $ sudo service cloudstack-agent stop
+          $ sudo killall jsvc
+          $ sudo service cloudstack-agent start
+
+#.
+
+   Now it's time to restart the management server
+
+   .. sourcecode:: bash
+
+       $ sudo service cloudstack-management start
+
+#.
+
+   .. note:: **For Xen Hosts: Copy vhd-utils:** This step is only for CloudStack installs that are using Xen hosts.
+
+   Copy the file ``vhd-utils`` to
+   ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
+
 Upgrade from 4.3.0 to 4.3.1
 ---------------------------
 
