@@ -17,6 +17,8 @@
 API Changes Introduced in |version|
 ===================================
 
+For the complete list of API commands and params consult the `CloudStack Apidocs`_.
+
 Added API commands
 ------------------
 
@@ -369,3 +371,4 @@ Updated API commands
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 
+.. include:: global.rst

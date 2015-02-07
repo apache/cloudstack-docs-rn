@@ -18,6 +18,7 @@
 
 .. _CloudStack Installation Guide: http://docs.cloudstack.apache.org/projects/cloudstack-installation
 .. _CloudStack Administrator's Guide: http://docs.cloudstack.apache.org/projects/cloudstack-administration
+.. _CloudStack Apidocs: http://cloudstack.apache.org/docs/api/
 
 .. Latest version systemvm template URL
 .. |sysvm64-url-xen|    replace:: http://jenkins.buildacloud.org/view/4.5/job/build-systemvm-4.5/lastSuccessfulBuild/artifact/tools/appliance/dist/systemvm64template-4.5-xen.vhd.bz2
