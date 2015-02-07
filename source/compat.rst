@@ -24,11 +24,11 @@ CloudStack Management Server. Note that specific versions of the
 operating systems are tested, so compatibility with CentOS 6.3 may not
 indicate compatibility with CentOS 6.2, 6.1 and so on.
 
--  RHEL versions 5.5, 6.2, 6.3, and 6.4
+-  RHEL versions 6.6
 
--  CentOS versions 6.3, 6.4 and 6.5
+-  CentOS versions 6.6, 7.0
 
--  Ubuntu 12.04 LTS
+-  Ubuntu 14.04 LTS
 
 Supported Hypervisor Versions
 -----------------------------
@@ -87,7 +87,7 @@ best results, one of the following browsers recommended:
 
 -  Internet Explorer versions 10 and 11
 
--  Firefox version 26 or lower
+-  Firefox version 26 or later
 
 -  Google Chrome version 31
 

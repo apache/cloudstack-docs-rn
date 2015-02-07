@@ -97,11 +97,6 @@ Instance Password Generation length can now be changed
    encoder can now be define with following Global Settings:
    ``vm.password.length``, ``user.password.encoders.exclude``, ``user.password.encoders.order``
 
-   ====================== ============================================================================
-   Supported hypervisors: N/A
-   Link                   `Baremetal feature spec`_
-   ====================== ============================================================================
-
 
 Improvements
 ------------
@@ -109,7 +104,7 @@ Improvements
 -  [UI] keep advanced search parameters visible after search has been run
 -  [UI] Add new vGPU types K160Q, K180Q, K280Q
 -  [LXC] storage migration for LXC VMs fixed
--  MariaDB as cloudstack management server database
+-  Use of MariaDB as cloudstack management server database
 -  System VM password reset now supported
 -  Root volume detach support
 
