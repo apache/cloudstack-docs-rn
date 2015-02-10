@@ -25,6 +25,60 @@ following new features and improvements.
    :backlinks: top
 
 
+NuageVsp Network Plugin
+-----------------------
+
+   The Nuage NetworksTM Virtualized Services Platform (VSP) is a Software-Defined
+   Networking (SDN) solution that virtualizes any datacenter (DC) network
+   infrastructure and automatically establishes connectivity between compute
+   resources upon their creation.
+
+   NuageVsp networking plugin bring the Nuage VSP network virtualization technology
+   to CloudStack. All the network isolation and routing is handled by the Nuage
+   SDN solution. Routing of the packets happen at hypervisor itself. Virtual Router
+   is not used for routing the packets and is spawned only for Password reset
+   functionality. The Nuage solution also helps significantly improve the agility
+   and scale of a CloudStack deployment as compared to a Virtual Router based
+   deployment.
+
+
+   ====================== ============================================================================
+   Supported hypervisors: XenServer, VMware
+   Link                   `NuageVsp Network Plugin spec`_
+   ====================== ============================================================================
+
+
+Bind integration with Globo DNSAPI
+----------------------------------
+   
+   GloboDNS provide API to Bind DNS server used to centralized DNS server outside of CloudStack networks.
+   When deploying Advanced Networks, Virtual Routers are used to isolate networks
+   and provide DNS service for all machines inside each network. This approach
+   imposes a challenge when instances need to translate names that belong to
+   instances from another network.
+
+   ====================== ============================================================================
+   Supported hypervisors: Any
+   Link                   `Globo DNSAPI spec`_
+   ====================== ============================================================================
+
+
+SAML 2.0 Plugin
+---------------
+   
+   SAML 2.0 Plugin provide integration of CloudStack to existing authentication
+   mechanism. This provide Single Sign On (SSO) and Single Log Out (SLO) to work
+   on CloudStack UI and clients. SAML (Security Assertion Markup Language) 2.0
+   is an old, stable and widely used XML based authentication and authorization
+   protocol supported by Salesforce, Google Apps and other public and private
+   companies and the aim is to integrate the SSO SAML support in CloudStack.
+
+   ====================== ============================================================================
+   Supported hypervisors: N/A
+   Link                   `SAML spec`_
+   ====================== ============================================================================
+
+
 Managed storage for KVM
 -----------------------
 
@@ -109,4 +163,6 @@ Improvements
 -  Root volume detach support
 
 .. _Baremetal feature spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/Baremetal+Advanced+Networking+Support
-
+.. _Globo DNSAPI spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/Bind+integration+by+Globo+DNSAPI
+.. _NuageVsp Network Plugin spec : https://cwiki.apache.org/confluence/display/CLOUDSTACK/NuageVsp+Network+Plugin
+.. _SAML spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/SAML+2.0+Plugin

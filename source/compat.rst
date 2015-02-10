@@ -24,11 +24,16 @@ CloudStack Management Server. Note that specific versions of the
 operating systems are tested, so compatibility with CentOS 6.3 may not
 indicate compatibility with CentOS 6.2, 6.1 and so on.
 
--  RHEL versions 6.6
-
+-  RHEL versions 6.3, 6.5, 6.6 and 7.0
 -  CentOS versions 6.6, 7.0
-
 -  Ubuntu 14.04 LTS
+
+Software Requirements
+~~~~~~~~~~~~~~~~~~~~~
+
+-  Java 1.7
+-  MySQL 5.6 (RHEL 7)
+-  MySQL 5.1 (RHEL 6.x)
 
 Supported Hypervisor Versions
 -----------------------------
@@ -36,20 +41,13 @@ Supported Hypervisor Versions
 CloudStack supports three hypervisor families, XenServer with XAPI, KVM,
 and VMware with vSphere.
 
+-  LXC Host Containers on RHEL 7
 -  Windows Server 2012 R2 (with Hyper-V Role enabled)
-
 -  Hyper-V 2012 R2
-
--  CentOS 6.2 with KVM
-
+-  CentOS 6.2+ with KVM
 -  Red Hat Enterprise Linux 6.2 with KVM
-
--  XenServer 6.0.2 (with Hotfix)
-
--  XenServer versions 6.1 and 6.2 SPI with latest hotfixes
-
--  VMware versions 5.0, 5.1, and 5.5
-
+-  XenServer versions 6.1, 6.2 SP1 and 6.5 with latest hotfixes
+-  VMware versions 5.0 Update 3a, 5.1 Update 2a, and 5.5 Update 2
 -  Bare metal hosts are supported, which have no hypervisor. These hosts
    can run the following operating systems:
 
@@ -58,7 +56,6 @@ and VMware with vSphere.
       .. note:: Use libvirt version 0.9.10 for CentOS 6.3
 
    -  Fedora 17
-
    -  Ubuntu 12.04
 
 For more information, see the Hypervisor Compatibility Matrix in the
@@ -68,13 +65,11 @@ CloudStack Installation Guide.
 Supported External Devices
 --------------------------
 
--  Netscaler VPX and MPX versions 9.3 and 10.e
-
--  Netscaler SDX version 9.3
-
--  SRX (Model srx100b) versions 10.3 or higher
-
--  F5 10.1.0 (Build 3341.1084)
+-  Netscaler VPX and MPX versions 9.3, 10.1e and 10.5
+-  Netscaler SDX version 9.3, 10.1e and 10.5
+-  SRX (Model srx100b) versions 10.3 to 10.4 R7.5
+-  F5 11.X
+-  Force 10 Switch version S4810 for Baremetal Advanced Networks
 
 
 Supported Browsers
@@ -87,8 +82,8 @@ best results, one of the following browsers recommended:
 
 -  Internet Explorer versions 10 and 11
 
--  Firefox version 26 or later
+-  Firefox version 31 or later
 
--  Google Chrome version 31
+-  Google Chrome version 36.0.1985
 
--  Safari 5
+-  Safari 6+
