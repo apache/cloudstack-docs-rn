@@ -80,4 +80,4 @@ Bug ID                                                                      Desc
 
 Note: Job timeouts are shorter than before
 ----------------------------------------
-Please be aware that in 4.4 a bug is fixed (CLOUDSTACK-7595) that makes sure global settings 'job.cancel.threshold.minutes' and 'job.expire.minutes' are defined in minutes as they are supposed to be. Before, they were accidentally 60x bigger than configured. This means previous versions had a much higher timeout. You might hit this timeout when migrating large disks or making big snapshots, etc.
+Please be aware that in 4.4 a bug is fixed (`CLOUDSTACK-7595 <https://issues.apache.org/jira/browse/CLOUDSTACK-7595>`_) that makes sure global settings 'job.cancel.threshold.minutes' and 'job.expire.minutes' are defined in minutes as they are supposed to be. Before, they were accidentally 60x bigger than configured. This means previous versions had a much higher timeout. You might hit this timeout when migrating large disks or making big snapshots, etc.
