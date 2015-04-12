@@ -32,6 +32,8 @@ Update System-VM templates
 #. In the Register template dialog box, specify the following values
    (do not change these):
 
+   .. cssclass:: table-striped table-bordered table-hover
+
    +------------+------------------------------------------------------------+
    | Hypervisor | Description                                                |
    +============+============================================================+

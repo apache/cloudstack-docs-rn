@@ -20,10 +20,6 @@ What's New in |version|
 Version |release| includes more than 200 bug fixes from previous release, the
 following new features and improvements.
 
-.. contents::
-   :local:
-   :backlinks: top
-
 
 NuageVsp Network Plugin
 -----------------------

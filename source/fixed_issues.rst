@@ -29,6 +29,8 @@ Issues Fixed in |release|
 For the list of issues fixed, see `Issues Fixed in 
 <https://issues.apache.org/jira/issues/?filter=12331412>`_ |release|.
 
+.. cssclass:: table-striped table-bordered table-hover
+
 ==========================================================================  ===================================================================================
 Bug ID                                                                      Description
 ==========================================================================  ===================================================================================
@@ -53,6 +55,8 @@ Issues Fixed in 4.5.0
 
 For the list of issues fixed, see `Issues Fixed in 
 <https://issues.apache.org/jira/issues/?filter=12329803>`_ |release|.
+
+.. cssclass:: table-striped table-bordered table-hover
 
 ==========================================================================  ===================================================================================
 Bug ID                                                                      Description

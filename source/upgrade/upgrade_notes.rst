@@ -70,6 +70,8 @@ If using Active-Directory (LDAP/LDAPs) as user authentication; Upgrading to
 4.3 and later require changes in Global Settings. After upgrading CloudStack
 to 4.3 or latest, following Global Settings must be change:
 
+.. cssclass:: table-striped table-bordered table-hover
+
 ======================= ============== ==============
 Global Settings         Default        New
 ======================= ============== ==============

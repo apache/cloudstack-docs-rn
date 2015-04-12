@@ -19,8 +19,8 @@
    contain the root `toctree` directive.
 
 
-Welcome to Apache CloudStack Release Notes
-==========================================
+Apache CloudStack Release Notes
+===============================
 
 .. figure:: /_static/images/acslogo.png
    :align: center
