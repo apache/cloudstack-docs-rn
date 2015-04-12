@@ -127,23 +127,23 @@ be necessary for hosts that are running VMware or Xen.)
 CloudStack apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Start by opening ``/etc/apt/sources.list.d/cloudstack.list`` on
-   any systems that have CloudStack packages installed.
-   
-   This file should have one line, which contains:
-   
-   .. sourcecode:: bash
-   
-      deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
-   
-   We'll change it to point to the new package repository:
-   
-   .. sourcecode:: bash
-   
-      deb http://cloudstack.apt-get.eu/ubuntu precise 4.5
-   
-   If you're using your own package repository, change this line to
-   read as appropriate for your |version| repository.
+Start by opening ``/etc/apt/sources.list.d/cloudstack.list`` on
+any systems that have CloudStack packages installed.
+
+This file should have one line, which contains:
+
+.. sourcecode:: bash
+
+   deb http://cloudstack.apt-get.eu/ubuntu precise 4.2
+
+We'll change it to point to the new package repository:
+
+.. sourcecode:: bash
+
+   deb http://cloudstack.apt-get.eu/ubuntu precise 4.5
+
+If you're using your own package repository, change this line to
+read as appropriate for your |version| repository.
 
 #. Now update your apt package list:
 
@@ -184,31 +184,31 @@ packages. If not, skip to hypervisors section, then :ref:`upg-sysvm42`.
 CloustStack RPM repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   The first order of business will be to change the yum repository
-   for each system with CloudStack packages. This means all
-   management servers, and any hosts that have the KVM agent.
+The first order of business will be to change the yum repository
+for each system with CloudStack packages. This means all
+management servers, and any hosts that have the KVM agent.
 
-   (No changes should be necessary for hosts that are running VMware
-   or Xen.)
+(No changes should be necessary for hosts that are running VMware
+or Xen.)
 
-   Start by opening ``/etc/yum.repos.d/cloudstack.repo`` on any
-   systems that have CloudStack packages installed.
+Start by opening ``/etc/yum.repos.d/cloudstack.repo`` on any
+systems that have CloudStack packages installed.
 
-   This file should have content similar to the following:
+This file should have content similar to the following:
 
-   .. sourcecode:: bash
+.. sourcecode:: bash
 
-      [apache-cloudstack]
-      name=Apache CloudStack
-      baseurl=http://cloudstack.apt-get.eu/rhel/4.2/
-      enabled=1
-      gpgcheck=0
+   [apache-cloudstack]
+   name=Apache CloudStack
+   baseurl=http://cloudstack.apt-get.eu/rhel/4.2/
+   enabled=1
+   gpgcheck=0
 
-   If you are using the community provided package repository, change
-   the base url to ``http://cloudstack.apt-get.eu/rhel/4.5/``
+If you are using the community provided package repository, change
+the base url to ``http://cloudstack.apt-get.eu/rhel/4.5/``
 
-   If you're using your own package repository, change this line to
-   read as appropriate for your |version| repository.
+If you're using your own package repository, change this line to
+read as appropriate for your |version| repository.
 
 #. Now that you have the repository configured, it's time to upgrade the 
    ``cloudstack-management``.
@@ -227,27 +227,27 @@ CloustStack RPM repository
 Hypervisor: Xen/XenServer
 -------------------------
 
-   **(XenServer only)** Copy vhd-utils file on CloudStack management servers.
-   Copy the file `vhd-utils <http://download.cloud.com.s3.amazonaws.com/tools/vhd-util>`_ 
-   to ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
+**(XenServer only)** Copy vhd-utils file on CloudStack management servers.
+Copy the file `vhd-utils <http://download.cloud.com.s3.amazonaws.com/tools/vhd-util>`_ 
+to ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
 
-   .. sourcecode:: bash
+.. sourcecode:: bash
 
-      wget -P /usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver \
-      http://download.cloud.com.s3.amazonaws.com/tools/vhd-util
+   wget -P /usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver \
+   http://download.cloud.com.s3.amazonaws.com/tools/vhd-util
 
 
 Hypervisor: VMware
 ------------------
 
-   .. warning::
-      For VMware hypervisor CloudStack management server packages must be 
-      build using "noredist". Refer to `Building from Source 
-      <http://docs.cloudstack.apache.org/projects/cloudstack-installation/en/latest/building_from_source.html>`_.
+.. warning::
+   For VMware hypervisor CloudStack management server packages must be 
+   build using "noredist". Refer to `Building from Source 
+   <http://docs.cloudstack.apache.org/projects/cloudstack-installation/en/latest/building_from_source.html>`_.
 
-   **(VMware only)** Additional steps are required for each VMware cluster.
-   These steps will not affect running guests in the cloud. These steps
-   are required only for clouds using VMware clusters:
+**(VMware only)** Additional steps are required for each VMware cluster.
+These steps will not affect running guests in the cloud. These steps
+are required only for clouds using VMware clusters:
 
 #. Stop the Management Server:
 

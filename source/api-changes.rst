@@ -22,6 +22,8 @@ For the complete list of API commands and params consult the `CloudStack Apidocs
 Added API commands
 ------------------
 
+.. cssclass:: table-striped table-bordered table-hover
+
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | API                               | Description                                                                               |
 +===================================+===========================================================================================+
@@ -79,6 +81,8 @@ Added API commands
 
 Updated API commands
 --------------------
+
+.. cssclass:: table-striped table-bordered table-hover
 
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | API                               | Description                                                                               |

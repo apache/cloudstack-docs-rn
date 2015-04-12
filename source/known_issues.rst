@@ -25,6 +25,8 @@ number.
 For the list of known issues, see `Known Issues in 
 <https://issues.apache.org/jira/issues/?filter=12331413>`_ |release|.
 
+.. cssclass:: table-striped table-bordered table-hover
+
 ==========================================================================  ===================================================================================
 Bug ID                                                                      Description
 ==========================================================================  ===================================================================================
@@ -98,6 +100,8 @@ All known issues
 
 For the list of known issues, see `Known Issues in 
 <https://issues.apache.org/jira/issues/?filter=12329801>`_ |version|.
+
+.. cssclass:: table-striped table-bordered table-hover
 
 ==========================================================================  ===================================================================================
 Bug ID                                                                      Description
@@ -306,4 +310,5 @@ Bug ID                                                                      Desc
 `CLOUDSTACK-5583 <https://issues.apache.org/jira/browse/CLOUDSTACK-5583>`_  vmopsSnapshot plug-in (XenServer) does not return an error when it should...
 `CLOUDSTACK-3383 <https://issues.apache.org/jira/browse/CLOUDSTACK-3383>`_  GetHostStatsCommand fails when agent is running Ubuntu 13.04 (raring)...
 `CLOUDSTACK-3367 <https://issues.apache.org/jira/browse/CLOUDSTACK-3367>`_  When one primary storage fails, all XenServer hosts get rebooted, killing all VM...
-`CLOUDSTACK-252 <https://issues.apache.org/jira/browse/CLOUDSTACK-252>`_    UpdateNetwork Operation on a guest network that is currently using Virtual Route...==========================================================================  ===================================================================================
+`CLOUDSTACK-252 <https://issues.apache.org/jira/browse/CLOUDSTACK-252>`_    UpdateNetwork Operation on a guest network that is currently using Virtual Route...
+==========================================================================  ===================================================================================
