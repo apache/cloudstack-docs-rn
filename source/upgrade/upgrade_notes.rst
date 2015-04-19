@@ -18,6 +18,11 @@ General Upgrade Notes
 =====================
 
 
+Note: Job timeouts are shorter than before
+------------------------------------------
+Please be aware that in 4.4 a bug is fixed (`CLOUDSTACK-7595 <https://issues.apache.org/jira/browse/CLOUDSTACK-7595>`_) that makes sure global settings 'job.cancel.threshold.minutes' and 'job.expire.minutes' are defined in minutes as they are supposed to be. Before, they were accidentally 60x bigger than configured. This means previous versions had a much higher timeout. You might hit this timeout when migrating large disks or making big snapshots, etc.
+
+
 Depreciation of realhostip.com 
 ------------------------------
    
@@ -27,6 +32,7 @@ realhostip.com DNS domains or SSL certificates to encrypt Console Proxy or
 file copy communications.
 
 For latest update about realhostip.com follow `Apache CloudStack Blog <https://blogs.apache.org/cloudstack/>`_.
+
 
 Settings Changes
 ----------------

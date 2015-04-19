@@ -24,11 +24,11 @@ CloudStack Management Server. Note that specific versions of the
 operating systems are tested, so compatibility with CentOS 6.3 may not
 indicate compatibility with CentOS 6.2, 6.1 and so on.
 
--  RHEL versions 5.5, 6.2, 6.3, and 6.4
+-  RHEL versions 5.5, 6.2, 6.3, 6.4 and 7
 
--  CentOS versions 6.3, 6.4 and 6.5
+-  CentOS versions 6.3, 6.4, 6.5 and 7
 
--  Ubuntu 12.04 LTS
+-  Ubuntu 12.04 LTS and 14.04 LTS
 
 Supported Hypervisor Versions
 -----------------------------
@@ -41,6 +41,8 @@ and VMware with vSphere.
 -  Hyper-V 2012 R2
 
 -  CentOS 6.2 with KVM
+
+-  CentOS 7 with KVM
 
 -  Red Hat Enterprise Linux 6.2 with KVM
 
