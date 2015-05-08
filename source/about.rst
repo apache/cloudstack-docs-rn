@@ -70,7 +70,9 @@ mechanism. This provide Single Sign On (SSO) and Single Log Out (SLO) to work
 on CloudStack UI and clients. SAML (Security Assertion Markup Language) 2.0
 is an old, stable and widely used XML based authentication and authorization
 protocol supported by Salesforce, Google Apps and other public and private
-companies and the aim is to integrate the SSO SAML support in CloudStack.
+companies and the aim is to integrate the SSO SAML support in CloudStack. The
+current implementation is experimental, will change in future and should be
+avoided in prouduction.
 
 .. cssclass:: table-striped table-bordered table-hover
 
@@ -170,6 +172,16 @@ Improvements
 -  Use of MariaDB as cloudstack management server database
 -  System VM password reset now supported
 -  Root volume detach support
+-  System VM local storage setting ``system.vm.use.local.storage`` is configurable at zone level
+-  Ability to set CPU features for user vms on KVM using ``guest.cpu.features`` property
+-  A threaded Python based password server that consumes less RAM and CPU
+-  VMFS support in VMWare
+-  XenServer 6.5 support
+-  Separate /var/log partition in SystemVM template
+-  VMXNET3 nic adapter support for KVM
+-  ``nicAdapter`` VM detail is configurable for VMWare to set custom nic adapter
+-  New secure and default user authenticator: PBKDF2-SHA-256
+-  Resize volume support on KVM
 
 .. _Baremetal feature spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/Baremetal+Advanced+Networking+Support
 .. _Globo DNSAPI spec: https://cwiki.apache.org/confluence/display/CLOUDSTACK/Bind+integration+by+Globo+DNSAPI

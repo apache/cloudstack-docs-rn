@@ -143,7 +143,13 @@ We'll change it to point to the new package repository:
 
 .. sourcecode:: bash
 
-   deb http://cloudstack.apt-get.eu/ubuntu precise 4.5
+   deb http://packages.shapeblue.com/cloudstack/upstream/debian/4.5/ ./
+
+Setup the public key for the above repository:
+
+.. sourcecode:: bash
+
+   wget -qO - http://packages.shapeblue.com/release.asc | sudo apt-key add -
 
 If you're using your own package repository, change this line to
 read as appropriate for your |version| repository.
@@ -208,7 +214,15 @@ This file should have content similar to the following:
    gpgcheck=0
 
 If you are using the community provided package repository, change
-the base url to ``http://cloudstack.apt-get.eu/rhel/4.5/``
+the base url to ``http://packages.shapeblue.com/cloudstack/upstream/centos/4.5/``
+If you want to use the CentOS7 repository use the url ``http://packages.shapeblue.com/cloudstack/upstream/centos7/4.5/``
+
+Setup the GPG public key if you wish to enable ``gpgcheck=1``:
+
+.. sourcecode:: bash
+
+   wget http://packages.shapeblue.com/release.asc
+   rpm --import release.asc
 
 If you're using your own package repository, change this line to
 read as appropriate for your |version| repository.
