@@ -126,15 +126,16 @@ Use SSH for commands sent to Virtual-Router
 Baremetal Advanced Networking Support
 -------------------------------------
 
-   This feature is about CloudStack network plugin for baremetal advanced
-   networking. With this plugin, CloudStack can automatically program vlan on
-   physical switch to which baremetal instances connect when creating/destroying
-   baremetal instance. This feature cannot work standalone, it needs support
-   from physical switch itself either from vendor's SDK or from an in-switch
-   agent for whitebox switch. When using this feature, baremetal instances gain
-   Layer 2 isolation methods provided by CloudStack advanced networking which is
-   particularly useful in public cloud that wants to provide baremetal as a
-   service.
+This feature is about CloudStack network plugin for baremetal advanced
+networking. With this plugin, CloudStack can automatically program vlan on
+physical switch to which baremetal instances connect when creating/destroying
+baremetal instance. This feature cannot work standalone, it needs support
+from physical switch itself either from vendor's SDK or from an in-switch
+agent for whitebox switch. When using this feature, baremetal instances gain
+Layer 2 isolation methods provided by CloudStack advanced networking which is
+particularly useful in public cloud that wants to provide baremetal as a
+service.  This feature currently requires a VMware virtual router, so is only
+supported by that hypervisor.
 
    ====================== ============================================================================
    Supported hypervisors: N/A
