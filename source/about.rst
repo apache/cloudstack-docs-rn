@@ -145,7 +145,8 @@ from physical switch itself either from vendor's SDK or from an in-switch
 agent for whitebox switch. When using this feature, baremetal instances gain
 Layer 2 isolation methods provided by CloudStack advanced networking which is
 particularly useful in public cloud that wants to provide baremetal as a
-service.
+service.  This feature currently requires a VMware virtual router, so is only
+supported by that hypervisor.
 
 .. cssclass:: table-striped table-bordered table-hover
 
