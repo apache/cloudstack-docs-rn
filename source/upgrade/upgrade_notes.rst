@@ -93,4 +93,10 @@ SystemVM 32bit deprecated
    Since CloudStack 4.2.1 build packages from source using non opensource 
    modules param ``-nonoss`` changed to ``-   noredist``.
 
+Other Notes
+-----------
 
+If you are experiencing CloudStack UI issues, please consider upgrading your
+tomcat instance to version 6.0.43  (tested version, but earlier versions prior
+to 6.0.37 might work as well), to address the tomcat response issues caused by
+latency between the browser/client and CloudStack Management server.
