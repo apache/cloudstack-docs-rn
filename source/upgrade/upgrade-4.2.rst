@@ -238,8 +238,8 @@ read as appropriate for your |version| repository.
       $ sudo yum upgrade cloudstack-usage
 
 
-Hypervisor: Xen/XenServer
--------------------------
+Hypervisor: XenServer
+---------------------
 
 **(XenServer only)** Copy vhd-utils file on CloudStack management servers.
 Copy the file `vhd-utils <http://download.cloud.com.s3.amazonaws.com/tools/vhd-util>`_ 
@@ -249,6 +249,36 @@ to ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
 
    wget -P /usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver \
    http://download.cloud.com.s3.amazonaws.com/tools/vhd-util
+
+Make sure XenServer has enabled HA on the pool.
+
+To test if poolHA is currently turned on:
+
+.. sourcecode:: bash
+
+   xe pool-list params=all | grep -E "ha-enabled|ha-config"
+
+Output when poolHA is ON:
+
+.. sourcecode:: bash
+
+   ha-enabled ( RO): true
+   ha-configuration ( RO): timeout: 180
+
+Output when poolHA is OFF:
+
+.. sourcecode:: bash
+
+   ha-enabled ( RO): false
+   ha-configuration ( RO):
+
+To enable poolHA, use something like this:
+
+.. sourcecode:: bash
+
+   xe pool-enable-ha heartbeat-sr-uuids={SR-UUID} ha-config:timeout=180
+
+Please refer to the `XenServer documentation <http://docs.vmd.citrix.com/XenServer/>`_, as there are multiple ways of configuring it either on NFS, iSCSI or Fibre Channel. Be aware though, that the timeout setting is not documented. The default is 30 seconds so you may want to bump that towards 120-180 seconds.
 
 
 Hypervisor: VMware
