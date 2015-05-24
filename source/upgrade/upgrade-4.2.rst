@@ -272,7 +272,13 @@ Hypervisor: Xen/XenServer
       ha-enabled ( RO): false
       ha-configuration ( RO):
 
-   To enable poolHA, please refer to the `XenServer documentation <http://docs.vmd.citrix.com/XenServer/>`_, as there are multiple ways of configuring it either on NFS, iSCSI or Fibre Channel.
+   To enable poolHA, use something like this:
+
+   .. sourcecode:: bash
+
+      xe pool-enable-ha heartbeat-sr-uuids={SR-UUID} ha-config:timeout=180
+
+   Please refer to the `XenServer documentation <http://docs.vmd.citrix.com/XenServer/>`_, as there are multiple ways of configuring it either on NFS, iSCSI or Fibre Channel. Be aware though, that the timeout setting is not documented. The default is 30 seconds so you may want to bump that towards 120-180 seconds.
 
 
 Hypervisor: VMware
