@@ -41,7 +41,7 @@ Bug ID                                                                      Desc
 
 
 Issues Fixed in 4.4.3
--------------------------
+---------------------
 
 For the list of issues fixed, see `Issues Fixed in
 <https://issues.apache.org/jira/issues/?filter=12331538>`_ 4.4.3.
