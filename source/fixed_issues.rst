@@ -17,16 +17,34 @@
 Issues Fixed in |version|
 =========================
 
-Apache CloudStack uses `Jira <https://issues.apache.org/jira/browse/CLOUDSTACK>`_ 
-to track its issues. All new features and bugs for |release| have been tracked 
-in Jira, and have a standard naming convention of "CLOUDSTACK-NNNN" where 
+Apache CloudStack uses `Jira <https://issues.apache.org/jira/browse/CLOUDSTACK>`_
+to track its issues. All new features and bugs for |release| have been tracked
+in Jira, and have a standard naming convention of "CLOUDSTACK-NNNN" where
 "NNNN" is the issue number.
 
 Issues Fixed in |release|
 -------------------------
 
-For the list of issues fixed, see `Issues Fixed in 
-<https://issues.apache.org/jira/issues/?filter=12331538>`_ |release|.
+For the list of issues fixed, see `Issues Fixed in
+<https://issues.apache.org/jira/issues/?filter=12332664>`_ |release|.
+
+==========================================================================  ===================================================================================
+Bug ID                                                                      Description
+==========================================================================  ===================================================================================
+`CLOUDSTACK-8545 <https://issues.apache.org/jira/browse/CLOUDSTACK-8545>`_  Unneeded VR reboot after successful live migration...
+`CLOUDSTACK-8537 <https://issues.apache.org/jira/browse/CLOUDSTACK-8537>`_  Duplicated SSH Keys/ deployVirtualMachine returns wrong keypair name...
+`CLOUDSTACK-8339 <https://issues.apache.org/jira/browse/CLOUDSTACK-8339>`_  Allow non-root credentials for adding KVM hypervisor...
+`CLOUDSTACK-8250 <https://issues.apache.org/jira/browse/CLOUDSTACK-8250>`_  host cpu memory used reported incorrectly...
+`CLOUDSTACK-7631 <https://issues.apache.org/jira/browse/CLOUDSTACK-7631>`_  Log rotate on VR may fail as /etc/init.d/rsyslog does not anymore support reload...
+`CLOUDSTACK-6543 <https://issues.apache.org/jira/browse/CLOUDSTACK-6543>`_  Advanced search on instances has domain list unsorted...
+==========================================================================  ===================================================================================
+
+
+Issues Fixed in 4.4.3
+---------------------
+
+For the list of issues fixed, see `Issues Fixed in
+<https://issues.apache.org/jira/issues/?filter=12331538>`_ 4.4.3.
 
 ==========================================================================  ===================================================================================
 Bug ID                                                                      Description
@@ -62,8 +80,8 @@ Bug ID                                                                      Desc
 Issues Fixed in 4.4.2
 ---------------------
 
-For the list of issues fixed, see `Issues Fixed in 
-<https://issues.apache.org/jira/issues/?filter=12329678>`_ |release|.
+For the list of issues fixed, see `Issues Fixed in
+<https://issues.apache.org/jira/issues/?filter=12329678>`_ 4.4.2.
 
 ==========================================================================  ===================================================================================
 Bug ID                                                                      Description
@@ -84,7 +102,7 @@ Bug ID                                                                      Desc
 Issues Fixed in 4.4.1
 ---------------------
 
-For the list of issues fixed, see `Issues Fixed in 
+For the list of issues fixed, see `Issues Fixed in
 <https://issues.apache.org/jira/issues/?filter=12329271>`_ 4.4.1.
 
 ==========================================================================  ===================================================================================
@@ -114,4 +132,3 @@ Bug ID                                                                      Desc
 `CLOUDSTACK-1632 <https://issues.apache.org/jira/browse/CLOUDSTACK-1632>`_  Mistakes in authorizeSecurityGroup* API docs...
 `CLOUDSTACK-401 <https://issues.apache.org/jira/browse/CLOUDSTACK-401>`_    Storage options missing from table...
 ==========================================================================  ===================================================================================
-
