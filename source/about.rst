@@ -27,7 +27,7 @@ Virtual Router Out of Band reboots configurable
 -----------------------------------------------
 
    As of Apache CloudStack 4.4.4 it is now configurable how Out of Band reboots of Virtual Routers should be treated.
-   A new setting ``router.reboot.when.migrated`` is introduced wich defaults to  ``false``.
+   A new setting ``router.reboot.when.outofband.migrated`` is introduced wich defaults to  ``false``.
 
    This behaviour changed in Apache CloudStack 4.4.3, and to restore that behaviour the setting should be set to ``true``.
 
