@@ -123,9 +123,9 @@ Update System-VM templates
    |            |                                                            |
    |            | Zone: Choose the zone where this hypervisor is used        |
    |            |                                                            |
-   |            | Hypervisor: VMware                                         |
+   |            | Hypervisor: Hyper-V                                        |
    |            |                                                            |
-   |            | Format: OVA                                                |
+   |            | Format: VHD                                                |
    |            |                                                            |
    |            | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the             |
    |            | highest Debian release number available in the             |
