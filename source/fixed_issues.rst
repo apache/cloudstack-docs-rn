@@ -105,7 +105,7 @@ Issues Fixed in 4.5.0
 ---------------------
 
 For the list of issues fixed, see `Issues Fixed in 
-<https://issues.apache.org/jira/issues/?filter=12329803>`_ |release|.
+<https://issues.apache.org/jira/issues/?filter=12329803>`_ 4.5.0.
 
 .. cssclass:: table-striped table-bordered table-hover
 
