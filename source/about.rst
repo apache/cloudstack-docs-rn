@@ -21,6 +21,25 @@ Version |release| includes more than 200 bug fixes from previous release, the
 following new features and improvements.
 
 
+1) Improve Object Storage, CloudStack-8640, Wido
+2) Snapshot Improvements, CloudStack-8663, Anshul
+3) Deploy user Instance from VM Snapshot, CloudStack-8676, Sateesh
+4) Netscaler Integration, CloudStack-8672, CloudStack-8673, Rajesh
+5) Billing Quota, CloudStack-8592, Abhinandan, Rohit
+6) Improve SAML plugin, CloudStack-8457, Rohit
+7) LDAP Improvements - Trust AD and Auto Import, CloudStack-8647, Rajani, Sarath (even though this shows 4.7 - I know, the code has been merged to master).
+8) Docker/Containers, No JIRA ticket, Pdion
+9) iSCSI and HA support in Hyper-V, CloudStack-8444, Anshul
+10) Support for non-US keyboards in Console Proxy, CloudStack-8665, Anshul
+
+
+
+
+
+
+
+
+
 NuageVsp Network Plugin
 -----------------------
 
