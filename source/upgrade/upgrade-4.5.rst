@@ -53,7 +53,7 @@ Create RPM or Debian packages (as appropriate) and a repository from
 the |version| source, or check the Apache CloudStack downloads page at
 http://cloudstack.apache.org/downloads.html
 for package repositories supplied by community members. You will need
-them for :ref:`ubuntu44` or :ref:`rhel44` and :ref:`kvm44` hosts upgrade. 
+them for :ref:`ubuntu45` or :ref:`rhel45` and :ref:`kvm45` hosts upgrade. 
 
 Instructions for creating packages from the CloudStack source are in the 
 `CloudStack Installation Guide`_.
@@ -112,7 +112,7 @@ Management Server on Ubuntu
 ---------------------------
 
 If you are using Ubuntu, follow this procedure to upgrade your packages. If 
-not, skip to step :ref:`rhel44`.
+not, skip to step :ref:`rhel45`.
 
 .. note:: 
    **Community Packages:** This section assumes you're using the community
@@ -137,7 +137,7 @@ This file should have one line, which contains:
 
 .. sourcecode:: bash
 
-   deb http://cloudstack.apt-get.eu/ubuntu precise 4.4
+   deb http://cloudstack.apt-get.eu/ubuntu precise 4.5
 
 We'll change it to point to the new package repository:
 
@@ -180,7 +180,7 @@ Management Server on CentOS/RHEL
 --------------------------------
 
 If you are using CentOS or RHEL, follow this procedure to upgrade your 
-packages. If not, skip to hypervisors section, then :ref:`upg-sysvm44`.
+packages. If not, skip to hypervisors section, then :ref:`upg-sysvm45`.
 
 .. note:: 
    **Community Packages:** This section assumes you're using the community
@@ -209,7 +209,7 @@ This file should have content similar to the following:
 
    [apache-cloudstack]
    name=Apache CloudStack
-   baseurl=http://cloudstack.apt-get.eu/rhel/4.4/
+   baseurl=http://cloudstack.apt-get.eu/rhel/4.5/
    enabled=1
    gpgcheck=0
 
@@ -370,7 +370,7 @@ steps will not affect running guests in the cloud. These steps are
 required only for clouds using KVM as hosts and only on the KVM
 hosts.
 
-#. Configure the :ref:`apt-repo44` as detailed above.
+#. Configure the :ref:`apt-repo45` as detailed above.
 
 #. Stop the running agent.
 
@@ -404,7 +404,7 @@ KVM on CentOS/RHEL
 ^^^^^^^^^^^^^^^^^^
 For KVM hosts, upgrade the ``cloudstack-agent`` package
 
-#. Configure the :ref:`rpm-repo44` as detailed above.
+#. Configure the :ref:`rpm-repo45` as detailed above.
 
    .. sourcecode:: bash
 
