@@ -67,7 +67,8 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | addCluster                        | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: ovm3cluster (optional), ovm3pool (optional), ovm3vip (optional)           |
+|                                   | New parameters: ``ovm3cluster`` (optional), ``ovm3pool`` (optional),                      |
+|                                   | ``ovm3vip`` (optional)                                                                    |
 |                                   |                                                                                           |
 |                                   | Response:                                                                                 |
 |                                   |                                                                                           |
@@ -76,7 +77,7 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | createTemplate                    | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: projectid (optional)                                                      |
+|                                   | New parameters: ``projectid`` (optional)                                                  |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | registerSSHKeyPair                | Response:                                                                                 |
@@ -101,12 +102,12 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | updateStoragePool                 | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: enabled (optional)                                                        |
+|                                   | New parameters: ``enabled`` (optional)                                                    |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | updateHostPassword                | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: update_passwd_on_host (optional)                                          |
+|                                   | New parameters: ``update_passwd_on_host`` (optional)                                      |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | listSSHKeyPairs                   | Response:                                                                                 |
@@ -131,7 +132,7 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | updatePortForwardingRule          | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: vmguestip (optional)                                                      |
+|                                   | New parameters: ``vmguestip`` (optional)                                                  |
 |                                   |                                                                                           |
 |                                   | Removed parameters: ipaddressid, privateip, protocol, publicport                          |
 |                                   |                                                                                           |
@@ -143,7 +144,7 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | updateTrafficType                 | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: ovm3networklabel (optional), xennetworklabel (optional)                   |
+|                                   | New parameters: ``ovm3networklabel`` (optional), ``xennetworklabel`` (optional)           |
 |                                   |                                                                                           |
 |                                   | Removed parameters: xenservernetworklabel                                                 |
 |                                   |                                                                                           |
@@ -167,14 +168,14 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | listLBHealthCheckPolicies         | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: id (optional)                                                             |
+|                                   | New parameters: ``id`` (optional)                                                         |
 |                                   |                                                                                           |
 |                                   | Changed parameters: lbruleid (old version - required, new version - optional)             |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | listDiskOfferings                 | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: isrecursive (optional), listall (optional)                                |
+|                                   | New parameters: ``isrecursive`` (optional), ``listall`` (optional)                        |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | listSnapshots                     | Response:                                                                                 |
@@ -184,7 +185,7 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | addS3                             | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: connectionttl (optional), usetcpkeepalive (optional)                      |
+|                                   | New parameters: ``connectionttl`` (optional), ``usetcpkeepalive`` (optional)              |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | attachIso                         | Response:                                                                                 |
@@ -210,7 +211,7 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | prepareTemplate                   | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: storageid (optional)                                                      |
+|                                   | New parameters: ``storageid`` (optional)                                                  |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | rebootVirtualMachine              | Response:                                                                                 |
@@ -230,7 +231,7 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | addTrafficType                    | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: ovm3networklabel (optional), xennetworklabel (optional)                   |
+|                                   | New parameters: ``ovm3networklabel`` (optional), ``xennetworklabel`` (optional)           |
 |                                   |                                                                                           |
 |                                   | Removed parameters: xenservernetworklabel                                                 |
 |                                   |                                                                                           |
@@ -243,7 +244,7 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | updateTemplate                    | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: requireshvm (optional)                                                    |
+|                                   | New parameters: ``requireshvm`` (optional)                                                |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | removeNicFromVirtualMachine       | Response:                                                                                 |
@@ -314,12 +315,12 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | listServiceOfferings              | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: isrecursive (optional), listall (optional)                                |
+|                                   | New parameters: ``isrecursive`` (optional), ``listall`` (optional)                        |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | samlSso                           | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: idpid (required)                                                          |
+|                                   | New parameters: ``idpid`` (required)                                                      |
 |                                   |                                                                                           |
 |                                   | Removed parameters: idpurl                                                                |
 |                                   |                                                                                           |
@@ -352,7 +353,7 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | createSnapshot                    | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: name (optional)                                                           |
+|                                   | New parameters: ``name`` (optional)                                                       |
 |                                   |                                                                                           |
 |                                   | Response:                                                                                 |
 |                                   |                                                                                           |
@@ -361,7 +362,7 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | updateIso                         | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: requireshvm (optional)                                                    |
+|                                   | New parameters: ``requireshvm`` (optional)                                                |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | destroyVirtualMachine             | Response:                                                                                 |
@@ -376,7 +377,7 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | listVirtualMachines               | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: keypair (optional), userid (optional)                                     |
+|                                   | New parameters: ``keypair`` (optional), ``userid`` (optional)                             |
 |                                   |                                                                                           |
 |                                   | Response:                                                                                 |
 |                                   |                                                                                           |
@@ -385,7 +386,7 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | restartVPC                        | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: cleanup (optional), makeredundant (optional)                              |
+|                                   | New parameters: ``cleanup`` (optional), ``makeredundant`` (optional)                      |
 |                                   |                                                                                           |
 |                                   | Response:                                                                                 |
 |                                   |                                                                                           |
@@ -395,6 +396,11 @@ Updated API commands
 | revertSnapshot                    | Response:                                                                                 |
 |                                   |                                                                                           |
 |                                   | New parameters: physicalsize                                                              |
+|                                   |                                                                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| createVpnCustomerGateway          | Request:                                                                                  |
+|                                   |                                                                                           |
+|                                   | New parameters: ``projectid`` (optional)                                                  |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 

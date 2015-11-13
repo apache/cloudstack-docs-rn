@@ -24,33 +24,6 @@ As of Apache CloudStack 4.4, Java version required is 1.7 for the
 management-server, cloudstack-usage, KVM agent and system-VMs.
 
 
-Depreciation of realhostip.com 
-------------------------------
-   
-The realhostip.com dynamic DNS resolution service is being retired on
-September 30th, 2014. In advance of that, CloudStack 4.3 and later no longer uses 
-realhostip.com DNS domains or SSL certificates to encrypt Console Proxy or 
-file copy communications.
-
-For latest update about realhostip.com follow `Apache CloudStack Blog <https://blogs.apache.org/cloudstack/>`_.
-
-
-Settings Changes
-----------------
-
-After upgrading to 4.2 and later, Settings ``mem.overporvisioning.factor`` and 
-``cpu.overporvisioning.factor`` are now at the cluster level and be set to 1 
-which is the default.
-
-If Global Settings ``mem.overporvisioning.factor`` and 
-``cpu.overporvisioning.factor`` have been changed prior the upgrade to 4.2 and 
-later, the upgrade process will be reset them to 1. Values can be changed by 
-editing clusters settings.
-
-All clusters created after the upgrade will get created with the Global Settings 
-values for ``mem.overporvisioning.factor`` and ``cpu.overporvisioning.factor``.
-
-
 OVS plug-in
 -----------
 

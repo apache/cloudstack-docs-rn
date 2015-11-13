@@ -143,13 +143,13 @@ We'll change it to point to the new package repository:
 
 .. sourcecode:: bash
 
-   deb http://packages.shapeblue.com/cloudstack/upstream/debian/4.5/ ./
+   deb http://cloudstack.apt-get.eu/ubuntu precise 4.6
 
 Setup the public key for the above repository:
 
 .. sourcecode:: bash
 
-   wget -qO - http://packages.shapeblue.com/release.asc | sudo apt-key add -
+   wget -qO - http://cloudstack.apt-get.eu/release.asc | sudo apt-key add -
 
 If you're using your own package repository, change this line to
 read as appropriate for your |version| repository.
@@ -214,15 +214,14 @@ This file should have content similar to the following:
    gpgcheck=0
 
 If you are using the community provided package repository, change
-the base url to ``http://packages.shapeblue.com/cloudstack/upstream/centos/4.5/``
-If you want to use the CentOS7 repository use the url ``http://packages.shapeblue.com/cloudstack/upstream/centos7/4.5/``
+the base url to ``http://cloudstack.apt-get.eu/rhel/4.6/``. If you want to use
+the CentOS7 repository use the url ``http://cloudstack.apt-get.eu/centos7/4.6/``
 
 Setup the GPG public key if you wish to enable ``gpgcheck=1``:
 
 .. sourcecode:: bash
 
-   wget http://packages.shapeblue.com/release.asc
-   rpm --import release.asc
+   rpm --import http://cloudstack.apt-get.eu/RPM-GPG-KEY
 
 
 If you're using your own package repository, change this line to
@@ -254,36 +253,6 @@ to ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
 
    wget -P /usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver \
    http://download.cloud.com.s3.amazonaws.com/tools/vhd-util
-
-Make sure XenServer has enabled HA on the pool.
-
-To test if poolHA is currently turned on:
-
-.. sourcecode:: bash
-
-   xe pool-list params=all | grep -E "ha-enabled|ha-config"
-
-Output when poolHA is ON:
-
-.. sourcecode:: bash
-
-   ha-enabled ( RO): true
-   ha-configuration ( RO): timeout: 180
-
-Output when poolHA is OFF:
-
-.. sourcecode:: bash
-
-   ha-enabled ( RO): false
-   ha-configuration ( RO):
-
-To enable poolHA, use something like this:
-
-.. sourcecode:: bash
-
-   xe pool-enable-ha heartbeat-sr-uuids={SR-UUID} ha-config:timeout=180
-
-Please refer to the `XenServer documentation <http://docs.vmd.citrix.com/XenServer/>`_, as there are multiple ways of configuring it either on NFS, iSCSI or Fibre Channel. Be aware though, that the timeout setting is not documented. The default is 30 seconds so you may want to bump that towards 120-180 seconds.
 
 
 Hypervisor: VMware
@@ -329,7 +298,8 @@ the plain text password
 
    .. sourcecode:: bash
 
-      update cloud.cluster_details set value = '_ciphertext_from_step_1_' where id = _id_from_step_2_;
+      update cloud.cluster_details set value = '_ciphertext_from_step_1_'
+      where id = _id_from_step_2_;
 
 #. Confirm that the table is updated:
 
@@ -348,7 +318,8 @@ the plain text password
 
    .. sourcecode:: bash
 
-      update cloud.vmware_data_center set password = '_ciphertext_from_step_1_' where id = _id_from_step_5_;
+      update cloud.vmware_data_center set password = '_ciphertext_from_step_1_'
+      where id = _id_from_step_5_;
 
 #. Confirm that the table is updated:
 
@@ -411,13 +382,13 @@ For KVM hosts, upgrade the ``cloudstack-agent`` package
       $ sudo yum upgrade cloudstack-agent
 
 #. Verify that the file ``/etc/cloudstack/agent/environment.properties`` has a 
-    line that reads:
+   line that reads:
 
    .. sourcecode:: bash
 
       paths.script=/usr/share/cloudstack-common
 
-    If not, add the line.
+   If not, add the line.
 
 #. Restart the agent:
 
