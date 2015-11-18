@@ -54,7 +54,7 @@ them for :ref:`ubuntu42` or :ref:`rhel42` and :ref:`kvm42` hosts upgrade.
 Instructions for creating packages from the CloudStack source are in the 
 `CloudStack Installation Guide`_.
 
-.. include:: _sysvm_templates.rst
+.. include:: _sysvm_templates_pre45.rst
 
 
 Database Preparation

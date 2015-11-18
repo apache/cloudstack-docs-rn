@@ -58,7 +58,7 @@ them for :ref:`ubuntu43` or :ref:`rhel43` and :ref:`kvm43` hosts upgrade.
 Instructions for creating packages from the CloudStack source are in the 
 `CloudStack Installation Guide`_.
 
-.. include:: _sysvm_templates.rst
+.. include:: _sysvm_templates_pre45.rst
 
 
 Database Preparation

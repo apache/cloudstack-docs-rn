@@ -28,7 +28,7 @@
 .. |sysvm64-url-ovm|    replace:: http://cloudstack.apt-get.eu/systemvm/4.6/systemvm64template-4.6.0-ovm.raw.bz2
 
 .. Version specific: 4.3 systemvm template URL
-.. |acs43-sysvm64-url-xen|    replace:: http://packages.shapeblue.com/systemvmtemplate/4.3/systemvm64template-4.3-xen.vhd.bz2
-.. |acs43-sysvm64-url-kvm|    replace:: http://packages.shapeblue.com/systemvmtemplate/4.3/systemvm64template-4.3-kvm.qcow2.bz2
-.. |acs43-sysvm64-url-vmware| replace:: http://packages.shapeblue.com/systemvmtemplate/4.3/systemvm64template-4.3-vmware.ova
-.. |acs43-sysvm64-url-hyperv| replace:: http://download.cloud.com/templates/4.3/systemvm64template-2014-06-23-master-hyperv.vhd.bz2
+.. |acs45-sysvm64-url-xen|    replace:: http://cloudstack.apt-get.eu/systemvm/4.5/systemvm64template-4.5-xen.vhd.bz2
+.. |acs45-sysvm64-url-kvm|    replace:: http://cloudstack.apt-get.eu/systemvm/4.5/systemvm64template-4.5-kvm.qcow2.bz2
+.. |acs45-sysvm64-url-vmware| replace:: http://cloudstack.apt-get.eu/systemvm/4.5/systemvm64template-4.5-vmware.ova
+.. |acs45-sysvm64-url-hyperv| replace:: http://cloudstack.apt-get.eu/systemvm/4.5/systemvm64template-4.5-hyperv.vhd.zip
