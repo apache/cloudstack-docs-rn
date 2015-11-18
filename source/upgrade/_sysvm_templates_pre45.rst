@@ -18,8 +18,9 @@
 Update System-VM templates
 --------------------------
 
-.. note::
-   Upgrading pre-4.3 to 4.4.1 require 2 systemvm templates downloaded: the 4.3 and 4.4.
+.. warning::
+   Upgrading from 4.4 or older to 4.6.0 require 2 systemvm templates to be
+   downloaded, for 4.5 and 4.6.
 
 #. While running the existing |version_to_upgrade| system, log in to the UI as 
    root administrator.
@@ -28,7 +29,7 @@ Update System-VM templates
 
 #. In Select view, click Templates.
 
-#. Register 4.3 systemvm template:
+#. Register 4.5 systemvm template:
    
    #. Click Register template.
 
@@ -36,15 +37,17 @@ Update System-VM templates
 
    #. In the Register template dialog box, specify the following values
       (do not change these):
+
+      .. cssclass:: table-striped table-bordered table-hover
    
       +------------+------------------------------------------------------------+
       | Hypervisor | Description                                                |
       +============+============================================================+
-      | XenServer  | Name: systemvm-xenserver-4.3                               |
+      | XenServer  | Name: systemvm-xenserver-4.5                               |
       |            |                                                            |
-      |            | Description: systemvm-xenserver-4.3                        |
+      |            | Description: systemvm-xenserver-4.5                        |
       |            |                                                            |
-      |            | URL: |acs43-sysvm64-url-xen|                               |
+      |            | URL: |acs45-sysvm64-url-xen|                               |
       |            |                                                            |
       |            | Zone: Choose the zone where this hypervisor is used        |
       |            |                                                            |
@@ -66,11 +69,11 @@ Update System-VM templates
       |            |                                                            |
       |            | Routing: no                                                |
       +------------+------------------------------------------------------------+
-      | KVM        | Name: systemvm-kvm-4.3                                     |
+      | KVM        | Name: systemvm-kvm-4.5                                     |
       |            |                                                            |
-      |            | Description: systemvm-kvm-4.3                              |
+      |            | Description: systemvm-kvm-4.5                              |
       |            |                                                            |
-      |            | URL: |acs43-sysvm64-url-kvm|                               |  
+      |            | URL: |acs45-sysvm64-url-kvm|                               |  
       |            |                                                            |
       |            | Zone: Choose the zone where this hypervisor is used        |
       |            |                                                            |
@@ -92,11 +95,11 @@ Update System-VM templates
       |            |                                                            |
       |            | Routing: no                                                |
       +------------+------------------------------------------------------------+
-      | VMware     | Name: systemvm-vmware-4.3                                  |
+      | VMware     | Name: systemvm-vmware-4.5                                  |
       |            |                                                            |
-      |            | Description: systemvm-vmware-4.3                           |
+      |            | Description: systemvm-vmware-4.5                           |
       |            |                                                            |
-      |            | URL: |acs43-sysvm64-url-vmware|                            |
+      |            | URL: |acs45-sysvm64-url-vmware|                            |
       |            |                                                            |
       |            | Zone: Choose the zone where this hypervisor is used        |
       |            |                                                            |
@@ -127,6 +130,8 @@ Update System-VM templates
 
    #. In the Register template dialog box, specify the following values
       (do not change these):
+
+      .. cssclass:: table-striped table-bordered table-hover
       
       +------------+------------------------------------------------------------+
       | Hypervisor | Description                                                |
