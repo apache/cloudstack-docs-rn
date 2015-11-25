@@ -92,7 +92,7 @@ Link                   https://hub.docker.com/u/cloudstack/
 Deprecation of awsapi
 ---------------------
 
-The module awsapi as been removed from the source code and replaced by ec2stack
+The module awsapi has been removed from the source code and replaced by ec2stack
 (https://github.com/apache/cloudstack-ec2stack). Removal of awsapi change the
 upgrade process to 4.6 from previous release as the RPM cloudstack-awsapi must
 be removed. This deprecation removed close to 1 million lines of code from the
