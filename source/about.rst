@@ -89,6 +89,21 @@ Link                   https://hub.docker.com/u/cloudstack/
 ====================== ============================================================================
 
 
+Deprecation of awsapi
+---------------------
+
+The module awsapi as been removed from the source code and replaced by ec2stack
+(https://github.com/apache/cloudstack-ec2stack). Removal of awsapi change the
+upgrade process to 4.6 from previous release as the RPM cloudstack-awsapi must
+be removed. This deprecation removed close to 1 million lines of code from the
+source base.
+
+====================== ============================================================================
+Supported hypervisors: N/A
+Link                   `CLOUDSTACK-8433`_
+====================== ============================================================================
+
+
 Improvements
 ------------
 
@@ -204,3 +219,4 @@ Jira ID             Description
 .. _CLOUDSTACK-8989 : https://issues.apache.org/jira/browse/CLOUDSTACK-8989
 .. _CLOUDSTACK-8992 : https://issues.apache.org/jira/browse/CLOUDSTACK-8992
 .. _CLOUDSTACK-9044 : https://issues.apache.org/jira/browse/CLOUDSTACK-9044
+.. _CLOUDSTACK-8433 : https://issues.apache.org/jira/browse/CLOUDSTACK-8433

@@ -227,6 +227,11 @@ Setup the GPG public key if you wish to enable ``gpgcheck=1``:
 If you're using your own package repository, change this line to
 read as appropriate for your |version| repository.
 
+#. Remove the deprecated dependency for awsapi.
+
+   .. sourcecode:: bash
+
+      $ sudo rpm -e --nodeps cloudstack-awsapi
 
 #. Now that you have the repository configured, it's time to upgrade the 
    ``cloudstack-management``.
