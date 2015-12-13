@@ -34,6 +34,20 @@ For the list of issues fixed, see `Issues Fixed in
 ==========================================================================  ===================================================================================
 Bug ID                                                                      Description
 ==========================================================================  ===================================================================================
+==========================================================================  ===================================================================================
+
+
+Issues Fixed in 4.6.0
+---------------------
+
+For the list of issues fixed, see `Issues Fixed in 
+<https://issues.apache.org/jira/issues/?filter=12332936>`_ |release|.
+
+.. cssclass:: table-striped table-bordered table-hover
+
+==========================================================================  ===================================================================================
+Bug ID                                                                      Description
+==========================================================================  ===================================================================================
 `CLOUDSTACK-9046 <https://issues.apache.org/jira/browse/CLOUDSTACK-9046>`_  Fix upgrade path from 4.4 and 4.5 to 4.6...
 `CLOUDSTACK-9045 <https://issues.apache.org/jira/browse/CLOUDSTACK-9045>`_  Wrong mounting directory specified for managment server....
 `CLOUDSTACK-9043 <https://issues.apache.org/jira/browse/CLOUDSTACK-9043>`_  Localization de_DE and zh_CN don't works: Uncaught SyntaxError: Unexpected token...
