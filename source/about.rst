@@ -17,8 +17,8 @@
 What's New in |version|
 =======================
 
-Version |release| includes more than 20 bug fixes from previous release, the
-following new features and improvements.
+Version |release| includes more than 100 bug fixes from previous release and some
+significant UI improvements. Here are key new features and improvements:
 
 
 Metrics Views
@@ -49,14 +49,6 @@ Link                   `CLOUDSTACK-6276`_
 ====================== ============================================================================
 
 
-VMware vSphere dependency upgrade
----------------------------------
-
-When building Apache CloudStack with ``noredist``, it now require the file
-``deps/vim25_55.jar`` available from vSphere SDK 5.5,
-VMware-vSphere-SDK-5.5.0-1284541.zip.
-
-
 AWS SDK updated to 1.10.34
 --------------------------
 
@@ -68,9 +60,39 @@ Link                   `CLOUDSTACK-9062`_
 ====================== ============================================================================
 
 
+Quota Service
+-------------
+
+Quota service extends the functionality of usage server to provide a measurement
+for the resources used by the accounts and domains using a common unit referred
+to as cloud currency. It can be configured to ensure that your usage won’t
+exceed the budget allocated to accounts/domain in cloud currency.
+
+====================== ============================================================================
+Supported hypervisors: Any
+Link                   `Quota Service spec`_
+====================== ============================================================================
+
+
+SDN
+---
+
+* Nicira plugins updated
+* Nuage plugins updated
+
+
+Build dependency
+----------------
+
+When building Apache CloudStack with ``noredist``, it now require the file
+``deps/vim25_55.jar`` available from vSphere SDK 5.5,
+VMware-vSphere-SDK-5.5.0-1284541.zip.
+
+
 .. _Metric View spec : https://cwiki.apache.org/confluence/display/CLOUDSTACK/Metrics+Views+for+CloudStack+UI
 .. _CLOUDSTACK-6276 : https://issues.apache.org/jira/browse/CLOUDSTACK-6276
 .. _CLOUDSTACK-9062 : https://issues.apache.org/jira/browse/CLOUDSTACK-9062
+.. _Quota Service spec : https://cwiki.apache.org/confluence/display/CLOUDSTACK/Quota+Service+-+FS
 
 .. |metric-view.png| image:: _static/images/metric-view.png
    :alt: Metrics from Instance view
