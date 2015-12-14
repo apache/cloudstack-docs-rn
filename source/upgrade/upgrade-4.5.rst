@@ -143,7 +143,7 @@ We'll change it to point to the new package repository:
 
 .. sourcecode:: bash
 
-   deb http://cloudstack.apt-get.eu/ubuntu precise 4.6
+   deb http://cloudstack.apt-get.eu/ubuntu precise 4.7
 
 Setup the public key for the above repository:
 
@@ -214,8 +214,8 @@ This file should have content similar to the following:
    gpgcheck=0
 
 If you are using the community provided package repository, change
-the base url to ``http://cloudstack.apt-get.eu/rhel/4.6/``. If you want to use
-the CentOS7 repository use the url ``http://cloudstack.apt-get.eu/centos7/4.6/``
+the base url to ``http://cloudstack.apt-get.eu/rhel/4.7/``. If you want to use
+the CentOS7 repository use the url ``http://cloudstack.apt-get.eu/centos7/4.7/``
 
 Setup the GPG public key if you wish to enable ``gpgcheck=1``:
 
