@@ -28,27 +28,31 @@ Added API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | API                               | Description                                                                               |
 +===================================+===========================================================================================+
-| listIdps                          | Returns list of discovered SAML Identity Providers                                        |
+| addImageStoreS3                   | Adds S3 Image Store                                                                       |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| authorizeSamlSso                  | Allow or disallow a user to use SAML SSO                                                  |
+| updateVmNicIp                     | Update the default Ip of a VM Nic                                                         |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| listSamlAuthorization             | Lists authorized users who can used SAML SSO                                              |
+| updateNuageVspDevice              | Update a Nuage VSP device                                                                 |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| listAndSwitchSamlAccount          | Lists and switches to other SAML accounts owned by the SAML user                          |
+| quotaStatement                    | Create a quota statement                                                                  |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| removeRawUsageRecords             | Safely removes raw records from cloud_usage table                                         |
+| quotaBalance                      | Create a quota balance statement                                                          |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| addBigSwitchBcfDevice             | Adds a BigSwitch BCF Controller device                                                    |
+| quotaSummary                      | Lists balance and quota usage for all accounts                                            |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| deleteBigSwitchBcfDevice          |  delete a BigSwitch BCF Controller device                                                 |
+| quotaUpdate                       |  Update quota calculations, alerts and statements                                         |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| listBigSwitchBcfDevices           | Lists BigSwitch BCF Controller devices                                                    |
+| quotaTariffList                   | Lists all quota tariff plans                                                              |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| linkDomainToLdap                  | link an existing cloudstack domain to group or OU in ldap                                 |
+| quotaTariffUpdate                 | Update the tariff plan for a resource                                                     |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| getUploadParamsForVolume          | Upload a data disk to the cloudstack cloud.                                               |
+| quotaCredits                      | Add +-credits to an account                                                               |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| getUploadParamsForTemplate        | upload an existing template into the CloudStack cloud.                                    |
+| quotaEmailTemplateList            | Lists all quota email templates                                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| quotaEmailTemplateUpdate          | Updates existing email templates for quota alerts                                         |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| quotaIsEnabled                    | Return true if the plugin is enabled                                                      |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 
 
@@ -60,348 +64,92 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | API                               | Description                                                                               |
 +===================================+===========================================================================================+
-| addNicToVirtualMachine            | Response:                                                                                 |
+| startInternalLoadBalancerVM       | Response:                                                                                 |
 |                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
+|                                   | New parameters: guestnetworkname, vpcname                                                 |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| addCluster                        | Request:                                                                                  |
+| listInternalLoadBalancerVMs       | Response:                                                                                 |
 |                                   |                                                                                           |
-|                                   | New parameters: ``ovm3cluster`` (optional), ``ovm3pool`` (optional),                      |
-|                                   | ``ovm3vip`` (optional)                                                                    |
+|                                   | New parameters: guestnetworkname, vpcname                                                 |
+|                                   |                                                                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| stopInternalLoadBalancerVM        | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: guestnetworkname, vpcname                                                 |
+|                                   |                                                                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| listRouters                       | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: guestnetworkname, vpcname                                                 |
+|                                   |                                                                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| stopRouter                        | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: guestnetworkname, vpcname                                                 |
+|                                   |                                                                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| destroyRouter                     | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: guestnetworkname, vpcname                                                 |
+|                                   |                                                                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| rebootRouter                      | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: guestnetworkname, vpcname                                                 |
+|                                   |                                                                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| changeServiceForRouter            | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: guestnetworkname, vpcname                                                 |
+|                                   |                                                                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| startRouter                       | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: guestnetworkname, vpcname                                                 |
+|                                   |                                                                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| listAffinityGroups                | Request:                                                                                  |
+|                                   |                                                                                           |
+|                                   | New parameters: ``projectid`` (optional)                                                  |
 |                                   |                                                                                           |
 |                                   | Response:                                                                                 |
 |                                   |                                                                                           |
-|                                   | New parameters: ovm3vip                                                                   |
+|                                   | New parameters: project, projectid                                                        |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| createTemplate                    | Request:                                                                                  |
+| createAffinityGroup               | Request:                                                                                  |
+|                                   |                                                                                           |
+|                                   | New parameters: ``projectid`` (optional)                                                  |
+|                                   |                                                                                           |
+|                                   | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: project, projectid                                                        |
+|                                   |                                                                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| deleteAffinityGroup               | Request:                                                                                  |
 |                                   |                                                                                           |
 |                                   | New parameters: ``projectid`` (optional)                                                  |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| registerSSHKeyPair                | Response:                                                                                 |
+| dedicatePublicIpRange             | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: account, domain, domainid                                                 |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listClusters                      | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: ovm3vip                                                                   |
+|                                   | Changed parameters: ``account`` (old version - required, new version - optional)          |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| resetSSHKeyForVirtualMachine      | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
+
+
+Removed API commands
+--------------------
+
+.. cssclass:: table-striped table-bordered table-hover
+
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| createSecurityGroup               | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: virtualmachinecount, virtualmachineids                                    |
-|                                   |                                                                                           |
+| API                               | Description                                                                               |
++===================================+===========================================================================================+
+| addS3                             | Adds S3                                                                                   |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| updateStoragePool                 | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``enabled`` (optional)                                                    |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| updateHostPassword                | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``update_passwd_on_host`` (optional)                                      |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listSSHKeyPairs                   | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: account, domain, domainid                                                 |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| recoverVirtualMachine             | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listCapabilities                  | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: allowuserexpungerecovervm, allowuserviewdestroyedvm                       |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| updateVPC                         | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: redundantvpcrouter                                                        |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| updatePortForwardingRule          | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``vmguestip`` (optional)                                                  |
-|                                   |                                                                                           |
-|                                   | Removed parameters: ipaddressid, privateip, protocol, publicport                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| deployVirtualMachine              | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| updateTrafficType                 | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``ovm3networklabel`` (optional), ``xennetworklabel`` (optional)           |
-|                                   |                                                                                           |
-|                                   | Removed parameters: xenservernetworklabel                                                 |
-|                                   |                                                                                           |
-|                                   | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: ovm3networklabel, xennetworklabel                                         |
-|                                   |                                                                                           |
-|                                   | Removed parameters: xenservernetworklabel                                                 |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| createDomain                      | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: cpuavailable, cpulimit, cputotal, ipavailable, iplimit, iptotal,          |
-|                                   | memoryavailable, memorylimit, memorytotal, networkavailable, networklimit, networktotal,  |
-|                                   | primarystorageavailable, primarystoragelimit, primarystoragetotal, projectavailable,      |
-|                                   | projectlimit, projecttotal, secondarystorageavailable, secondarystoragelimit,             |
-|                                   | secondarystoragetotal, snapshotavailable, snapshotlimit, snapshottotal, state,            |
-|                                   | templateavailable, templatelimit, templatetotal, vmavailable, vmlimit, vmtotal,           |
-|                                   | volumeavailable, volumelimit, volumetotal, vpcavailable, vpclimit, vpctotal               |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listLBHealthCheckPolicies         | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``id`` (optional)                                                         |
-|                                   |                                                                                           |
-|                                   | Changed parameters: lbruleid (old version - required, new version - optional)             |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listDiskOfferings                 | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``isrecursive`` (optional), ``listall`` (optional)                        |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listSnapshots                     | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: physicalsize                                                              |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| addS3                             | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``connectionttl`` (optional), ``usetcpkeepalive`` (optional)              |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| attachIso                         | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listDomains                       | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: cpuavailable, cpulimit, cputotal, ipavailable, iplimit, iptotal,          |
-|                                   | memoryavailable, memorylimit, memorytotal, networkavailable, networklimit, networktotal,  |
-|                                   | primarystorageavailable, primarystoragelimit, primarystoragetotal, projectavailable,      |
-|                                   | projectlimit, projecttotal, secondarystorageavailable, secondarystoragelimit,             |
-|                                   | secondarystoragetotal, snapshotavailable, snapshotlimit, snapshottotal, state,            |
-|                                   | templateavailable, templatelimit, templatetotal, vmavailable, vmlimit, vmtotal,           |
-|                                   | volumeavailable, volumelimit, volumetotal, vpcavailable, vpclimit, vpctotal               |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| updateCluster                     | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: ovm3vip                                                                   |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| prepareTemplate                   | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``storageid`` (optional)                                                  |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| rebootVirtualMachine              | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listSecurityGroups                | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: virtualmachinecount, virtualmachineids                                    |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| updateVMAffinityGroup             | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| addTrafficType                    | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``ovm3networklabel`` (optional), ``xennetworklabel`` (optional)           |
-|                                   |                                                                                           |
-|                                   | Removed parameters: xenservernetworklabel                                                 |
-|                                   |                                                                                           |
-|                                   | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: ovm3networklabel, xennetworklabel                                         |
-|                                   |                                                                                           |
-|                                   | Removed parameters: xenservernetworklabel                                                 |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| updateTemplate                    | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``requireshvm`` (optional)                                                |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| removeNicFromVirtualMachine       | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| updateDefaultNicForVirtualMachine | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| createVPC                         | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: redundantvpcrouter                                                        |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| resetPasswordForVirtualMachine    | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| changeServiceForVirtualMachine    | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| startVirtualMachine               | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| detachIso                         | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| migrateVirtualMachine             | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| updateDomain                      | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: cpuavailable, cpulimit, cputotal, ipavailable, iplimit, iptotal,          |
-|                                   | memoryavailable, memorylimit, memorytotal, networkavailable, networklimit, networktotal,  |
-|                                   | primarystorageavailable, primarystoragelimit, primarystoragetotal, projectavailable,      |
-|                                   | projectlimit, projecttotal, secondarystorageavailable, secondarystoragelimit,             |
-|                                   | secondarystoragetotal, snapshotavailable, snapshotlimit, snapshottotal, state,            |
-|                                   | templateavailable, templatelimit, templatetotal, vmavailable, vmlimit, vmtotal,           |
-|                                   | volumeavailable, volumelimit, volumetotal, vpcavailable, vpclimit, vpctotal               |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listVPCs                          | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: redundantvpcrouter                                                        |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| assignVirtualMachine              | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| updateVirtualMachine              | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listServiceOfferings              | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``isrecursive`` (optional), ``listall`` (optional)                        |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| samlSso                           | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``idpid`` (required)                                                      |
-|                                   |                                                                                           |
-|                                   | Removed parameters: idpurl                                                                |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| restoreVirtualMachine             | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listDomainChildren                | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: cpuavailable, cpulimit, cputotal, ipavailable, iplimit, iptotal,          |
-|                                   | memoryavailable, memorylimit, memorytotal, networkavailable, networklimit, networktotal,  |
-|                                   | primarystorageavailable, primarystoragelimit, primarystoragetotal, projectavailable,      |
-|                                   | projectlimit, projecttotal, secondarystorageavailable, secondarystoragelimit,             |
-|                                   | secondarystoragetotal, snapshotavailable, snapshotlimit, snapshottotal, state,            |
-|                                   | templateavailable, templatelimit, templatetotal, vmavailable, vmlimit, vmtotal,           |
-|                                   | volumeavailable, volumelimit, volumetotal, vpcavailable, vpclimit, vpctotal               |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| migrateVirtualMachineWithVolume   | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| stopVirtualMachine                | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| createSnapshot                    | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``name`` (optional)                                                       |
-|                                   |                                                                                           |
-|                                   | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: physicalsize                                                              |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| updateIso                         | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``requireshvm`` (optional)                                                |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| destroyVirtualMachine             | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| revertToVMSnapshot                | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listVirtualMachines               | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``keypair`` (optional), ``userid`` (optional)                             |
-|                                   |                                                                                           |
-|                                   | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: userid, username                                                          |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| restartVPC                        | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``cleanup`` (optional), ``makeredundant`` (optional)                      |
-|                                   |                                                                                           |
-|                                   | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: redundantvpcrouter                                                        |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| revertSnapshot                    | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: physicalsize                                                              |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| createVpnCustomerGateway          | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``projectid`` (optional)                                                  |
-|                                   |                                                                                           |
+| listS3s                           | Lists S3s                                                                                 |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 
 
