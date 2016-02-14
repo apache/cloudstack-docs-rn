@@ -17,8 +17,18 @@
 What's New in |version|
 =======================
 
-Version |release| includes more than 100 bug fixes from previous release and some
-significant UI improvements. Here are key new features and improvements:
+Version |release| includes more than 20 bug fixes from previous release.
+
+Part of a new release process 4.8.0 got released 2 months after 4.7.0.
+
+Lot's of UI and VPC improvements and fixes where merged into this release.
+
+
+SDN
+---
+
+* Nicira plugins updated
+* Nuage plugins updated
 
 
 Metrics Views
@@ -38,49 +48,6 @@ Link                   `Metric View spec`_
 ====================== ============================================================================
 
 
-Affinity groups within projects
--------------------------------
-
-It is now possible to use anti-affinity groups in projects.
-
-====================== ============================================================================
-Supported hypervisors: Any
-Link                   `CLOUDSTACK-6276`_
-====================== ============================================================================
-
-
-AWS SDK updated to 1.10.34
---------------------------
-
-AWS SDK used for Secondary Storage to S3 has been updated to latest SDK, 1.10.34.
-
-====================== ============================================================================
-Supported hypervisors: Any
-Link                   `CLOUDSTACK-9062`_
-====================== ============================================================================
-
-
-Quota Service
--------------
-
-Quota service extends the functionality of usage server to provide a measurement
-for the resources used by the accounts and domains using a common unit referred
-to as cloud currency. It can be configured to ensure that your usage won’t
-exceed the budget allocated to accounts/domain in cloud currency.
-
-====================== ============================================================================
-Supported hypervisors: Any
-Link                   `Quota Service spec`_
-====================== ============================================================================
-
-
-SDN
----
-
-* Nicira plugins updated
-* Nuage plugins updated
-
-
 Build dependency
 ----------------
 
@@ -90,9 +57,6 @@ VMware-vSphere-SDK-5.5.0-1284541.zip.
 
 
 .. _Metric View spec : https://cwiki.apache.org/confluence/display/CLOUDSTACK/Metrics+Views+for+CloudStack+UI
-.. _CLOUDSTACK-6276 : https://issues.apache.org/jira/browse/CLOUDSTACK-6276
-.. _CLOUDSTACK-9062 : https://issues.apache.org/jira/browse/CLOUDSTACK-9062
-.. _Quota Service spec : https://cwiki.apache.org/confluence/display/CLOUDSTACK/Quota+Service+-+FS
 
 .. |metric-view.png| image:: _static/images/metric-view.png
    :alt: Metrics from Instance view

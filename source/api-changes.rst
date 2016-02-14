@@ -20,41 +20,6 @@ API Changes Introduced in |version|
 For the complete list of API commands and params consult the `CloudStack Apidocs`_.
 
 
-Added API commands
-------------------
-
-.. cssclass:: table-striped table-bordered table-hover
-
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| API                               | Description                                                                               |
-+===================================+===========================================================================================+
-| addImageStoreS3                   | Adds S3 Image Store                                                                       |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| updateVmNicIp                     | Update the default Ip of a VM Nic                                                         |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| updateNuageVspDevice              | Update a Nuage VSP device                                                                 |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| quotaStatement                    | Create a quota statement                                                                  |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| quotaBalance                      | Create a quota balance statement                                                          |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| quotaSummary                      | Lists balance and quota usage for all accounts                                            |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| quotaUpdate                       |  Update quota calculations, alerts and statements                                         |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| quotaTariffList                   | Lists all quota tariff plans                                                              |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| quotaTariffUpdate                 | Update the tariff plan for a resource                                                     |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| quotaCredits                      | Add +-credits to an account                                                               |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| quotaEmailTemplateList            | Lists all quota email templates                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| quotaEmailTemplateUpdate          | Updates existing email templates for quota alerts                                         |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| quotaIsEnabled                    | Return true if the plugin is enabled                                                      |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-
 
 Updated API commands
 --------------------
@@ -64,92 +29,76 @@ Updated API commands
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 | API                               | Description                                                                               |
 +===================================+===========================================================================================+
-| startInternalLoadBalancerVM       | Response:                                                                                 |
+| createVpnConnection               | Response:                                                                                 |
 |                                   |                                                                                           |
-|                                   | New parameters: guestnetworkname, vpcname                                                 |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listInternalLoadBalancerVMs       | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: guestnetworkname, vpcname                                                 |
+|                                   | New parameters: forceencap                                                                |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| stopInternalLoadBalancerVM        | Response:                                                                                 |
+| listNiciraNvpDevices              | Response:                                                                                 |
 |                                   |                                                                                           |
-|                                   | New parameters: guestnetworkname, vpcname                                                 |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listRouters                       | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: guestnetworkname, vpcname                                                 |
+|                                   | New parameters: l2gatewayserviceuuid                                                      |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| stopRouter                        | Response:                                                                                 |
+| addNiciraNvpDevice                | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: guestnetworkname, vpcname                                                 |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| destroyRouter                     | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: guestnetworkname, vpcname                                                 |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| rebootRouter                      | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: guestnetworkname, vpcname                                                 |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| changeServiceForRouter            | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: guestnetworkname, vpcname                                                 |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| startRouter                       | Response:                                                                                 |
-|                                   |                                                                                           |
-|                                   | New parameters: guestnetworkname, vpcname                                                 |
-|                                   |                                                                                           |
-+-----------------------------------+-------------------------------------------------------------------------------------------+
-| listAffinityGroups                | Request:                                                                                  |
-|                                   |                                                                                           |
-|                                   | New parameters: ``projectid`` (optional)                                                  |
+|                                   | New parameters: ``l2gatewayserviceuuid`` (optional)                                       |
 |                                   |                                                                                           |
 |                                   | Response:                                                                                 |
 |                                   |                                                                                           |
-|                                   | New parameters: project, projectid                                                        |
+|                                   | New parameters: l2gatewayserviceuuid                                                      |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| createAffinityGroup               | Request:                                                                                  |
+| createVpnCustomerGateway          | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: ``projectid`` (optional)                                                  |
+|                                   | New parameters: ``forceencap`` (optional)                                                 |
 |                                   |                                                                                           |
 |                                   | Response:                                                                                 |
 |                                   |                                                                                           |
-|                                   | New parameters: project, projectid                                                        |
+|                                   | New parameters: forceencap                                                                |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| deleteAffinityGroup               | Request:                                                                                  |
+| listVpnCustomerGateways           | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | New parameters: ``projectid`` (optional)                                                  |
+|                                   | New parameters: ``forceencap`` (optional)                                                 |
+|                                   |                                                                                           |
+|                                   | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: forceencap                                                                |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| dedicatePublicIpRange             | Request:                                                                                  |
+| updateVpnCustomerGateway          | Request:                                                                                  |
 |                                   |                                                                                           |
-|                                   | Changed parameters: ``account`` (old version - required, new version - optional)          |
+|                                   | New parameters: ``forceencap`` (optional)                                                 |
+|                                   |                                                                                           |
+|                                   | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: forceencap                                                                |
 |                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-
-
-Removed API commands
---------------------
-
-.. cssclass:: table-striped table-bordered table-hover
-
+| updateVpnConnection               | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: forceencap                                                                |
+|                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| API                               | Description                                                                               |
-+===================================+===========================================================================================+
-| addS3                             | Adds S3                                                                                   |
+| listNics                          | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: nsxlogicalswitch, nsxlogicalswitchport                                    |
+|                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
-| listS3s                           | Lists S3s                                                                                 |
+| createVolume                      | Request:                                                                                  |
+|                                   |                                                                                           |
+|                                   | Changed parameters: ``name`` (old version - required, new version - optional)             |
+|                                   |                                                                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| resetVpnConnection                | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: forceencap                                                                |
+|                                   |                                                                                           |
++-----------------------------------+-------------------------------------------------------------------------------------------+
+| listVpnConnections                | Response:                                                                                 |
+|                                   |                                                                                           |
+|                                   | New parameters: forceencap                                                                |
+|                                   |                                                                                           |
 +-----------------------------------+-------------------------------------------------------------------------------------------+
 
 

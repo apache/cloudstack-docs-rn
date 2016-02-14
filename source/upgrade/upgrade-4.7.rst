@@ -14,7 +14,7 @@
     under the License.
 
 
-.. |version_to_upgrade| replace:: 4.5.x
+.. |version_to_upgrade| replace:: 4.7.x
 
 Upgrade Instruction from |version_to_upgrade|
 =============================================
@@ -53,12 +53,10 @@ Create RPM or Debian packages (as appropriate) and a repository from
 the |version| source, or check the Apache CloudStack downloads page at
 http://cloudstack.apache.org/downloads.html
 for package repositories supplied by community members. You will need
-them for :ref:`ubuntu45` or :ref:`rhel45` and :ref:`kvm45` hosts upgrade. 
+them for :ref:`ubuntu47` or :ref:`rhel47` and :ref:`kvm47` hosts upgrade. 
 
 Instructions for creating packages from the CloudStack source are in the 
 `CloudStack Installation Guide`_.
-
-.. include:: _sysvm_templates.rst
 
 
 Database Preparation
@@ -106,13 +104,13 @@ Backup current database
       $ mysql -u cloud -p -e 'update cloud.storage_pool set path="/var/lib/libvirt/images" where path="/var/lib/libvirt/images/"';
 
 
-.. _ubuntu45:
+.. _ubuntu47:
 
 Management Server on Ubuntu
 ---------------------------
 
 If you are using Ubuntu, follow this procedure to upgrade your packages. If 
-not, skip to step :ref:`rhel45`.
+not, skip to step :ref:`rhel47`.
 
 .. note:: 
    **Community Packages:** This section assumes you're using the community
@@ -125,7 +123,7 @@ servers, and any hosts that have the KVM agent. (No changes should
 be necessary for hosts that are running VMware or Xen.)
 
 
-.. _apt-repo45:
+.. _apt-repo47:
 
 CloudStack apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -137,7 +135,7 @@ This file should have one line, which contains:
 
 .. sourcecode:: bash
 
-   deb http://cloudstack.apt-get.eu/ubuntu precise 4.5
+   deb http://cloudstack.apt-get.eu/ubuntu precise 4.7
 
 We'll change it to point to the new package repository:
 
@@ -174,13 +172,13 @@ read as appropriate for your |version| repository.
       $ sudo apt-get upgrade cloudstack-usage
 
 
-.. _rhel45:
+.. _rhel47:
 
 Management Server on CentOS/RHEL
 --------------------------------
 
 If you are using CentOS or RHEL, follow this procedure to upgrade your 
-packages. If not, skip to hypervisors section, then :ref:`upg-sysvm45`.
+packages. If not, skip to hypervisors section, then :ref:`upg-sysvm47`.
 
 .. note:: 
    **Community Packages:** This section assumes you're using the community
@@ -188,7 +186,7 @@ packages. If not, skip to hypervisors section, then :ref:`upg-sysvm45`.
    yum repository, substitute your own URL for the ones used in these examples.
 
 
-.. _rpm-repo45:
+.. _rpm-repo47:
 
 CloudStack RPM repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -209,7 +207,7 @@ This file should have content similar to the following:
 
    [apache-cloudstack]
    name=Apache CloudStack
-   baseurl=http://cloudstack.apt-get.eu/rhel/4.5/
+   baseurl=http://cloudstack.apt-get.eu/rhel/4.7/
    enabled=1
    gpgcheck=0
 
@@ -333,7 +331,7 @@ the plain text password
       select * from cloud.vmware_data_center;
 
 
-.. _kvm45:
+.. _kvm47:
 
 Hypervisor: KVM
 ---------------
@@ -346,7 +344,7 @@ steps will not affect running guests in the cloud. These steps are
 required only for clouds using KVM as hosts and only on the KVM
 hosts.
 
-#. Configure the :ref:`apt-repo45` as detailed above.
+#. Configure the :ref:`apt-repo47` as detailed above.
 
 #. Stop the running agent.
 
@@ -380,7 +378,7 @@ KVM on CentOS/RHEL
 ^^^^^^^^^^^^^^^^^^
 For KVM hosts, upgrade the ``cloudstack-agent`` package
 
-#. Configure the :ref:`rpm-repo45` as detailed above.
+#. Configure the :ref:`rpm-repo47` as detailed above.
 
    .. sourcecode:: bash
 
@@ -418,14 +416,6 @@ Restart management services
    .. sourcecode:: bash
 
       $ sudo service cloudstack-usage start
-
-
-.. _upg-sysvm45:
-
-System-VMs and Virtual-Routers
-------------------------------
-
-.. include:: _sysvm_restart.rst
 
 
 .. include:: /global.rst
