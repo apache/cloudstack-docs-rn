@@ -210,7 +210,7 @@ This file should have content similar to the following:
    gpgcheck=0
 
 If you are using the community provided package repository, change
-the baseurl to ``http://cloudstack.apt-get.eu/rhel/4.8/``.
+the baseurl to ``http://cloudstack.apt-get.eu/centos/6/4.8/``.
 
 Setup the GPG public key if you wish to enable ``gpgcheck=1``:
 
