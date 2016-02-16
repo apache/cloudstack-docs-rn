@@ -370,7 +370,7 @@ texinfo_documents = [
 epub_title = u'CloudStack Release Notes'
 epub_author = u'Apache CloudStack'
 epub_publisher = u'Apache CloudStack'
-epub_copyright = u'2015, Apache CloudStack'
+epub_copyright = u'2016, Apache CloudStack'
 
 # The basename for the epub file. It defaults to the project name.
 #epub_basename = u'CloudStack Release Notes'
