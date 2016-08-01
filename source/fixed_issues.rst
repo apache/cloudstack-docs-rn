@@ -18,48 +18,753 @@ Issues Fixed in |version|
 =========================
 
 Apache CloudStack uses `Jira <https://issues.apache.org/jira/browse/CLOUDSTACK>`_ 
-to track its issues. All new features and bugs for |release| have been tracked 
-in Jira, and have a standard naming convention of "CLOUDSTACK-NNNN" where 
-"NNNN" is the issue number.
+to track its issues and `Github <https://github.com/apache/cloudstack/pulls>`_ for 
+pull requests. All new features and bugs for |release| have been merged through
+Github pull requests.  A subset of these changes are tracked in Jira, which have a 
+standard naming convention of "CLOUDSTACK-NNNN" where "NNNN" is the issue number.
 
 
 Issues Fixed in |release|
 -------------------------
 
-For the list of issues fixed, see `Issues Fixed in 
-<https://issues.apache.org/jira/issues/?filter=12334803>`_ |release|.
-
 .. cssclass:: table-striped table-bordered table-hover
 
-==========================================================================  ===================================================================================
-Bug ID                                                                      Description
-==========================================================================  ===================================================================================
-`CLOUDSTACK-9244 <https://issues.apache.org/jira/browse/CLOUDSTACK-9244>`_  Wrong IP routes added to SystemVM when Public IP is in RFC-1918 space...
-`CLOUDSTACK-9240 <https://issues.apache.org/jira/browse/CLOUDSTACK-9240>`_  Templatesize >40GB doesn't work properly...
-`CLOUDSTACK-9239 <https://issues.apache.org/jira/browse/CLOUDSTACK-9239>`_  lock account silently fails...
-`CLOUDSTACK-9238 <https://issues.apache.org/jira/browse/CLOUDSTACK-9238>`_  URL fields in database are to small. Cause malformed URLs...
-`CLOUDSTACK-9237 <https://issues.apache.org/jira/browse/CLOUDSTACK-9237>`_  Create LB Healthcheck issues - button alignment and error message goes outside t...
-`CLOUDSTACK-9236 <https://issues.apache.org/jira/browse/CLOUDSTACK-9236>`_  Load Balancing Health Check button displayed when non-NetScaler offering is used...
-`CLOUDSTACK-9235 <https://issues.apache.org/jira/browse/CLOUDSTACK-9235>`_  Autoscale button is missing in VPC...
-`CLOUDSTACK-9231 <https://issues.apache.org/jira/browse/CLOUDSTACK-9231>`_  Root volume migration from one primary to another primary storage within the sam...
-`CLOUDSTACK-9230 <https://issues.apache.org/jira/browse/CLOUDSTACK-9230>`_  Remove unnecessary return statement from cloudStack.js...
-`CLOUDSTACK-9229 <https://issues.apache.org/jira/browse/CLOUDSTACK-9229>`_  Autoscale policy creation failing in VPC due to zoneid missing in createAutoScal...
-`CLOUDSTACK-9222 <https://issues.apache.org/jira/browse/CLOUDSTACK-9222>`_  cloud.log is filling up disk space...
-`CLOUDSTACK-9220 <https://issues.apache.org/jira/browse/CLOUDSTACK-9220>`_  List of domains in Domain tab in UI is not sorted...
-`CLOUDSTACK-9213 <https://issues.apache.org/jira/browse/CLOUDSTACK-9213>`_  As a user I want to be able to use multiple ip's/cidrs in an ACL...
-`CLOUDSTACK-9210 <https://issues.apache.org/jira/browse/CLOUDSTACK-9210>`_  KVM security re-programming fails...
-`CLOUDSTACK-9204 <https://issues.apache.org/jira/browse/CLOUDSTACK-9204>`_  Delete static route fails when it's already gone...
-`CLOUDSTACK-9202 <https://issues.apache.org/jira/browse/CLOUDSTACK-9202>`_  SSH commands to VR timeout sometimes...
-`CLOUDSTACK-9195 <https://issues.apache.org/jira/browse/CLOUDSTACK-9195>`_  Cancelled/failed async jobs not getting cleaned up from DB...
-`CLOUDSTACK-9192 <https://issues.apache.org/jira/browse/CLOUDSTACK-9192>`_  UpdateVpnCustomerGateway is failing...
-`CLOUDSTACK-9187 <https://issues.apache.org/jira/browse/CLOUDSTACK-9187>`_  rVPC routers in Master/Master due to concurrency problem when writing the keepal...
-`CLOUDSTACK-9186 <https://issues.apache.org/jira/browse/CLOUDSTACK-9186>`_  Root admin cannot see VPC created by Domain admin user...
-`CLOUDSTACK-9181 <https://issues.apache.org/jira/browse/CLOUDSTACK-9181>`_  Syntax error in checkrouter.sh when interface is missing...
-`CLOUDSTACK-9154 <https://issues.apache.org/jira/browse/CLOUDSTACK-9154>`_  rVPC doesn't recover from cleaning up of network garbage collector...
-`CLOUDSTACK-9132 <https://issues.apache.org/jira/browse/CLOUDSTACK-9132>`_  API createVolume takes empty string for name parameter...
-`CLOUDSTACK-8885 <https://issues.apache.org/jira/browse/CLOUDSTACK-8885>`_  None of the users is able to login to cloudstack when RabbitMQ connections are b...
-`CLOUDSTACK-8860 <https://issues.apache.org/jira/browse/CLOUDSTACK-8860>`_  Improve error messages in VM deployment code path...
-`CLOUDSTACK-6485 <https://issues.apache.org/jira/browse/CLOUDSTACK-6485>`_  [vpc] new private gateway network is registered wrong in network table...
-`CLOUDSTACK-4572 <https://issues.apache.org/jira/browse/CLOUDSTACK-4572>`_  findHostsForMigration API does not return correct host list...
-==========================================================================  ===================================================================================
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| Branches           | Github   | Jira               | Type          | Priority | Description                                                |
++====================+==========+====================+===============+==========+============================================================+
+| 4.9                | `#1616`_ |                    |               |          | Added missing rules on router config, fixed ordering of    |
+|                    |          |                    |               |          | multiple rules                                             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1613`_ | CLOUDSTACK-9436_   | Bug           | Major    | ``vm_network_map`` table cleanup on expunge command        |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1583`_ |                    |               |          | Update L10N resource files with 4.9 strings from Transifex |
+|                    |          |                    |               |          | (20160607)                                                 |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1610`_ |                    |               |          | Packaging: Add ``db.X.driver=jdbc:mysql`` to               |
+|                    |          |                    |               |          | ``db.properties`` on upgrade                               |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1609`_ | CLOUDSTACK-9430_   | Bug           | Major    | Adding a network ACL rule adds it in the wrong order for   |
+|                    |          |                    |               |          | VPCs                                                       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1608`_ |                    |               |          | Cleanup RBD contexts after exceptions to prevent potential |
+|                    |          |                    |               |          | agent crash                                                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1601`_ | CLOUDSTACK-9348_   | Bug           | Major    | CloudStack Server degrades when a lot of connections on    |
+|                    |          |                    |               |          | port 8250                                                  |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1595`_ |                    |               |          | UI: Show resize volume button to all users                 |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1455`_ | CLOUDSTACK-9328_   | Test          | Major    | Fix VLAN issues from test suite ``test_privategw_acl.py``  |
+|                    |          |                    |               |          | in BVT                                                     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1480`_ | CLOUDSTACK-9342_   | Bug           | Critical | PFS not being set correctly for S2S VPN Tunnel             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1598`_ | CLOUDSTACK-9423_   | Bug           | Major    | Object storage should get the correct size for compressed  |
+|                    |          |                    |               |          | templates                                                  |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1547`_ |                    |               |          | Fixes for VirtualRouters in Basic Networking, especially   |
+|                    |          |                    |               |          | with multiple ranges in VLANs                              |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1596`_ | CLOUDSTACK-9353_   | Bug           | Critical | NullPointerException when migrating VMs with local storage |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1581`_ | CLOUDSTACK-9404_   | Bug           | Major    | Network ACL rules in VPCs are applied in an inverted order |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1585`_ | CLOUDSTACK-9399_   | Bug           | Major    | NullPointerException when deleting Host                    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1584`_ | CLOUDSTACK-9409_   | Bug           | Blocker  | Usage server fails to work with 4.9 due to missing         |
+|                    |          |                    |               |          | ``role_id`` column                                         |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1574`_ |                    |               |          | Make sure that the DB drivers are loaded before creating   |
+|                    |          |                    |               |          | connections                                                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1570`_ |                    |               |          | Travis: Use ``ipmitool`` from Ubuntu repository            |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1569`_ |                    |               |          | Fix noredist build because of missing maven dependency of  |
+|                    |          |                    |               |          | vmware 6.0 lib                                             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1423`_ | CLOUDSTACK-9296_   | Bug           | Major    | IPsec doesn't get started when enabling client VPN gateway |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1251`_ | CLOUDSTACK-9180_   | Bug           | Major    | Optimize concurrent VM deployment operation on same        |
+|                    |          |                    |               |          | network                                                    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1567`_ | CLOUDSTACK-9238_   | Bug           | Major    | URL fields in database are to small. Cause malformed URLs  |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1565`_ |                    |               |          | Add ``lsb-release`` dependency to mgmt server and agent on |
+|                    |          |                    |               |          | Debian/Ubuntu.                                             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1564`_ |                    |               |          | Emit template UUID and class type over event bus when      |
+|                    |          |                    |               |          | deleting templates                                         |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1561`_ | CLOUDSTACK-9388_   | Test          | Major    | Remove string conversion in Assertion statement            |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1471`_ |                    |               |          | Lower the time we wait for interfaces to appear            |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1518`_ | CLOUDSTACK-9368_   | Bug           | Major    | Fix for Support configurable NFS version for Secondary     |
+|                    |          |                    |               |          | Storage mounts                                             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1424`_ | CLOUDSTACK-8973_   | Bug           | Minor    | Unusual response when creating a template from a snapshot  |
+|                    |          |                    |               |          | with Swift as secondary storage                            |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1360`_ |                    |               |          | Re-factor system VM default network creation               |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1552`_ |                    |               |          | Add DHCP lease folders for Ubuntu                          |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1556`_ |                    |               |          | Hyper-V communication broken by change in variable names   |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1553`_ |                    |               |          | Dynamically load drivers before creating our DB            |
+|                    |          |                    |               |          | connections                                                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1297`_ | CLOUDSTACK-9203_   | New Feature   | Minor    | [API] extend ``updateVirtualMachine`` to support updating  |
+|                    |          |                    |               |          | security groups                                            |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1550`_ | CLOUDSTACK-9380_   | Bug           | Critical | ``listDomains`` API returns NPE if there is a failure in   |
+|                    |          |                    |               |          | deleting domains                                           |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1494`_ | CLOUDSTACK-9294_   | Bug           | Major    | Nuage Plugin: VR doesn't get removed from the VSD when     |
+|                    |          |                    |               |          | destroying a VPC                                           |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1555`_ |                    |               |          | Add Java Default Certificat Authorities into the keystore  |
+|                    |          |                    |               |          | if using a custom cert SSL                                 |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1533`_ |                    |               |          | Convert patchviasocket to python (removes perl dependency  |
+|                    |          |                    |               |          | for KVM agent)                                             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1503`_ | CLOUDSTACK-9358_   | Bug           | Critical | ``StringIndexOutOfBoundsException`` when publishing events |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#956`_  | CLOUDSTACK-8970_   | Bug           | Major    | CentOS 6.{1,2,3,4,5} guest OS mapping for VMware is not    |
+|                    |          |                    |               |          | available                                                  |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#846`_  | CLOUDSTACK-8870_   | Bug           | Major    | External network device usage monitor runs even when there |
+|                    |          |                    |               |          | are no external devices                                    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1514`_ | CLOUDSTACK-6975_   | Bug           | Major    | Service monitoring starts ``dnsmasq`` on backup router     |
+|                    |          |                    |               |          | when using redundant VRs                                   |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1410`_ | CLOUDSTACK-6928_   | Bug           | Critical | IOPS throttling setting isn't applied to a dynamically     |
+|                    |          |                    |               |          | attached volume                                            |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1549`_ | CLOUDSTACK-9348_   | Bug           | Major    | NioConnection improvements                                 |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1523`_ | CLOUDSTACK-9365_   | Bug           | Major    | ``updateVirtualMachine`` with ``userdata`` should not      |
+|                    |          |                    |               |          | error when a VM is attached to multiple networks from      |
+|                    |          |                    |               |          | which one or more doesn't support ``userdata``             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1403`_ |                    |               |          | Taking fast and efficient volume snapshots with XenServer  |
+|                    |          |                    |               |          | (and your storage provider)                                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1516`_ | CLOUDSTACK-9366_   | Bug           | Major    | Disable a host also disables storage pool capacity         |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1551`_ |                    |               |          | Dynamic Roles: packaging improvements                      |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1540`_ | CLOUDSTACK-9377_   | Bug           | Major    | Metrics data incorrectly calculated in zone/cluster        |
+|                    |          |                    |               |          | metrics view                                               |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1414`_ |                    |               |          | SystemVM cleanups                                          |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.8, 4.9           | `#1513`_ | CLOUDSTACK-9362_   | Bug           | Major    | Migrating a VM using VXLANs and bridges fails              |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1331`_ |                    |               |          | Fix Sync of template.properties in Swift                   |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1486`_ |                    |               |          | Re-implement ``router.redundant.vrrp.interval`` setting    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1532`_ |                    |               |          | DAO: Hit the cache for entity flagged as removed too       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1537`_ |                    |               |          | Remove extraneous log directory and add ``catalina.out``   |
+|                    |          |                    |               |          | log rotation                                               |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1520`_ |                    |               |          | CPU socket count reporting correction                      |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1280`_ | CLOUDSTACK-9199_   | Bug           | Major    | ``deployVirtualMachine`` API does not throw an error when  |
+|                    |          |                    |               |          | ``cpunumber`` is specified for static compute offering     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1376`_ |                    |               |          | L10n update master 20160127                                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1543`_ |                    |               |          | Fix Nio/CPU issue and CI failures                          |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1536`_ |                    |               |          | Honour GS ``use_ext_dns`` and redundant VR VIP             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1460`_ | CLOUDSTACK-9334_   | Improvement   | Minor    | Support jenv and pyenv to manage Java and Python versions  |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1444`_ | CLOUDSTACK-8800_   | Bug           | Major    | Improve the listVirtualMachines API call to include memory |
+|                    |          |                    |               |          | utilization information for a VM                           |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1453`_ |                    |               |          | Remove classes with no references                          |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1456`_ |                    |               |          | writeIfNotHere requires an array of strings, not a string  |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1385`_ | CLOUDSTACK-9265_   | Bug           | Trivial  | Some java classes use ``commons-httpclient`` where         |
+|                    |          |                    |               |          | ``httpcomponents`` is intended                             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1528`_ | CLOUDSTACK-9373_   | Bug           | Major    | Marvin issue with class and instance methods named the     |
+|                    |          |                    |               |          | same                                                       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#816`_  |                    |               |          | Notify listeners when a host has been added to a cluster,  |
+|                    |          |                    |               |          | is about to be removed from a cluster, or has been removed |
+|                    |          |                    |               |          | from a cluster                                             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1502`_ | CLOUDSTACK-9299_   | New Feature   | Major    | Out-of-band Management for CloudStack                      |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1474`_ |                    |               |          | Handle private gateways more reliably                      |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1472`_ |                    |               |          | Apply static routes on change to master state              |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1483`_ | CLOUDSTACK-9287_   | Bug           | Critical | As an User I want to use Private Gateways with Redundant   |
+|                    |          |                    |               |          | VPCs                                                       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1489`_ | CLOUDSTACK-8562_   | New Feature   | Major    | User Definable Roles                                       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1477`_ |                    |               |          | When no zone name is available display a default           |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#880`_  | CLOUDSTACK-8901_   | Bug           | Major    | PrepareTemplate job thread hard-coded to max 8 threads     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1529`_ |                    |               |          | Marvin: Replace a ``timer.sleep(30)`` with pulling logic   |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1466`_ | CLOUDSTACK-9340_   | Improvement   | Major    | General DB Optimization                                    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1488`_ |                    |               |          | Agent: Enable IPv6 connectivity for KVM Agent to           |
+|                    |          |                    |               |          | Management Server                                          |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1054`_ | CLOUDSTACK-8818_   | Improvement   | Major    | Python scripts should depend on ``mysql.connector``        |
+|                    |          |                    |               |          | instead of ``MySQLdb``                                     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1428`_ | CLOUDSTACK-9300_   | Bug           | Minor    | MySQL HA feature StaticStrategy throws exception           |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1440`_ |                    |               |          | Removed Unused Void Class                                  |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1497`_ | CLOUDSTACK-9351_   | Improvement   | Major    | Add ids parameter to resource listing API calls            |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1496`_ | CLOUDSTACK-9350_   | Bug           | Major    | Local storage hosts get HA tasks, cause issues             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1124`_ |                    |               |          | CID-1338387: Deletion of method                            |
+|                    |          |                    |               |          | ``endPointSelector.selectHypervisorHost``                  |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.8, 4.9           | `#1515`_ |                    |               |          | L10n update 4.8 20160422                                   |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1527`_ |                    |               |          | Update L10N resource files with 4.7 strings from Transifex |
+|                    |          |                    |               |          | (20160502)                                                 |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1408`_ |                    |               |          | KVM: Acquire lock when running security group Python       |
+|                    |          |                    |               |          | script                                                     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1463`_ | CLOUDSTACK-9336_   | Bug           | Trivial  | Run ``baremetal-vr.py`` only in (normal) routers           |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1350`_ |                    |               |          | Quota: Consolidated lockable account check to a method.    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1230`_ | CLOUDSTACK-8302_   | Bug           | Critical | Cleanup snapshot on KVM with RBD                           |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1433`_ | CLOUDSTACK-9305_   | Bug           | Major    | CloudStack Usage breaks with DB HA                         |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1485`_ |                    |               |          | Set default networkDomain to empty instead of username     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1473`_ |                    |               |          | Bump ssh retries to prevent false positives of             |
+|                    |          |                    |               |          | ``test_loadbalance``                                       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1321`_ | CLOUDSTACK-8847_   | Bug           | Major    | ``ListServiceOfferings`` is returning incompatible tagged  |
+|                    |          |                    |               |          | offerings when called with VM id                           |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1490`_ |                    |               |          | Installing bzip2 since it is required for extracting       |
+|                    |          |                    |               |          | templates                                                  |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1365`_ |                    |               |          | [4.7] VMware: Improve support for disks                    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1409`_ | CLOUDSTACK-9283_   | Bug           | Major    | ``cloudstack-usage`` fails to start throwing Integer       |
+|                    |          |                    |               |          | exception during PID                                       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1517`_ |                    |               |          | Engine/Schema: Fix upgrade path to work with MySQL 5.7     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1454`_ | CLOUDSTACK-9323_   | Bug           | Major    | Canceling host maintenance results in "Internal error      |
+|                    |          |                    |               |          | canceling maintenance."                                    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1500`_ | CLOUDSTACK-9349_   | Bug           | Minor    | Unable to detach root volume when using Hypervisor Type    |
+|                    |          |                    |               |          | KVM                                                        |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1270`_ | CLOUDSTACK-9194_   | Bug           | Major    | Allow re-sizable windows in IE for VM console              |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1522`_ |                    |               |          | Log asynchronous responses in the API log                  |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1510`_ |                    |               |          | 4.9 mvn version safeupgradeonly                            |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1348`_ | CLOUDSTACK-9142_   | Bug           | Critical | Migrate VM changes ``xmlDesc`` in an unsafe way            |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#826`_  |                    |               |          | Fixed: Error given when creating VPN user in one network   |
+|                    |          |                    |               |          | if VR for an other network is stopped.                     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1498`_ | CLOUDSTACK-9352_   | Test          | Minor    | Test fails in Windows as the file separator "/" is         |
+|                    |          |                    |               |          | different from "\"                                         |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1458`_ | CLOUDSTACK-9331_   | Bug           | Major    | Automation: Prepare and add the baremetal cfg to           |
+|                    |          |                    |               |          | marvin/config folder &marvin frame work changes to support |
+|                    |          |                    |               |          | baremetal advanced testcase                                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1452`_ | CLOUDSTACK-9322_   | Task          | Major    | Support for Internal LB functionality with Nuage VSP SDN   |
+|                    |          |                    |               |          | Plugin including Marvin test coverage                      |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1271`_ | CLOUDSTACK-9164_   | Bug           | Major    | Consoleproxy does not prevent Firefox Quicksearch when     |
+|                    |          |                    |               |          | typing slash                                               |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#713`_  | CLOUDSTACK-8745_   | Bug           | Major    | After a volume is migrated; the usage table still shows    |
+|                    |          |                    |               |          | the old volume id                                          |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1459`_ | CLOUDSTACK-8611_   | Bug           | Major    | CS waits indefinitely for                                  |
+|                    |          |                    |               |          | ``CheckS2SVpnConnectionsCommand`` to return                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1308`_ |                    |               |          | Test to create VPN customer gateway with hostname          |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1326`_ |                    |               |          | New test to validate starting VM after NIC removal and     |
+|                    |          |                    |               |          | attach                                                     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1126`_ | CLOUDSTACK-9088_   | Bug           | Major    | ``migrateto`` parameter associated with                    |
+|                    |          |                    |               |          | ``migrateVirtualMachineWithVolume`` API needs an example   |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1323`_ | CLOUDSTACK-9218_   | Test          | Major    | Test to verify restart network after master VR destroyed   |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1501`_ |                    |               |          | Fixing an issue in Marvin around creating a template from  |
+|                    |          |                    |               |          | a snapshot                                                 |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1200`_ | CLOUDSTACK-9130_   | Bug           | Major    | Make ``RebootCommand`` similar to start/stop/migrate agent |
+|                    |          |                    |               |          | commands w.r.t. "execute in sequence" flag                 |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1505`_ | CLOUDSTACK-9172_   | Bug           | Major    | Templates registered with CrossZones cannot be deleted in  |
+|                    |          |                    |               |          | UI                                                         |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1402`_ |                    |               |          | Check the existence of ``forceencap`` parameter before use |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1420`_ |                    |               |          | systemvm: preserve file permissions, set default umask     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1157`_ | CLOUDSTACK-9100_   | Bug           | Major    | ISO.CREATE/TEMPLATE.CREATE event missing for usage_event   |
+|                    |          |                    |               |          | by template sync thread                                    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1398`_ | CLOUDSTACK-9270_   | Bug           | Major    | UI alignment gone bad in multiple places - VM Instance,    |
+|                    |          |                    |               |          | Network, Egress rules                                      |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1399`_ | CLOUDSTACK-9272_   | Bug           | Major    | No option in UI to add GSLB with service type "HTTP"       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1394`_ | CLOUDSTACK-9268_   | Bug           | Major    | Display VM in Load balancing rule in UI                    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1262`_ |                    |               |          | Removed unnecessary code from getGuestOsType in            |
+|                    |          |                    |               |          | CitrixResourceBase                                         |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1363`_ | CLOUDSTACK-9251_   | Bug           | Major    | Error while change instance offering to custom offering    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1263`_ |                    |               |          | Removed unused code from ``com.cloud.api.ApiServer``       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1445`_ |                    |               |          | Fixed Profiler's unit tests bugs.                          |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1487`_ |                    |               |          | Speedup iptables by prefetching the variables              |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1479`_ | CLOUDSTACK-9285_   | Bug           | Blocker  | CloudStack 4.8 can't connect to XEN and KVM hosts          |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1287`_ |                    |               |          | ``SecurityGroupRulesCmd`` code cleanup                     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1422`_ |                    |               |          | Improve ordering of fields of VPC router detail tab        |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1441`_ | CLOUDSTACK-9297_   | Bug           | Major    | Delete snapshot without id is failing with Unable to       |
+|                    |          |                    |               |          | determine the storage pool of the snapshot                 |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1462`_ | CLOUDSTACK-9335_   | Bug           | Minor    | CloudStack UI has a typo and does not send                 |
+|                    |          |                    |               |          | ``fetchlatest=true`` correctly to ``listCapacity``         |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1316`_ | CLOUDSTACK-9215_   | Test          | Major    | Marvin test to check VM deployment in VPC tier if NIC type |
+|                    |          |                    |               |          | is ``vmxnet3``                                             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1481`_ |                    |               |          | Travis: Increase build verbosity                           |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1457`_ | CLOUDSTACK-9333_   | Bug           | Major    | Exclude clusters from OVF operations                       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1254`_ | CLOUDSTACK-9174_   | Bug           | Critical | Quota Service: When a account/user is deleted with low     |
+|                    |          |                    |               |          | quota, quota service still tries to alert the user         |
+|                    |          |                    |               |          | resulting in NPE                                           |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1461`_ |                    |               |          | Travis: Fix simulator tests and optimize default global    |
+|                    |          |                    |               |          | configs                                                    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1332`_ |                    |               |          | Add ability to download templates in Swift                 |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1425`_ | CLOUDSTACK-9298_   | Improvement   | Major    | Improve performance of resource retrieval that have tags   |
+|                    |          |                    |               |          | associated and target volumes, VMs and templates           |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1438`_ |                    |               |          | Fix new error found in findbugs slow build #3455           |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1430`_ | CLOUDSTACK-9285_   | Bug           | Blocker  | CloudStack 4.8 can't connect to XEN and KVM hosts          |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1431`_ | CLOUDSTACK-9304_   | Task          | Major    | Add nuagevsp userdata testcase (Cloudstack-9095) &         |
+|                    |          |                    |               |          | Refactor existing testcases                                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1434`_ |                    |               |          | Change variable ``ROOK_DISK_CONTROLLER`` to                |
+|                    |          |                    |               |          | ``ROOT_DISK_CONTROLLER``                                   |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1426`_ |                    |               |          | ADD be explicit about the underlying limitation - OpenSwan |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1390`_ | CLOUDSTACK-9267_   | Bug           | Major    | String is not localized on create instance wizards.        |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1078`_ | CLOUDSTACK-9066_   | Improvement   | Major    | Update testpath to delete account after deleting VM's of   |
+|                    |          |                    |               |          | that account                                               |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1361`_ | CLOUDSTACK-9252_   | Bug           | Major    | Support configurable NFS version for Secondary Storage     |
+|                    |          |                    |               |          | mounts                                                     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1218`_ | CLOUDSTACK-9140_   | Test          | Major    | Testcase to verify if Dedicated cluster is used for        |
+|                    |          |                    |               |          | virtual routers that belong to non-dedicated account       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1310`_ | CLOUDSTACK-9211_   | Bug           | Major    | Support passing vRAM size over to Esxi hypervisor to       |
+|                    |          |                    |               |          | support 3D GPU on VMware                                   |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1031`_ | CLOUDSTACK-9026_   | Improvement   | Major    | Modifying testpath for adding missing parameter            |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1130`_ | CLOUDSTACK-9091_   | Improvement   | Major    | Update testpath for parameter issues                       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1199`_ | CLOUDSTACK-9128_   | Bug           | Major    | Testcase to verify if ``snapshot_store_ref`` table stores  |
+|                    |          |                    |               |          | actual size of back snapshot in secondary storage          |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#684`_  | CLOUDSTACK-8728_   | Test          | Major    | Testcase to Verify if VRs IP changes if it is destroyed    |
+|                    |          |                    |               |          | and re-created in Basic Zone                               |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1190`_ | CLOUDSTACK-9121_   | Improvement   | Major    | Adding VmSnapshot validation in                            |
+|                    |          |                    |               |          | ``testpath_revert_snap.py``                                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#869`_  | CLOUDSTACK-8895_   | Test          | Major    | Verify if storage can be selected when attaching uploaded  |
+|                    |          |                    |               |          | data volume to VM                                          |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1386`_ | CLOUDSTACK-9266_   | Bug           | Critical | Delete static route on private gateway doesn't actually    |
+|                    |          |                    |               |          | delete it on the router                                    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1383`_ | CLOUDSTACK-9264_   | Bug           | Critical | Create of /32 static route on private gateway fails        |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1384`_ |                    |               |          | Display hostname the VPC router runs on                    |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1387`_ | CLOUDSTACK-8300_   | Bug           | Minor    | Add index on archived field in ``cloud.event`` table       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.6, 4.7, 4.8, 4.9 | `#1342`_ | CLOUDSTACK-6181_   | New Feature   | Major    | Root resize                                                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1288`_ |                    |               |          | Trailing commas in javascripts removed                     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1274`_ | CLOUDSTACK-9196_   | Bug           | Major    | ``NullPointerException`` in some scenarios while syncing   |
+|                    |          |                    |               |          | VM metadata                                                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1261`_ |                    |               |          | Removed unused variables from ``NetworkStateListener``     |
+|                    |          |                    |               |          | class                                                      |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1048`_ | CLOUDSTACK-8731_   | Test          | Major    | Automation: Checking usage event generation for delete     |
+|                    |          |                    |               |          | volume                                                     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1044`_ | CLOUDSTACK-5822_   | Bug           | Major    | SSH keypairs are removed after rebooting VM                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#969`_  |                    |               |          | Fixed return type ``Void`` to ``void`` in                  |
+|                    |          |                    |               |          | ``DataMotionStrategy``                                     |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#855`_  |                    |               |          | Removal of class                                           |
+|                    |          |                    |               |          | ``AgentBasedStandaloneConsoleProxyManager``                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#831`_  | CLOUDSTACK-8850_   | Bug           | Major    | ``revertSnapshot`` command does not work                   |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#830`_  | CLOUDSTACK-8858_   | Bug           | Major    | ``listVolumes`` API fails for a particular domain with NPE |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1256`_ | CLOUDSTACK-9185_   | Bug           | Major    | [VMware DRS] VM sync failed with exception due to          |
+|                    |          |                    |               |          | out-of-band changes                                        |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1240`_ | CLOUDSTACK-9161_   | Bug           | Critical | Quota Service: Fix marvin test                             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1289`_ |                    |               |          | Quota: findbug fixes                                       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1364`_ | CLOUDSTACK-9256_   | Bug           | Major    | Static routes get lost after network restart               |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1369`_ |                    |               |          | Set version to 4.9.0-SNAPSHOT in master branch             |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.8, 4.9           | `#1368`_ |                    |               |          | Set version to 4.8.1-SNAPSHOT in 4.8 branch                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1367`_ |                    |               |          | Set version to 4.7.2-SNAPSHOT in 4.7 branch                |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1358`_ | CLOUDSTACK-9245_   | Improvement   | Major    | As an User I want to be able to delete non-attached ACL    |
+|                    |          |                    |               |          | lists that contain items                                   |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1362`_ | CLOUDSTACK-9254_   | Bug           | Major    | Name of logged in user in UI is not always lined out       |
+|                    |          |                    |               |          | properly                                                   |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.9                | `#1354`_ |                    |               |          | UI: improve filter dropdown width                          |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+| 4.7, 4.8, 4.9      | `#1356`_ |                    |               |          | More VR performance!                                       |
++--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
+
+.. _`#1616`: https://github.com/apache/cloudstack/pull/1616
+.. _`#1613`: https://github.com/apache/cloudstack/pull/1613
+.. _CLOUDSTACK-9436: https://issues.apache.org/jira/browse/CLOUDSTACK-9436
+.. _`#1583`: https://github.com/apache/cloudstack/pull/1583
+.. _`#1610`: https://github.com/apache/cloudstack/pull/1610
+.. _`#1609`: https://github.com/apache/cloudstack/pull/1609
+.. _CLOUDSTACK-9430: https://issues.apache.org/jira/browse/CLOUDSTACK-9430
+.. _`#1608`: https://github.com/apache/cloudstack/pull/1608
+.. _`#1601`: https://github.com/apache/cloudstack/pull/1601
+.. _CLOUDSTACK-9348: https://issues.apache.org/jira/browse/CLOUDSTACK-9348
+.. _`#1595`: https://github.com/apache/cloudstack/pull/1595
+.. _`#1455`: https://github.com/apache/cloudstack/pull/1455
+.. _CLOUDSTACK-9328: https://issues.apache.org/jira/browse/CLOUDSTACK-9328
+.. _`#1480`: https://github.com/apache/cloudstack/pull/1480
+.. _CLOUDSTACK-9342: https://issues.apache.org/jira/browse/CLOUDSTACK-9342
+.. _`#1598`: https://github.com/apache/cloudstack/pull/1598
+.. _CLOUDSTACK-9423: https://issues.apache.org/jira/browse/CLOUDSTACK-9423
+.. _`#1547`: https://github.com/apache/cloudstack/pull/1547
+.. _`#1596`: https://github.com/apache/cloudstack/pull/1596
+.. _CLOUDSTACK-9353: https://issues.apache.org/jira/browse/CLOUDSTACK-9353
+.. _`#1581`: https://github.com/apache/cloudstack/pull/1581
+.. _CLOUDSTACK-9404: https://issues.apache.org/jira/browse/CLOUDSTACK-9404
+.. _`#1585`: https://github.com/apache/cloudstack/pull/1585
+.. _CLOUDSTACK-9399: https://issues.apache.org/jira/browse/CLOUDSTACK-9399
+.. _`#1584`: https://github.com/apache/cloudstack/pull/1584
+.. _CLOUDSTACK-9409: https://issues.apache.org/jira/browse/CLOUDSTACK-9409
+.. _`#1574`: https://github.com/apache/cloudstack/pull/1574
+.. _`#1570`: https://github.com/apache/cloudstack/pull/1570
+.. _`#1569`: https://github.com/apache/cloudstack/pull/1569
+.. _`#1423`: https://github.com/apache/cloudstack/pull/1423
+.. _CLOUDSTACK-9296: https://issues.apache.org/jira/browse/CLOUDSTACK-9296
+.. _`#1251`: https://github.com/apache/cloudstack/pull/1251
+.. _CLOUDSTACK-9180: https://issues.apache.org/jira/browse/CLOUDSTACK-9180
+.. _`#1567`: https://github.com/apache/cloudstack/pull/1567
+.. _CLOUDSTACK-9238: https://issues.apache.org/jira/browse/CLOUDSTACK-9238
+.. _`#1565`: https://github.com/apache/cloudstack/pull/1565
+.. _`#1564`: https://github.com/apache/cloudstack/pull/1564
+.. _`#1561`: https://github.com/apache/cloudstack/pull/1561
+.. _CLOUDSTACK-9388: https://issues.apache.org/jira/browse/CLOUDSTACK-9388
+.. _`#1471`: https://github.com/apache/cloudstack/pull/1471
+.. _`#1518`: https://github.com/apache/cloudstack/pull/1518
+.. _CLOUDSTACK-9368: https://issues.apache.org/jira/browse/CLOUDSTACK-9368
+.. _`#1424`: https://github.com/apache/cloudstack/pull/1424
+.. _CLOUDSTACK-8973: https://issues.apache.org/jira/browse/CLOUDSTACK-8973
+.. _`#1360`: https://github.com/apache/cloudstack/pull/1360
+.. _`#1552`: https://github.com/apache/cloudstack/pull/1552
+.. _`#1556`: https://github.com/apache/cloudstack/pull/1556
+.. _`#1553`: https://github.com/apache/cloudstack/pull/1553
+.. _`#1297`: https://github.com/apache/cloudstack/pull/1297
+.. _CLOUDSTACK-9203: https://issues.apache.org/jira/browse/CLOUDSTACK-9203
+.. _`#1550`: https://github.com/apache/cloudstack/pull/1550
+.. _CLOUDSTACK-9380: https://issues.apache.org/jira/browse/CLOUDSTACK-9380
+.. _`#1494`: https://github.com/apache/cloudstack/pull/1494
+.. _CLOUDSTACK-9294: https://issues.apache.org/jira/browse/CLOUDSTACK-9294
+.. _`#1555`: https://github.com/apache/cloudstack/pull/1555
+.. _`#1533`: https://github.com/apache/cloudstack/pull/1533
+.. _`#1503`: https://github.com/apache/cloudstack/pull/1503
+.. _CLOUDSTACK-9358: https://issues.apache.org/jira/browse/CLOUDSTACK-9358
+.. _`#956`: https://github.com/apache/cloudstack/pull/956
+.. _CLOUDSTACK-8970: https://issues.apache.org/jira/browse/CLOUDSTACK-8970
+.. _`#846`: https://github.com/apache/cloudstack/pull/846
+.. _CLOUDSTACK-8870: https://issues.apache.org/jira/browse/CLOUDSTACK-8870
+.. _`#1514`: https://github.com/apache/cloudstack/pull/1514
+.. _CLOUDSTACK-6975: https://issues.apache.org/jira/browse/CLOUDSTACK-6975
+.. _`#1410`: https://github.com/apache/cloudstack/pull/1410
+.. _CLOUDSTACK-6928: https://issues.apache.org/jira/browse/CLOUDSTACK-6928
+.. _`#1549`: https://github.com/apache/cloudstack/pull/1549
+.. _CLOUDSTACK-9348: https://issues.apache.org/jira/browse/CLOUDSTACK-9348
+.. _`#1523`: https://github.com/apache/cloudstack/pull/1523
+.. _CLOUDSTACK-9365: https://issues.apache.org/jira/browse/CLOUDSTACK-9365
+.. _`#1403`: https://github.com/apache/cloudstack/pull/1403
+.. _`#1516`: https://github.com/apache/cloudstack/pull/1516
+.. _CLOUDSTACK-9366: https://issues.apache.org/jira/browse/CLOUDSTACK-9366
+.. _`#1551`: https://github.com/apache/cloudstack/pull/1551
+.. _`#1540`: https://github.com/apache/cloudstack/pull/1540
+.. _CLOUDSTACK-9377: https://issues.apache.org/jira/browse/CLOUDSTACK-9377
+.. _`#1414`: https://github.com/apache/cloudstack/pull/1414
+.. _`#1513`: https://github.com/apache/cloudstack/pull/1513
+.. _CLOUDSTACK-9362: https://issues.apache.org/jira/browse/CLOUDSTACK-9362
+.. _`#1331`: https://github.com/apache/cloudstack/pull/1331
+.. _`#1486`: https://github.com/apache/cloudstack/pull/1486
+.. _`#1495`: https://github.com/apache/cloudstack/pull/1495
+.. _`#1532`: https://github.com/apache/cloudstack/pull/1532
+.. _`#1537`: https://github.com/apache/cloudstack/pull/1537
+.. _`#1520`: https://github.com/apache/cloudstack/pull/1520
+.. _`#1280`: https://github.com/apache/cloudstack/pull/1280
+.. _CLOUDSTACK-9199: https://issues.apache.org/jira/browse/CLOUDSTACK-9199
+.. _`#1376`: https://github.com/apache/cloudstack/pull/1376
+.. _`#1543`: https://github.com/apache/cloudstack/pull/1543
+.. _`#1536`: https://github.com/apache/cloudstack/pull/1536
+.. _`#1460`: https://github.com/apache/cloudstack/pull/1460
+.. _CLOUDSTACK-9334: https://issues.apache.org/jira/browse/CLOUDSTACK-9334
+.. _`#1444`: https://github.com/apache/cloudstack/pull/1444
+.. _CLOUDSTACK-8800: https://issues.apache.org/jira/browse/CLOUDSTACK-8800
+.. _`#1453`: https://github.com/apache/cloudstack/pull/1453
+.. _`#1456`: https://github.com/apache/cloudstack/pull/1456
+.. _`#1385`: https://github.com/apache/cloudstack/pull/1385
+.. _CLOUDSTACK-9265: https://issues.apache.org/jira/browse/CLOUDSTACK-9265
+.. _`#1528`: https://github.com/apache/cloudstack/pull/1528
+.. _CLOUDSTACK-9373: https://issues.apache.org/jira/browse/CLOUDSTACK-9373
+.. _`#816`: https://github.com/apache/cloudstack/pull/816
+.. _`#1502`: https://github.com/apache/cloudstack/pull/1502
+.. _CLOUDSTACK-9299: https://issues.apache.org/jira/browse/CLOUDSTACK-9299
+.. _`#1474`: https://github.com/apache/cloudstack/pull/1474
+.. _`#1472`: https://github.com/apache/cloudstack/pull/1472
+.. _`#1483`: https://github.com/apache/cloudstack/pull/1483
+.. _CLOUDSTACK-9287: https://issues.apache.org/jira/browse/CLOUDSTACK-9287
+.. _`#1489`: https://github.com/apache/cloudstack/pull/1489
+.. _CLOUDSTACK-8562: https://issues.apache.org/jira/browse/CLOUDSTACK-8562
+.. _`#1477`: https://github.com/apache/cloudstack/pull/1477
+.. _`#880`: https://github.com/apache/cloudstack/pull/880
+.. _CLOUDSTACK-8901: https://issues.apache.org/jira/browse/CLOUDSTACK-8901
+.. _`#1529`: https://github.com/apache/cloudstack/pull/1529
+.. _`#1466`: https://github.com/apache/cloudstack/pull/1466
+.. _CLOUDSTACK-9340: https://issues.apache.org/jira/browse/CLOUDSTACK-9340
+.. _`#1488`: https://github.com/apache/cloudstack/pull/1488
+.. _`#1054`: https://github.com/apache/cloudstack/pull/1054
+.. _CLOUDSTACK-8818: https://issues.apache.org/jira/browse/CLOUDSTACK-8818
+.. _`#1428`: https://github.com/apache/cloudstack/pull/1428
+.. _CLOUDSTACK-9300: https://issues.apache.org/jira/browse/CLOUDSTACK-9300
+.. _`#1440`: https://github.com/apache/cloudstack/pull/1440
+.. _`#1497`: https://github.com/apache/cloudstack/pull/1497
+.. _CLOUDSTACK-9351: https://issues.apache.org/jira/browse/CLOUDSTACK-9351
+.. _`#1496`: https://github.com/apache/cloudstack/pull/1496
+.. _CLOUDSTACK-9350: https://issues.apache.org/jira/browse/CLOUDSTACK-9350
+.. _`#1124`: https://github.com/apache/cloudstack/pull/1124
+.. _`#1515`: https://github.com/apache/cloudstack/pull/1515
+.. _`#1527`: https://github.com/apache/cloudstack/pull/1527
+.. _`#1408`: https://github.com/apache/cloudstack/pull/1408
+.. _`#1463`: https://github.com/apache/cloudstack/pull/1463
+.. _CLOUDSTACK-9336: https://issues.apache.org/jira/browse/CLOUDSTACK-9336
+.. _`#1350`: https://github.com/apache/cloudstack/pull/1350
+.. _`#1230`: https://github.com/apache/cloudstack/pull/1230
+.. _CLOUDSTACK-8302: https://issues.apache.org/jira/browse/CLOUDSTACK-8302
+.. _`#1433`: https://github.com/apache/cloudstack/pull/1433
+.. _CLOUDSTACK-9305: https://issues.apache.org/jira/browse/CLOUDSTACK-9305
+.. _`#1485`: https://github.com/apache/cloudstack/pull/1485
+.. _`#1473`: https://github.com/apache/cloudstack/pull/1473
+.. _`#1321`: https://github.com/apache/cloudstack/pull/1321
+.. _CLOUDSTACK-8847: https://issues.apache.org/jira/browse/CLOUDSTACK-8847
+.. _`#1490`: https://github.com/apache/cloudstack/pull/1490
+.. _`#1365`: https://github.com/apache/cloudstack/pull/1365
+.. _`#1409`: https://github.com/apache/cloudstack/pull/1409
+.. _CLOUDSTACK-9283: https://issues.apache.org/jira/browse/CLOUDSTACK-9283
+.. _`#1517`: https://github.com/apache/cloudstack/pull/1517
+.. _`#1454`: https://github.com/apache/cloudstack/pull/1454
+.. _CLOUDSTACK-9323: https://issues.apache.org/jira/browse/CLOUDSTACK-9323
+.. _`#1500`: https://github.com/apache/cloudstack/pull/1500
+.. _CLOUDSTACK-9349: https://issues.apache.org/jira/browse/CLOUDSTACK-9349
+.. _`#1270`: https://github.com/apache/cloudstack/pull/1270
+.. _CLOUDSTACK-9194: https://issues.apache.org/jira/browse/CLOUDSTACK-9194
+.. _`#1522`: https://github.com/apache/cloudstack/pull/1522
+.. _`#1510`: https://github.com/apache/cloudstack/pull/1510
+.. _`#1348`: https://github.com/apache/cloudstack/pull/1348
+.. _CLOUDSTACK-9142: https://issues.apache.org/jira/browse/CLOUDSTACK-9142
+.. _`#826`: https://github.com/apache/cloudstack/pull/826
+.. _`#1498`: https://github.com/apache/cloudstack/pull/1498
+.. _CLOUDSTACK-9352: https://issues.apache.org/jira/browse/CLOUDSTACK-9352
+.. _`#1458`: https://github.com/apache/cloudstack/pull/1458
+.. _CLOUDSTACK-9331: https://issues.apache.org/jira/browse/CLOUDSTACK-9331
+.. _`#1452`: https://github.com/apache/cloudstack/pull/1452
+.. _CLOUDSTACK-9322: https://issues.apache.org/jira/browse/CLOUDSTACK-9322
+.. _`#1271`: https://github.com/apache/cloudstack/pull/1271
+.. _CLOUDSTACK-9164: https://issues.apache.org/jira/browse/CLOUDSTACK-9164
+.. _`#713`: https://github.com/apache/cloudstack/pull/713
+.. _CLOUDSTACK-8745: https://issues.apache.org/jira/browse/CLOUDSTACK-8745
+.. _`#1459`: https://github.com/apache/cloudstack/pull/1459
+.. _CLOUDSTACK-8611: https://issues.apache.org/jira/browse/CLOUDSTACK-8611
+.. _`#1308`: https://github.com/apache/cloudstack/pull/1308
+.. _`#1326`: https://github.com/apache/cloudstack/pull/1326
+.. _`#1126`: https://github.com/apache/cloudstack/pull/1126
+.. _CLOUDSTACK-9088: https://issues.apache.org/jira/browse/CLOUDSTACK-9088
+.. _`#1323`: https://github.com/apache/cloudstack/pull/1323
+.. _CLOUDSTACK-9218: https://issues.apache.org/jira/browse/CLOUDSTACK-9218
+.. _`#1501`: https://github.com/apache/cloudstack/pull/1501
+.. _`#1200`: https://github.com/apache/cloudstack/pull/1200
+.. _CLOUDSTACK-9130: https://issues.apache.org/jira/browse/CLOUDSTACK-9130
+.. _`#1505`: https://github.com/apache/cloudstack/pull/1505
+.. _CLOUDSTACK-9172: https://issues.apache.org/jira/browse/CLOUDSTACK-9172
+.. _`#1402`: https://github.com/apache/cloudstack/pull/1402
+.. _`#1420`: https://github.com/apache/cloudstack/pull/1420
+.. _`#1157`: https://github.com/apache/cloudstack/pull/1157
+.. _CLOUDSTACK-9100: https://issues.apache.org/jira/browse/CLOUDSTACK-9100
+.. _`#1398`: https://github.com/apache/cloudstack/pull/1398
+.. _CLOUDSTACK-9270: https://issues.apache.org/jira/browse/CLOUDSTACK-9270
+.. _`#1399`: https://github.com/apache/cloudstack/pull/1399
+.. _CLOUDSTACK-9272: https://issues.apache.org/jira/browse/CLOUDSTACK-9272
+.. _`#1394`: https://github.com/apache/cloudstack/pull/1394
+.. _CLOUDSTACK-9268: https://issues.apache.org/jira/browse/CLOUDSTACK-9268
+.. _`#1262`: https://github.com/apache/cloudstack/pull/1262
+.. _`#1363`: https://github.com/apache/cloudstack/pull/1363
+.. _CLOUDSTACK-9251: https://issues.apache.org/jira/browse/CLOUDSTACK-9251
+.. _`#1263`: https://github.com/apache/cloudstack/pull/1263
+.. _`#1445`: https://github.com/apache/cloudstack/pull/1445
+.. _`#1487`: https://github.com/apache/cloudstack/pull/1487
+.. _`#1479`: https://github.com/apache/cloudstack/pull/1479
+.. _CLOUDSTACK-9285: https://issues.apache.org/jira/browse/CLOUDSTACK-9285
+.. _`#1287`: https://github.com/apache/cloudstack/pull/1287
+.. _`#1422`: https://github.com/apache/cloudstack/pull/1422
+.. _`#1441`: https://github.com/apache/cloudstack/pull/1441
+.. _CLOUDSTACK-9297: https://issues.apache.org/jira/browse/CLOUDSTACK-9297
+.. _`#1462`: https://github.com/apache/cloudstack/pull/1462
+.. _CLOUDSTACK-9335: https://issues.apache.org/jira/browse/CLOUDSTACK-9335
+.. _`#1316`: https://github.com/apache/cloudstack/pull/1316
+.. _CLOUDSTACK-9215: https://issues.apache.org/jira/browse/CLOUDSTACK-9215
+.. _`#1481`: https://github.com/apache/cloudstack/pull/1481
+.. _`#1457`: https://github.com/apache/cloudstack/pull/1457
+.. _CLOUDSTACK-9333: https://issues.apache.org/jira/browse/CLOUDSTACK-9333
+.. _`#1254`: https://github.com/apache/cloudstack/pull/1254
+.. _CLOUDSTACK-9174: https://issues.apache.org/jira/browse/CLOUDSTACK-9174
+.. _`#1461`: https://github.com/apache/cloudstack/pull/1461
+.. _`#1332`: https://github.com/apache/cloudstack/pull/1332
+.. _`#1425`: https://github.com/apache/cloudstack/pull/1425
+.. _CLOUDSTACK-9298: https://issues.apache.org/jira/browse/CLOUDSTACK-9298
+.. _`#1438`: https://github.com/apache/cloudstack/pull/1438
+.. _`#1430`: https://github.com/apache/cloudstack/pull/1430
+.. _CLOUDSTACK-9285: https://issues.apache.org/jira/browse/CLOUDSTACK-9285
+.. _`#1431`: https://github.com/apache/cloudstack/pull/1431
+.. _CLOUDSTACK-9304: https://issues.apache.org/jira/browse/CLOUDSTACK-9304
+.. _`#1434`: https://github.com/apache/cloudstack/pull/1434
+.. _`#1426`: https://github.com/apache/cloudstack/pull/1426
+.. _`#1390`: https://github.com/apache/cloudstack/pull/1390
+.. _CLOUDSTACK-9267: https://issues.apache.org/jira/browse/CLOUDSTACK-9267
+.. _`#1078`: https://github.com/apache/cloudstack/pull/1078
+.. _CLOUDSTACK-9066: https://issues.apache.org/jira/browse/CLOUDSTACK-9066
+.. _`#1361`: https://github.com/apache/cloudstack/pull/1361
+.. _CLOUDSTACK-9252: https://issues.apache.org/jira/browse/CLOUDSTACK-9252
+.. _`#1218`: https://github.com/apache/cloudstack/pull/1218
+.. _CLOUDSTACK-9140: https://issues.apache.org/jira/browse/CLOUDSTACK-9140
+.. _`#1310`: https://github.com/apache/cloudstack/pull/1310
+.. _CLOUDSTACK-9211: https://issues.apache.org/jira/browse/CLOUDSTACK-9211
+.. _`#1031`: https://github.com/apache/cloudstack/pull/1031
+.. _CLOUDSTACK-9026: https://issues.apache.org/jira/browse/CLOUDSTACK-9026
+.. _`#1130`: https://github.com/apache/cloudstack/pull/1130
+.. _CLOUDSTACK-9091: https://issues.apache.org/jira/browse/CLOUDSTACK-9091
+.. _`#1199`: https://github.com/apache/cloudstack/pull/1199
+.. _CLOUDSTACK-9128: https://issues.apache.org/jira/browse/CLOUDSTACK-9128
+.. _`#684`: https://github.com/apache/cloudstack/pull/684
+.. _CLOUDSTACK-8728: https://issues.apache.org/jira/browse/CLOUDSTACK-8728
+.. _`#1190`: https://github.com/apache/cloudstack/pull/1190
+.. _CLOUDSTACK-9121: https://issues.apache.org/jira/browse/CLOUDSTACK-9121
+.. _`#869`: https://github.com/apache/cloudstack/pull/869
+.. _CLOUDSTACK-8895: https://issues.apache.org/jira/browse/CLOUDSTACK-8895
+.. _`#1386`: https://github.com/apache/cloudstack/pull/1386
+.. _CLOUDSTACK-9266: https://issues.apache.org/jira/browse/CLOUDSTACK-9266
+.. _`#1383`: https://github.com/apache/cloudstack/pull/1383
+.. _CLOUDSTACK-9264: https://issues.apache.org/jira/browse/CLOUDSTACK-9264
+.. _`#1384`: https://github.com/apache/cloudstack/pull/1384
+.. _`#1387`: https://github.com/apache/cloudstack/pull/1387
+.. _CLOUDSTACK-8300: https://issues.apache.org/jira/browse/CLOUDSTACK-8300
+.. _`#1342`: https://github.com/apache/cloudstack/pull/1342
+.. _CLOUDSTACK-6181: https://issues.apache.org/jira/browse/CLOUDSTACK-6181
+.. _`#1288`: https://github.com/apache/cloudstack/pull/1288
+.. _`#1274`: https://github.com/apache/cloudstack/pull/1274
+.. _CLOUDSTACK-9196: https://issues.apache.org/jira/browse/CLOUDSTACK-9196
+.. _`#1261`: https://github.com/apache/cloudstack/pull/1261
+.. _`#1048`: https://github.com/apache/cloudstack/pull/1048
+.. _CLOUDSTACK-8731: https://issues.apache.org/jira/browse/CLOUDSTACK-8731
+.. _`#1044`: https://github.com/apache/cloudstack/pull/1044
+.. _CLOUDSTACK-5822: https://issues.apache.org/jira/browse/CLOUDSTACK-5822
+.. _`#969`: https://github.com/apache/cloudstack/pull/969
+.. _`#855`: https://github.com/apache/cloudstack/pull/855
+.. _`#831`: https://github.com/apache/cloudstack/pull/831
+.. _CLOUDSTACK-8850: https://issues.apache.org/jira/browse/CLOUDSTACK-8850
+.. _`#830`: https://github.com/apache/cloudstack/pull/830
+.. _CLOUDSTACK-8858: https://issues.apache.org/jira/browse/CLOUDSTACK-8858
+.. _`#1256`: https://github.com/apache/cloudstack/pull/1256
+.. _CLOUDSTACK-9185: https://issues.apache.org/jira/browse/CLOUDSTACK-9185
+.. _`#1240`: https://github.com/apache/cloudstack/pull/1240
+.. _CLOUDSTACK-9161: https://issues.apache.org/jira/browse/CLOUDSTACK-9161
+.. _`#1289`: https://github.com/apache/cloudstack/pull/1289
+.. _`#1364`: https://github.com/apache/cloudstack/pull/1364
+.. _CLOUDSTACK-9256: https://issues.apache.org/jira/browse/CLOUDSTACK-9256
+.. _`#1369`: https://github.com/apache/cloudstack/pull/1369
+.. _`#1368`: https://github.com/apache/cloudstack/pull/1368
+.. _`#1367`: https://github.com/apache/cloudstack/pull/1367
+.. _`#1358`: https://github.com/apache/cloudstack/pull/1358
+.. _CLOUDSTACK-9245: https://issues.apache.org/jira/browse/CLOUDSTACK-9245
+.. _`#1362`: https://github.com/apache/cloudstack/pull/1362
+.. _CLOUDSTACK-9254: https://issues.apache.org/jira/browse/CLOUDSTACK-9254
+.. _`#1354`: https://github.com/apache/cloudstack/pull/1354
+.. _`#1356`: https://github.com/apache/cloudstack/pull/1356
 

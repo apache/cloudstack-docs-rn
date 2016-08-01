@@ -17,35 +17,25 @@
 What's New in |version|
 =======================
 
-Version |release| includes more than 20 bug fixes from previous release.
+Version |release| includes more than 70 bug fixes from the previous release.
 
-Part of a new release process 4.8.0 got released 2 months after 4.7.0.
+Due to some changes in the community, we had an extented period of time 
+without a release manager.  Because of this the 4.9.0 release is much larger
+than usual and had a duration of about 6 months.
 
-Lot's of UI and VPC improvements and fixes where merged into this release.
+Going forward we should have more consistent releases again.
+
+A LOT changed in this release, so this is not a complete list, but here is a 
+quick summary.  
 
 
 SDN
 ---
 
-* Nicira plugins updated
-* Nuage plugins updated
+* Nicira plugin integration has had quite a few improvements.
 
 
-Metrics Views
--------------
 
-WebUI now offer visibility of performance metrics from various levels of the cloud
-infrastructure. As admin it is now easier to identify problematic resources.
-Allow hierarchical navigation to triage issue, sort and refresh.
-
-Under Infrastructure, Instance and Storage as "Metric" button.
-
-|metric-view.png|
-
-====================== ============================================================================
-Supported hypervisors: Any
-Link                   `Metric View spec`_
-====================== ============================================================================
 
 
 Build dependency
@@ -55,8 +45,3 @@ When building Apache CloudStack with ``noredist``, it now require the file
 ``deps/vim25_55.jar`` available from vSphere SDK 5.5,
 VMware-vSphere-SDK-5.5.0-1284541.zip.
 
-
-.. _Metric View spec : https://cwiki.apache.org/confluence/display/CLOUDSTACK/Metrics+Views+for+CloudStack+UI
-
-.. |metric-view.png| image:: _static/images/metric-view.png
-   :alt: Metrics from Instance view
