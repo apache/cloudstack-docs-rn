@@ -17,24 +17,62 @@
 What's New in |version|
 =======================
 
-Version |release| includes more than 70 bug fixes from the previous release.
+Version |release| includes 180 pull requests and fixes more than 75 bugs from the previous releases.
 
-Due to some changes in the community, we had an extented period of time 
+Due to some changes in the community, we had an extended period of time
 without a release manager.  Because of this the 4.9.0 release is much larger
 than usual and had a duration of about 6 months.
 
 Going forward we should have more consistent releases again.
 
 A LOT changed in this release, so this is not a complete list, but here is a 
-quick summary.  
+quick summary of some of the changes.
 
 
-SDN
----
+Networking
+----------
 
-* Nicira plugin integration has had quite a few improvements.
+* Fixes to ACLs, S2S VPN, Private Gateways, Redundant VRs and other optimizations
+* Nuage VSP SDN Plugin got a lot of improvements and some new features
 
 
+Database
+--------
+
+* MySQL connector changed
+* DB optimizations and improvements
+
+
+Storage
+-------
+
+* Enabled fast snapshots for managed storage using XenServer
+* Fixes for some RBD issues
+* Fixes multiple Swift object store issues
+* Improved VMware disk implementation
+
+
+Usability
+---------
+
+* Added user defined roles
+* Added configurable root volume size for KVM
+* Lots of localization improvements
+* Added CentOS 6.x guest OS mappings for VMware
+
+
+Operations
+----------
+
+* Added Out-of-band power management for hosts (EG: IPMI, iLO, DRAC, etc.)
+
+
+Miscellaneous
+-------------
+
+* Use non-blocking SSL handshake in NioConnection/Link
+* Added memory utilization to ``listVirtualMachines``
+* Multiple fixes related to usage
 
 
 
@@ -42,6 +80,6 @@ Build dependency
 ----------------
 
 When building Apache CloudStack with ``noredist``, it now require the file
-``deps/vim25_55.jar`` available from vSphere SDK 5.5,
-VMware-vSphere-SDK-5.5.0-1284541.zip.
+``deps/vim25_60.jar`` available from vSphere SDK 6.0,
+VMware-vSphere-SDK-6.0.0-3634981.zip.
 

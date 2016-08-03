@@ -123,7 +123,7 @@ Issues Fixed in |release|
 | 4.9                | `#1494`_ | CLOUDSTACK-9294_   | Bug           | Major    | Nuage Plugin: VR doesn't get removed from the VSD when     |
 |                    |          |                    |               |          | destroying a VPC                                           |
 +--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.9                | `#1555`_ |                    |               |          | Add Java Default Certificat Authorities into the keystore  |
+| 4.9                | `#1555`_ |                    |               |          | Add Java Default Certificate Authorities into the keystore |
 |                    |          |                    |               |          | if using a custom cert SSL                                 |
 +--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.9                | `#1533`_ |                    |               |          | Convert patchviasocket to python (removes perl dependency  |
@@ -185,8 +185,8 @@ Issues Fixed in |release|
 +--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.9                | `#1460`_ | CLOUDSTACK-9334_   | Improvement   | Minor    | Support jenv and pyenv to manage Java and Python versions  |
 +--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.9                | `#1444`_ | CLOUDSTACK-8800_   | Bug           | Major    | Improve the listVirtualMachines API call to include memory |
-|                    |          |                    |               |          | utilization information for a VM                           |
+| 4.9                | `#1444`_ | CLOUDSTACK-8800_   | Bug           | Major    | Improve the ``listVirtualMachines`` API call to include    |
+|                    |          |                    |               |          | memory utilization information for a VM                    |
 +--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.9                | `#1453`_ |                    |               |          | Remove classes with no references                          |
 +--------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
