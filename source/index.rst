@@ -67,12 +67,13 @@ Contents:
 .. toctree::
    :maxdepth: 1
 
+   upgrade/upgrade-4.8
    upgrade/upgrade-4.7
    upgrade/upgrade-4.6
    upgrade/upgrade-4.5
    upgrade/upgrade-4.4
    upgrade/upgrade-4.3
-   upgrade/upgrade-4.2
+..   upgrade/upgrade-4.2
 ..   upgrade/upgrade-4.1
 ..   upgrade/upgrade-4.0
 ..   upgrade/upgrade-3.0.x

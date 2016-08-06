@@ -35,9 +35,9 @@ working on a production system.
 Upgrade Steps:
 
 #. Backup CloudStack database (MySQL)
-
+#. Install new systemvm template
+#. Add package repository for MySQL connector
 #. Upgrade CloudStack management server(s)
-
 #. Update hypervisors specific dependencies
 
 
@@ -59,6 +59,7 @@ Instructions for creating packages from the CloudStack source are in the
 `CloudStack Installation Guide`_.
 
 .. include:: _sysvm_templates.rst
+.. include:: _mysql_connector.rst
 
 
 Database Preparation
@@ -143,7 +144,7 @@ CloudStack apt repository
 
    .. sourcecode:: bash
 
-      deb http://cloudstack.apt-get.eu/ubuntu precise 4.8
+      deb http://cloudstack.apt-get.eu/ubuntu precise 4.9
 
    Setup the public key for the above repository:
 
@@ -214,7 +215,7 @@ This file should have content similar to the following:
    gpgcheck=0
 
 If you are using the community provided package repository, change
-the base url to ``http://cloudstack.apt-get.eu/centos/6/4.8/``.
+the base url to ``http://cloudstack.apt-get.eu/centos/$releasever/4.9/``.
 
 Setup the GPG public key if you wish to enable ``gpgcheck=1``:
 

@@ -35,9 +35,8 @@ working on a production system.
 Upgrade Steps:
 
 #. Backup CloudStack database (MySQL)
-
+#. Add package repository for MySQL connector
 #. Upgrade CloudStack management server(s)
-
 #. Update hypervisors specific dependencies
 
 
@@ -57,6 +56,8 @@ them for :ref:`ubuntu46` or :ref:`rhel46` and :ref:`kvm46` hosts upgrade.
 
 Instructions for creating packages from the CloudStack source are in the 
 `CloudStack Installation Guide`_.
+
+.. include:: _mysql_connector.rst
 
 
 Database Preparation
@@ -141,7 +142,7 @@ We'll change it to point to the new package repository:
 
 .. sourcecode:: bash
 
-   deb http://cloudstack.apt-get.eu/ubuntu precise 4.8
+   deb http://cloudstack.apt-get.eu/ubuntu precise 4.9
 
 Setup the public key for the above repository:
 
@@ -212,8 +213,7 @@ This file should have content similar to the following:
    gpgcheck=0
 
 If you are using the community provided package repository, change
-the base url to ``http://cloudstack.apt-get.eu/centos/6/4.8/``. If you want to use
-the CentOS7 repository use the url ``http://cloudstack.apt-get.eu/centos/7/4.8/``
+the base url to ``http://cloudstack.apt-get.eu/centos/$releasever/4.9/``.
 
 Setup the GPG public key if you wish to enable ``gpgcheck=1``:
 
