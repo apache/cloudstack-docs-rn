@@ -1,30 +1,13 @@
 Install new MySQL connector
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Apache CloudStack |version| require an upgrade of the MySQL connector. To install
-the connector via 'apt-get' following steps must be taken:
-
-
-MySQL connector APT repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Install the following package provided by MySQL to enable official repositories:
-
-.. sourcecode:: bash
-
-   wget http://dev.mysql.com/get/mysql-apt-config_0.7.3-1_all.deb
-   sudo dpkg -i mysql-apt-config_0.7.3-1_all.deb
-
-Make sure to activate the repository for MySQL connectors.
-
-.. sourcecode:: bash
-
-   sudo apt-get update
-   sudo apt-get install mysql-connector-python   
+Apache CloudStack |version| require an upgrade of the MySQL connector on CentOS.
+Starting with 4.9.0, cloudstack-management RPM's now depend on
+``mysql-connector-python`` package.
 
 
 MySQL connector RPM repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Add a new yum repo ``/etc/yum.repos.d/mysql.repo``:
 
