@@ -184,6 +184,8 @@ packages. If not, skip to hypervisors section, then :ref:`upg-sysvm42`.
    supplied packages for CloudStack. If you've created your own packages and 
    yum repository, substitute your own URL for the ones used in these examples.
 
+.. include:: _mysql_connector.rst
+
 
 .. _rpm-repo42:
 

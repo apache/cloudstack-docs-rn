@@ -57,8 +57,6 @@ them for :ref:`ubuntu47` or :ref:`rhel47` and :ref:`kvm47` hosts upgrade.
 Instructions for creating packages from the CloudStack source are in the 
 `CloudStack Installation Guide`_.
 
-.. include:: _mysql_connector.rst
-
 
 Database Preparation
 --------------------
@@ -185,6 +183,8 @@ packages. If not, skip to hypervisors section, then :ref:`upg-sysvm47`.
    **Community Packages:** This section assumes you're using the community
    supplied packages for CloudStack. If you've created your own packages and
    yum repository, substitute your own URL for the ones used in these examples.
+
+.. include:: _mysql_connector.rst
 
 
 .. _rpm-repo47:
