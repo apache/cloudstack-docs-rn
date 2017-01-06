@@ -25,13 +25,13 @@ operating systems are tested, so compatibility with CentOS 6.3 may not
 indicate compatibility with CentOS 6.2, 6.1 and so on.
 
 -  RHEL versions 6.3, 6.5, 6.6 and 7.0
--  CentOS versions 6.6, 7.0
+-  CentOS versions 6.8, 7
 -  Ubuntu 14.04 LTS
 
 Software Requirements
 ~~~~~~~~~~~~~~~~~~~~~
 
--  Java 1.7
+-  Java JRE 1.7
 -  MySQL 5.6 (RHEL 7)
 -  MySQL 5.1 (RHEL 6.x)
 
@@ -41,16 +41,17 @@ Supported Hypervisor Versions
 CloudStack supports three hypervisor families, XenServer with XAPI, KVM,
 and VMware with vSphere.
 
--  LXC Host Containers on RHEL 7
--  Windows Server 2012 R2 (with Hyper-V Role enabled)
--  Hyper-V 2012 R2
--  CentOS 6.2+ with KVM
+-  CentOS 6.2+, 7.0+ with KVM
+-  Ubuntu 14.04LTS, 16.04LTS with KVM
 -  Red Hat Enterprise Linux 6.2 with KVM
--  XenServer versions 6.1, 6.2 SP1 and 6.5 with latest hotfixes
+-  XenServer versions 6.1, 6.2 SP1, 6.5 and 7.0 with latest hotfixes
 
    .. note:: It is now required to enable HA on the XenServer pool in order to recover from a pool-master failure. Please refer to the `XenServer documentation <http://docs.vmd.citrix.com/XenServer/6.5.0/1.0/en_gb/>`_.
 
--  VMware versions 5.0 Update 3a, 5.1 Update 2a, and 5.5 Update 2
+-  VMware versions 5.0 Update 3, 5.1 Update 3, 5.5 Update 3b, 6.0 Update 2, and 6.5 GA
+-  LXC Host Containers on RHEL 7
+-  Windows Server 2012 R2 (with Hyper-V Role enabled)
+-  Hyper-V 2012 R2
 -  Oracle VM 3.0+
 -  Bare metal hosts are supported, which have no hypervisor. These hosts
    can run the following operating systems:
@@ -84,10 +85,8 @@ browser, but it's possible that some browsers will not render portions
 of the UI reliably, depending on their support of Web standards. For
 best results, one of the following browsers recommended:
 
--  Internet Explorer versions 10 and 11
-
 -  Firefox version 31 or later
 
--  Google Chrome version 36.0.1985
+-  Google Chrome version 36.0+
 
 -  Safari 6+
