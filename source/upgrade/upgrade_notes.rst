@@ -25,6 +25,16 @@ As of Apache CloudStack 4.4, Java version required is 1.7 for the
 management-server, cloudstack-usage, KVM agent and system-VMs.
 
 
+Migrating to dynamic roles feature
+----------------------------------
+
+As of Apache CloudStack 4.9, dynamic roles feature can be enabled after an
+upgrade. Dyanamic roles feature is enabled by default on new installations.
+
+Please read more about `using dynamic roles <http://docs.cloudstack.apache.org/projects/cloudstack-administration/en/4.9/accounts.html#using-dynamic-roles>`_
+feature and process of migrating to using this after an upgrade.
+
+
 OVS plug-in
 -----------
 
@@ -66,6 +76,19 @@ SystemVM 32bit deprecated
    
    Since CloudStack 4.2.1 build packages from source using non opensource 
    modules param ``-nonoss`` changed to ``-   noredist``.
+
+
+Explicit JDBC driver declaration
+--------------------------------
+
+While upgrading, on some environments the following may be required to be
+added in CloudStack's db.properties file:
+
+   # Add these to your db.properties file
+   db.cloud.driver=jdbc:mysql
+   db.usage.driver=jdbc:mysql
+   db.simulator.driver=jdbc:mysql
+
 
 Other Notes
 -----------
