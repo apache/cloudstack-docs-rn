@@ -67,16 +67,7 @@ ldap.username.attribute uid            sAMAccountName
 SystemVM 32bit deprecated
 -------------------------
 
-32bit versions of systemvm templates are in the process of behing deprecated. Upgrade instructions from this Release Notes use 64bit templates. 32bit systemvm-templates are available for this version on `http://cloudstack.apt-get.eu/systemvm/4.4/ <http://cloudstack.apt-get.eu/systemvm/4.4/>`_. Follow the dev mailing list for further updates.
-
-
-.. not confirmed 
-   Build From Sources
-   ------------------
-   
-   Since CloudStack 4.2.1 build packages from source using non opensource 
-   modules param ``-nonoss`` changed to ``-   noredist``.
-
+32bit versions of systemvm templates are in the process of behing deprecated. Upgrade instructions from this Release Notes use 64bit templates.
 
 Explicit JDBC driver declaration
 --------------------------------
@@ -85,9 +76,10 @@ While upgrading, on some environments the following may be required to be
 added in CloudStack's db.properties file:
 
    # Add these to your db.properties file
+
    db.cloud.driver=jdbc:mysql
+
    db.usage.driver=jdbc:mysql
-   db.simulator.driver=jdbc:mysql
 
 
 Other Notes
