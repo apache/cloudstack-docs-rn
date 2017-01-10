@@ -17,13 +17,13 @@
 What's New in |version|
 =======================
 
-Version |release| includes 180 pull requests and fixes more than 75 bugs from the previous releases.
+Version |release| includes 180 pull requests and fixes more than 80 bugs since
+the 4.9.0 release.
 
-Due to some changes in the community, we had an extended period of time
-without a release manager.  Because of this the 4.9.0 release is much larger
-than usual and had a duration of about 6 months.
-
-Going forward we should have more consistent releases again.
+The 4.9.2.0 is part of the LTS 4.9.x releases. The 4.9 LTS branch is supported
+for 20 months, and will receives updates for first 14 months and only
+security updates in its last 6 months. The 4.9 LTS branch is supported till 1
+June 2018.
 
 A LOT changed in this release, so this is not a complete list, but here is a 
 quick summary of some of the changes.
@@ -52,6 +52,14 @@ Storage
 * Improved VMware disk implementation
 
 
+Hypervisor
+----------
+
+* Support for XenServer 7
+* Support for VMware vSphere 6.0, 6.5
+* Support for Ubuntu 16.04 as KVM host
+
+
 Usability
 ---------
 
@@ -75,6 +83,10 @@ Miscellaneous
 * Multiple fixes related to usage
 
 
+QA
+--
+
+* Higher quality releases due to better QA automation, testing and code reviewing
 
 Build dependency
 ----------------
