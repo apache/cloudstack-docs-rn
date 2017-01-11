@@ -57,6 +57,7 @@ them for :ref:`ubuntu46` or :ref:`rhel46` and :ref:`kvm46` hosts upgrade.
 Instructions for creating packages from the CloudStack source are in the 
 `CloudStack Installation Guide`_.
 
+.. include:: _sysvm_templates.rst
 
 Database Preparation
 --------------------
@@ -123,6 +124,8 @@ be necessary for hosts that are running VMware or Xen.)
 
 
 .. _apt-repo46:
+
+.. include:: _java_8_ubuntu.rst
 
 CloudStack apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^

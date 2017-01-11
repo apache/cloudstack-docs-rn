@@ -121,8 +121,9 @@ each system with CloudStack packages. This means all management
 servers, and any hosts that have the KVM agent. (No changes should
 be necessary for hosts that are running VMware or Xen.)
 
-
 .. _apt-repo42:
+
+.. include:: _java_8_ubuntu.rst
 
 CloudStack apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^

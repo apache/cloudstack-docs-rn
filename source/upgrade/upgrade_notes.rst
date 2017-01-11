@@ -18,11 +18,14 @@ General Upgrade Notes
 =====================
 
 
-Java version upgraded to Java 1.7
+Java version upgraded to Java 1.8
 ---------------------------------
 
-As of Apache CloudStack 4.4, Java version required is 1.7 for the 
+As of Apache CloudStack 4.10, Java version required is 1.8 for the
 management-server, cloudstack-usage, KVM agent and system-VMs.
+
+
+.. include:: _java_8_ubuntu.rst
 
 
 Migrating to dynamic roles feature

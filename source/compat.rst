@@ -31,7 +31,7 @@ indicate compatibility with CentOS 6.2, 6.1 and so on.
 Software Requirements
 ~~~~~~~~~~~~~~~~~~~~~
 
--  Java JRE 1.7
+-  Java JRE 1.8
 -  MySQL 5.6 (RHEL 7)
 -  MySQL 5.1 (RHEL 6.x)
 

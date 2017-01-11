@@ -20,11 +20,6 @@ What's New in |version|
 Version |release| includes 180 pull requests and fixes more than 80 bugs since
 the 4.9.0 release.
 
-The 4.9.2.0 is part of the LTS 4.9.x releases. The 4.9 LTS branch is supported
-for 20 months, and will receives updates for first 14 months and only
-security updates in its last 6 months. The 4.9 LTS branch is supported till 1
-June 2018.
-
 A LOT changed in this release, so this is not a complete list, but here is a 
 quick summary of some of the changes.
 

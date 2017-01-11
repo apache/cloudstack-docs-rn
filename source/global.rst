@@ -21,11 +21,11 @@
 .. _CloudStack Apidocs: http://cloudstack.apache.org/docs/api/
 
 .. Latest version systemvm template URL
-.. |sysvm64-url-xen|    replace:: http://packages.shapeblue.com/systemvmtemplate/4.6/new/systemvm64template-4.6-xen.vhd.bz2
-.. |sysvm64-url-kvm|    replace:: http://packages.shapeblue.com/systemvmtemplate/4.6/new/systemvm64template-4.6-kvm.qcow2.bz2
-.. |sysvm64-url-vmware| replace:: http://packages.shapeblue.com/systemvmtemplate/4.6/new/systemvm64template-4.6-vmware.ova
-.. |sysvm64-url-hyperv| replace:: http://packages.shapeblue.com/systemvmtemplate/4.6/new/systemvm64template-4.6-hyperv.vhd.zip
-.. |sysvm64-url-ovm|    replace:: http://packages.shapeblue.com/systemvmtemplate/4.6/new/systemvm64template-4.6-ovm.raw.bz2
+.. |sysvm64-url-xen|    replace:: http://packages.shapeblue.com/systemvmtemplate/4.10/systemvm64template-4.10-xen.vhd.bz2
+.. |sysvm64-url-kvm|    replace:: http://packages.shapeblue.com/systemvmtemplate/4.10/systemvm64template-4.10-kvm.qcow2.bz2
+.. |sysvm64-url-vmware| replace:: http://packages.shapeblue.com/systemvmtemplate/4.10/systemvm64template-4.10-vmware.ova
+.. |sysvm64-url-hyperv| replace:: http://packages.shapeblue.com/systemvmtemplate/4.10/systemvm64template-4.10-hyperv.vhd.zip
+.. |sysvm64-url-ovm|    replace:: http://packages.shapeblue.com/systemvmtemplate/4.10/systemvm64template-4.10-ovm.raw.bz2
 
 .. Version specific: 4.5 systemvm template URL
 .. |acs45-sysvm64-url-xen|    replace:: http://cloudstack.apt-get.eu/systemvm/4.5/systemvm64template-4.5-xen.vhd.bz2
