@@ -39,7 +39,6 @@ Upgrade Steps:
 #. Upgrade CloudStack management server(s)
 #. Update hypervisors specific dependencies
 
-
 Packages repository
 -------------------
 
