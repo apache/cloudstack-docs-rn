@@ -28,75 +28,29 @@ New API Commands
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | Name                                        | Description                                                                    |
 +=============================================+================================================================================+
-| ``configureOutOfBandManagement``            | Configures a host's out-of-band management interface                           |
+| ``listVirtualMachinesMetrics``              | Lists VM metrics                                                               |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``disableOutOfBandManagementForZone``       | Disables out-of-band management for a zone                                     |
+| ``listHostsMetrics``                        | Lists hosts metrics                                                            |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateRolePermission``                    | Updates a role permission order                                                |
+| ``listClustersMetrics``                     | Lists clusters metrics                                                         |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``ldapConfig``                              | Configure the LDAP context for this site.                                      |
+| ``listNuageUnderlayVlanIpRanges``           | enable Nuage underlay on vlan ip range                                         |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``createRole``                              | Creates a role                                                                 |
+| ``listVolumesMetrics``                      | Lists volume metrics                                                           |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``deleteStratosphereSsp``                   | Removes stratosphere ssp server                                                |
+| ``disableNuageUnderlayVlanIpRange``         | disable Nuage underlay on vlan ip range                                        |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``searchLdap``                              | Searches LDAP based on the username attribute                                  |
+| ``enableNuageUnderlayVlanIpRange``          | enable Nuage underlay on vlan ip range                                         |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``enableOutOfBandManagementForCluster``     | Enables out-of-band management for a cluster                                   |
+| ``listStoragePoolsMetrics``                 | Lists storage pool metrics                                                     |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``getPathForVolume``                        | Get the path associated with the provided volume UUID                          |
+| ``createSnapshotFromVMSnapshot``            | Creates an instant snapshot of a volume from existing vm snapshot.             |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listRolePermissions``                     | Lists role permissions                                                         |
+| ``getUserKeys``                             | This command allows the user to query the seceret and API keys for the account |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``changeOutOfBandManagementPassword``       | Changes out-of-band management interface password on the host and updates the  |
-|                                             | interface configuration in CloudStack if the operation succeeds, else reverts  |
-|                                             | the old password                                                               |
+| ``listInfrastructure``                      | Lists infrastructure                                                           |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listRoles``                               | Lists dynamic roles in CloudStack                                              |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateRole``                              | Updates a role                                                                 |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``createRolePermission``                    | Adds a API permission to a role                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``enableOutOfBandManagementForHost``        | Enables out-of-band management for a host                                      |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``disableOutOfBandManagementForCluster``    | Disables out-of-band management for a cluster                                  |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``deleteRolePermission``                    | Deletes a role permission                                                      |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``getVolumeiScsiName``                      | Get Volume's iSCSI Name                                                        |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``getVolumeSnapshotDetails``                | Get Volume Snapshot Details                                                    |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``notifyBaremetalProvisionDone``            | Notify provision has been done on a host. This api is for baremetal virtual    |
-|                                             | router service, not for end user                                               |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``ldapRemove``                              | Remove the LDAP context for this site.                                         |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``deleteUcsManager``                        | Delete a Ucs manager                                                           |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``issueOutOfBandManagementPowerAction``     | Initiates the specified power action to the host's out-of-band management      |
-|                                             | interface                                                                      |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``disableOutOfBandManagementForHost``       | Disables out-of-band management for a host                                     |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``deleteRole``                              | Deletes a role                                                                 |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``enableOutOfBandManagementForZone``        | Enables out-of-band management for a zone                                      |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-
-
-Removed API Commands
---------------------
-
-.. cssclass:: table-striped table-bordered table-hover
-
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| Name                                        | Description                                                                    |
-+=============================================+================================================================================+
-| ``issueNuageVspResourceRequest``            | Issues a Nuage VSP REST API resource request                                   |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``getSolidFireVolumeIscsiName``             | Get SolidFire Volume's Iscsi Name                                              |
+| ``listZonesMetrics``                        | Lists zone metrics                                                             |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 
 
@@ -108,756 +62,471 @@ Parameters Changed API Commands
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | Name                                        | Description                                                                    |
 +=============================================+================================================================================+
-| ``reconnectHost``                           | **Response:**                                                                  |
+| ``copyIso``                                 | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``outofbandmanagement``                                                      |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``copyTemplate``                            | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``addNicToVirtualMachine``                  | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``addCluster``                              | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``resourcedetails``                                                          |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listVolumes``                             | **Request:**                                                                   |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``ids`` (optional)                                                           |
-|                                             |                                                                                |
-|                                             | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``importLdapUsers``                         | **Request:**                                                                   |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``roleid`` (optional)                                                        |
+|                                             | - ``destzoneids`` (optional)                                                   |
 |                                             |                                                                                |
 |                                             | *Changed Parameters:*                                                          |
 |                                             |                                                                                |
-|                                             | - ``accounttype`` was 'required' and is now 'optional'                         |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``createTemplate``                          | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``migrateVolume``                           | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``enableAccount``                           | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listClusters``                            | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``resourcedetails``                                                          |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``attachVolume``                            | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``resetSSHKeyForVirtualMachine``            | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateVmNicIp``                           | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateVolume``                            | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``cancelHostMaintenance``                   | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``outofbandmanagement``                                                      |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``addNuageVspDevice``                       | **Request:**                                                                   |
-|                                             |                                                                                |
-|                                             | *Changed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``retrycount`` was 'required' and is now 'optional'                          |
-|                                             | - ``retryinterval`` was 'required' and is now 'optional'                       |
-|                                             | - ``apiversion`` was 'required' and is now 'optional'                          |
+|                                             | - ``destzoneid`` was 'required' and is now 'optional'                          |
 |                                             |                                                                                |
 |                                             | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``cmsid``                                                                    |
+|                                             | - ``bits``                                                                     |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``addBaremetalHost``                        | **Response:**                                                                  |
+| ``listHosts``                               | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``outofbandmanagement``                                                      |
+|                                             | - ``memorywithoverprovisioning``                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``resizeVolume``                            | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``recoverVirtualMachine``                   | **Response:**                                                                  |
+| ``updateFirewallRule``                      | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
+|                                             | - ``destcidrlist``                                                             |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listCapabilities``                        | **Response:**                                                                  |
+| ``updateGuestOs``                           | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``dynamicrolesenabled``                                                      |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``deployVirtualMachine``                    | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``enableUser``                              | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateAccount``                           | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``addHost``                                 | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``outofbandmanagement``                                                      |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateNuageVspDevice``                    | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``cmsid``                                                                    |
+|                                             | - ``details`` (required)                                                       |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``updateHost``                              | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``outofbandmanagement``                                                      |
+|                                             | - ``memorywithoverprovisioning``                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``lockAccount``                             | **Response:**                                                                  |
+| ``createEgressFirewallRule``                | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
+|                                             | - ``destcidrlist`` (optional)                                                  |
 |                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``createUser``                              | **Response:**                                                                  |
+|                                             | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
+|                                             | - ``destcidrlist``                                                             |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``detachVolume``                            | **Response:**                                                                  |
+| ``addSwift``                                | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *Removed Parameters:*                                                          |
 |                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
+|                                             | - ``details``                                                                  |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listSnapshots``                           | **Request:**                                                                   |
+| ``listEgressFirewallRules``                 | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``ids`` (optional)                                                           |
+|                                             | - ``destcidrlist``                                                             |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``ldapCreateAccount``                       | **Request:**                                                                   |
+| ``listSecondaryStagingStores``              | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *Removed Parameters:*                                                          |
+|                                             |                                                                                |
+|                                             | - ``details``                                                                  |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listTemplates``                           | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``roleid`` (optional)                                                        |
+|                                             | - ``bits``                                                                     |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listFirewallRules``                       | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``destcidrlist``                                                             |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``createSecondaryStagingStore``             | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *Removed Parameters:*                                                          |
+|                                             |                                                                                |
+|                                             | - ``details``                                                                  |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateNetworkOffering``                   | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``supportspublicaccess``                                                     |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``createNetworkOffering``                   | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``supportspublicaccess``                                                     |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listSnapshots``                           | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``locationtype``                                                             |
+|                                             | - ``osdisplayname``                                                            |
+|                                             | - ``ostypeid``                                                                 |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listConfigurations``                      | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``imagestoreuuid`` (optional)                                                |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``addIpToNic``                              | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``secondaryip``                                                              |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``createProject``                           | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``projectaccountname``                                                       |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``createSnapshot``                          | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``locationtype`` (optional)                                                  |
+|                                             |                                                                                |
+|                                             | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``locationtype``                                                             |
+|                                             | - ``osdisplayname``                                                            |
+|                                             | - ``ostypeid``                                                                 |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``findHostsForMigration``                   | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``memorywithoverprovisioning``                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``dedicateGuestVlanRange``                  | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *Changed Parameters:*                                                          |
 |                                             |                                                                                |
-|                                             | - ``accounttype`` was 'required' and is now 'optional'                         |
+|                                             | - ``account`` was 'required' and is now 'optional'                             |
+|                                             | - ``domainid`` was 'required' and is now 'optional'                            |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateIso``                               | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``cleanupdetails`` (optional)                                                |
 |                                             |                                                                                |
 |                                             | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``registerTemplate``                        | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``createAccount``                           | **Request:**                                                                   |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``roleid`` (optional)                                                        |
-|                                             |                                                                                |
-|                                             | *Changed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``accounttype`` was 'required' and is now 'optional'                         |
-|                                             |                                                                                |
-|                                             | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``prepareHostForMaintenance``               | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``outofbandmanagement``                                                      |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listNuageVspDevices``                     | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``cmsid``                                                                    |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``attachIso``                               | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``getUser``                                 | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateCluster``                           | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``resourcedetails``                                                          |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listTemplates``                           | **Request:**                                                                   |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``ids`` (optional)                                                           |
-|                                             |                                                                                |
-|                                             | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``prepareTemplate``                         | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``rebootVirtualMachine``                    | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateVMAffinityGroup``                   | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateUser``                              | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateTemplate``                          | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``disableUser``                             | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``removeNicFromVirtualMachine``             | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateDefaultNicForVirtualMachine``       | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``registerIso``                             | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
+|                                             | - ``bits``                                                                     |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``listExternalLoadBalancers``               | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``outofbandmanagement``                                                      |
+|                                             | - ``memorywithoverprovisioning``                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``createVolume``                            | **Response:**                                                                  |
+| ``prepareTemplate``                         | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``bits``                                                                     |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``samlSso``                                 | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``timezoneoffset``                                                           |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``login``                                   | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``timezoneoffset``                                                           |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``addImageStore``                           | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *Removed Parameters:*                                                          |
 |                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
+|                                             | - ``details``                                                                  |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``resetPasswordForVirtualMachine``          | **Response:**                                                                  |
+| ``copyTemplate``                            | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
+|                                             | - ``destzoneids`` (optional)                                                   |
+|                                             |                                                                                |
+|                                             | *Changed Parameters:*                                                          |
+|                                             |                                                                                |
+|                                             | - ``destzoneid`` was 'required' and is now 'optional'                          |
+|                                             |                                                                                |
+|                                             | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``bits``                                                                     |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``assignVirtualMachine``                    | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``projectid`` (optional)                                                     |
+|                                             |                                                                                |
+|                                             | *Changed Parameters:*                                                          |
+|                                             |                                                                                |
+|                                             | - ``account`` was 'required' and is now 'optional'                             |
+|                                             | - ``domainid`` was 'required' and is now 'optional'                            |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateTemplate``                          | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``cleanupdetails`` (optional)                                                |
+|                                             |                                                                                |
+|                                             | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``bits``                                                                     |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``addSecondaryStorage``                     | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *Removed Parameters:*                                                          |
 |                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``changeServiceForVirtualMachine``          | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``startVirtualMachine``                     | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``detachIso``                               | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``disableAccount``                          | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``migrateVirtualMachine``                   | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listVMSnapshot``                          | **Request:**                                                                   |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``vmsnapshotids`` (optional)                                                 |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``assignVirtualMachine``                    | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
+|                                             | - ``details``                                                                  |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``updateVirtualMachine``                    | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``securitygroupids`` (optional)                                              |
-|                                             | - ``securitygroupnames`` (optional)                                            |
+|                                             | - ``cleanupdetails`` (optional)                                                |
 |                                             |                                                                                |
-|                                             | **Response:**                                                                  |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateNetwork``                           | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
+|                                             | - ``forced`` (optional)                                                        |
+|                                             | - ``updateinsequence`` (optional)                                              |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``getSolidFireVolumeSize``                  | **Request:**                                                                   |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``storageid``                                                                |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``restoreVirtualMachine``                   | **Response:**                                                                  |
+| ``createTemplate``                          | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
+|                                             | - ``bits``                                                                     |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``copyIso``                                 | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``uploadVolume``                            | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``migrateVirtualMachineWithVolume``         | **Response:**                                                                  |
+| ``prepareHostForMaintenance``               | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
+|                                             | - ``memorywithoverprovisioning``                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``stopVirtualMachine``                      | **Response:**                                                                  |
+| ``listProjects``                            | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
+|                                             | - ``projectaccountname``                                                       |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listAccounts``                            | **Response:**                                                                  |
+| ``addGuestOs``                              | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
+|                                             | - ``details`` (required)                                                       |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateIso``                               | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``destroyVirtualMachine``                   | **Response:**                                                                  |
+| ``registerIso``                             | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
+|                                             | - ``bits``                                                                     |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``revertToVMSnapshot``                      | **Response:**                                                                  |
+| ``cancelHostMaintenance``                   | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
+|                                             | - ``memorywithoverprovisioning``                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``markDefaultZoneForAccount``               | **Response:**                                                                  |
+| ``listProjectAccounts``                     | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
+|                                             | - ``projectaccountname``                                                       |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``lockUser``                                | **Response:**                                                                  |
+| ``listNetworkOfferings``                    | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
+|                                             | - ``supportspublicaccess``                                                     |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listVirtualMachines``                     | **Response:**                                                                  |
+| ``addHost``                                 | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memoryintfreekbs``                                                         |
-|                                             | - ``memorykbs``                                                                |
-|                                             | - ``memorytargetkbs``                                                          |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
+|                                             | - ``memorywithoverprovisioning``                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listHosts``                               | **Request:**                                                                   |
+| ``updateProject``                           | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``outofbandmanagementenabled`` (optional)                                    |
-|                                             | - ``outofbandmanagementpowerstate`` (optional)                                 |
-|                                             |                                                                                |
-|                                             | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``outofbandmanagement``                                                      |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listUsers``                               | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``roleid``                                                                   |
-|                                             | - ``rolename``                                                                 |
-|                                             | - ``roletype``                                                                 |
+|                                             | - ``projectaccountname``                                                       |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``listIsos``                                | **Response:**                                                                  |
 |                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``bits``                                                                     |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateCloudToUseObjectStore``             | **Response:**                                                                  |
+|                                             |                                                                                |
 |                                             | *Removed Parameters:*                                                          |
 |                                             |                                                                                |
-|                                             | - ``tags(*)``                                                                  |
+|                                             | - ``details``                                                                  |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateConfiguration``                     | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``imagestoreuuid`` (optional)                                                |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``revertSnapshot``                          | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``locationtype``                                                             |
+|                                             | - ``osdisplayname``                                                            |
+|                                             | - ``ostypeid``                                                                 |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listSwifts``                              | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *Removed Parameters:*                                                          |
+|                                             |                                                                                |
+|                                             | - ``details``                                                                  |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``suspendProject``                          | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``projectaccountname``                                                       |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``registerTemplate``                        | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``zoneids`` (optional)                                                       |
+|                                             |                                                                                |
+|                                             | *Changed Parameters:*                                                          |
+|                                             |                                                                                |
+|                                             | - ``zoneid`` was 'required' and is now 'optional'                              |
+|                                             |                                                                                |
+|                                             | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``bits``                                                                     |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``addImageStoreS3``                         | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *Removed Parameters:*                                                          |
+|                                             |                                                                                |
+|                                             | - ``details``                                                                  |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``createFirewallRule``                      | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``destcidrlist``                                                             |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listImageStores``                         | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *Removed Parameters:*                                                          |
+|                                             |                                                                                |
+|                                             | - ``details``                                                                  |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``activateProject``                         | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``projectaccountname``                                                       |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``reconnectHost``                           | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``memorywithoverprovisioning``                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``addBaremetalHost``                        | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``memorywithoverprovisioning``                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateEgressFirewallRule``                | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``destcidrlist``                                                             |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 
-.. include:: global.rst
+
