@@ -17,76 +17,20 @@
 What's New in |version|
 =======================
 
-Version |release| includes 180 pull requests and fixes more than 80 bugs since
-the 4.9.0 release.
+Version |release| includes 339 pull requests and fixes more than 272 bugs since
+the last release. Version |release| is much larger than usual and had a duration of about 10 months.
 
 A LOT changed in this release, so this is not a complete list, but here is a 
 quick summary of some of the changes.
 
 
-Networking
-----------
-
-* Fixes to ACLs, S2S VPN, Private Gateways, Redundant VRs and other optimizations
-* Nuage VSP SDN Plugin got a lot of improvements and some new features
-
-
-Database
---------
-
-* MySQL connector changed
-* DB optimizations and improvements
-
-
-Storage
--------
-
-* Enabled fast snapshots for managed storage using XenServer
-* Fixes for some RBD issues
-* Fixes multiple Swift object store issues
-* Improved VMware disk implementation
-
-
-Hypervisor
-----------
-
-* Support for XenServer 7
-* Support for VMware vSphere 6.0, 6.5
-* Support for Ubuntu 16.04 as KVM host
-
-
-Usability
----------
-
-* Added user defined roles
-* Added configurable root volume size for KVM
-* Lots of localization improvements
-* Added CentOS 6.x guest OS mappings for VMware
-
-
-Operations
-----------
-
-* Added Out-of-band power management for hosts (EG: IPMI, iLO, DRAC, etc.)
-
-
-Miscellaneous
--------------
-
-* Use non-blocking SSL handshake in NioConnection/Link
-* Added memory utilization to ``listVirtualMachines``
-* Multiple fixes related to usage
-
-
-QA
---
-
-* Higher quality releases due to better QA automation, testing and code reviewing
-
-Build dependency
-----------------
-
-When building Apache CloudStack with ``noredist``, it now require the file
-``deps/vim25_60.jar`` available from vSphere SDK 6.0,
-VMware-vSphere-SDK-6.0.0-3634981.zip.
-
+ * IPV6 support for basic networking
+ * Virtio-Scsi disk controller support for KVM
+ * Ability to disable primary storage to secondary storage backups for snapshots
+ * VMSnapshot (including memory) support for KVM on NFS
+ * RBD snapshot backups to secondary are now QCOW2 rather than raw to save space
+ * Strongwan VPN Improvements
+ * Nuage VSP SDN Plugin: Shared networks support, Guest DNS support, Source- and Static-nat to Underlay and support for Nuage VSP 4.0
+ * Significant performances improvements related to Virtual Router Deployment
+ * Force power off/stop support for KVM, VMware and XenServer
+ * Lots of bug fixes and performance improvements
