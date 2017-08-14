@@ -24,13 +24,13 @@ A LOT changed in this release, so this is not a complete list, but here is a
 quick summary of some of the changes.
 
 
- * IPV6 support for basic networking
- * Virtio-Scsi disk controller support for KVM
- * Ability to disable primary storage to secondary storage backups for snapshots
- * VMSnapshot (including memory) support for KVM on NFS
- * RBD snapshot backups to secondary are now QCOW2 rather than raw to save space
- * Strongwan VPN Improvements
- * Nuage VSP SDN Plugin: Shared networks support, Guest DNS support, Source- and Static-nat to Underlay and support for Nuage VSP 4.0
- * Significant performances improvements related to Virtual Router Deployment
- * Force power off/stop support for KVM, VMware and XenServer
- * Lots of bug fixes and performance improvements
+* IPV6 support for basic networking
+* Virtio-Scsi disk controller support for KVM
+* Ability to disable primary storage to secondary storage backups for snapshots
+* VMSnapshot (including memory) support for KVM on NFS
+* RBD snapshot backups to secondary are now QCOW2 rather than raw to save space
+* Strongwan VPN Improvements
+* Nuage VSP SDN Plugin: Shared networks support, Guest DNS support, Source- and Static-nat to Underlay and support for Nuage VSP 4.0
+* Significant performances improvements related to Virtual Router Deployment
+* Force power off/stop support for KVM, VMware and XenServer
+* Lots of bug fixes and performance improvements
