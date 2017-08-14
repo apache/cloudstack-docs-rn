@@ -257,7 +257,7 @@ Issues Fixed in |release|
 |                         |          |                    |               |          | global parameter "vmware.systemvm.nic.device.type" to      |
 |                         |          |                    |               |          | vmxnet3 for VPC VR                                         |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
-| 4.10                    | `#2071`_ | CLOUDSTACK-9815_   | New Feature   | Major    | Application Container Service                              |
+| 4.10                    | `#2071`_ | CLOUDSTACK-9815_   | Improvement   | Major    | Application Container Service                              |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
 | 4.10                    | `#2030`_ | CLOUDSTACK-9864_   | Improvement   | Major    | cleanup stale worker VMs after job expiry time             |
 +-------------------------+----------+--------------------+---------------+----------+------------------------------------------------------------+
