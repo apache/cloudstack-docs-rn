@@ -19,7 +19,7 @@
 Upgrade Instruction from |version_to_upgrade|
 =============================================
 
-This section will guide you from CloudStack |version_to_upgrade| to CloudStack 
+This section will guide you from CloudStack |version_to_upgrade| to CloudStack
 |version|.
 
 Any steps that are hypervisor-specific will be called out with a note.
@@ -28,7 +28,7 @@ We recommend reading through this section once or twice before beginning
 your upgrade procedure, and working through it on a test system before
 working on a production system.
 
-.. note:: 
+.. note::
     The following upgrade instructions should be performed regardless of
     hypervisor type.
 
@@ -53,9 +53,9 @@ Create RPM or Debian packages (as appropriate) and a repository from
 the |version| source, or check the Apache CloudStack downloads page at
 http://cloudstack.apache.org/downloads.html
 for package repositories supplied by community members. You will need
-them for :ref:`ubuntu48` or :ref:`rhel48` and :ref:`kvm48` hosts upgrade. 
+them for :ref:`ubuntu48` or :ref:`rhel48` and :ref:`kvm48` hosts upgrade.
 
-Instructions for creating packages from the CloudStack source are in the 
+Instructions for creating packages from the CloudStack source are in the
 `CloudStack Installation Guide`_.
 
 
@@ -109,10 +109,10 @@ Backup current database
 Management Server on Ubuntu
 ---------------------------
 
-If you are using Ubuntu, follow this procedure to upgrade your packages. If 
+If you are using Ubuntu, follow this procedure to upgrade your packages. If
 not, skip to step :ref:`rhel48`.
 
-.. note:: 
+.. note::
    **Community Packages:** This section assumes you're using the community
    supplied packages for CloudStack. If you've created your own packages and
    APT repository, substitute your own URL for the ones used in these examples.
@@ -179,10 +179,10 @@ read as appropriate for your |version| repository.
 Management Server on CentOS/RHEL
 --------------------------------
 
-If you are using CentOS or RHEL, follow this procedure to upgrade your 
+If you are using CentOS or RHEL, follow this procedure to upgrade your
 packages. If not, skip to hypervisors section, then :ref:`upg-sysvm48`.
 
-.. note:: 
+.. note::
    **Community Packages:** This section assumes you're using the community
    supplied packages for CloudStack. If you've created your own packages and
    yum repository, substitute your own URL for the ones used in these examples.
@@ -230,7 +230,7 @@ Setup the GPG public key if you wish to enable ``gpgcheck=1``:
 If you're using your own package repository, change this line to
 read as appropriate for your |version| repository.
 
-#. Now that you have the repository configured, it's time to upgrade the 
+#. Now that you have the repository configured, it's time to upgrade the
    ``cloudstack-management``.
 
    .. sourcecode:: bash
@@ -279,7 +279,7 @@ are required only for clouds using VMware clusters:
 
    .. sourcecode:: bash
 
-      $ java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.0.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input="_your_vCenter_password_" password="`cat /etc/cloudstack/management/key`" verbose=false
+      $ java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.2.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input="_your_vCenter_password_" password="`cat /etc/cloudstack/management/key`" verbose=false
 
 Store the output from this step, we need to add this in
 cluster\_details table and vmware\_data\_center tables in place of
@@ -357,7 +357,7 @@ hosts.
 
       $ sudo apt-get upgrade cloudstack-agent
 
-#. Verify that the file ``/etc/cloudstack/agent/environment.properties`` has a 
+#. Verify that the file ``/etc/cloudstack/agent/environment.properties`` has a
     line that reads:
 
    .. sourcecode:: bash
@@ -383,7 +383,7 @@ For KVM hosts, upgrade the ``cloudstack-agent`` package
 
       $ sudo yum upgrade cloudstack-agent
 
-#. Verify that the file ``/etc/cloudstack/agent/environment.properties`` has a 
+#. Verify that the file ``/etc/cloudstack/agent/environment.properties`` has a
    line that reads:
 
    .. sourcecode:: bash
