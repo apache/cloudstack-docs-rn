@@ -285,7 +285,7 @@ are required only for clouds using VMware clusters:
 
    .. sourcecode:: bash
 
-      $ java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.0.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input="_your_vCenter_password_" password="`cat /etc/cloudstack/management/key`" verbose=false
+      $ java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.2.jar org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh input="_your_vCenter_password_" password="`cat /etc/cloudstack/management/key`" verbose=false
 
 Store the output from this step, we need to add this in
 cluster\_details table and vmware\_data\_center tables in place of
