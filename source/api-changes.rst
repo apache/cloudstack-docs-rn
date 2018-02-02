@@ -28,29 +28,95 @@ New API Commands
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | Name                                        | Description                                                                    |
 +=============================================+================================================================================+
-| ``listVirtualMachinesMetrics``              | Lists VM metrics                                                               |
+| ``provisionCertificate``                    | Issues and propagates client certificate on a connected host/agent using       |
+|                                             | configured CA plugin                                                           |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listHostsMetrics``                        | Lists hosts metrics                                                            |
+| ``listElastistorPool``                      | Lists the pools of elastistor                                                  |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listClustersMetrics``                     | Lists clusters metrics                                                         |
+| ``deleteServicePackageOffering``            | Delete Service Package                                                         |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listNuageUnderlayVlanIpRanges``           | enable Nuage underlay on vlan ip range                                         |
+| ``listAnnotations``                         | Lists annotations.                                                             |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listVolumesMetrics``                      | Lists volume metrics                                                           |
+| ``enableHAForZone``                         | Enables HA for a zone                                                          |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``disableNuageUnderlayVlanIpRange``         | disable Nuage underlay on vlan ip range                                        |
+| ``enableHAForCluster``                      | Enables HA cluster-wide                                                        |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``enableNuageUnderlayVlanIpRange``          | enable Nuage underlay on vlan ip range                                         |
+| ``listNuageVspDomainTemplates``             | Lists Nuage VSP domain templates                                               |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listStoragePoolsMetrics``                 | Lists storage pool metrics                                                     |
+| ``listElastistorInterface``                 | Lists the network Interfaces of elastistor                                     |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``createSnapshotFromVMSnapshot``            | Creates an instant snapshot of a volume from existing vm snapshot.             |
+| ``stopNetScalerVpx``                        | Stops a NetScalervm.                                                           |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``getUserKeys``                             | This command allows the user to query the seceret and API keys for the account |
+| ``disableHAForZone``                        | Disables HA for a zone                                                         |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listInfrastructure``                      | Lists infrastructure                                                           |
+| ``revokeCertificate``                       | Revokes certificate using configured CA plugin                                 |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listZonesMetrics``                        | Lists zone metrics                                                             |
+| ``updateSiocInfo``                          | Update SIOC info                                                               |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``cloudianSsoLogin``                        | Generates single-sign-on login url for logged-in CloudStack user to access the |
+|                                             | Cloudian Management Console                                                    |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``issueCertificate``                        | Issues a client certificate using configured or provided CA plugin             |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listNetscalerControlCenter``              | list control center                                                            |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listCAProviders``                         | Lists available certificate authority providers in CloudStack                  |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``acquirePodIpAddress``                     | Allocates IP addresses in respective Pod of a Zone                             |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``deleteManagementNetworkIpRange``          | Deletes a management network IP range. This action is only allowed when no IPs |
+|                                             | in this range are allocated.                                                   |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``addAnnotation``                           | add an annotation.                                                             |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``deployNetscalerVpx``                      | Creates new NS Vpx                                                             |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listElastistorVolume``                    | Lists the volumes of elastistor                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``cloudianIsEnabled``                       | Checks if the Cloudian Connector is enabled                                    |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listNuageVspGlobalDomainTemplate``        | Lists Nuage VSP domain templates                                               |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listHostHAResources``                     | Lists host HA resources                                                        |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``enableHAForHost``                         | Enables HA for a host                                                          |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``registerNetscalerServicePackage``         | Registers NCC Service Package                                                  |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listHostHAProviders``                     | Lists HA providers                                                             |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listCaCertificate``                       | Lists the CA public certificate(s) as support by the configured/provided CA    |
+|                                             | plugin                                                                         |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``migrateVPC``                              | moves a vpc to another physical network                                        |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``configureHAForHost``                      | Configures HA for a host                                                       |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listRegisteredServicePackages``           | lists registered service packages                                              |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``disableHAForCluster``                     | Disables HA cluster-wide                                                       |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``linkAccountToLdap``                       | link a cloudstack account to a group or OU in ldap                             |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``associateNuageVspDomainTemplate``         | associate a vpc with a domain template                                         |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``moveUser``                                | Moves a user to another account                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``disableHAForHost``                        | Disables HA for a host                                                         |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``deleteNetscalerControlCenter``            | Delete Netscaler Control Center                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``migrateNetwork``                          | moves a network to another physical network                                    |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``uploadTemplateDirectDownloadCertificate`` | Upload a certificate for HTTPS direct template download on KVM hosts           |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``registerNetscalerControlCenter``          | Adds a netscaler control center device                                         |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``createManagementNetworkIpRange``          | Creates a Management network IP range.                                         |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``removeAnnotation``                        | remove an annotation.                                                          |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``releasePodIpAddress``                     | Releases a Pod IP back to the Pod                                              |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 
 
@@ -62,471 +128,882 @@ Parameters Changed API Commands
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | Name                                        | Description                                                                    |
 +=============================================+================================================================================+
-| ``copyIso``                                 | **Request:**                                                                   |
+| ``createPod``                               | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``destzoneids`` (optional)                                                   |
+|                                             | - ``forsystemvms``                                                             |
+|                                             | - ``vlanid``                                                                   |
 |                                             |                                                                                |
-|                                             | *Changed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``destzoneid`` was 'required' and is now 'optional'                          |
-|                                             |                                                                                |
-|                                             | **Response:**                                                                  |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``copyIso``                                 | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``bits``                                                                     |
+|                                             | - ``childtemplates``                                                           |
+|                                             | - ``directdownload``                                                           |
+|                                             | - ``parenttemplateid``                                                         |
+|                                             | - ``physicalsize``                                                             |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``listHosts``                               | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memorywithoverprovisioning``                                               |
+|                                             | - ``annotation``                                                               |
+|                                             | - ``hostha``                                                                   |
+|                                             | - ``lastannotated``                                                            |
+|                                             | - ``username``                                                                 |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateFirewallRule``                      | **Response:**                                                                  |
+| ``updateStoragePool``                       | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``destcidrlist``                                                             |
+|                                             | - ``allocatediops``                                                            |
+|                                             | - ``provider``                                                                 |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateGuestOs``                           | **Request:**                                                                   |
+| ``rebootSystemVm``                          | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``details`` (required)                                                       |
+|                                             | - ``guestvlan``                                                                |
+|                                             | - ``publicvlan``                                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateHost``                              | **Response:**                                                                  |
+| ``listNetworks``                            | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memorywithoverprovisioning``                                               |
+|                                             | - ``externalid``                                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``createEgressFirewallRule``                | **Request:**                                                                   |
+| ``updateResourceLimit``                     | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``destcidrlist`` (optional)                                                  |
+|                                             | - ``resourcetypename``                                                         |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateHost``                              | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``annotation`` (optional)                                                    |
 |                                             |                                                                                |
 |                                             | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``destcidrlist``                                                             |
+|                                             | - ``annotation``                                                               |
+|                                             | - ``hostha``                                                                   |
+|                                             | - ``lastannotated``                                                            |
+|                                             | - ``username``                                                                 |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``addSwift``                                | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``details``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listEgressFirewallRules``                 | **Response:**                                                                  |
+| ``uploadVolume``                            | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``destcidrlist``                                                             |
+|                                             | - ``clusterid``                                                                |
+|                                             | - ``clustername``                                                              |
+|                                             | - ``physicalsize``                                                             |
+|                                             | - ``podid``                                                                    |
+|                                             | - ``podname``                                                                  |
+|                                             | - ``utilization``                                                              |
+|                                             | - ``virtualsize``                                                              |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listSecondaryStagingStores``              | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``details``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listTemplates``                           | **Response:**                                                                  |
+| ``destroySystemVm``                         | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``bits``                                                                     |
+|                                             | - ``guestvlan``                                                                |
+|                                             | - ``publicvlan``                                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listFirewallRules``                       | **Response:**                                                                  |
+| ``scaleSystemVm``                           | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``destcidrlist``                                                             |
+|                                             | - ``guestvlan``                                                                |
+|                                             | - ``publicvlan``                                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``createSecondaryStagingStore``             | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``details``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateNetworkOffering``                   | **Response:**                                                                  |
+| ``listLdapConfigurations``                  | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``supportspublicaccess``                                                     |
+|                                             | - ``domainid`` (optional)                                                      |
 |                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``createNetworkOffering``                   | **Response:**                                                                  |
+|                                             | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``supportspublicaccess``                                                     |
+|                                             | - ``domainid``                                                                 |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listTemplates``                           | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``parenttemplateid`` (optional)                                              |
+|                                             |                                                                                |
+|                                             | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``childtemplates``                                                           |
+|                                             | - ``directdownload``                                                           |
+|                                             | - ``parenttemplateid``                                                         |
+|                                             | - ``physicalsize``                                                             |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``createLoadBalancerRule``                  | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``zonename``                                                                 |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateNetworkOffering``                   | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``tags`` (optional)                                                          |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``stopSystemVm``                            | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``guestvlan``                                                                |
+|                                             | - ``publicvlan``                                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``createNetworkOffering``                   | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``forvpc`` (optional)                                                        |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listVolumesMetrics``                      | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``clusterid`` (optional)                                                     |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listSslCerts``                            | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``name``                                                                     |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listPods``                                | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``forsystemvms``                                                             |
+|                                             | - ``vlanid``                                                                   |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``listSnapshots``                           | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``locationtype``                                                             |
-|                                             | - ``osdisplayname``                                                            |
-|                                             | - ``ostypeid``                                                                 |
+|                                             | - ``virtualsize``                                                              |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``listConfigurations``                      | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``imagestoreuuid`` (optional)                                                |
+|                                             | - ``domainid`` (optional)                                                      |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``addIpToNic``                              | **Response:**                                                                  |
+| ``listSystemVms``                           | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``secondaryip``                                                              |
+|                                             | - ``guestvlan``                                                                |
+|                                             | - ``publicvlan``                                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``createProject``                           | **Response:**                                                                  |
+| ``detachVolume``                            | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``projectaccountname``                                                       |
+|                                             | - ``clusterid``                                                                |
+|                                             | - ``clustername``                                                              |
+|                                             | - ``physicalsize``                                                             |
+|                                             | - ``podid``                                                                    |
+|                                             | - ``podname``                                                                  |
+|                                             | - ``utilization``                                                              |
+|                                             | - ``virtualsize``                                                              |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``changeServiceForSystemVm``                | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``guestvlan``                                                                |
+|                                             | - ``publicvlan``                                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``createSnapshot``                          | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``locationtype`` (optional)                                                  |
+|                                             | - ``asyncbackup`` (optional)                                                   |
 |                                             |                                                                                |
 |                                             | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``locationtype``                                                             |
-|                                             | - ``osdisplayname``                                                            |
-|                                             | - ``ostypeid``                                                                 |
+|                                             | - ``virtualsize``                                                              |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``findHostsForMigration``                   | **Response:**                                                                  |
+| ``listNics``                                | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memorywithoverprovisioning``                                               |
+|                                             | - ``extradhcpoption``                                                          |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``dedicateGuestVlanRange``                  | **Request:**                                                                   |
-|                                             |                                                                                |
-|                                             | *Changed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``account`` was 'required' and is now 'optional'                             |
-|                                             | - ``domainid`` was 'required' and is now 'optional'                            |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateIso``                               | **Request:**                                                                   |
+| ``createSnapshotFromVMSnapshot``            | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``cleanupdetails`` (optional)                                                |
+|                                             | - ``virtualsize``                                                              |
 |                                             |                                                                                |
-|                                             | **Response:**                                                                  |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listStoragePools``                        | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``bits``                                                                     |
+|                                             | - ``allocatediops``                                                            |
+|                                             | - ``provider``                                                                 |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``addNicToVirtualMachine``                  | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``dhcpoptions`` (optional)                                                   |
+|                                             | - ``macaddress`` (optional)                                                    |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``listExternalLoadBalancers``               | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memorywithoverprovisioning``                                               |
+|                                             | - ``annotation``                                                               |
+|                                             | - ``hostha``                                                                   |
+|                                             | - ``lastannotated``                                                            |
+|                                             | - ``username``                                                                 |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateIso``                               | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``childtemplates``                                                           |
+|                                             | - ``directdownload``                                                           |
+|                                             | - ``parenttemplateid``                                                         |
+|                                             | - ``physicalsize``                                                             |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``prepareTemplate``                         | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``bits``                                                                     |
+|                                             | - ``childtemplates``                                                           |
+|                                             | - ``directdownload``                                                           |
+|                                             | - ``parenttemplateid``                                                         |
+|                                             | - ``physicalsize``                                                             |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``samlSso``                                 | **Response:**                                                                  |
+| ``copyTemplate``                            | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``timezoneoffset``                                                           |
+|                                             | - ``childtemplates``                                                           |
+|                                             | - ``directdownload``                                                           |
+|                                             | - ``parenttemplateid``                                                         |
+|                                             | - ``physicalsize``                                                             |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``login``                                   | **Response:**                                                                  |
+| ``listNiciraNvpDeviceNetworks``             | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``timezoneoffset``                                                           |
+|                                             | - ``externalid``                                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``addImageStore``                           | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``details``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``copyTemplate``                            | **Request:**                                                                   |
+| ``resizeVolume``                            | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``destzoneids`` (optional)                                                   |
+|                                             | - ``clusterid``                                                                |
+|                                             | - ``clustername``                                                              |
+|                                             | - ``physicalsize``                                                             |
+|                                             | - ``podid``                                                                    |
+|                                             | - ``podname``                                                                  |
+|                                             | - ``utilization``                                                              |
+|                                             | - ``virtualsize``                                                              |
 |                                             |                                                                                |
-|                                             | *Changed Parameters:*                                                          |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateTemplate``                          | **Response:**                                                                  |
 |                                             |                                                                                |
-|                                             | - ``destzoneid`` was 'required' and is now 'optional'                          |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``childtemplates``                                                           |
+|                                             | - ``directdownload``                                                           |
+|                                             | - ``parenttemplateid``                                                         |
+|                                             | - ``physicalsize``                                                             |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``createVlanIpRange``                       | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``forsystemvms`` (optional)                                                  |
 |                                             |                                                                                |
 |                                             | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``bits``                                                                     |
+|                                             | - ``forsystemvms``                                                             |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``assignVirtualMachine``                    | **Request:**                                                                   |
+| ``listPaloAltoFirewallNetworks``            | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``projectid`` (optional)                                                     |
-|                                             |                                                                                |
-|                                             | *Changed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``account`` was 'required' and is now 'optional'                             |
-|                                             | - ``domainid`` was 'required' and is now 'optional'                            |
+|                                             | - ``externalid``                                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateTemplate``                          | **Request:**                                                                   |
+| ``deleteLdapConfiguration``                 | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``cleanupdetails`` (optional)                                                |
+|                                             | - ``domainid`` (optional)                                                      |
+|                                             | - ``port`` (optional)                                                          |
 |                                             |                                                                                |
 |                                             | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``bits``                                                                     |
+|                                             | - ``domainid``                                                                 |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``addSecondaryStorage``                     | **Response:**                                                                  |
+| ``updateVolume``                            | **Response:**                                                                  |
 |                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
+|                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``details``                                                                  |
+|                                             | - ``clusterid``                                                                |
+|                                             | - ``clustername``                                                              |
+|                                             | - ``physicalsize``                                                             |
+|                                             | - ``podid``                                                                    |
+|                                             | - ``podname``                                                                  |
+|                                             | - ``utilization``                                                              |
+|                                             | - ``virtualsize``                                                              |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``updateVirtualMachine``                    | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``cleanupdetails`` (optional)                                                |
+|                                             | - ``dhcpoptionsnetworklist`` (optional)                                        |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateNetwork``                           | **Request:**                                                                   |
+| ``listDomains``                             | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``details`` (optional)                                                       |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateNetwork``                           | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``externalid``                                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``deleteTemplate``                          | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
 |                                             | - ``forced`` (optional)                                                        |
-|                                             | - ``updateinsequence`` (optional)                                              |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``createTemplate``                          | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``bits``                                                                     |
+|                                             | - ``childtemplates``                                                           |
+|                                             | - ``directdownload``                                                           |
+|                                             | - ``parenttemplateid``                                                         |
+|                                             | - ``physicalsize``                                                             |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updatePortForwardingRule``                | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``privateendport`` (optional)                                                |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``linkDomainToLdap``                        | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``ldapdomain`` (required)                                                    |
+|                                             |                                                                                |
+|                                             | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``ldapdomain``                                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listSrxFirewallNetworks``                 | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``externalid``                                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``prepareHostForMaintenance``               | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memorywithoverprovisioning``                                               |
+|                                             | - ``annotation``                                                               |
+|                                             | - ``hostha``                                                                   |
+|                                             | - ``lastannotated``                                                            |
+|                                             | - ``username``                                                                 |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listProjects``                            | **Response:**                                                                  |
+| ``registerIso``                             | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``projectaccountname``                                                       |
+|                                             | - ``directdownload`` (optional)                                                |
 |                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``addGuestOs``                              | **Request:**                                                                   |
-|                                             |                                                                                |
-|                                             | *New Parameters:*                                                              |
-|                                             |                                                                                |
-|                                             | - ``details`` (required)                                                       |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``registerIso``                             | **Response:**                                                                  |
+|                                             | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``bits``                                                                     |
+|                                             | - ``childtemplates``                                                           |
+|                                             | - ``directdownload``                                                           |
+|                                             | - ``parenttemplateid``                                                         |
+|                                             | - ``physicalsize``                                                             |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``deployVirtualMachine``                    | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``datadiskofferinglist`` (optional)                                          |
+|                                             | - ``dhcpoptionsnetworklist`` (optional)                                        |
+|                                             | - ``macaddress`` (optional)                                                    |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listVlanIpRanges``                        | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``forsystemvms``                                                             |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``cancelHostMaintenance``                   | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memorywithoverprovisioning``                                               |
+|                                             | - ``annotation``                                                               |
+|                                             | - ``hostha``                                                                   |
+|                                             | - ``lastannotated``                                                            |
+|                                             | - ``username``                                                                 |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listProjectAccounts``                     | **Response:**                                                                  |
+| ``listVolumes``                             | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``projectaccountname``                                                       |
+|                                             | - ``clusterid`` (optional)                                                     |
 |                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listNetworkOfferings``                    | **Response:**                                                                  |
+|                                             | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``supportspublicaccess``                                                     |
+|                                             | - ``clusterid``                                                                |
+|                                             | - ``clustername``                                                              |
+|                                             | - ``physicalsize``                                                             |
+|                                             | - ``podid``                                                                    |
+|                                             | - ``podname``                                                                  |
+|                                             | - ``utilization``                                                              |
+|                                             | - ``virtualsize``                                                              |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``lockUser``                                | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``usersource``                                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``createNetwork``                           | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``bypassvlanoverlapcheck`` (optional)                                        |
+|                                             | - ``externalid`` (optional)                                                    |
+|                                             |                                                                                |
+|                                             | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``externalid``                                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateUser``                              | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``usersource``                                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``addHost``                                 | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memorywithoverprovisioning``                                               |
+|                                             | - ``annotation``                                                               |
+|                                             | - ``hostha``                                                                   |
+|                                             | - ``lastannotated``                                                            |
+|                                             | - ``username``                                                                 |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateProject``                           | **Response:**                                                                  |
+| ``attachVolume``                            | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``projectaccountname``                                                       |
+|                                             | - ``clusterid``                                                                |
+|                                             | - ``clustername``                                                              |
+|                                             | - ``physicalsize``                                                             |
+|                                             | - ``podid``                                                                    |
+|                                             | - ``podname``                                                                  |
+|                                             | - ``utilization``                                                              |
+|                                             | - ``virtualsize``                                                              |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listUsers``                               | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``usersource``                                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listResourceLimits``                      | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``resourcetypename`` (optional)                                              |
+|                                             |                                                                                |
+|                                             | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``resourcetypename``                                                         |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``disableUser``                             | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``usersource``                                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``listIsos``                                | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``bits``                                                                     |
+|                                             | - ``childtemplates``                                                           |
+|                                             | - ``directdownload``                                                           |
+|                                             | - ``parenttemplateid``                                                         |
+|                                             | - ``physicalsize``                                                             |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateCloudToUseObjectStore``             | **Response:**                                                                  |
+| ``listNetscalerLoadBalancerNetworks``       | **Response:**                                                                  |
 |                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
+|                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``details``                                                                  |
+|                                             | - ``externalid``                                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``startSystemVm``                           | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``guestvlan``                                                                |
+|                                             | - ``publicvlan``                                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``migrateVolume``                           | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``clusterid``                                                                |
+|                                             | - ``clustername``                                                              |
+|                                             | - ``physicalsize``                                                             |
+|                                             | - ``podid``                                                                    |
+|                                             | - ``podname``                                                                  |
+|                                             | - ``utilization``                                                              |
+|                                             | - ``virtualsize``                                                              |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listEvents``                              | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``startid`` (optional)                                                       |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``addLdapConfiguration``                    | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``domainid`` (optional)                                                      |
+|                                             |                                                                                |
+|                                             | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``domainid``                                                                 |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``updateConfiguration``                     | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``imagestoreuuid`` (optional)                                                |
+|                                             | - ``domainid`` (optional)                                                      |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``dedicatePublicIpRange``                   | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``forsystemvms``                                                             |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``revertSnapshot``                          | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``locationtype``                                                             |
-|                                             | - ``osdisplayname``                                                            |
-|                                             | - ``ostypeid``                                                                 |
+|                                             | - ``virtualsize``                                                              |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listSwifts``                              | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``details``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``suspendProject``                          | **Response:**                                                                  |
+| ``migrateSystemVm``                         | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``projectaccountname``                                                       |
+|                                             | - ``guestvlan``                                                                |
+|                                             | - ``publicvlan``                                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateResourceCount``                     | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``resourcetypename``                                                         |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listBrocadeVcsDeviceNetworks``            | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``externalid``                                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listUsageRecords``                        | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``includetags`` (optional)                                                   |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``enableUser``                              | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``usersource``                                                               |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``registerTemplate``                        | **Request:**                                                                   |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``zoneids`` (optional)                                                       |
-|                                             |                                                                                |
-|                                             | *Changed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``zoneid`` was 'required' and is now 'optional'                              |
+|                                             | - ``directdownload`` (optional)                                                |
 |                                             |                                                                                |
 |                                             | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``bits``                                                                     |
+|                                             | - ``childtemplates``                                                           |
+|                                             | - ``directdownload``                                                           |
+|                                             | - ``parenttemplateid``                                                         |
+|                                             | - ``physicalsize``                                                             |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``addImageStoreS3``                         | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``details``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``createFirewallRule``                      | **Response:**                                                                  |
+| ``createStoragePool``                       | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``destcidrlist``                                                             |
+|                                             | - ``allocatediops``                                                            |
+|                                             | - ``provider``                                                                 |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``listImageStores``                         | **Response:**                                                                  |
-|                                             |                                                                                |
-|                                             | *Removed Parameters:*                                                          |
-|                                             |                                                                                |
-|                                             | - ``details``                                                                  |
-|                                             |                                                                                |
-+---------------------------------------------+--------------------------------------------------------------------------------+
-| ``activateProject``                         | **Response:**                                                                  |
+| ``findStoragePoolsForMigration``            | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``projectaccountname``                                                       |
+|                                             | - ``allocatediops``                                                            |
+|                                             | - ``provider``                                                                 |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``createVolume``                            | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``clusterid``                                                                |
+|                                             | - ``clustername``                                                              |
+|                                             | - ``physicalsize``                                                             |
+|                                             | - ``podid``                                                                    |
+|                                             | - ``podname``                                                                  |
+|                                             | - ``utilization``                                                              |
+|                                             | - ``virtualsize``                                                              |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listF5LoadBalancerNetworks``              | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``externalid``                                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updatePod``                               | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``forsystemvms``                                                             |
+|                                             | - ``vlanid``                                                                   |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``enableStorageMaintenance``                | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``allocatediops``                                                            |
+|                                             | - ``provider``                                                                 |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``createUser``                              | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``usersource``                                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateRolePermission``                    | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``permission`` (optional)                                                    |
+|                                             | - ``ruleid`` (optional)                                                        |
+|                                             |                                                                                |
+|                                             | *Changed Parameters:*                                                          |
+|                                             |                                                                                |
+|                                             | - ``ruleorder`` was 'required' and is now 'optional'                           |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``cancelStorageMaintenance``                | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``allocatediops``                                                            |
+|                                             | - ``provider``                                                                 |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``updateLoadBalancerRule``                  | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``protocol`` (optional)                                                      |
+|                                             |                                                                                |
+|                                             | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``zonename``                                                                 |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``reconnectHost``                           | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memorywithoverprovisioning``                                               |
+|                                             | - ``annotation``                                                               |
+|                                             | - ``hostha``                                                                   |
+|                                             | - ``lastannotated``                                                            |
+|                                             | - ``username``                                                                 |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``getUser``                                 | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``usersource``                                                               |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``listLoadBalancerRules``                   | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``zonename``                                                                 |
+|                                             |                                                                                |
++---------------------------------------------+--------------------------------------------------------------------------------+
+| ``uploadSslCert``                           | **Request:**                                                                   |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``name`` (required)                                                          |
+|                                             |                                                                                |
+|                                             | **Response:**                                                                  |
+|                                             |                                                                                |
+|                                             | *New Parameters:*                                                              |
+|                                             |                                                                                |
+|                                             | - ``name``                                                                     |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
 | ``addBaremetalHost``                        | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``memorywithoverprovisioning``                                               |
+|                                             | - ``annotation``                                                               |
+|                                             | - ``hostha``                                                                   |
+|                                             | - ``lastannotated``                                                            |
+|                                             | - ``username``                                                                 |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-| ``updateEgressFirewallRule``                | **Response:**                                                                  |
+| ``listCapacity``                            | **Response:**                                                                  |
 |                                             |                                                                                |
 |                                             | *New Parameters:*                                                              |
 |                                             |                                                                                |
-|                                             | - ``destcidrlist``                                                             |
+|                                             | - ``capacityallocated``                                                        |
+|                                             | - ``name``                                                                     |
 |                                             |                                                                                |
 +---------------------------------------------+--------------------------------------------------------------------------------+
-
 
