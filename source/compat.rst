@@ -90,3 +90,25 @@ best results, one of the following browsers recommended:
 -  Google Chrome version 36.0+
 
 -  Safari 6+
+
+Notice Of Management OSes and Hypervisors to be Deprecated
+----------------------------------------------------------
+
+The following hypervisors will no longer be tested from the first release AFTER
+1st June 2018. And will be removed from the CloudStack codebase from the first 
+release after 1st November 2018.
+
+-  XenServer 6.2
+-  XenServer 6.5
+-  vSphere 5.0
+-  vSphere 5.1
+-  Ubuntu 12.04
+
+The following hypervisors will no longer be tested from the first release AFTER
+1st February 2019. And will be removed from the CloudStack codebase from the first 
+release after 1st July 2019.
+
+-  vSphere 5.5
+
+Please see `CloudStack Wiki <https://cwiki.apache.org/confluence/display/CLOUDSTACK/Hypervisor+and+Management+Server+OS+EOL+Dates>`_ 
+for details.
