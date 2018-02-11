@@ -102,7 +102,6 @@ release after 1st November 2018.
 -  XenServer 6.5
 -  vSphere 5.0
 -  vSphere 5.1
--  Ubuntu 12.04
 
 The following hypervisors will no longer be tested from the first release AFTER
 1st February 2019. And will be removed from the CloudStack codebase from the first 
