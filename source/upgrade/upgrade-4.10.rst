@@ -39,6 +39,10 @@ Upgrade Steps:
 #. Upgrade CloudStack management server(s)
 #. Update hypervisors specific dependencies
 
+Apache CloudStack 4.10.0.0 users who are upgrading to 4.11.0.0 should read the
+following discussion and workaround for a db-upgrade issue:
+http://markmail.org/message/f42kqr3mx4r4hgih
+
 .. include:: _sysvm_templates.rst
 
 Packages repository
