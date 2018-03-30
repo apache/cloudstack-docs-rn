@@ -20,7 +20,7 @@ What's New in |version|
 Version |release| includes more than 190 commits and 100 issue fixes since the
 4.9.2.0 release.
 
-The 4.9.3.0 is part of the LTS 4.9.x releases. The 4.9 LTS branch is supported
+The 4.9.3.1 is part of the LTS 4.9.x releases. The 4.9 LTS branch is supported
 for 20 months, and will receives updates for first 14 months and only
 security updates in its last 6 months. The 4.9 LTS branch is supported till 1
 June 2018.
@@ -32,6 +32,7 @@ some of the changes.
 Changes
 -------
 
+* Robot attack security fix
 * Several VR fixes
 * Snapshot improvements
 * Fixes router aggregation timeout
