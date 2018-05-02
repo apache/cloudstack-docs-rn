@@ -37,9 +37,9 @@ Update System-VM templates
    +------------+------------------------------------------------------------+
    | Hypervisor | Description                                                |
    +============+============================================================+
-   | XenServer  | Name: systemvm-xenserver-4.11                              |
+   | XenServer  | Name: systemvm-xenserver-4.11.1                            |
    |            |                                                            |
-   |            | Description: systemvm-xenserver-4.11                       |
+   |            | Description: systemvm-xenserver-4.11.1                     |
    |            |                                                            |
    |            | URL: |sysvm64-url-xen|                                     |
    |            |                                                            |
@@ -63,9 +63,9 @@ Update System-VM templates
    |            |                                                            |
    |            | Routing: no                                                |
    +------------+------------------------------------------------------------+
-   | KVM        | Name: systemvm-kvm-4.11                                    |
+   | KVM        | Name: systemvm-kvm-4.11.1                                  |
    |            |                                                            |
-   |            | Description: systemvm-kvm-4.11                             |
+   |            | Description: systemvm-kvm-4.11.1                           |
    |            |                                                            |
    |            | URL: |sysvm64-url-kvm|                                     |  
    |            |                                                            |
@@ -89,9 +89,9 @@ Update System-VM templates
    |            |                                                            |
    |            | Routing: no                                                |
    +------------+------------------------------------------------------------+
-   | VMware     | Name: systemvm-vmware-4.11                                 |
+   | VMware     | Name: systemvm-vmware-4.11.1                               |
    |            |                                                            |
-   |            | Description: systemvm-vmware-4.11                          |
+   |            | Description: systemvm-vmware-4.11.1                        |
    |            |                                                            |
    |            | URL: |sysvm64-url-vmware|                                  |
    |            |                                                            |
@@ -101,9 +101,7 @@ Update System-VM templates
    |            |                                                            |
    |            | Format: OVA                                                |
    |            |                                                            |
-   |            | OS Type: Debian GNU/Linux 7.0 (64-bit) (or the             |
-   |            | highest Debian release number available in the             |
-   |            | dropdown)                                                  |
+   |            | OS Type: Other Linux 64-bit (or Debian 8.0 or 9.0 64-bit)  |
    |            |                                                            |
    |            | Extractable: no                                            |
    |            |                                                            |
@@ -115,9 +113,9 @@ Update System-VM templates
    |            |                                                            |
    |            | Routing: no                                                |
    +------------+------------------------------------------------------------+
-   | HyperV     | Name: systemvm-hyperv-4.11                                 |
+   | HyperV     | Name: systemvm-hyperv-4.11.1                               |
    |            |                                                            |
-   |            | Description: systemvm-hyperv-4.11                          |
+   |            | Description: systemvm-hyperv-4.11.1                        |
    |            |                                                            |
    |            | URL: |sysvm64-url-hyperv|                                  |
    |            |                                                            |

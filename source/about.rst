@@ -12,7 +12,7 @@
    KIND, either express or implied.  See the License for the
    specific language governing permissions and limitations
    under the License.
-   
+
 
 What's New in |version|
 =======================
@@ -24,7 +24,8 @@ releases that was worked on for 8 months.
 A LOT changed in this release, so this is not a complete list, but here is a
 quick summary of some of the changes:
 
-* Support for XenServer 7.1 and 7.2, and improved support for VMware 6.5.
+* Support for XenServer 7.1, 7.2, 7.3 and 7.4, and support for XCP-ng 7.4.
+* Improved support for VMware 6.5.
 * Host-HA framework and HA-provider for KVM hosts with and NFS as primary storage, and a new background polling task manager.
 * Secure agents communication: new certificate authority framework and a default built-in root CA provider.
 * New network type - L2.
@@ -62,8 +63,8 @@ quick summary of some of the changes:
 * Improved support for Java 8 for building artifacts/modules, packaging, and in
   the systemvm template.
 * A faster console proxy startup and service availability.
-* A new Debian 9 based systemvm template that patches systemvm without requiring
-  reboot.
+* A new Debian 9 based smaller systemvm template that patches systemvm without
+  requiring reboot.
 * Several optimizations and improvements to the virtual router including better
   support for redundant virtual routers and strongswan provided s2s and remote
   access vpn.
