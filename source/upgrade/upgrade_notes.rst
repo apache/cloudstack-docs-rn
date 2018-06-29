@@ -37,6 +37,19 @@ upgrade. Dyanamic roles feature is enabled by default on new installations.
 Please read more about `using dynamic roles <http://docs.cloudstack.apache.org/projects/cloudstack-administration/en/4.9/accounts.html#using-dynamic-roles>`_
 feature and process of migrating to using this after an upgrade.
 
+Agent and KVM Host Security
+---------------------------
+
+Starting 4.11, a new CA framework has been introduced that is used to secure
+agent and management server connections. Starting 4.11.1, KVM hosts in UP
+state that are not secured (i.e. the KVM host agent and libvirtd don't have
+CA framework provisioned X509 certificates) will show up as 'Unsecure'. A new
+button in the UI is available as well as an API to secure and onboard such
+hosts.
+
+Please read more about `host security <http://docs.cloudstack.apache.org/projects/cloudstack-administration/en/latest/hosts.html#security>`_
+and process of migrating existing KVM hosts and agents to use the new security
+feature.
 
 OVS plug-in
 -----------

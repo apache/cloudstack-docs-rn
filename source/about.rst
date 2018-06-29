@@ -17,14 +17,18 @@
 What's New in |version|
 =======================
 
-Version |version| is a maintainance release containing over 140 fixes and improvements on the 4.11.0 release.
+What's New in 4.11.1.0
+----------------------
 
-These include the speeding up of virtual router deployments and fixes for corner cases 
+The new 4.11.1.0 version is a |version| maintainance release containing over 140
+fixes and improvements on the 4.11.0.0 release.
+
+These include the speeding up of virtual router deployments and fixes for corner cases
 effecting the new config drive and L2 features and some hypervisor specific fixes to improve compatibility
 with current hypervisor versions including the XCP-ng fork of XenServer.
 
 What's New in 4.11.0.0
-======================
+----------------------
 
 Version 4.11.0.0 included more than 400 commits, 220 pull requests that fixes
 more than 250 issues since the last release. Version 4.11.0.0 was a large
