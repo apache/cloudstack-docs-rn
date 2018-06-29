@@ -32,7 +32,7 @@ Software Requirements
 ~~~~~~~~~~~~~~~~~~~~~
 
 -  Java JRE 1.8
--  MySQL 5.6 (RHEL 7)
+-  MySQL 5.6, 5.7 (RHEL 7)
 -  MySQL 5.1 (RHEL 6.x)
 
 Supported Hypervisor Versions
@@ -42,9 +42,9 @@ CloudStack supports three hypervisor families, XenServer with XAPI, KVM,
 and VMware with vSphere.
 
 -  CentOS 6.2+, 7.0+ with KVM
--  Ubuntu 14.04LTS, 16.04LTS+ with KVM
+-  Ubuntu 14.04LTS, 16.04LTS, 18.04LTS with KVM
 -  Red Hat Enterprise Linux 6.2 with KVM
--  XenServer versions 6.1, 6.2 SP1, 6.5, 7.0, 7.1, 7.2 with latest hotfixes
+-  XenServer versions 6.1, 6.2 SP1, 6.5, 7.0, 7.1, 7.2 with latest hotfixes, XCP-ng 7.4
 
    .. note:: It is now required to enable HA on the XenServer pool in order to recover from a pool-master failure. Please refer to the `XenServer documentation <http://docs.vmd.citrix.com/XenServer/6.5.0/1.0/en_gb/>`_.
 

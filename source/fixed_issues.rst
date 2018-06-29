@@ -26,7 +26,7 @@ standard naming convention of "CLOUDSTACK-NNNN" where "NNNN" is the issue number
 
 
 Issues Fixed in 4.11.1.0
-========================
+------------------------
 
 .. cssclass:: table-striped table-bordered table-hover
 
@@ -743,8 +743,8 @@ Issues Fixed in 4.11.1.0
 .. _`#2431`: https://github.com/apache/cloudstack/pull/2431
 .. _CLOUDSTACK-10225: https://issues.apache.org/jira/browse/CLOUDSTACK-10225
 
-Issues Fixed in 4.11.0
-----------------------
+Issues Fixed in 4.11.0.0
+------------------------
 
 .. cssclass:: table-striped table-bordered table-hover
 
