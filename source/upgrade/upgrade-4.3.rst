@@ -252,13 +252,13 @@ Hypervisor: XenServer
 ---------------------
 
 **(XenServer only)** Copy vhd-utils file on CloudStack management servers.
-Copy the file `vhd-utils <http://download.cloud.com.s3.amazonaws.com/tools/vhd-util>`_ 
+Copy the file `vhd-utils <http://download.cloudstack.org/tools/vhd-util>`_ 
 to ``/usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver``.
 
 .. sourcecode:: bash
 
    wget -P /usr/share/cloudstack-common/scripts/vm/hypervisor/xenserver \
-   http://download.cloud.com.s3.amazonaws.com/tools/vhd-util
+   http://download.cloudstack.org/tools/vhd-util
 
 .. include:: _xenserver_upg.rst
 
